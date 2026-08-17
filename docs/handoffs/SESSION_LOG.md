@@ -21,4 +21,13 @@
   (5 files) were completed by their agents pre-failure; ADR_INDEX.md written
   inline after. Folders 04–09 and critic did not run.
 - Jacob instructed continuation post-limit. Checkpoint written (handoffs +
-  this log) before resuming drafting.
+  this log) before resuming drafting; checkpoint commit `4f1f4ab` (folders
+  00–03, 37 files). Fixed `.gitignore` self-inflicted ignore of
+  `security-and-secrets.md` (negation added).
+- Resumed drafting: folders 04–09 (44 files) drafted by 6 agents; a
+  completeness critic verified all 53 domain skeletons of docs/02–09 —
+  0 missing, 0 header violations, 0 overclaims, 0 other issues.
+- Wrote `DOCUMENT_INDEX.md` (full navigation map + 10 planned diagrams).
+  Phase 0 marked COMPLETE in DISCOVERY_STATUS.md. Handoffs refreshed.
+- Asked Jacob Round A batch 2 in chat (Q-001, Q-002, Q-006…Q-009). Session
+  ends awaiting answers; second documentation-only commit closes the session.

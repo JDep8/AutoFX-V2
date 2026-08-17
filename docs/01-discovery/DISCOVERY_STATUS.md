@@ -11,7 +11,7 @@
 
 | Phase | Status | Notes |
 |-------|--------|-------|
-| Phase 0 — Discovery repository scaffold | IN PROGRESS (this session) | Scaffold + registers created 2026-08-17 |
+| Phase 0 — Discovery repository scaffold | COMPLETE 2026-08-17 | 78 planning files created; completeness-verified (53 domain skeletons checked: 0 missing, 0 header violations, 0 overclaims) |
 | Phase 1 — Read-only V1 forensic assessment | NOT STARTED | Repo access verified (gh, read-only); DB access blocked on Q-001 |
 | Interview rounds A–O | Round A in progress | See below |
 | Discovery Exit Review | NOT STARTED | Requires all rounds complete |
