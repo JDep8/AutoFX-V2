@@ -1,0 +1,27 @@
+# Secrets and credentials — never committed, in any form
+.env
+.env.*
+*.pem
+*.key
+*.pfx
+*.p12
+*.rdp
+*credentials*
+*secret*
+*token*
+# …but never ignore the security policy document itself
+!.claude/rules/security-and-secrets.md
+.pgpass
+pgpass.conf
+
+# OS / editor noise
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# Local scratch (never part of the planning corpus)
+scratch/
+tmp/
