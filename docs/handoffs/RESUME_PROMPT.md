@@ -37,24 +37,26 @@ workspace, per D-011). Before doing anything else:
    `autofx-model-governor` skill BEFORE any delegation or critical
    acceptance. Per D-019/D-022, the autonomous operating model and database
    model are approved but do NOT open the implementation gate.
-5. Round A: batches 1 AND 2 answered, plus the 2026-08-18 reconciliation
-   (D-025…D-035: interaction/output rules, co-equal success hierarchy,
-   KPI framework approved at form level, VPS split, G/H pairing, rules
-   layout, status vocabulary, visibility, simulation requirement D-034,
-   runbook rejection D-035). Do NOT re-ask any of it. **Round A is NOT
-   closed** — the single remaining step is Jacob approving the Round A
-   closure candidate (INTERVIEW_RECORD.md). Ask that one question only,
-   one at a time per D-025.
+5. **Round A is CLOSED — `OWNER_APPROVED` 2026-08-18 (D-036).** All
+   Round A decisions (D-001 direction, D-008…D-010, D-018…D-036) stand;
+   do NOT re-ask or reopen any of them absent genuine new conflict.
+   Round B is NOT started. The D-037 issue-backed roadmap (#1–#52) is
+   live on the repository — reconcile it at the end of every substantive
+   task per docs/09-delivery/GITHUB_PROJECT_OPERATING_MODEL.md; the
+   GitHub Project itself is pending Jacob's `project`-scope device flow
+   (NEXT_ACTIONS B-1).
 6. Repository visibility is **PUBLIC by owner decision D-033**
    (temporarily, for external review; return-to-private only on Jacob's
    explicit authorisation). Never change visibility. Apply the D-033
    sensitivity stop-rule before every push.
-7. Items waiting on Jacob (NEXT_ACTIONS § B, one at a time): closure
-   candidate approval; corrected command-runbook policies (v0.2.0,
-   PROPOSED — v0.1.0 REJECTED, D-035); `autofx_v1_readonly` provisioning;
-   explicit V1-audit go. Do not start them unprompted. The V1 forensic
-   audit has NOT started. Standing rules D-025 (one at a time) and D-026
-   (repository output + validate/commit/push) apply to every task.
+7. Items waiting on Jacob (NEXT_ACTIONS § B, one at a time):
+   `project`-scope device flow (then create the PRIVATE Project per
+   GITHUB_PROJECT_REGISTER.md); command-runbook v0.2.0 policies (issue
+   #19; NOT approved); `autofx_v1_readonly` provisioning (#20); explicit
+   V1-audit go (#21). Do not start them unprompted. The V1 forensic
+   audit has NOT started. Standing rules D-025 (one at a time), D-026
+   (repository output + validate/commit/push), and D-037 (roadmap
+   reconciliation) apply to every substantive task.
 8. Restate the active phase, round, gate status, last completed checkpoint,
    current objective, and blockers, then proceed only within the authorised
    scope above.

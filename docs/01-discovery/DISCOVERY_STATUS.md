@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register
-- **Version:** 0.4.0
+- **Version:** 1.0.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** INTERVIEW_RECORD.md, DECISION_LOG.md
 - **Approval evidence:** n/a (register)
@@ -21,7 +21,7 @@
 
 | Round | Theme | Status |
 |-------|-------|--------|
-| A | Vision, users, business boundaries, success | IN PROGRESS — batches 1+2 answered; reconciliation 2026-08-18 added D-025…D-035 (hierarchy, KPI framework, VPS split, G/H pairing, rules layout, vocabulary, visibility, simulation requirement, runbook rejection); Q-008/011/013/014/015/016 resolved; **closure candidate awaiting Jacob's approval** (INTERVIEW_RECORD.md) |
+| A | Vision, users, business boundaries, success | **COMPLETE — CLOSED, `OWNER_APPROVED` 2026-08-18 (D-036, evidence USER-STATED)**. 13 decisions from batches 1+2 plus reconciliation D-025…D-035; Q-001/002/006–009 and Q-011…Q-016 resolved; closure candidate approved (INTERVIEW_RECORD.md). Deferred matters keep their assigned rounds |
 | B | V1 outcomes and migration stance | NOT STARTED (feeds from V1 audit) |
 | C | Markets, instruments, sessions, operating scope | NOT STARTED |
 | D | Data acquisition, rights, quality, operations | NOT STARTED |
@@ -95,15 +95,15 @@ products remain. *Vision note:* the mission/vision statement (charter
 § Mission, from the owner brief) is covered by Topics 1–3 — no separate
 row.
 
-**Verdict (updated 2026-08-18, post-reconciliation):** every required
-topic is now COMPLETE or COMPLETE FOR ROUND A (D-027 resolved topics 1/3;
-D-028 resolved topic 12; D-018 confirmation covers topic 6; the row-14
-provisioning exclusion was confirmed by Jacob in the reconciliation
-instruction — it blocks the DB-side V1 audit only). **The single
-remaining closure step is Jacob's approval of the Round A closure
-candidate** (INTERVIEW_RECORD.md § Round A closure candidate). Round A is
-NOT closed until he approves it. No topic is EVIDENCE PENDING at Round A
-altitude (Q-005/Q-010 evidence needs belong to Rounds E/H/B by design).
+**Verdict (final, 2026-08-18):** every required topic COMPLETE or
+COMPLETE FOR ROUND A (D-027 resolved topics 1/3; D-028 resolved topic 12;
+D-018 confirmation covers topic 6; the row-14 provisioning exclusion
+confirmed — blocks the DB-side V1 audit only). **Jacob approved the
+closure candidate on 2026-08-18 (D-036) — Round A is CLOSED,
+`OWNER_APPROVED`, evidence USER-STATED.** Deferred matters retain their
+assigned rounds; Round B NOT started; no topic was EVIDENCE PENDING at
+Round A altitude (Q-005/Q-010 evidence needs belong to Rounds E/H/B by
+design).
 
 ## Rounds B–O assurance matrix (high-level; recorded 2026-08-18)
 

@@ -452,3 +452,41 @@
   third-party page). Process fix adopted: scratch downloads go to the
   session scratchpad only, and `git status --short` (untracked included)
   is checked immediately before every `git add -A`.
+
+## 2026-08-18 — Session 5 (continued): Round A CLOSED + GitHub roadmap executed (owner-directed)
+
+- Jacob approved the closure candidate — **Round A CLOSED,
+  `OWNER_APPROVED` 2026-08-18 (D-036, USER-STATED)** — and authorised
+  the GitHub Project roadmap setup (D-037; scope-limited: planning/
+  documentation/issues/labels/Project config/validation/commit/push
+  only; explicitly NOT Round B, either V1 audit, DB access, wireframes,
+  implementation, infrastructure, trading, deployment, paid features,
+  Actions, workflows, loops, schedules, broker activity). He also
+  confirmed the repository stays PUBLIC for now (D-033 in force; not
+  permanent; return-to-private stays a later one-at-a-time decision)
+  and that runbook v0.2.0 stays `PROPOSED`.
+- Preflight VERIFIED: 2.1.234; Fable 5 + Ultracode; `C:\AutoFXV2.0`;
+  clean @ `e98c852`; remote correct; visibility PUBLIC via authenticated
+  `gh` (unchanged). Governor: CRITICAL; main Fable session; no workflow.
+- Executed: Round A closed across INTERVIEW_RECORD/DISCOVERY_STATUS/
+  CHARTER/TRACEABILITY/DOCUMENT_INDEX/handoffs; **21 labels** and **52
+  issue-backed cards (#1–#52)** created on JDep8/AutoFX-V2 (no
+  pre-existing issues — zero duplicates; D-033 sensitivity check per
+  card: no secrets, strategy detail, or return claims);
+  `.github/ISSUE_TEMPLATE/idea.md` intake template committed;
+  GITHUB_PROJECT_OPERATING_MODEL.md + GITHUB_PROJECT_REGISTER.md
+  created; DELIVERY_ROADMAP/TOOLING_REGISTER/rules/CLAUDE.md pointers
+  updated; D-037 standing reconciliation rule recorded.
+- **GitHub Project creation BLOCKED (honest):** token scopes lack
+  `project`; the authorised `gh auth refresh -s project` device flow was
+  started and the one-time code surfaced to Jacob, but not completed
+  during the task — exact instruction in NEXT_ACTIONS B-1 and the
+  register; no fabricated success; Project will be created **PRIVATE**
+  (D-037); manual view steps documented in the register.
+- Counts: Stage — Done 2 · Owner Decision 4 · Backlog 33 · Deferred 12 ·
+  Idea 1. Approval — OWNER_APPROVED 2 · PROPOSED 49 · IDEA_NOT_APPROVED
+  1. No card Ready/In Progress; no paid features/Actions/automation; no
+  V1/PostgreSQL/cTrader access; no implementation files.
+- Validation: secret/sensitivity scan clean; diff reviewed (docs +
+  template only); gate byte-identical; Round A consistency swept;
+  committed and pushed to `planning/discovery-handoff` only.

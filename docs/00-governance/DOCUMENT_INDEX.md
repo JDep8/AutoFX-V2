@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register — the navigation map; read this first each session
-- **Version:** 0.3.0
+- **Version:** 0.4.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** every document below
 - **Approval evidence:** n/a (register)
@@ -20,6 +20,7 @@ noted. Read only what the active task needs.
 | `.claude/rules/00-…, 10-…, 20-…` | Numbered entry points: discovery gate, evidence + traceability labels, session continuity (layout settled by D-031: entry points link; the six topic files are authoritative) |
 | `.claude/rules/` (6 topic files) | Detail: discovery/authorisation, quantitative evidence, data integrity, execution/risk, security/secrets, documentation/traceability |
 | `.claude/skills/autofx-model-governor/SKILL.md` | Model-routing governor skill (D-017): task classification, lowest-permitted-model selection, escalation + Fable acceptance discipline |
+| `.github/ISSUE_TEMPLATE/idea.md` | "Idea — NOT APPROVED" intake template (D-037): captures ideas outside approved scope; prominently states the idea must not be implemented |
 | `.claude/agents/` (4 discovery agents) | autofx-fable-critical-governor · autofx-opus-reviewer · autofx-sonnet-analyst · autofx-haiku-extractor — all read-only (Read/Glob/Grep), plan mode (D-017; roster in TOOLING_REGISTER.md) |
 
 ## 00-governance
@@ -43,7 +44,7 @@ noted. Read only what the active task needs.
 | File | Purpose |
 |------|---------|
 | [DISCOVERY_STATUS.md](../01-discovery/DISCOVERY_STATUS.md) | Phase + round A–O status; verified facts; **Round A completion assessment**; **Rounds B–O assurance matrix**; full-scope coverage check |
-| [INTERVIEW_RECORD.md](../01-discovery/INTERVIEW_RECORD.md) | Verbatim interview record (Round A batches 1+2 answered; batch 2 answers verbatim 2026-08-18; Round A summary `PROPOSED`) |
+| [INTERVIEW_RECORD.md](../01-discovery/INTERVIEW_RECORD.md) | Verbatim interview record — **Round A CLOSED, `OWNER_APPROVED` 2026-08-18 (D-036)**; batch answers verbatim; reconciliation record; approved closure candidate |
 | [REQUIREMENTS_CATALOGUE.md](../01-discovery/REQUIREMENTS_CATALOGUE.md) | ~50 ID'd requirements from the owner brief + Round A |
 | [SCOPE_AND_PRIORITIES.md](../01-discovery/SCOPE_AND_PRIORITIES.md) | P1/P2/P3 boundaries; asset universe (D-009) |
 | [USER_ROLES_AND_JOURNEYS.md](../01-discovery/USER_ROLES_AND_JOURNEYS.md) | Sole-user role model + journey inventory |
@@ -138,6 +139,8 @@ noted. Read only what the active task needs.
 | File | Purpose |
 |------|---------|
 | DELIVERY_ROADMAP.md | Staged roadmap; history-preserving backlogs → Round N (timeline inputs decided via D-019) |
+| GITHUB_PROJECT_OPERATING_MODEL.md | D-037 roadmap governance: repo docs = authority, Project = visual control plane, issue cards = Claude/ChatGPT integration surface; idea intake; drift reconciliation; return-to-private procedure |
+| GITHUB_PROJECT_REGISTER.md | Roadmap inventory: Project (pending `project` scope), 52 issue cards #1–#52 with stage/approval/round/IDs, field + view definitions, manual view steps |
 | WORK_BREAKDOWN_AND_DEPENDENCIES.md | Dependency graph, critical path → Rounds B–O |
 | TEST_AND_EVIDENCE_STRATEGY.md | Gates 1–8 mapped to test types → Rounds F/N |
 | ENVIRONMENT_AND_RELEASE_PLAN.md | Environments, staged live ramp (Gate 7) → Round N |

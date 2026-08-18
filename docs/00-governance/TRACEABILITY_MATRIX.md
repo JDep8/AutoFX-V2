@@ -37,6 +37,8 @@ Governance artefacts (process controls, not product requirements):
 | Owner interaction + repository-output rules | `.claude/rules/discovery-and-authorisation.md` § Owner interaction rule; `.claude/rules/documentation-and-traceability.md` § Repository-output rule | DECISION_LOG D-025/D-026 (owner instruction 2026-08-18) | OWNER_APPROVED 2026-08-18 | D-025, D-026 |
 | Repository visibility decision | TOOLING_REGISTER.md § Repository visibility; DECISION_LOG D-033 (supersedes D-024 PRIVATE clause) | `gh` visibility verification 2026-08-18; owner instruction (USER-STATED) | OWNER_APPROVED 2026-08-18 (temporarily public; return-to-private on owner authorisation) | D-024, D-033 |
 | Claude Code command runbook | CLAUDE_CODE_COMMAND_RUNBOOK.md (v0.2.0 + § 10 errata) | Official docs (raw commands page, 105 rows, 2026-08-18); local read-only verification; D-035 rejection record | v0.1.0 catalogue REJECTED by Jacob (D-035); v0.2.0 policies PROPOSED, one-at-a-time approval pending | D-035, D-012, D-025 |
+| Round A closure | INTERVIEW_RECORD.md § Round A closure candidate; DISCOVERY_STATUS.md § Round A completion assessment | Owner approval 2026-08-18 (USER-STATED, D-036) | **OWNER_APPROVED — Round A CLOSED 2026-08-18** | D-036 |
+| GitHub Project roadmap + operating model | docs/09-delivery/GITHUB_PROJECT_OPERATING_MODEL.md; GITHUB_PROJECT_REGISTER.md | D-037 authorisation (USER-STATED); execution evidence in the register + SESSION_LOG Session 5 (continued) | OWNER_APPROVED (model + authorisation); register content evidence-based | D-037, D-026, D-033 |
 
 Row-level (per-requirement) expansion happens as each domain round completes;
 this seed intentionally groups by prefix to avoid fabricating detail.

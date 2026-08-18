@@ -1,7 +1,7 @@
 # Delivery Roadmap
 - **Owner:** Jacob Depares
-- **Status:** `PROPOSED` (skeleton — no content owner-approved; timeline inputs `OWNER_APPROVED` via D-019)
-- **Version:** 0.1.1
+- **Status:** `PROPOSED` (skeleton — timeline inputs `OWNER_APPROVED` via D-019; roadmap surface per D-037)
+- **Version:** 0.2.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** [DECISION_LOG.md](../00-governance/DECISION_LOG.md) (D-009, D-010, D-019), [REQUIREMENTS_CATALOGUE.md](../01-discovery/REQUIREMENTS_CATALOGUE.md) (BUS-005, BUS-006, BUS-009, BUS-011, DATA-008), [WORK_BREAKDOWN_AND_DEPENDENCIES.md](./WORK_BREAKDOWN_AND_DEPENDENCIES.md), [IMPLEMENTATION_READINESS_REVIEW.md](./IMPLEMENTATION_READINESS_REVIEW.md)
 - **Approval evidence:** None yet
@@ -43,13 +43,16 @@ close.
 
 ### 2. Discovery completion track (Rounds A–O)
 The remaining interview rounds and their target artefacts, ending in the
-Discovery Exit Review. Round A: both batches answered (11 decisions —
-D-001 direction, D-008…D-010, D-018…D-024); the Round A summary is
-`PROPOSED` awaiting Jacob's approval, which closes the round. Rounds B–O
-each unblock sections across the document set; a high-level assurance
-matrix for them lives in
+Discovery Exit Review. **Round A: CLOSED, `OWNER_APPROVED` 2026-08-18
+(D-036)** — 13 decisions across both batches plus the reconciliation
+(D-025…D-035). Rounds B–O each unblock sections across the document set;
+a high-level assurance matrix for them lives in
 [DISCOVERY_STATUS.md](../01-discovery/DISCOVERY_STATUS.md). Sequencing
-between rounds is settled in Round N.
+between rounds is settled in Round N. The visual roadmap surface is the
+issue-backed GitHub board per
+[GITHUB_PROJECT_OPERATING_MODEL.md](GITHUB_PROJECT_OPERATING_MODEL.md)
+and [GITHUB_PROJECT_REGISTER.md](GITHUB_PROJECT_REGISTER.md) (D-037) —
+repository documents remain the source of truth.
 
 ### 3. Priority 1 implementation MVP staging (D-010)
 The full P1 platform — data → research → backtest → books → approval →

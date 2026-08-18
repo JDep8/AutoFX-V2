@@ -11,6 +11,14 @@ output cannot safely be committed, stop and explain why. Each authorised
 documentation task ends with validation, a commit, and a push to the
 approved working branch unless Jacob explicitly says otherwise.
 
+**Roadmap reconciliation (D-037, OWNER_APPROVED 2026-08-18):** every
+substantive prompt also updates the affected GitHub roadmap issues, their
+`stage:`/`approval:` labels, and (when `gh project` access exists) the
+Project fields, per
+[GITHUB_PROJECT_OPERATING_MODEL.md](../../docs/09-delivery/GITHUB_PROJECT_OPERATING_MODEL.md).
+Trivial conversation or side questions do not require a board update.
+Cards never authorise work.
+
 ## Rules-file layout (D-031, OWNER_APPROVED 2026-08-18)
 
 Both rule-file sets are kept with one source of truth: the three numbered

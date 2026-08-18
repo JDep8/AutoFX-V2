@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** `OWNER_APPROVED` (policy stated by Jacob 2026-08-18; evidence class USER-STATED)
-- **Version:** 0.4.0
+- **Version:** 0.5.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** DECISION_LOG.md (D-011, D-013, D-015, D-017, D-024), MODEL_ROUTING_POLICY.md
 - **Approval evidence:** Owner handoff instruction, 2026-08-18
@@ -156,6 +156,22 @@ reviewed configuration change.
   routing, or D-024/D-033 git rules; mutating/installing/connecting/
   cloud/billing commands are never treated as routine.
 - Revalidate the runbook after every Claude Code upgrade (runbook § 9).
+
+## GitHub Project roadmap (D-037, 2026-08-18)
+
+- Issue-backed roadmap on `JDep8/AutoFX-V2`: 52 cards (#1–#52) + 21
+  label families created 2026-08-18; idea template at
+  `.github/ISSUE_TEMPLATE/idea.md`. Inventory:
+  [GITHUB_PROJECT_REGISTER.md](../09-delivery/GITHUB_PROJECT_REGISTER.md);
+  rules: [GITHUB_PROJECT_OPERATING_MODEL.md](../09-delivery/GITHUB_PROJECT_OPERATING_MODEL.md).
+- GitHub Project "AutoFX V2 — Project Roadmap" (to be **PRIVATE**):
+  creation **pending** — the `gh` token lacks the `project` scope; the
+  authorised refresh (`gh auth refresh -s project -h github.com`)
+  requires Jacob's interactive device-flow step. No paid features, no
+  Actions, no automation.
+- Standing D-037 rule: every substantive prompt reconciles repository ↔
+  roadmap (docs → issues → labels → Project fields when accessible) and
+  reports drift honestly. Cards never authorise work.
 
 ## Open items
 

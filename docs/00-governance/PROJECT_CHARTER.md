@@ -1,12 +1,12 @@
 # Project Charter — AutoFX V2.0
 
 - **Owner:** Jacob Depares
-- **Status:** `PROPOSED` as a whole document (charter approved when Jacob
-  approves the Round A closure candidate). Governed items inside carry
-  their own lifecycle status per D-032: success hierarchy `OWNER_APPROVED`
-  (D-027); KPI framework `OWNER_APPROVED` at form level (D-028); all
-  numerical thresholds unset by design.
-- **Version:** 0.3.0
+- **Status:** `OWNER_APPROVED` at Round A altitude (Round A closure
+  candidate approved 2026-08-18, D-036). Governed items carry their own
+  lifecycle status per D-032: success hierarchy `OWNER_APPROVED` (D-027);
+  KPI framework `OWNER_APPROVED` at form level (D-028); all numerical
+  thresholds deliberately unset — owned by Rounds D–N.
+- **Version:** 1.0.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** DECISION_LOG.md (D-008…D-010, D-018…D-021,
   D-027/D-028/D-034), SCOPE_AND_PRIORITIES.md, INTERVIEW_RECORD.md,
@@ -510,9 +510,8 @@ tracing to the requirement IDs below; no new ID namespace is created.
 
 ## Open charter items
 
-- Jacob's approval of the Round A closure candidate (closes Round A;
-  INTERVIEW_RECORD.md § Round A closure candidate).
 - KPI numerical thresholds — decided in their named rounds (D–N), never
   here.
 - (Resolved 2026-08-18: success hierarchy → D-027; KPI framework → D-028;
-  repository visibility → D-033.)
+  repository visibility → D-033; Round A closure candidate approved →
+  D-036, Round A CLOSED.)

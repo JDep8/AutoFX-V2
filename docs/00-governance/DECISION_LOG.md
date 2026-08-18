@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register
-- **Version:** 0.3.0
+- **Version:** 0.4.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** REQUIREMENTS_CATALOGUE.md, QUESTION_REGISTER.md
 - **Approval evidence:** Per-decision, recorded below
@@ -719,3 +719,51 @@ History is never erased; superseded decisions are marked, not deleted.
   — 2026-08-18. Evidence class USER-STATED.
 - **Affects:** CLAUDE_CODE_COMMAND_RUNBOOK.md, NEXT_ACTIONS § B,
   TOOLING_REGISTER § Claude Code command governance.
+
+## D-036 — Round A CLOSED (closure candidate approved)
+
+- **Decision:** Jacob approved the Round A closure candidate
+  (INTERVIEW_RECORD.md). **Round A is CLOSED and `OWNER_APPROVED`,
+  2026-08-18.** Recorded with it, per the same instruction: D-033 remains
+  in force — the repository is **temporarily** public; public status is
+  not permanent approval; returning it to private remains a later
+  one-at-a-time owner decision; the corrected command runbook v0.2.0
+  remains `PROPOSED` and is NOT approved by this instruction; creating
+  roadmap cards for later work does not start or approve that work.
+- **Status:** `OWNER_APPROVED` — 2026-08-18. Evidence class USER-STATED.
+- **Affects:** Round A state everywhere (INTERVIEW_RECORD,
+  DISCOVERY_STATUS, PROJECT_CHARTER, handoffs); deferred matters keep
+  their assigned rounds; Round B NOT started; V1 audits NOT authorised;
+  no-build gate unchanged (ACTIVE).
+
+## D-037 — GitHub Project roadmap: authorisation, operating model, and standing reconciliation rule
+
+- **Authorisation (2026-08-18, scope-limited):** planning, documentation,
+  GitHub issues, labels, Project configuration, validation, commit, and
+  push **only**. Explicitly NOT authorised: Round B work, either V1
+  audit, database access, wireframes, implementation, infrastructure,
+  trading, deployment, paid GitHub features, GitHub Actions, workflows,
+  loops, schedules, external broker activity.
+- **Model:** a GitHub Project "AutoFX V2 — Project Roadmap" (owner JDep8,
+  **kept PRIVATE** — the D-033 public ruling covers the repository, not
+  the Project layout) is the visual control plane; repository
+  documentation remains the detailed source of truth; issue-backed cards
+  are the integration surface for Claude and ChatGPT; conflicts are
+  raised to Jacob, never silently resolved; ideas enter as
+  "IDEA — NOT APPROVED"; creating a card never authorises work.
+- **Standing rule (future prompts):** every future substantive AutoFX
+  prompt finishes by updating canonical documentation, affected issues,
+  stage/approval labels, Project custom fields when `gh project` access
+  is available, latest verified commit on affected cards, blockers/owner
+  decisions without assumptions, preserving rejected/superseded/deferred/
+  not-approved items, validating repo↔Project consistency, committing and
+  pushing permitted changes, and reporting any drift or unsupported
+  Project operation honestly. Trivial conversation or side questions do
+  not require a board update. Detailed procedure:
+  docs/09-delivery/GITHUB_PROJECT_OPERATING_MODEL.md.
+- **Status:** `OWNER_APPROVED` — 2026-08-18. Evidence class USER-STATED.
+  Execution evidence: SESSION_LOG.md Session 5 (continued) and
+  docs/09-delivery/GITHUB_PROJECT_REGISTER.md.
+- **Affects:** 09-delivery documents, TOOLING_REGISTER, D-026
+  repository-output rule (extended), issue/label conventions, D-033
+  sensitivity checks on all public issue content.

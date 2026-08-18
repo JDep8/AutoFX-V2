@@ -1,8 +1,9 @@
 # Interview Record
 
 - **Owner:** Jacob Depares
-- **Status:** Living register — Round A in progress
-- **Version:** 0.3.0
+- **Status:** Living register — **Round A CLOSED (`OWNER_APPROVED`
+  2026-08-18, D-036)**; Round B not started
+- **Version:** 1.0.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** DISCOVERY_STATUS.md, DECISION_LOG.md
 - **Approval evidence:** Answers below are Jacob's explicit selections/text
@@ -595,7 +596,15 @@ D-025…D-035; key phrases preserved):
 - **D-035** command-runbook v0.1.0 catalogue REJECTED (B-7 not approved);
   corrected v0.2.0 stays `PROPOSED` for one-at-a-time reapproval.
 
-## Round A closure candidate — 2026-08-18 (status `PROPOSED`; Jacob approves or amends)
+## Round A closure candidate — 2026-08-18 (**`OWNER_APPROVED` 2026-08-18 — Round A CLOSED**)
+
+**Closure record (D-036):** Jacob approved this closure candidate on
+2026-08-18 (evidence USER-STATED: "I approve the Round A closure
+candidate. Close Round A as OWNER_APPROVED."). Round A is **CLOSED**. All
+deferred matters below retain their assigned rounds. The approval does
+not approve the command runbook (still `PROPOSED`, D-035), does not start
+Round B or either V1 audit, and does not touch the no-build gate. The
+candidate text is preserved unchanged below as approved.
 
 **In plain English — what Round A decided:**
 
@@ -655,4 +664,5 @@ contamination (Q-010) → V1 audit + Round B; consumer-AI automation
 `autofx_v1_readonly` provisioning → Jacob, before the DB-side audit.
 
 **The one closure question (asked separately per D-025):** does Jacob
-approve this closure candidate, closing Round A?
+approve this closure candidate, closing Round A? — **ANSWERED 2026-08-18:
+approved (D-036).**

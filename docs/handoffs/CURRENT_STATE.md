@@ -2,12 +2,11 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living handoff (refreshed every checkpoint)
-- **Date/time:** 2026-08-18 06:08 UTC
+- **Date/time:** 2026-08-18 06:47 UTC
 - **Source session:** second terminal session (Fable 5 + Ultracode),
-  continued — Round A decision reconciliation (D-025…D-035), trading
-  simulation & certification requirement (D-034), command-runbook
-  correction pass (D-035). Earlier same session: batch 2 recording,
-  D-024 execution, closure-assurance pass, runbook v0.1.0. History:
+  continued — **Round A CLOSED (D-036)** and the D-037 GitHub roadmap
+  executed (52 issues, 21 labels, operating model + register; Project
+  creation pending Jacob's `project`-scope device-flow step). History:
   SESSION_LOG.md.
 
 ## Phase, round, gate
@@ -16,11 +15,9 @@
   STARTED — gated on Jacob's explicit go; DB-side depth additionally
   needs `autofx_v1_readonly` provisioning (D-022 — blocks the DB-side
   audit only, per Jacob's 2026-08-18 confirmation).
-- Round A: all required topics now COMPLETE or COMPLETE FOR ROUND A
-  (completion assessment, DISCOVERY_STATUS.md). **The single remaining
-  closure step is Jacob's approval of the Round A closure candidate**
-  (INTERVIEW_RECORD.md § Round A closure candidate). Round A is NOT
-  closed; Round B not started.
+- **Round A: CLOSED — `OWNER_APPROVED` 2026-08-18 (D-036, evidence
+  USER-STATED).** Closure candidate approved as written; deferred matters
+  keep their assigned rounds. Round B NOT started.
 - **No-build gate: ACTIVE.** `AUTHORISE AUTOFX V2 IMPLEMENTATION — PHASE
   <number/name>` not given; `AUTHORISE WIREFRAME ONLY` not given. D-034
   simulation modes are specified, not authorised to run.
@@ -46,35 +43,48 @@
   other git controls unchanged (no main merges, no force-push, approved
   branches only).
 
+## Roadmap surface (D-037, executed 2026-08-18)
+
+- 52 issue-backed cards (#1–#52) + 21 labels live on `JDep8/AutoFX-V2`;
+  idea template committed; inventory in
+  docs/09-delivery/GITHUB_PROJECT_REGISTER.md; rules in
+  GITHUB_PROJECT_OPERATING_MODEL.md. No card is Ready/In Progress; cards
+  never authorise work.
+- GitHub Project "AutoFX V2 — Project Roadmap" (**to be PRIVATE**):
+  **creation BLOCKED** — token lacks `project` scope; Jacob completes
+  `gh auth refresh -s project -h github.com` (device flow), then Claude
+  creates Project + fields + items per the register.
+- Standing D-037 rule active: every substantive prompt reconciles
+  repository ↔ roadmap and reports drift.
+
 ## Last completed acceptance criterion
 
-Round A reconciliation change set persisted: D-025…D-035 recorded with
-confirmation notes on D-014/D-018/D-021/D-022/D-024; Q-008 completed and
-Q-011/Q-013/Q-014/Q-015/Q-016 resolved; PROJECT_CHARTER updated
-(co-equal hierarchy D-027; KPI framework `OWNER_APPROVED` form level
-D-028, 22 areas headline/supporting incl. KPI-21/22);
-TRADING_SIMULATION_AND_CERTIFICATION_SPEC.md created (D-034, P1;
-EXEC-012…014, VAL-008); command runbook corrected to v0.2.0 against the
-full 105-row official catalogue with errata (v0.1.0 REJECTED, D-035);
-rules files updated (D-025/026/031/032); registers, index, matrix,
-DISCOVERY_STATUS (assessment now closable pending approval), and
-handoffs reconciled; validation + independent read-only consistency
-check run before commit (SESSION_LOG.md).
+Round A closed across every register (D-036); D-037 roadmap executed to
+the limit of current `gh` scopes: 21 labels + 52 evidence-based issue
+cards created (zero duplicates — repo had no issues), idea template
+committed, operating model + register written, DELIVERY_ROADMAP/
+TOOLING_REGISTER/DOCUMENT_INDEX/rules/CLAUDE.md pointers updated;
+validation + secret/sensitivity checks run before commit
+(SESSION_LOG.md).
 
 ## First incomplete acceptance criterion
 
-Jacob approves (or amends) the **Round A closure candidate**
-(INTERVIEW_RECORD.md) — the only remaining Round A step. Separately
-queued one-at-a-time items: corrected command-runbook policies (D-035);
-`autofx_v1_readonly` provisioning; explicit V1-audit go.
+Jacob completes the `project`-scope device flow
+(`gh auth refresh -s project -h github.com`), then Claude creates the
+PRIVATE GitHub Project, its fields, and adds items #1–#52 per
+GITHUB_PROJECT_REGISTER.md. Separately queued one-at-a-time items:
+corrected command-runbook policies (D-035); `autofx_v1_readonly`
+provisioning; explicit V1-audit go.
 
 ## Open owner decisions / blockers
 
-- Round A closure candidate approval (the next single question).
+- `project`-scope device flow (unblocks Project creation — issue #none;
+  register row PENDING).
 - Command-runbook v0.2.0 policy approval — one at a time per D-025
-  (B-7 remains NOT approved; conservative reading applies meanwhile).
-- `autofx_v1_readonly` provisioning (blocks DB-side audit depth only).
-- Explicit V1-audit go (repo-side; blocks Phase 1 start).
+  (issue #19; NOT approved; conservative reading applies meanwhile).
+- `autofx_v1_readonly` provisioning (issue #20; blocks DB-side audit
+  depth only).
+- Explicit V1-audit go (issue #21; repo-side; blocks Phase 1 start).
 - Q-003 BLOCKED (legal); Q-004 (Round L); Q-005 (Round E); Q-010
   (safety-material; V1 audit + Round B).
 - D-002…D-007 legacy conflicts open, assigned Rounds E–J.
@@ -107,8 +117,10 @@ queued one-at-a-time items: corrected command-runbook policies (D-035);
 
 ## Single first safe next action
 
-Ask Jacob the single closure question (approve/amend the Round A closure
-candidate), per D-025 one at a time. Then, on approval: close Round A in
-the registers. Open no new discovery work unprompted; V1 audit waits for
-his explicit go; delegation and critical acceptance route through the
-`autofx-model-governor`.
+Wait for Jacob's next one-at-a-time input — most immediately the
+`project`-scope device flow (then create the PRIVATE Project per the
+register), or any of: runbook policy approvals (#19), provisioning
+(#20), V1-audit go (#21). Open no new discovery work unprompted; Round B
+NOT started; delegation and critical acceptance route through the
+`autofx-model-governor`; D-037 roadmap reconciliation applies to every
+substantive task.

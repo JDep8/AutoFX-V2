@@ -1,8 +1,8 @@
 # Next Actions
 
 - **Owner:** Jacob Depares
-- **Last updated:** 2026-08-18 06:08 UTC (post Round A reconciliation +
-  simulation requirement + runbook correction)
+- **Last updated:** 2026-08-18 06:47 UTC (post Round A closure + D-037
+  roadmap execution)
 
 Ordered, bounded, acceptance-criterion based. Section A needs no further
 authority; Section B waits on Jacob — **presented one at a time per
@@ -27,28 +27,33 @@ Q-015, Q-016.
    (D-026), with the D-033 sensitivity stop-rule checked before each
    push.
 
-## B — Requires Jacob's decision (one at a time, D-025)
+Completed 2026-08-18 (this checkpoint): **Round A CLOSED (D-036)**;
+D-037 roadmap executed — 21 labels + issues #1–#52 + idea template +
+operating model + register.
 
-1. **Approve or amend the Round A closure candidate** —
-   INTERVIEW_RECORD.md § Round A closure candidate. *Done when:* Jacob
-   approves; Round A closes; candidate becomes `OWNER_APPROVED`. (This
-   is the current single open question.)
-2. **Command-runbook v0.2.0 policies** (D-035; B-7 rejected in v0.1.0
-   form) — approve one at a time when Jacob chooses; conservative
-   reading applies until then.
-3. **Provision `autofx_v1_readonly`** + secure configuration path
-   outside chat/repo (D-022) — unblocks DB-side V1 audit depth only.
-4. **Explicit go for the repo-side V1 forensic audit** (read-only `gh`;
-   never clone into V2; never copy code; D-023 bridge files + weighting
-   verification are primary targets). *Done when:* V1_AUDIT.md findings
-   populated with evidence labels; V1_REUSE_REGISTER.md classifications
-   proposed.
+## B — Requires Jacob's decision or action (one at a time, D-025)
+
+1. **Complete the `project`-scope device flow** so the PRIVATE GitHub
+   Project can be created: run `gh auth refresh -s project -h github.com`
+   in a terminal and finish the browser step. *Then Claude:* re-check for
+   an existing "AutoFX V2 — Project Roadmap", create it PRIVATE, link the
+   repo, create the Stage/Approval/Priority/Round/Evidence + text fields,
+   add items #1–#52, set fields to mirror labels, and update the
+   register. *Done when:* register shows number/ID/URL and field values.
+2. **Command-runbook v0.2.0 policies** (D-035; issue #19) — approve one
+   at a time when you choose; conservative reading applies until then.
+3. **Provision `autofx_v1_readonly`** + secure configuration path outside
+   chat/repo (D-022; issue #20) — unblocks DB-side V1 audit depth only.
+4. **Explicit go for the repo-side V1 forensic audit** (issue #21;
+   read-only `gh`; never clone into V2; never copy code; D-023 bridge
+   files + weighting verification primary). *Done when:* V1_AUDIT.md
+   findings populated; V1_REUSE_REGISTER.md classifications proposed.
 5. **Optional:** extend committed `.claude/settings.json` allowlist to
    the D-024 git model (per-session approvals in use meanwhile).
 6. Later gates (unchanged): per-round domain approvals → `AUTHORISE
    WIREFRAME ONLY` (Round O) → Discovery Exit Review → the
    implementation authorisation phrase. Return-to-private visibility
-   change (D-033) happens only on Jacob's explicit authorisation.
+   change (D-033) only on Jacob's explicit authorisation.
 
 ## Files to read first (fresh session)
 

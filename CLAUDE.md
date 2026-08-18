@@ -51,7 +51,9 @@ captured into the documents above).
 All promotion follows the acceptance-gate architecture (Gates 1–8: data →
 experiment → strategy → book → approved-but-disabled → shadow/paper → live →
 continue/reduce/pause/retire), mapped in
-`docs/09-delivery/TEST_AND_EVIDENCE_STRATEGY.md`.
+`docs/09-delivery/TEST_AND_EVIDENCE_STRATEGY.md`. Roadmap surface: every
+substantive task also reconciles the issue-backed GitHub roadmap per
+`docs/09-delivery/GITHUB_PROJECT_OPERATING_MODEL.md` (D-037).
 
 ## Session start (every session)
 
