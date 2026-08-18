@@ -208,3 +208,19 @@
   (per-session approvals; committed allowlist unchanged pending Jacob's
   review); (3) status-vocabulary scope for header/progress fields →
   recorded as Q-013 (non-blocking, pre-existing convention).
+- **D-024 executed (all VERIFIED):** batch 2 change set committed as
+  `ad1d1e4` (14 files, documentation-only, tree clean); `master`
+  fast-forwarded `24db4ea`→`ad1d1e4` via `--ff-only` and renamed `main`;
+  private repository created — **https://github.com/JDep8/AutoFX-V2**
+  (`isPrivate: true`, visibility PRIVATE); `origin` configured; `main` and
+  `planning/discovery-handoff` pushed (both @ `ad1d1e4`, tracking set);
+  GitHub default branch = `main`; local working branch returned to
+  `planning/discovery-handoff`. No force-push; no V1 content pushed; no
+  paid features; `JDep8/AutoFX` (V1) untouched (name/visibility check
+  only). This follow-up commit records the evidence and refreshes the
+  handoffs; it is pushed to the approved `planning/discovery-handoff`
+  branch per the D-024 standing model (`main` intentionally remains at the
+  validated `ad1d1e4` — no unapproved `main` advance).
+- Turn ends stopped for Jacob per his instruction: Round A summary
+  `PROPOSED` awaiting his approval; V1 audit and implementation NOT
+  started; no-build gate ACTIVE.

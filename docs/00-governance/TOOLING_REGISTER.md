@@ -73,11 +73,13 @@ reviewed configuration change.
 
 ## Git conventions (updated 2026-08-18 per D-024)
 
-- **Remote:** private GitHub repository `JDep8/AutoFX-V2`, authorised
-  2026-08-18 by Jacob's explicit written authorisation (D-024; verbatim in
-  INTERVIEW_RECORD.md § Batch 2). Default branch `main`. Completely
+- **Remote:** private GitHub repository `JDep8/AutoFX-V2` —
+  **https://github.com/JDep8/AutoFX-V2** — created 2026-08-18 under Jacob's
+  explicit written authorisation (D-024; verbatim in INTERVIEW_RECORD.md
+  § Batch 2). VERIFIED at creation: private visibility; default branch
+  `main`; branches `main` + `planning/discovery-handoff` pushed. Completely
   separate from `JDep8/AutoFX` (V1) — no V1 content is ever pushed here.
-  Creation and push verification recorded in SESSION_LOG.md Session 5.
+  Details: SESSION_LOG.md Session 5.
 - **Standing operating model (D-024):** Claude may autonomously create
   commits and push validated work to explicitly approved branches, after
   running the relevant tests, documentation validation, and secret checks.
@@ -99,8 +101,8 @@ reviewed configuration change.
   terminal handoff (`fcde457`, `39e2730`, `d2f0d3a`, `00ad2cc` — all
   Jacob-reviewed/authorised). Local-only rule (superseded assumption A-006)
   applied until D-024. The D-024 branch procedure (fast-forward `master` to
-  the validated planning state, rename to `main`, push, set default) is
-  executed 2026-08-18; results in SESSION_LOG.md Session 5.
+  the validated planning state via `--ff-only`, rename to `main`, push, set
+  default) was executed 2026-08-18 — VERIFIED; SESSION_LOG.md Session 5.
 
 ## Open items
 

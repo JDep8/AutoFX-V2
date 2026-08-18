@@ -1,7 +1,7 @@
 # Next Actions
 
 - **Owner:** Jacob Depares
-- **Last updated:** 2026-08-18 04:11 UTC (post Round A batch 2 recording)
+- **Last updated:** 2026-08-18 04:14 UTC (post D-024 execution)
 
 Ordered, bounded, acceptance-criterion based. Section A needs no further
 authority; Section B waits on Jacob. Nothing anywhere authorises
@@ -12,23 +12,17 @@ installation (`39e2730`); recovery-reconciliation commit (`d2f0d3a`);
 model-governance package commit (`00ad2cc`, by Jacob — old B-1); Round A
 batch 2 answers received and recorded verbatim 2026-08-18 with D-018…D-024
 captured and all registers updated (old B-3 input received; summary approval
-remains below).
+remains below); **D-024 execution COMPLETE 2026-08-18** — commit `ad1d1e4`,
+private https://github.com/JDep8/AutoFX-V2 created, `main` default,
+`main` + `planning/discovery-handoff` pushed, evidence in SESSION_LOG.md
+Session 5.
 
 ## A — Claude may do without further authority
 
-1. **Complete D-024 execution (in progress this session):** fast-forward
-   `master` → validated planning state; rename to `main`; create private
-   `JDep8/AutoFX-V2`; push `main` + `planning/discovery-handoff`; set
-   `main` default; verify visibility/branches; follow-up documentation
-   commit recording URL + verification; push it to
-   `planning/discovery-handoff`. *Done when:* SESSION_LOG.md Session 5
-   records the URL, private visibility, default branch, pushed branches,
-   and final git status. **If resuming with no `origin` remote:** this did
-   not complete — re-verify D-024 preconditions and execute or report.
-2. **Register upkeep** after any owner input (Decision/Question/Assumption/
+1. **Register upkeep** after any owner input (Decision/Question/Assumption/
    Traceability/DOCUMENT_INDEX + handoff refresh). Delegation only through
    the `autofx-model-governor` skill per MODEL_ROUTING_POLICY.md.
-3. **Propose measurable KPI candidates** (Q-008 remainder) with the
+2. **Propose measurable KPI candidates** (Q-008 remainder) with the
    PROJECT_CHARTER.md update for Round A closure — candidates only; every
    target/threshold needs Jacob's approval.
 

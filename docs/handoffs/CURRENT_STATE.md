@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living handoff (refreshed every checkpoint)
-- **Date/time:** 2026-08-18 04:11 UTC
+- **Date/time:** 2026-08-18 04:14 UTC
 - **Source session:** second terminal session (Claude Code CLI, Fable 5 +
   Ultracode) — Round A batch 2 answered and recorded verbatim; D-018…D-024
   captured; GitHub remote authorised (D-024). Prior history: three Desktop
@@ -39,37 +39,35 @@
 - Working directory: `C:\AutoFXV2.0`. Branch: `planning/discovery-handoff`.
 - Base at session start: `00ad2cc` (model-governance package — committed
   manually by Jacob; B-1 COMPLETE).
-- This checkpoint commits the Round A batch 2 change set (12 documentation
-  files). **D-024 execution is in progress in this same session** —
-  immediately after this commit: fast-forward `master` → validated planning
-  state, rename to `main`, create private `JDep8/AutoFX-V2`, push `main` +
-  `planning/discovery-handoff`, verify, then a follow-up documentation
-  commit records URLs and verification results and refreshes this file
-  again. **If resuming and no `origin` remote exists,** D-024 execution did
-  not complete — re-verify preconditions in DECISION_LOG.md D-024 and
-  execute (or report) per that decision; do not assume it happened.
-- Preconditions VERIFIED this session (pre-commit): secret scan zero
+- **D-024 EXECUTED and VERIFIED 2026-08-18:** batch 2 change set committed
+  as `ad1d1e4`; `master` fast-forwarded (`--ff-only`) to `ad1d1e4` and
+  renamed `main`; private remote created —
+  **https://github.com/JDep8/AutoFX-V2** (VERIFIED private; default branch
+  `main`); `main` and `planning/discovery-handoff` pushed with tracking;
+  local working branch `planning/discovery-handoff`. This follow-up
+  handoff/evidence commit is pushed to `planning/discovery-handoff` only —
+  remote `main` intentionally stays at the validated `ad1d1e4` (no
+  unapproved `main` advance; PRs preferred per D-024).
+- All nine D-024 preconditions were VERIFIED pre-commit (secret scan zero
   value-like hits; 92 tracked files, all markdown except
-  `.claude/settings.json` + `.gitignore`; no origin remote;
-  `JDep8/AutoFX-V2` does not exist; `gh` authenticated as JDep8 (repo
-  scope); V1 repo untouched (name/visibility check only); `master` is an
-  ancestor of `planning/discovery-handoff` (clean fast-forward possible).
+  `.claude/settings.json` + `.gitignore`; no prior origin;
+  `JDep8/AutoFX-V2` did not exist; `gh` = JDep8 with repo scope; V1
+  untouched; clean-fast-forward ancestry confirmed). Evidence:
+  SESSION_LOG.md Session 5.
 
 ## Last completed acceptance criterion
 
-Round A batch 2 answers recorded verbatim; D-018…D-024 captured; registers
-updated (QUESTION_REGISTER Q-001/002/006–009 resolved to the extent
-supported + Q-013 raised; REQUIREMENTS_CATALOGUE +13 owner-approved
-requirements; TRACEABILITY_MATRIX; ASSUMPTION_REGISTER A-006 SUPERSEDED;
-TOOLING_REGISTER; DISCOVERY_STATUS; DOCUMENT_INDEX; MODEL_ROUTING_POLICY);
-independent consistency review 10/10 PASS with all three escalations
-dispositioned (SESSION_LOG.md Session 5).
+D-024 fully executed and VERIFIED (commit `ad1d1e4`; private
+`JDep8/AutoFX-V2` created; `main` default; both branches pushed; V1
+untouched) after: Round A batch 2 answers recorded verbatim, D-018…D-024
+captured, all registers updated, secret scan clean, and the independent
+consistency review 10/10 PASS with all three escalations dispositioned
+(SESSION_LOG.md Session 5).
 
 ## First incomplete acceptance criterion
 
-Complete D-024 execution (repo creation, pushes, verification, follow-up
-commit). Then: Jacob approves the Round A summary (INTERVIEW_RECORD.md) —
-Round A closes on that approval.
+Jacob approves (or amends) the Round A summary — INTERVIEW_RECORD.md
+§ Round A summary, status `PROPOSED`. Round A closes on that approval.
 
 ## Decisions captured this session (lifecycle · evidence)
 
@@ -110,11 +108,11 @@ Q-008 (non-goals; KPI candidates pending), Q-009 (form).
 
 ## Work in progress / exact partial state
 
-- Round A batch 2 change set: committed at this checkpoint. D-024 execution
-  (repo + push + verification + follow-up commit) in progress this session.
+- None. Round A batch 2 change set committed (`ad1d1e4`) and pushed; D-024
+  executed; this evidence/handoff commit is the session's final change.
 - Round A summary `PROPOSED` — awaiting Jacob.
-- No other partial work. No application code, schemas, migrations,
-  infrastructure, or trading artefacts exist anywhere in the repo.
+- No application code, schemas, migrations, infrastructure, or trading
+  artefacts exist anywhere in the repo.
 
 ## Recovery Required (re-verify rather than assume; do not redo verified work)
 
@@ -128,12 +126,14 @@ Q-008 (non-goals; KPI candidates pending), Q-009 (form).
 3. **Glossary formulas (USER-STATED/PROPOSED):** canonical sign-off Round E.
 4. **V1 `.rdp` exposure (VERIFIED risk, owner action):** rotate any embedded
    credentials; removal from V1 history at Jacob's discretion.
-5. **D-024 completion check:** if no `origin` remote exists on resume, D-024
-   execution did not finish — see § Working directory / git above.
+5. **D-024:** executed and VERIFIED 2026-08-18 — on resume simply confirm
+   `git remote -v` shows `origin` = https://github.com/JDep8/AutoFX-V2; if
+   it unexpectedly does not, investigate via SESSION_LOG Session 5 before
+   any git action.
 
 ## Single first safe next action
 
-Finish D-024 execution and its follow-up documentation commit (this
-session). Then wait for Jacob: Round A summary approval; `autofx_v1_readonly`
-provisioning (D-022); explicit V1-audit go (B-5). Open no new discovery work
-unprompted.
+Wait for Jacob: Round A summary approval (B-1); `autofx_v1_readonly`
+provisioning (B-2, D-022); explicit V1-audit go (B-3). Open no new
+discovery work unprompted; delegation and critical acceptance route through
+the `autofx-model-governor` skill.

@@ -21,12 +21,12 @@ workspace, per D-011). Before doing anything else:
    needs.
 3. Verify git state: working directory `C:\AutoFXV2.0`; report current
    branch (expected `planning/discovery-handoff`), `git status`,
-   `git log --oneline -5`, and `git remote -v`. Per D-024 a private remote
-   `JDep8/AutoFX-V2` (default branch `main`) is authorised and its creation
-   was executed in Session 5 — **if no `origin` remote exists, D-024
-   execution did not complete**: re-verify the D-024 preconditions in
-   DECISION_LOG.md and execute or report; never assume it happened, never
-   force-push, never touch `JDep8/AutoFX` (V1).
+   `git log --oneline -5`, and `git remote -v` (expected: `origin` =
+   https://github.com/JDep8/AutoFX-V2, private, default `main`; executed
+   and VERIFIED 2026-08-18, SESSION_LOG.md Session 5). If the remote is
+   unexpectedly absent, investigate via SESSION_LOG before any git action.
+   Never force-push; never merge into `main` without Jacob's explicit
+   approval; never touch `JDep8/AutoFX` (V1).
 4. Restate the no-build gate: implementation is prohibited until Jacob
    explicitly writes
    `AUTHORISE AUTOFX V2 IMPLEMENTATION — PHASE <number/name>`

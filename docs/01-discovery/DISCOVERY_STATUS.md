@@ -48,3 +48,7 @@
   flag for the V1 audit; contents never read.
 - 2026-08-17: Unauthenticated access to the V1 repo returns 404 — all V1
   inspection must use `gh`.
+- 2026-08-18: Private GitHub repository `JDep8/AutoFX-V2` created per D-024
+  (VERIFIED: private visibility; default branch `main`; branches `main` +
+  `planning/discovery-handoff` pushed @ `ad1d1e4`); local default branch
+  renamed `master` → `main`; V1 repository untouched.
