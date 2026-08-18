@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register — the navigation map; read this first each session
-- **Version:** 0.2.1
+- **Version:** 0.2.2
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** every document below
 - **Approval evidence:** n/a (register)
@@ -36,6 +36,7 @@ noted. Read only what the active task needs.
 | [TRACEABILITY_MATRIX.md](TRACEABILITY_MATRIX.md) | Requirement → design → evidence → status → decision |
 | [TOOLING_REGISTER.md](TOOLING_REGISTER.md) | Workspace roles (terminal primary), plugin install gates, git/GitHub conventions incl. remote `JDep8/AutoFX-V2` (created private per D-024; **visibility PUBLIC as at 2026-08-18 — Q-014 pending**) (D-011/D-013/D-015/D-024) |
 | [MODEL_ROUTING_POLICY.md](MODEL_ROUTING_POLICY.md) | Launch flags, Fable/Opus/Sonnet/Haiku routing, upward escalation (D-012) |
+| [CLAUDE_CODE_COMMAND_RUNBOOK.md](CLAUDE_CODE_COMMAND_RUNBOOK.md) | Claude Code command catalogue (v2.1.234, verified 2026-08-18), command-kind model, availability gates, per-command AutoFX policies (`PROPOSED`), session sequences, upgrade revalidation procedure |
 
 ## 01-discovery
 

@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** `OWNER_APPROVED` (policy stated by Jacob 2026-08-18; evidence class USER-STATED)
-- **Version:** 0.2.1
+- **Version:** 0.3.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** DECISION_LOG.md (D-011, D-013, D-015, D-017, D-024), MODEL_ROUTING_POLICY.md
 - **Approval evidence:** Owner handoff instruction, 2026-08-18
@@ -131,6 +131,23 @@ reviewed configuration change.
 - Options for Jacob (Q-014): (a) revert to private; (b) public until a named
   milestone/date, then revert; (c) permanently public with an explicit
   publication policy governing what may never be committed.
+
+## Claude Code command governance (research 2026-08-18)
+
+- Catalogue, availability evidence, per-command AutoFX policies, session
+  sequences, and the post-upgrade revalidation procedure live in
+  [CLAUDE_CODE_COMMAND_RUNBOOK.md](CLAUDE_CODE_COMMAND_RUNBOOK.md).
+- Researched against Claude Code **2.1.234** (VERIFIED 2026-08-18) on this
+  Windows Server 2022 machine, using only official documentation
+  (code.claude.com/docs: commands, sessions, scheduled-tasks) plus
+  read-only local verification (binary token scan; session skill roster;
+  in-session observations). No mutating command was exercised.
+- All policies in the runbook are **`PROPOSED`** — Jacob approves/amends
+  (NEXT_ACTIONS § B). Standing regardless of approval state: no command
+  bypasses the no-build gate, D-015 boundary, D-017 routing, or D-024 git
+  rules; mutating/installing/connecting/cloud commands are never treated
+  as routine.
+- Revalidate the runbook after every Claude Code upgrade (runbook § 9).
 
 ## Open items
 

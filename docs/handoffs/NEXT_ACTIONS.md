@@ -1,8 +1,8 @@
 # Next Actions
 
 - **Owner:** Jacob Depares
-- **Last updated:** 2026-08-18 04:46 UTC (post Round A closure-assurance
-  pass)
+- **Last updated:** 2026-08-18 (post command-governance research; see
+  SESSION_LOG)
 
 Ordered, bounded, acceptance-criterion based. Section A needs no further
 authority; Section B waits on Jacob. Nothing anywhere authorises
@@ -53,7 +53,12 @@ B–O assurance matrix, coverage check — this checkpoint's commit).
 6. **Optional:** extend committed `.claude/settings.json` allowlist to the
    D-024 git model (currently read-only/V1-scope; per-session approvals in
    use).
-7. Later gates (unchanged): per-round domain approvals → `AUTHORISE
+7. **Approve/amend the Claude Code command policies** —
+   CLAUDE_CODE_COMMAND_RUNBOOK.md § 7–8 (all `PROPOSED`; researched
+   2026-08-18 against v2.1.234). Non-blocking: until approved, Claude
+   operates to the runbook's most conservative reading (mutating/
+   installing/connecting/cloud commands treated as owner-gated).
+8. Later gates (unchanged): per-round domain approvals → `AUTHORISE
    WIREFRAME ONLY` (Round O) → Discovery Exit Review → the implementation
    authorisation phrase.
 

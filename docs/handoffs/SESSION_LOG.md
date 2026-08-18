@@ -318,3 +318,45 @@
   recorded per the conflict rule, `PROPOSED` resolution not applied).
   Remaining escalations that only Jacob can resolve are exactly the four
   closure questions + Q-016.
+
+## 2026-08-18 — Session 5 (continued): Claude Code command-governance research (owner-directed)
+
+- Documentation-only research task per owner instruction. Governor
+  routing: CRITICAL (session-discipline policies protecting the no-build
+  gate and MODEL_ROUTING_POLICY); main Fable session (Fable 5 + Ultracode
+  re-verified); **no delegation, no workflow** (owner prohibition this
+  turn); no mutating command exercised; nothing installed, authenticated,
+  or permission-changed; no loop/goal started.
+- Environment VERIFIED: Claude Code **2.1.234**; Windows Server 2022
+  (NT 10.0.20348); branch `planning/discovery-handoff` @ `2167e62`, tree
+  clean, tracking origin.
+- Sources: official docs only (code.claude.com/docs — commands, sessions,
+  scheduled-tasks; fetched 2026-08-18). Local verification: read-only
+  binary token scan of `claude.exe` (FOUND = strong, ABSENT = weak —
+  caveat recorded); session skill roster; in-session observations
+  (`/remote-control`, `/tasks` invoked by Jacob earlier today).
+- Created **docs/00-governance/CLAUDE_CODE_COMMAND_RUNBOOK.md** (v0.1.0,
+  `PROPOSED`): command-kind model (built-in / bundled skill / workflow /
+  plugin / MCP prompt); platform/plan/version gates; aliases;
+  removed/unavailable (`/pr-comments` REMOVED per docs; `/reload-skills`
+  NOT_AVAILABLE — absent from official catalogue and binary); ~90-command
+  catalogue in 13 groups with type/availability/mutation/persistence/
+  classification; per-command AutoFX policies for the 45 owner-mandated
+  commands incl. all owner-specified safeguards (`/btw` never for
+  decisions; `/clear` only after pushed handoff; `/compact` behind the
+  continuity protocol; `/fast` never for critical work; `/loop`+`/schedule`
+  never production/trading schedulers; `/goal` needs scope/completion/
+  stopping/approval boundaries; `/batch`+`/deep-research` need
+  token/cost + governor routing; `/rewind` never silently discards work;
+  `/heapdump` highly sensitive; mutating/connecting/installing commands
+  never routine); ten recommended session sequences; post-upgrade
+  revalidation procedure. Notable local findings: `/deep-research`,
+  `/heapdump`, `/recap`, `/privacy-settings`, `/autofix-pr` =
+  DOCUMENTED_NOT_LOCALLY_VERIFIED; `/web-setup` + `/usage-credits`
+  present in binary but undocumented on the commands page (purposes
+  labelled INFERRED).
+- Registers updated: DOCUMENT_INDEX (runbook row), TOOLING_REGISTER
+  (§ Claude Code command governance), MODEL_ROUTING_POLICY (routing
+  record row), NEXT_ACTIONS (§ B-7 policy approval item). **All runbook
+  policies remain `PROPOSED` — nothing marked OWNER_APPROVED this turn.**
+  No V1 audit, Round B, database, wireframe, or implementation work.

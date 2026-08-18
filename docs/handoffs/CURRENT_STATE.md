@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living handoff (refreshed every checkpoint)
-- **Date/time:** 2026-08-18 04:46 UTC
+- **Date/time:** 2026-08-18 05:17 UTC
 - **Source session:** second terminal session (Claude Code CLI, Fable 5 +
   Ultracode), continued — Round A closure-assurance pass (owner-directed):
   completion assessment, KPI framework proposal, repository-wide
@@ -49,6 +49,17 @@
   framework, DISCOVERY_STATUS assessment + B–O matrix + coverage check,
   Q-014/Q-015, visibility record, routing record, handoffs) and pushes
   `planning/discovery-handoff` only.
+
+## Command governance (2026-08-18, later in Session 5)
+
+Owner-directed Claude Code command-governance research completed:
+CLAUDE_CODE_COMMAND_RUNBOOK.md created (`PROPOSED`, v0.1.0) — catalogue
+verified against v2.1.234 (official docs + read-only local verification;
+no mutating command exercised), per-command AutoFX policies for the 45
+owner-mandated commands with all owner-specified safeguards, ten session
+sequences, upgrade revalidation procedure. Approval pending
+(NEXT_ACTIONS § B-7); until approved, the most conservative reading
+applies. TOOLING_REGISTER § Claude Code command governance added.
 
 ## Last completed acceptance criterion
 
