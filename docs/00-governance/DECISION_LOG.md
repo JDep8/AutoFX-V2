@@ -3,7 +3,7 @@
 - **Owner:** Jacob Depares
 - **Status:** Living register
 - **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
+- **Last reviewed:** 2026-08-18
 - **Dependencies:** REQUIREMENTS_CATALOGUE.md, QUESTION_REGISTER.md
 - **Approval evidence:** Per-decision, recorded below
 
@@ -126,3 +126,56 @@ History is never erased; superseded decisions are marked, not deleted.
   planning-and-architecture only until P1 is live-validated.
 - **Status:** `OWNER_APPROVED` — 2026-08-17 (Round A, explicit selection).
 - **Affects:** roadmap, scope, delivery sequencing.
+
+---
+
+## D-011 — Terminal is the primary workspace
+
+- **Decision:** Claude Code in the terminal is the primary workspace for this
+  engagement; Claude Desktop remains available for visual review and
+  wireframes.
+- **Status:** `OWNER_APPROVED` — 2026-08-18 (owner handoff instruction;
+  evidence class USER-STATED).
+- **Affects:** session continuity, tooling (TOOLING_REGISTER.md),
+  `.claude/rules/20-session-continuity.md`.
+
+## D-012 — Model routing policy
+
+- **Decision:** Main terminal sessions launch with
+  `claude --model best --effort ultracode`; `/status` must resolve `best` to
+  Fable and `/effort` must confirm Ultracode before critical work. Fable is
+  required for critical judgment and acceptance; Opus handles substantial
+  bounded reasoning; Sonnet handles deterministic work from approved
+  specifications; Haiku is extraction/search/formatting only; uncertainty
+  always escalates upward. Retained from the master prompt: never change
+  models merely to evade a usage cap.
+- **Status:** `OWNER_APPROVED` — 2026-08-18 (owner handoff instruction;
+  evidence class USER-STATED). Full policy: MODEL_ROUTING_POLICY.md.
+- **Affects:** every session; acceptance quality.
+
+## D-013 — Plugin policy
+
+- **Decision:** Install now: product-management, claude-md-management,
+  session-report. Deferred: data (until the read-only database decision,
+  Q-001); design (at the wireframe round); engineering/security/LSP/review
+  (only after implementation authorisation); marketing (Priority 3). Do not
+  install ECC now.
+- **Status:** `OWNER_APPROVED` — 2026-08-18 (owner handoff instruction;
+  evidence class USER-STATED). Register: TOOLING_REGISTER.md.
+- **Affects:** tooling, no-build-gate hygiene.
+
+## D-014 — Rules-file naming (recorded CONFLICT, resolution PROPOSED)
+
+- **Conflict:** The master prompt (2026-08-17) requires six topic rule files
+  (`discovery-and-authorisation.md`, `quantitative-evidence.md`,
+  `data-integrity.md`, `execution-and-risk.md`, `security-and-secrets.md`,
+  `documentation-and-traceability.md`). The terminal-handoff instruction
+  (2026-08-18) requires three numbered files (`00-discovery-gate.md`,
+  `10-evidence-and-traceability.md`, `20-session-continuity.md`). Sources:
+  master prompt § Phase 0 vs handoff instruction § minimum scaffold.
+- **Resolution applied (PROPOSED, not silently chosen as final):** both sets
+  exist; the three numbered files are thin authoritative entry points that
+  link into the six detailed topic files. No content was deleted.
+- **Status:** `PROPOSED` — Jacob to confirm keep-both or direct a
+  consolidation (tracked as Q-011).
+- **Affects:** `.claude/rules/` layout only; no safety impact.

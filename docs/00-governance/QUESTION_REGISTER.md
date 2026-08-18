@@ -3,7 +3,7 @@
 - **Owner:** Jacob Depares
 - **Status:** Living register
 - **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
+- **Last reviewed:** 2026-08-18
 - **Dependencies:** DECISION_LOG.md, ASSUMPTION_REGISTER.md
 - **Approval evidence:** n/a (register)
 
@@ -22,3 +22,4 @@ Safety-critical ambiguity fails closed and lands here as a blocking question.
 | Q-008 | Measurable business KPIs and explicit non-goals? | 2026-08-17 | PROJECT_CHARTER.md | OPEN | Round A continuation |
 | Q-009 | Precise, measurable definition of backtest "accuracy" (backtest-vs-live degradation tolerance) Jacob will accept? | 2026-08-17 | BACKTEST_FIDELITY_SPEC.md acceptance thresholds | OPEN | Round A continuation → refined Round F |
 | Q-010 | Has any historical data already been used for repeated selection in V1 (and is therefore ineligible as final holdout)? | 2026-08-17 | D-002; LEAKAGE_AND_HOLDOUT_POLICY.md | OPEN | V1 audit + Round B |
+| Q-011 | Rules-file naming (D-014): keep both the six mandate topic files and the three numbered entry points, or consolidate? | 2026-08-18 | Nothing (non-blocking, layout only) | OPEN | Jacob's preference |

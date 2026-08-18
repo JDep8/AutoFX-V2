@@ -3,7 +3,7 @@
 - **Owner:** Jacob Depares
 - **Status:** Living register — Round A in progress
 - **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
+- **Last reviewed:** 2026-08-18
 - **Dependencies:** DISCOVERY_STATUS.md, DECISION_LOG.md
 - **Approval evidence:** Answers below are Jacob's explicit selections/text
 

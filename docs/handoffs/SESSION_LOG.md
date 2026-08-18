@@ -42,3 +42,29 @@
   recommendations) in INTERVIEW_RECORD.md § Batch 2 — previously only listed
   as topics; date stamps refreshed; this log entry appended.
 - No Round A batch 2 answers received yet. No-build gate unchanged (ACTIVE).
+
+## 2026-08-18 — Session 3: Desktop → terminal handoff (owner-instructed)
+
+- Jacob instructed a complete documentation-only handoff to Claude Code in
+  the terminal, with explicit constraints: preserve the gate verbatim; no
+  commit without his review; evidence-classification labels (VERIFIED /
+  USER-STATED / INFERRED / PROPOSED / UNKNOWN / CONFLICT) adopted.
+- Created branch `planning/discovery-handoff` off `master` (@ `24db4ea`).
+  (Correction during verification: earlier handoff text said `main`; the V2
+  repo's default branch is actually `master`. V1's default branch IS `main`.)
+- New files: `.claude/settings.json` (committed permissions; secret-file
+  reads denied); `.claude/rules/00-discovery-gate.md`,
+  `10-evidence-and-traceability.md`, `20-session-continuity.md` (entry
+  points); `docs/00-governance/TOOLING_REGISTER.md`,
+  `MODEL_ROUTING_POLICY.md`.
+- New decisions recorded: D-011 (terminal primary), D-012 (model routing),
+  D-013 (plugin policy) — all OWNER_APPROVED per owner instruction; D-014
+  rules-naming CONFLICT recorded with PROPOSED resolution (Q-011).
+- Updated: CLAUDE.md (authority hierarchy, workspace/model/plugin section,
+  quality-gates pointer), `.gitignore` (local settings, datasets, caches),
+  DOCUMENT_INDEX, QUESTION_REGISTER (Q-011); handoff files rewritten to the
+  handoff specification incl. Recovery Required section.
+- Change set left **uncommitted** for Jacob's review per instruction;
+  proposed commit recorded in NEXT_ACTIONS.md § B-1.
+- No discovery work advanced this session (handoff only); Round A batch 2
+  still awaiting answers.

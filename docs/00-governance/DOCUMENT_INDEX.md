@@ -14,8 +14,10 @@ noted. Read only what the active task needs.
 
 | File | Purpose |
 |------|---------|
-| [CLAUDE.md](../../CLAUDE.md) | Durable session rules: no-build gate, source of truth, session protocol, status vocabulary |
-| `.claude/rules/` (6 files) | Topic rules: discovery/authorisation, quantitative evidence, data integrity, execution/risk, security/secrets, documentation/traceability |
+| [CLAUDE.md](../../CLAUDE.md) | Project constitution: no-build gate, authority hierarchy, quality gates, workspace/model/plugin policies, links |
+| `.claude/settings.json` | Committed project permissions (read-only git/gh allowed; secret-file reads denied) |
+| `.claude/rules/00-…, 10-…, 20-…` | Numbered entry points: discovery gate, evidence + traceability labels, session continuity (D-014/Q-011: naming overlap with the six topic files awaits Jacob) |
+| `.claude/rules/` (6 topic files) | Detail: discovery/authorisation, quantitative evidence, data integrity, execution/risk, security/secrets, documentation/traceability |
 
 ## 00-governance
 
@@ -29,6 +31,8 @@ noted. Read only what the active task needs.
 | [QUESTION_REGISTER.md](QUESTION_REGISTER.md) | Q-001…Q-010 open/blocking questions |
 | [CHANGE_CONTROL.md](CHANGE_CONTROL.md) | How approved content changes without erasing history |
 | [TRACEABILITY_MATRIX.md](TRACEABILITY_MATRIX.md) | Requirement → design → evidence → status → decision |
+| [TOOLING_REGISTER.md](TOOLING_REGISTER.md) | Workspace roles (terminal primary), plugin install gates, git conventions (D-011/D-013) |
+| [MODEL_ROUTING_POLICY.md](MODEL_ROUTING_POLICY.md) | Launch flags, Fable/Opus/Sonnet/Haiku routing, upward escalation (D-012) |
 
 ## 01-discovery
 

@@ -28,11 +28,30 @@ Wireframes have a separate gate: `AUTHORISE WIREFRAME ONLY` permits a static or
 mock-data prototype with no backend, database, broker, secrets, publishing
 access, or live actions. See `.claude/rules/discovery-and-authorisation.md`.
 
-## Source of truth
+## Source of truth and authority hierarchy
 
 The repository documents are the source of truth. Conversational memory is not.
 Never reconstruct project state from chat history when a register or handoff
-file exists.
+file exists. Authority (highest wins): 1. Jacob's explicit written decisions
+(Decision Log, gate phrases) · 2. this file + `.claude/rules/` · 3. governance
+registers · 4. domain documents · 5. conversation content (no force until
+captured into the documents above).
+
+## Workspace, models, plugins (D-011/D-012/D-013, 2026-08-18)
+
+- Terminal (CLI) is the primary workspace; Desktop for visual review and
+  wireframes only.
+- Main terminal sessions launch `claude --model best --effort ultracode`;
+  verify `/status` → Fable and `/effort` → Ultracode before critical work.
+  Routing: `docs/00-governance/MODEL_ROUTING_POLICY.md`.
+- Plugin install gates: `docs/00-governance/TOOLING_REGISTER.md`.
+
+## Quality gates
+
+All promotion follows the acceptance-gate architecture (Gates 1–8: data →
+experiment → strategy → book → approved-but-disabled → shadow/paper → live →
+continue/reduce/pause/retire), mapped in
+`docs/09-delivery/TEST_AND_EVIDENCE_STRATEGY.md`.
 
 ## Session start (every session)
 
@@ -95,6 +114,14 @@ Documentation-only commits during discovery. Verify no secrets or unintended
 files before every commit. **Never push without Jacob's explicit instruction.**
 
 ## Topic rules (read the one relevant to the active task)
+
+Numbered entry points (start here):
+
+- `.claude/rules/00-discovery-gate.md` — the gate + authority hierarchy
+- `.claude/rules/10-evidence-and-traceability.md` — status + evidence labels
+- `.claude/rules/20-session-continuity.md` — session/rollover/resume protocol
+
+Detailed topic rules:
 
 - `.claude/rules/discovery-and-authorisation.md`
 - `.claude/rules/quantitative-evidence.md`

@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git branch:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh api repos/JDep8/AutoFX:*)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(**/*.rdp)",
+      "Read(**/.pgpass)",
+      "Read(**/pgpass.conf)"
+    ]
+  }
+}

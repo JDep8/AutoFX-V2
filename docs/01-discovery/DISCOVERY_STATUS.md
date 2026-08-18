@@ -3,7 +3,7 @@
 - **Owner:** Jacob Depares
 - **Status:** Living register
 - **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
+- **Last reviewed:** 2026-08-18
 - **Dependencies:** INTERVIEW_RECORD.md, DECISION_LOG.md
 - **Approval evidence:** n/a (register)
 
