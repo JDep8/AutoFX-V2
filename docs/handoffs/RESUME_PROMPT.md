@@ -39,13 +39,22 @@ workspace, per D-011). Before doing anything else:
    model are approved but do NOT open the implementation gate.
 5. Round A: batches 1 AND 2 are fully answered (batch 2 verbatim in
    `docs/01-discovery/INTERVIEW_RECORD.md` § Batch 2 answers, 2026-08-18;
-   decisions D-018…D-024). Do NOT re-ask any of it. The Round A summary is
-   `PROPOSED` and waits for Jacob's approval — Round A closes only on that.
-6. Items blocked on Jacob (NEXT_ACTIONS § B): Round A summary approval;
-   `autofx_v1_readonly` provisioning (D-022); explicit V1-audit go; Q-011;
-   Q-013. Do not start them unprompted. The V1 forensic audit has NOT
-   started.
-7. Restate the active phase, round, gate status, last completed checkpoint,
+   decisions D-018…D-024). Do NOT re-ask any of it. **Round A is NOT
+   closed** (owner direction 2026-08-18): the completion assessment
+   (DISCOVERY_STATUS.md) found two INCOMPLETE topics — success hierarchy
+   (Q-015) and KPI-framework approval (Q-008 remainder, framework
+   `PROPOSED` in PROJECT_CHARTER.md). Four closure questions await Jacob
+   (NEXT_ACTIONS § B-1); the Round A summary stays `PROPOSED` until he
+   approves it.
+6. Repository visibility is **PUBLIC** (verified 2026-08-18; Jacob's
+   change; Q-014 pending — temporary or permanent). Never change
+   visibility; treat sensitive-material placement as a standing
+   consideration until Q-014 is decided.
+7. Items blocked on Jacob (NEXT_ACTIONS § B): the four closure questions;
+   Round A summary approval; `autofx_v1_readonly` provisioning (D-022);
+   explicit V1-audit go; Q-011; Q-013. Do not start them unprompted. The V1
+   forensic audit has NOT started.
+8. Restate the active phase, round, gate status, last completed checkpoint,
    current objective, and blockers, then proceed only within the authorised
    scope above.
 

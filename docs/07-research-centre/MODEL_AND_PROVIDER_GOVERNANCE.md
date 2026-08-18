@@ -108,5 +108,5 @@ Round L decisions exist — no provider is listed speculatively.
 - What counts as an "independent" challenge pass in practice? → Round L.
 - Which access approach (API/SDK, managed agent, user-operated, other
   licensed) per task class? → Round L.
-- Cost and latency envelopes acceptable to Jacob? → Round L, informed by
-  Q-007.
+- Cost and latency envelopes acceptable to Jacob? → Round L, within the
+  D-019 ceiling (AUD 400/month, per-expense approval).

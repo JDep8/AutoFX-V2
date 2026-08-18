@@ -40,7 +40,8 @@ assumption.
 
 Who the content serves, in which countries, and what problem it solves for
 them. Open Round M questions shared with CONTENT_STUDIO_PRODUCT_SPEC.md;
-country choice also feeds Q-006 jurisdiction review.
+country choice also scopes the D-018 mandatory jurisdiction review
+(BUS-008; Jacob's own jurisdiction decided — Australia, D-018).
 
 ### 3. Value proposition
 
@@ -125,7 +126,8 @@ business is stopped. Both defined and owner-approved in Round M (CONTENT-004).
 
 - What exactly is offered/sold, given D-008 excludes customers of the trading
   platform itself — Round M (foundational).
-- Target audience and countries — Round M (countries also feed Q-006).
+- Target audience and countries — Round M (countries also scope the D-018
+  review, BUS-008).
 - Value proposition and differentiators — Round M.
 - Competitive landscape evidence — Round M research.
 - Build/buy per capability, pending provider evaluations — Round M.

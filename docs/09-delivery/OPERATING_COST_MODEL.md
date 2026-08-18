@@ -1,9 +1,9 @@
 # Operating Cost Model
 - **Owner:** Jacob Depares
-- **Status:** `PROPOSED` (skeleton — no content owner-approved)
-- **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
-- **Dependencies:** [DATA_LICENSING_AND_RETENTION.md](../04-data/DATA_LICENSING_AND_RETENTION.md), [DATA_SOURCE_REGISTER.md](../04-data/DATA_SOURCE_REGISTER.md), [DELIVERY_ROADMAP.md](./DELIVERY_ROADMAP.md), [DECISION_LOG.md](../00-governance/DECISION_LOG.md) (D-009, D-010), [QUESTION_REGISTER.md](../00-governance/QUESTION_REGISTER.md) (Q-007)
+- **Status:** `PROPOSED` (skeleton — no content owner-approved; budget ceiling itself is `OWNER_APPROVED` via D-019)
+- **Version:** 0.1.1
+- **Last reviewed:** 2026-08-18
+- **Dependencies:** [DATA_LICENSING_AND_RETENTION.md](../04-data/DATA_LICENSING_AND_RETENTION.md), [DATA_SOURCE_REGISTER.md](../04-data/DATA_SOURCE_REGISTER.md), [DELIVERY_ROADMAP.md](./DELIVERY_ROADMAP.md), [DECISION_LOG.md](../00-governance/DECISION_LOG.md) (D-009, D-010, D-019)
 - **Approval evidence:** None yet
 
 ## Purpose
@@ -13,8 +13,9 @@ licensing, hosting and compute, broker-related costs, and (for later
 priorities) research-centre provider and content-production costs. All costs
 are expressed as scenario ranges built from quoted or measured figures —
 **no numbers are invented, and none exist yet**. The model exists so
-affordability is checked against Jacob's actual budget (Q-007) before any
-commitment, not after.
+affordability is checked against Jacob's approved budget (D-019: AUD
+400/month operating ceiling excluding Claude/ChatGPT/existing VPS; every
+expense pre-approved) before any commitment, not after.
 
 ## Scope and decisions this document will own
 
@@ -42,8 +43,9 @@ planning-only per D-010.
 Every category is costed as low/base/high scenarios with the assumptions that
 separate them stated explicitly. Format fixed here; **all figures pending** —
 data costs from Round D provider evaluations, infrastructure costs from
-Round N, both constrained by Q-007. No placeholder numbers are permitted in
-any draft.
+Round N, both constrained by the D-019 ceiling and its free-first,
+per-expense-approval rules. No placeholder numbers are permitted in any
+draft.
 
 ### 3. Data-cost scaling per asset class (D-009)
 How data licensing and storage cost grows as classes beyond FX pass Gate 1
@@ -58,7 +60,7 @@ policy), so Jacob can see what a scope choice costs before making it.
 Populated once Rounds D/N supply the underlying quantities.
 
 ### 5. Affordability checkpoints
-Where the roadmap checks projected cost against the Q-007 budget: before the
+Where the roadmap checks projected cost against the D-019 ceiling: before the
 Exit Review, before each class rollout, and before any recurring commitment
 (licences, hosting contracts). Checkpoint placement agreed in Round N.
 
@@ -68,8 +70,11 @@ as unknown rather than assumed still valid. Cadence set in Round N.
 
 ## Known inputs
 
-- Q-007 (budget, horizon, infrastructure constraints) is OPEN and blocks all
-  affordability conclusions.
+- Q-007 answered 2026-08-18 (D-019): AUD 400/month operating ceiling
+  (excl. Claude/ChatGPT/existing VPS); ceiling not target; free-first when
+  quality permits; every expense individually pre-approved; exceptional
+  one-off costs proposed separately. Affordability conclusions still need
+  actual quotes (Rounds D/N).
 - D-009: FX-first phasing means near-term cost exposure is FX data plus core
   infrastructure; other classes add cost only after their Gate 1.
 - D-010: only P1 costs are implementation-relevant now; P2/P3 categories are
@@ -84,7 +89,7 @@ as unknown rather than assumed still valid. Cadence set in Round N.
 
 | Question | Resolved by |
 |----------|-------------|
-| Budget ceiling and acceptable recurring spend | Q-007, Round A continuation |
+| Budget ceiling and acceptable recurring spend | Answered (D-019: AUD 400/month ceiling, per-expense approval) |
 | Data provider shortlist, quotes, and licensing terms per class | Round D (with Rounds C/D symbol lists) |
 | Hosting/compute approach and its price basis | Round N |
 | Storage, backup, and retention cost drivers | Rounds D/N (OPS-002, retention policy) |

@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register — the navigation map; read this first each session
-- **Version:** 0.2.0
+- **Version:** 0.2.1
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** every document below
 - **Approval evidence:** n/a (register)
@@ -27,21 +27,21 @@ noted. Read only what the active task needs.
 | File | Purpose |
 |------|---------|
 | DOCUMENT_INDEX.md | This navigation map |
-| [PROJECT_CHARTER.md](PROJECT_CHARTER.md) | Mission, owner, priorities; KPIs/non-goals pending Round A |
+| [PROJECT_CHARTER.md](PROJECT_CHARTER.md) | Mission, success hierarchy (`PROPOSED`, Q-015), owner/jurisdiction (D-018), priorities, budget/timeline (D-019), non-goals pointer (D-020), **KPI framework (`PROPOSED`, Q-008 remainder)** |
 | [GLOSSARY.md](GLOSSARY.md) | Canonical terms, plain + technical; formulas finalised Round E |
 | [DECISION_LOG.md](DECISION_LOG.md) | D-001…D-024 — legacy conflicts, Round A decisions (both batches), workspace/tooling policies, governance rulings, git/GitHub model |
 | [ASSUMPTION_REGISTER.md](ASSUMPTION_REGISTER.md) | A-001…A-006 provisional defaults (A-006 `SUPERSEDED` by D-024) |
-| [QUESTION_REGISTER.md](QUESTION_REGISTER.md) | Q-001…Q-013 (Q-001/002/006–009 resolved 2026-08-18 per D-018…D-023; Q-003 BLOCKED; Q-004/005/010/011/013 open) |
+| [QUESTION_REGISTER.md](QUESTION_REGISTER.md) | Q-001…Q-016 (Q-001/002/006–009 resolved 2026-08-18 per D-018…D-023; Q-003 BLOCKED; Q-016 CONFLICT; Q-004/005/010/011/013/014/015 open) |
 | [CHANGE_CONTROL.md](CHANGE_CONTROL.md) | How approved content changes without erasing history |
 | [TRACEABILITY_MATRIX.md](TRACEABILITY_MATRIX.md) | Requirement → design → evidence → status → decision |
-| [TOOLING_REGISTER.md](TOOLING_REGISTER.md) | Workspace roles (terminal primary), plugin install gates, git/GitHub conventions incl. private remote `JDep8/AutoFX-V2` (D-011/D-013/D-015/D-024) |
+| [TOOLING_REGISTER.md](TOOLING_REGISTER.md) | Workspace roles (terminal primary), plugin install gates, git/GitHub conventions incl. remote `JDep8/AutoFX-V2` (created private per D-024; **visibility PUBLIC as at 2026-08-18 — Q-014 pending**) (D-011/D-013/D-015/D-024) |
 | [MODEL_ROUTING_POLICY.md](MODEL_ROUTING_POLICY.md) | Launch flags, Fable/Opus/Sonnet/Haiku routing, upward escalation (D-012) |
 
 ## 01-discovery
 
 | File | Purpose |
 |------|---------|
-| [DISCOVERY_STATUS.md](../01-discovery/DISCOVERY_STATUS.md) | Phase + round A–O status; verified facts |
+| [DISCOVERY_STATUS.md](../01-discovery/DISCOVERY_STATUS.md) | Phase + round A–O status; verified facts; **Round A completion assessment**; **Rounds B–O assurance matrix**; full-scope coverage check |
 | [INTERVIEW_RECORD.md](../01-discovery/INTERVIEW_RECORD.md) | Verbatim interview record (Round A batches 1+2 answered; batch 2 answers verbatim 2026-08-18; Round A summary `PROPOSED`) |
 | [REQUIREMENTS_CATALOGUE.md](../01-discovery/REQUIREMENTS_CATALOGUE.md) | ~50 ID'd requirements from the owner brief + Round A |
 | [SCOPE_AND_PRIORITIES.md](../01-discovery/SCOPE_AND_PRIORITIES.md) | P1/P2/P3 boundaries; asset universe (D-009) |
@@ -102,7 +102,7 @@ noted. Read only what the active task needs.
 | File | Purpose |
 |------|---------|
 | RISK_AND_DRAWDOWN_SPEC.md | Canonical accounting per D-001 direction; numbers → Round E (Q-005) |
-| ACCOUNT_AND_SIZING_SPEC.md | One authoritative sizing engine (EXEC-008, Q-002) → Rounds E/J |
+| ACCOUNT_AND_SIZING_SPEC.md | One authoritative sizing engine (EXEC-008; bridge located per D-023; no per-symbol weighting, EXEC-011) → Rounds E/J |
 | ORDER_AND_FILL_LIFECYCLE.md | Order types, SL attachment atomicity, fail-closed protection (EXEC-004) → Round J |
 | CTRADER_INTEGRATION_SPEC.md | cTrader API flows, multi-account fan-out, demo/live labelling → Round J |
 | OPEN_TRADE_MONITOR_SPEC.md | Monitoring signals, deterministic exit hierarchy → Round K |
@@ -127,7 +127,7 @@ noted. Read only what the active task needs.
 |------|---------|
 | CONTENT_STUDIO_PRODUCT_SPEC.md | Research-to-publish workflow with human approval → Round M |
 | AI_CHARACTER_AND_BRAND_SPEC.md | Character bible; no vendor hard-coding → Round M |
-| CONTENT_COMPLIANCE_AND_APPROVAL.md | Fin-prom, synthetic-media disclosure, likeness/copyright → Round M (Q-006) |
+| CONTENT_COMPLIANCE_AND_APPROVAL.md | Fin-prom, synthetic-media disclosure, likeness/copyright → Round M (jurisdiction = Australia per D-018; pre-commercialisation review gate applies) |
 | CHANNEL_PUBLISHING_PLAN.md | Platform permissions, approval gates, analytics → Round M |
 | BUSINESS_PLAN.md | Scenario-based plan with kill criteria → Round M |
 
@@ -135,11 +135,11 @@ noted. Read only what the active task needs.
 
 | File | Purpose |
 |------|---------|
-| DELIVERY_ROADMAP.md | Staged roadmap; history-preserving backlogs → Round N (Q-007) |
+| DELIVERY_ROADMAP.md | Staged roadmap; history-preserving backlogs → Round N (timeline inputs decided via D-019) |
 | WORK_BREAKDOWN_AND_DEPENDENCIES.md | Dependency graph, critical path → Rounds B–O |
 | TEST_AND_EVIDENCE_STRATEGY.md | Gates 1–8 mapped to test types → Rounds F/N |
 | ENVIRONMENT_AND_RELEASE_PLAN.md | Environments, staged live ramp (Gate 7) → Round N |
-| OPERATING_COST_MODEL.md | Cost scenario ranges → Rounds D/N (Q-007) |
+| OPERATING_COST_MODEL.md | Cost scenario ranges → Rounds D/N (D-019 ceiling: AUD 400/month, per-expense approval) |
 | IMPLEMENTATION_READINESS_REVIEW.md | Exit Review 20-item checklist + adversarial self-review; READY/CONDITIONALLY_READY/NOT_READY |
 
 ## handoffs

@@ -2,9 +2,9 @@
 
 - **Owner:** Jacob Depares
 - **Status:** `PROPOSED` (skeleton — no content owner-approved)
-- **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
-- **Dependencies:** [DECISION_LOG.md](../00-governance/DECISION_LOG.md) (D-008, D-010), [REQUIREMENTS_CATALOGUE.md](../01-discovery/REQUIREMENTS_CATALOGUE.md) (CONTENT-001, CONTENT-003, BUS-004), [QUESTION_REGISTER.md](../00-governance/QUESTION_REGISTER.md) (Q-006), [CONTENT_STUDIO_PRODUCT_SPEC.md](CONTENT_STUDIO_PRODUCT_SPEC.md), [AI_CHARACTER_AND_BRAND_SPEC.md](AI_CHARACTER_AND_BRAND_SPEC.md)
+- **Version:** 0.1.1
+- **Last reviewed:** 2026-08-18
+- **Dependencies:** [DECISION_LOG.md](../00-governance/DECISION_LOG.md) (D-008, D-010, D-018), [REQUIREMENTS_CATALOGUE.md](../01-discovery/REQUIREMENTS_CATALOGUE.md) (CONTENT-001, CONTENT-003, BUS-004, BUS-008), [CONTENT_STUDIO_PRODUCT_SPEC.md](CONTENT_STUDIO_PRODUCT_SPEC.md), [AI_CHARACTER_AND_BRAND_SPEC.md](AI_CHARACTER_AND_BRAND_SPEC.md)
 - **Approval evidence:** None yet
 
 ## Purpose
@@ -12,10 +12,13 @@
 This document will define the compliance controls and the human approval gate
 that every piece of content must pass before publication. It covers financial-
 promotion rules, performance and backtest claims, rights and licensing, and
-synthetic-media disclosure. The jurisdiction-specific legal content is blocked
-on Q-006 and cannot be filled in until the target countries are decided and a
-legal review is obtained; nothing publishes before this document is
-owner-approved (CONTENT-003).
+synthetic-media disclosure. Jacob's own jurisdiction and entity are decided
+(D-018, 2026-08-18: Australia, personal name). The jurisdiction-specific
+legal content remains gated on the **mandatory D-018 Australian
+legal/tax/financial-services/financial-promotion review (BUS-008)** and on
+Round M target-market selection — it cannot be filled in until the target
+countries are decided and that review is obtained; nothing publishes before
+this document is owner-approved (CONTENT-003).
 
 ## Scope and decisions this document will own
 
@@ -36,26 +39,29 @@ owner-approved (CONTENT-003).
 
 Whether and where content constitutes a financial promotion, and the resulting
 obligations per jurisdiction. Entirely dependent on the jurisdiction-specific
-legal review — **blocked on Q-006**; target countries are a Round M input.
+legal review — **gated on the D-018 review (BUS-008)**; target countries are
+a Round M input (Australia is the home jurisdiction per D-018).
 
 ### 2. Performance-claim controls
 
 Rules for any statement about trading results: sourcing from the claim
 register, mandatory uncertainty framing, and the standing rule that
 profitability is never guaranteed (BUS-004). Claim taxonomy defined with
-CONTENT_STUDIO_PRODUCT_SPEC.md in Round M; legal wording → Q-006.
+CONTENT_STUDIO_PRODUCT_SPEC.md in Round M; legal wording → the D-018 review
+(BUS-008).
 
 ### 3. Risk disclosures
 
 Required risk-warning content, prominence, and per-channel placement.
-Jurisdiction-specific wording blocked on Q-006; placement mechanics in Round M.
+Jurisdiction-specific wording gated on the D-018 review (BUS-008);
+placement mechanics in Round M.
 
 ### 4. Backtest disclosures
 
 How backtested or simulated results are labelled, the required caveats, and
 the prohibition on presenting backtests as live results (consistent with the
 status vocabulary: a backtest is never described as live-validated).
-Disclosure text finalised in Round M / Q-006.
+Disclosure text finalised in Round M with the D-018 review (BUS-008).
 
 ### 5. Affiliate and sponsorship disclosure
 
@@ -73,7 +79,8 @@ in Round M research; no licence status may be assumed without a dated record.
 
 Consent requirements for any real voice or likeness; controls preventing the
 AI character from impersonating real people (CONTENT-003; character rules in
-AI_CHARACTER_AND_BRAND_SPEC.md). Legal confirmation → Q-006.
+AI_CHARACTER_AND_BRAND_SPEC.md). Legal confirmation → the D-018 review
+(BUS-008).
 
 ### 8. Synthetic-media disclosure and provenance
 
@@ -85,7 +92,7 @@ approval evidence. Mechanism designed in Round M.
 
 What is retained for every published item (approval record, final asset,
 disclosures shown, claim register extract) and for how long. Retention rules
-depend on the jurisdiction review (Q-006).
+depend on the D-018 jurisdiction review (BUS-008).
 
 ### 10. Human approval gate
 
@@ -97,8 +104,8 @@ Round M.
 ### 11. Jurisdiction matrix
 
 Per-country legal findings and the resulting obligations. Empty until target
-countries are chosen (Round M) and the legal review completes — **blocked on
-Q-006**.
+countries are chosen (Round M) and the mandatory D-018 review completes
+(BUS-008).
 
 ## Known inputs
 
@@ -116,13 +123,16 @@ Q-006**.
 
 ## Open questions
 
-- Target jurisdictions and the legal review of each — **Q-006** (blocking),
-  countries chosen in Round M.
+- Target countries/markets and the legal review of each — Round M + the
+  mandatory D-018 review (BUS-008; blocking for any publication). Jacob's
+  own jurisdiction is decided: Australia, personal name (D-018; Q-006
+  RESOLVED 2026-08-18).
 - Whether any content constitutes a regulated financial promotion in each
-  target jurisdiction — Q-006.
-- Approved wording for risk and backtest disclosures — Round M / Q-006.
+  target jurisdiction — the D-018 review (BUS-008).
+- Approved wording for risk and backtest disclosures — Round M with the
+  D-018 review.
 - Whether affiliate/sponsorship revenue is in the model (drives section 5) —
   Round M (BUSINESS_PLAN.md).
 - Platform-policy evidence per channel, with retrieval dates — Round M
   research.
-- Retention periods for compliance records — Q-006.
+- Retention periods for compliance records — the D-018 review (BUS-008).

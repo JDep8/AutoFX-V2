@@ -45,7 +45,8 @@ live-validated (D-010).
 
 Will state the invariants each boundary enforces, e.g.: approval output is
 disabled-by-default (EXEC-002); one authoritative sizing engine shared by
-backtest and live (EXEC-008, Q-002); research output can never directly
+backtest and live (EXEC-008; bridge located per D-023, decision Round J);
+research output can never directly
 modify a live configuration (RES-003); no-suitable-book is a first-class
 outcome of the portfolio service (FR-003, D-005). Confirmed in Rounds
 I/J/N.
@@ -119,8 +120,10 @@ Named planned Mermaid diagrams — none exist yet:
 - Where exactly does the boundary sit between backtest and portfolio
   generation, and between approval and execution? → Round N, informed by
   Rounds F–J.
-- Which component is the single authoritative sizing engine — AutoFX or
-  Jacob's cBot? → Q-002, Round J (EXEC-008).
+- Which component is the single authoritative sizing engine — AutoFX or the
+  V1 bridge's successor? → Round J (EXEC-008). Bridge located per D-023
+  (V1 `code/TradingViewBridge.cs` + `PriceBridge.cs`; Q-002 resolved);
+  per-symbol percentage weighting is not carried into V2 (EXEC-011).
 - What are the quantified data-volume and generation-throughput assumptions?
   → Rounds D and I (no figures assumed here).
 - Which platform choices are build-vs-buy, and in what order are their ADRs

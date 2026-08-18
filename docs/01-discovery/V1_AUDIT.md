@@ -1,10 +1,10 @@
 # V1 Forensic Audit (read-only)
 
 - **Owner:** Jacob Depares
-- **Status:** `PROPOSED` (skeleton — audit not started; access partially verified)
-- **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
-- **Dependencies:** V1_REUSE_REGISTER.md, `.claude/rules/security-and-secrets.md`
+- **Status:** `PROPOSED` (skeleton — audit not started; repo access verified; DB provisioning pending; start gated on Jacob's explicit go, NEXT_ACTIONS § B)
+- **Version:** 0.1.1
+- **Last reviewed:** 2026-08-18
+- **Dependencies:** V1_REUSE_REGISTER.md, `.claude/rules/security-and-secrets.md`, DECISION_LOG.md (D-022, D-023)
 - **Approval evidence:** None yet
 
 V1 is inspected for **lessons, not authority**. This document keeps three
@@ -17,8 +17,8 @@ only what each test actually demonstrates is recorded.
 | Asset | State |
 |-------|-------|
 | Repository `JDep8/AutoFX` | Private; read-only access verified via authenticated `gh` CLI (account JDep8). Python; branch `main`; updated 2026-07-30; 247 tree entries. No clone into V2 workspace; no code copying. |
-| PostgreSQL database | **No access yet** — blocked on Q-001 (dedicated read-only account via secure path). Schema/catalogue inspection first; bounded queries, statement timeouts, sampling; never write/lock. |
-| cBot (sizing) | **Location unknown** — blocked on Q-002. |
+| PostgreSQL database | Access **model approved 2026-08-18** (Q-001 → D-022): dedicated read-only role `autofx_v1_readonly`; autonomous SELECT-only inspection once configured; V1 permanently read-only. **Provisioning by Jacob still pending** — no connection exists yet. Schema/catalogue inspection first; bounded queries, statement timeouts, sampling; never write/lock. |
+| cBot / execution bridge | **Located 2026-08-18** (Q-002 → D-023): V1 `code/TradingViewBridge.cs` (primary audit candidate) + related `code/PriceBridge.cs`. Audit must verify and document its per-symbol percentage weighting (not carried into V2, EXEC-011) and its sizing behaviour for the Round J engine decision. Not yet inspected. |
 | Broker statements / logs / backtest reports | To be requested in Round B. |
 
 ## Security flags (recorded, contents never read)
@@ -39,7 +39,7 @@ audit inputs — V1 documented several of its own failure modes.
 
 ## Audit plan (what V1 can teach V2)
 
-1. Canonical definitions (drawdown, sizing, equity) as actually implemented — feeds D-001/Round E
+1. Canonical definitions (drawdown, sizing, equity) as actually implemented — feeds D-001/Round E; includes the located execution bridge (`code/TradingViewBridge.cs` + `PriceBridge.cs`, D-023) and its per-symbol weighting behaviour (EXEC-011)
 2. Data sources and gaps; point-in-time correctness and leakage — feeds D-002/Q-010
 3. Backtest/live execution divergence — feeds D-006/Round F
 4. Strategy and experiment provenance; truncation behaviour — feeds D-003

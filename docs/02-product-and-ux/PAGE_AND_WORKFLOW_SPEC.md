@@ -114,4 +114,5 @@ from Rounds E/F; placement in Round O.
   (Round K).
 - Reconciliation-discrepancy presentation (broker truth vs internal state) →
   EXEC-009 (Round J).
-- Degradation-tolerance display on live books → Q-009 (Round F).
+- Degradation-tolerance display on live books → D-021 form (bands +
+  distribution tests); tolerance values → Round F.

@@ -224,3 +224,97 @@
 - Turn ends stopped for Jacob per his instruction: Round A summary
   `PROPOSED` awaiting his approval; V1 audit and implementation NOT
   started; no-build gate ACTIVE.
+
+## 2026-08-18 — Session 5 (continued): Round A closure-assurance pass (owner-directed)
+
+- Owner direction: individual batch-2 decisions stay `OWNER_APPROVED`, but
+  the Round A summary is NOT approved and Round A does NOT close until a
+  closure-assurance pass completes. Governor routing: CRITICAL; main Fable
+  session (Fable 5 + Ultracode re-verified); one bounded independent
+  challenge via autofx-opus-reviewer (owner-permitted); consistency checks;
+  **no dynamic workflow**. Stayed on `planning/discovery-handoff`; no main
+  merge; no V1 audit, Round B, wireframe, database, or implementation work.
+- **A — Round A definition-of-done:** 13-topic completion assessment
+  written to DISCOVERY_STATUS.md. Verdict: Round A may NOT close — 2 topics
+  INCOMPLETE (success hierarchy → Q-015; KPI framework approval → Q-008
+  remainder); 4 COMPLETE FOR ROUND A with named later rounds; 7 COMPLETE.
+- **B — KPI framework:** 20-KPI form-level framework (`PROPOSED`) written
+  to PROJECT_CHARTER.md — 5 categories (success outcomes; hard safety/
+  evidence guardrails; leading indicators; paper/live validation outcomes;
+  delivery/operational health); every KPI carries plain meaning, technical
+  definition, rationale, outcome/guardrail type, data, stage/cadence,
+  threshold-owner round, and wrong-optimisation risk. No numeric threshold
+  invented; only KPI-10 carries the owner-set D-019 numbers. Charter also
+  gained the `PROPOSED` success hierarchy (Q-015) and all Round A outcomes.
+- **C — Reconciliation:** repository-wide sweep; stale present-tense
+  statements corrected in ~20 documents (PROJECT_CHARTER, SCOPE_AND_
+  PRIORITIES non-goals, V1_AUDIT access table, BACKTEST_FIDELITY_SPEC §7,
+  PRODUCT_REQUIREMENTS, DATA_LICENSING, WORK_BREAKDOWN, OPERATING_COST_
+  MODEL, DELIVERY_ROADMAP, IMPLEMENTATION_READINESS_REVIEW, TEST_AND_
+  EVIDENCE_STRATEGY, ACCOUNT_AND_SIZING_SPEC, LOGICAL_ARCHITECTURE,
+  ADR_INDEX, SECURITY_AND_THREAT_MODEL, PAGE_AND_WORKFLOW_SPEC, research-
+  centre budget pointers, DOCUMENT_INDEX descriptions, stale B-5 → § B
+  references). D-017's stale pointer got a dated bracketed note — history
+  preserved, nothing rewritten in INTERVIEW_RECORD/SESSION_LOG verbatim
+  content.
+- **D — Repository visibility:** VERIFIED via authenticated `gh`
+  (metadata-only): `JDep8/AutoFX-V2` is now **PUBLIC** (`isPrivate:
+  false`) — changed by Jacob after the private creation; the earlier
+  private evidence was accurate at its recorded time. Security/IP
+  implications recorded in TOOLING_REGISTER.md § Repository visibility;
+  owner decision raised as **Q-014** (temporary vs permanent). Visibility
+  NOT changed by Claude.
+- **E — Rounds B–O assurance matrix** added to DISCOVERY_STATUS.md: per
+  round — entry evidence, OWNER_DECISION / CLAUDE_RESEARCH_OR_EVIDENCE /
+  TECHNICAL_AUTONOMY / EXTERNAL_SPECIALIST items, artefacts, blockers, exit
+  criteria, enabled round. External-specialist flags: data-licensing legal
+  (D), optional quant methodology (G), provider-terms legal (L, Q-003),
+  mandatory Australian fin-serv/fin-prom review (M, D-018 gate), optional
+  security review (N).
+- **F — Full-scope coverage check** (DISCOVERY_STATUS.md): complete mandate
+  mapped to Rounds A–O + Exit Review. Findings: Gate 8 review ownership
+  assigned to Round K (was split K/L/N); paper-campaign design made
+  explicit in Round F exit criteria; visibility policy handled as Q-014
+  outside rounds; calendars/news C-D-vs-F split confirmed deliberate;
+  nothing prematurely decided; no unassigned mandate area.
+- New questions: **Q-014** (visibility), **Q-015** (success hierarchy).
+  MODEL_ROUTING_POLICY gained the closure-assurance routing record row.
+  Handoffs refreshed. Round A summary, KPI framework, completion
+  assessment, matrix, and coverage check all remain `PROPOSED` — nothing
+  marked complete or owner-approved this pass.
+- Independent challenge (autofx-opus-reviewer, read-only, bounded) run over
+  the assessment/KPI/matrix/reconciliation. **Results: 38 numbered
+  findings (~24 MATERIAL), every one dispositioned by the main Fable
+  session before commit; none silently dropped.** Corrections applied:
+  Topic 3 reclassified INCOMPLETE (shared Q-015 dependency); assessment
+  rows 14–16 added (DB access path / bridge location / git authorisation)
+  + labelling rule + vision note; verdict restated (3 INCOMPLETE rows,
+  closure condition explicit); KPI category semantics defined
+  (leading/health) with KPI-04 as the single Gate 6 guardrail and
+  KPI-15/16 as its evidence views; the "no numeric threshold" claim
+  corrected to "no acceptance threshold" with the zero-/100%-tolerance
+  restatements itemised (registration-before-execution left to Round G);
+  KPI-01 threshold ownership corrected (Gate 6 → F; Gate 7 → J/N); KPI →
+  requirement-ID mapping table added (KPI-nn declared measurement
+  definitions, not requirement IDs — namespace decision folded into Q-008
+  approval; TRACEABILITY_MATRIX row added); matrix hardened — Round J exit
+  now requires OWNER_APPROVED safety specs; Gate 7 criteria and the
+  "P1 LIVE_VALIDATED" definition assigned (J/N); paper-campaign
+  duration/samples moved to Round F OWNER_DECISION; Round E gains the full
+  risk-limit/override/breaker-authority decisions; Round J gains
+  orphaned-position, fan-out/partial-failure, order-type/TIF/retry
+  decisions; Round K gains risk-change response actions; Round N gains
+  incident severity, Gate 7 drills, RPO/RTO; TECHNICAL_AUTONOMY defined as
+  drafting-only; Exit Review entry completed; 08-content folder
+  reconciled (stale "blocked on Q-006" → D-018 review gate BUS-008 +
+  Round M target markets, ~19 locations); DOCUMENT_INDEX "private remote"
+  corrected; D-024 gained a CONFLICT pointer note (PRIVATE clause vs
+  verified PUBLIC state → Q-014); Round A summary aligned to the
+  three-part closure condition and the KPI-framework fact; success
+  hierarchy ordering relabelled INFERRED (Q-015 ratifies an inference);
+  visibility attribution relabelled (state VERIFIED; actor USER-STATED
+  per Jacob's instruction — the reviewer, lacking chat context, had
+  suggested INFERRED). New: **Q-016** (G/H artefact-ownership CONFLICT,
+  recorded per the conflict rule, `PROPOSED` resolution not applied).
+  Remaining escalations that only Jacob can resolve are exactly the four
+  closure questions + Q-016.

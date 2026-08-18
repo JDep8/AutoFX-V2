@@ -101,7 +101,8 @@ Round M question.
 - No credentials, tokens, or account identifiers are ever exposed or committed
   (SEC-001).
 - Compliance sign-off per jurisdiction precedes any first publish
-  (CONTENT-003, blocked on Q-006).
+  (CONTENT-003; gated on the D-018 mandatory review, BUS-008, plus Round M
+  target-market selection).
 
 ## Open questions
 

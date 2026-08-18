@@ -1,9 +1,9 @@
 # Backtest Fidelity Specification
 - **Owner:** Jacob Depares
-- **Status:** `PROPOSED` (skeleton — no content owner-approved)
-- **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
-- **Dependencies:** [REQUIREMENTS_CATALOGUE.md](../01-discovery/REQUIREMENTS_CATALOGUE.md) (VAL-001..VAL-005), [QUESTION_REGISTER.md](../00-governance/QUESTION_REGISTER.md) (Q-009), [DECISION_LOG.md](../00-governance/DECISION_LOG.md) (D-006, D-007), [LEAKAGE_AND_HOLDOUT_POLICY.md](./LEAKAGE_AND_HOLDOUT_POLICY.md)
+- **Status:** `PROPOSED` (skeleton — degradation-tolerance *form* owner-approved via D-021; all other content not owner-approved)
+- **Version:** 0.1.1
+- **Last reviewed:** 2026-08-18
+- **Dependencies:** [REQUIREMENTS_CATALOGUE.md](../01-discovery/REQUIREMENTS_CATALOGUE.md) (VAL-001..VAL-007), [DECISION_LOG.md](../00-governance/DECISION_LOG.md) (D-006, D-007, D-021), [LEAKAGE_AND_HOLDOUT_POLICY.md](./LEAKAGE_AND_HOLDOUT_POLICY.md)
 - **Approval evidence:** None yet
 
 ## Purpose
@@ -71,11 +71,21 @@ metamorphic tests, cross-engine comparison, record/replay of live sessions,
 and broker-statement reconciliation (EXEC-009). Suite contents defined in
 Round F; nothing here is described as `TESTED` until it actually is.
 
-### 7. Live-vs-backtest degradation tolerance (Q-009)
+### 7. Live-vs-backtest degradation tolerance (Q-009 → D-021)
 The measurable definition of "accurate enough": what degradation between
 backtest and shadow/paper/live is acceptable before a book fails Gate 6.
-Jacob defines the tolerance — Round A continuation refined in Round F. No
-number is proposed here.
+**Form decided (D-021, `OWNER_APPROVED` 2026-08-18):** tolerance bands as
+the headline gate across a fifteen-metric set (return, drawdown,
+risk-adjusted return, win rate where meaningful, trade frequency, average
+win/loss, holding time, realised spread, commission, swap/financing,
+slippage, cost per trade, missed/rejected trades, execution timing, fill
+quality), plus distribution/calibration tests detecting execution
+degradation, regime change, feature drift, strategy decay, cost-model
+drift, frequency shifts, tail anomalies, and cross-strategy/symbol
+relationship breakdown. Accuracy is never declared from headline return,
+correlation, or a small live sample. Tolerance values, sample sizes,
+confidence levels, warning/failure thresholds, and remediation rules are
+set by Jacob in Round F. No number is proposed here.
 
 ## Known inputs
 
@@ -94,7 +104,8 @@ number is proposed here.
 
 | Question | Resolved by |
 |----------|-------------|
-| Acceptable live-vs-backtest degradation definition and tolerance | Q-009, Round F |
+| Live-vs-backtest degradation tolerance **values** (form approved via D-021: bands + distribution tests) | Round F |
+| Paper/shadow campaign design — duration and minimum samples before any live approval (owner decision per the execution-and-risk fidelity rule) | Round F, decided by Jacob |
 | Conservative intrabar-ordering policy wording | Round F |
 | Per-class cost/session/gap model parameters | Rounds C/D → Round F |
 | Golden-scenario list and cross-engine comparison design | Round F |

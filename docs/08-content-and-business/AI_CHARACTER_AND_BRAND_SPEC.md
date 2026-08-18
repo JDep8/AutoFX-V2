@@ -69,7 +69,7 @@ are stored and versioned. Depends on the provider evaluation (Round M).
 Who owns the generated character and outputs; confirmation that no real
 person's likeness or voice is used without documented consent; provider
 licence terms for commercial use. Evidence-gathering is Round M research;
-legal confirmation is tied to Q-006.
+legal confirmation is tied to the D-018 review (BUS-008).
 
 ### 7. Disclosure
 
@@ -113,9 +113,9 @@ status. Empty until the Round M evaluation completes and Jacob approves.
   evidence required; no vendor pre-selected).
 - Character concept, count, and identity — Round M.
 - Voice sourcing and any voice-consent requirements — Round M (legal aspects
-  → Q-006).
+  → the D-018 review, BUS-008).
 - Ownership position on AI-generated character IP per provider terms —
-  Round M / Q-006.
+  Round M (legal confirmation via the D-018 review, BUS-008).
 - Disclosure wording and placement per channel — Round M, with
   CONTENT_COMPLIANCE_AND_APPROVAL.md.
 - Brand asset inventory and naming — Round M, with BUSINESS_PLAN.md brand

@@ -2,8 +2,8 @@
 
 - **Owner:** Jacob Depares
 - **Status:** `PROPOSED` (skeleton — no content owner-approved)
-- **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
+- **Version:** 0.1.1
+- **Last reviewed:** 2026-08-18
 - **Dependencies:** [REQUIREMENTS_CATALOGUE.md](../01-discovery/REQUIREMENTS_CATALOGUE.md), [DECISION_LOG.md](../00-governance/DECISION_LOG.md), [GLOSSARY.md](../00-governance/GLOSSARY.md), [USER_ROLES_AND_JOURNEYS.md](../01-discovery/USER_ROLES_AND_JOURNEYS.md), [INFORMATION_ARCHITECTURE.md](INFORMATION_ARCHITECTURE.md)
 - **Approval evidence:** None yet
 
@@ -33,8 +33,9 @@ turning requirements into an information architecture and page specifications.
 
 ### 1. Product vision and success measures
 Two or three sentences restating the commercial goals by reference to BUS-001
-to BUS-004, plus the measurable KPIs and non-goals once defined. Resolved by
-Round A continuation (Q-008) and confirmed in Round O.
+to BUS-004, plus the measurable KPIs and non-goals. Non-goals are decided
+(D-020, twelve items → BUS-010); the KPI framework is `PROPOSED` in
+PROJECT_CHARTER.md awaiting Jacob's approval; confirmed in Round O.
 
 ### 2. User and operating context
 The single-user context (BUS-005, D-008) and what it implies for roles,
@@ -93,10 +94,10 @@ Exit Review.
 
 ## Open questions
 
-- Measurable business KPIs and explicit non-goals → Q-008 (Round A
-  continuation).
-- Backtest-vs-live degradation tolerance the owner will accept → Q-009
-  (Round A continuation, refined Round F).
+- KPI framework approval (non-goals decided via D-020; framework `PROPOSED`
+  in PROJECT_CHARTER.md) → Jacob's Round A closure decision.
+- Backtest-vs-live degradation tolerance **values** (form approved via
+  D-021) → Round F.
 - Default drawdown numbers, heat cap survival, translation rule → Q-005
   (Round E).
 - Which page areas beyond the mandated minimum (if any) enter the P1 product

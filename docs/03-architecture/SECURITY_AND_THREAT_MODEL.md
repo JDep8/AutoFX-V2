@@ -94,7 +94,7 @@ internal users. Round N.
 ### 10. Discovery-phase controls (already in force)
 
 Will restate the controls active now: read-only bounded V1 database access
-(SEC-002, Q-001), no secrets in output or commits (SEC-001), and
+(SEC-002, Q-001 → D-022 access model), no secrets in output or commits (SEC-001), and
 documentation-only commits. These are policy statements, not evidence of
 testing.
 
@@ -103,7 +103,11 @@ testing.
 - SEC-001: no credentials, tokens, account identifiers, or private data
   exposed or committed — anywhere, ever (`PROPOSED`, absolute rule in
   force).
-- SEC-002: discovery database access is read-only and bounded (Q-001).
+- SEC-002: discovery database access is read-only and bounded (Q-001 →
+  D-022: V1 permanently read-only via `autofx_v1_readonly`; provisioning
+  pending). D-022 also fixes the six-role least-privilege separation and
+  credential-isolation safeguards this document will elaborate (SEC-004,
+  SEC-005).
 - SEC-003: this document must be owner-approved before implementation.
 - D-008 (`OWNER_APPROVED`): single user; no multi-tenancy; threat model
   scoped accordingly.

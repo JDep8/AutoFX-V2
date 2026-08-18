@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register (seeded)
-- **Version:** 0.2.0
+- **Version:** 0.2.1
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** REQUIREMENTS_CATALOGUE.md, DECISION_LOG.md
 - **Approval evidence:** n/a (register)
@@ -32,7 +32,8 @@ Governance artefacts (process controls, not product requirements):
 | Artefact | Design reference | Evidence reference | Status | Decision(s) |
 |----------|------------------|--------------------|--------|-------------|
 | Model routing + acceptance governance (discovery) | MODEL_ROUTING_POLICY.md; .claude/skills/autofx-model-governor/SKILL.md; .claude/agents/autofx-*.md (4) | MODEL_ROUTING_POLICY.md § Package validation record (VERIFIED vs Claude Code 2.1.234, 2026-08-18); SESSION_LOG.md Session 4 | OWNER_APPROVED 2026-08-18 (package + validation results approved by Jacob) | D-012, D-017 |
-| GitHub remote + git operating model | TOOLING_REGISTER.md § Git conventions; DECISION_LOG.md D-024 | SESSION_LOG.md Session 5 (creation + push verification); INTERVIEW_RECORD.md § Batch 2 (authorisation verbatim) | OWNER_APPROVED 2026-08-18 (explicit written authorisation by Jacob) | D-024 |
+| GitHub remote + git operating model | TOOLING_REGISTER.md § Git conventions; DECISION_LOG.md D-024 | SESSION_LOG.md Session 5 (creation + push verification); INTERVIEW_RECORD.md § Batch 2 (authorisation verbatim). Visibility now PUBLIC — recorded CONFLICT vs the D-024 PRIVATE clause, tracked Q-014 | OWNER_APPROVED 2026-08-18 (explicit written authorisation by Jacob) | D-024, Q-014 |
+| KPI framework (measurement definitions, 20 items) | PROJECT_CHARTER.md § KPI framework (incl. KPI → requirement-ID mapping table) | INTERVIEW_RECORD.md § Batch 2 (D-020 KPI mandate); independent challenge review 2026-08-18 (SESSION_LOG Session 5 continued) | PROPOSED — awaiting Jacob (Q-008 remainder; `KPI` is not an approved requirement prefix — namespace decision folded into the approval) | D-020, D-021, D-019 |
 
 Row-level (per-requirement) expansion happens as each domain round completes;
 this seed intentionally groups by prefix to avoid fabricating detail.

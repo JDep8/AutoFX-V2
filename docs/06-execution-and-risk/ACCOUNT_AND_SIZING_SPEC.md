@@ -2,9 +2,9 @@
 
 - **Owner:** Jacob Depares
 - **Status:** `PROPOSED` (skeleton — no content owner-approved)
-- **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
-- **Dependencies:** [RISK_AND_DRAWDOWN_SPEC.md](RISK_AND_DRAWDOWN_SPEC.md), [CTRADER_INTEGRATION_SPEC.md](CTRADER_INTEGRATION_SPEC.md), [DECISION_LOG.md](../00-governance/DECISION_LOG.md) (D-006), [QUESTION_REGISTER.md](../00-governance/QUESTION_REGISTER.md) (Q-002), [REQUIREMENTS_CATALOGUE.md](../01-discovery/REQUIREMENTS_CATALOGUE.md)
+- **Version:** 0.1.1
+- **Last reviewed:** 2026-08-18
+- **Dependencies:** [RISK_AND_DRAWDOWN_SPEC.md](RISK_AND_DRAWDOWN_SPEC.md), [CTRADER_INTEGRATION_SPEC.md](CTRADER_INTEGRATION_SPEC.md), [DECISION_LOG.md](../00-governance/DECISION_LOG.md) (D-006, D-023), [REQUIREMENTS_CATALOGUE.md](../01-discovery/REQUIREMENTS_CATALOGUE.md)
 - **Approval evidence:** None yet
 
 ## Purpose
@@ -18,8 +18,9 @@ stance are specified here.
 
 ## Scope and decisions this document will own
 
-- The single authoritative sizing engine decision: AutoFX or Jacob's existing
-  cTrader cBot (EXEC-008, Q-002 → Round J).
+- The single authoritative sizing engine decision: AutoFX or a successor to
+  Jacob's existing cTrader bridge (EXEC-008 → Round J; bridge located per
+  D-023: V1 `code/TradingViewBridge.cs` + `code/PriceBridge.cs`).
 - The canonical sizing formula, including compounding behaviour (RISK-003).
 - Per-account risk percentages and account-level configuration (RISK-007).
 - Account-currency handling: USD first, documented multi-currency path
@@ -44,9 +45,14 @@ activation. Validation workflow detail decided in Round J.
 
 ### 3. Single authoritative sizing engine
 The EXEC-008 decision: whether AutoFX computes sizes and sends fully sized
-orders, or Jacob's cBot sizes locally from AutoFX signals. Round J reviews the
-cBot code (blocked on Q-002) and decides. This section will also record how
-the design prevents double-sizing and divergent formulas — one implementation,
+orders, or a bridge-side engine sizes locally from AutoFX signals. Round J
+reviews the located bridge code (D-023: V1 `code/TradingViewBridge.cs` +
+`PriceBridge.cs`, examined read-only during the V1 audit) and decides. Per
+D-023/EXEC-011, the V1 bridge's per-symbol percentage weighting is verified
+and documented in the audit but **not carried into V2** — sizing derives
+solely from the approved book, the account's risk-per-trade configuration,
+and the single authoritative engine. This section will also record how the
+design prevents double-sizing and divergent formulas — one implementation,
 one owner, parity-tested backtest-to-live.
 
 ### 4. Canonical sizing formula
@@ -87,9 +93,10 @@ Round J; execution only after implementation authorisation.
 
 ## Open questions
 
-- Q-002: location/access for Jacob's cTrader cBot code — blocks the Round J
-  sizing-engine review.
-- Which engine is authoritative (AutoFX vs cBot) → Round J decision by Jacob.
+- ~~Q-002 (cBot location)~~ — RESOLVED 2026-08-18 via D-023; the Round J
+  review is now blocked only on the V1 audit itself (Jacob's explicit go).
+- Which engine is authoritative (AutoFX vs bridge successor) → Round J
+  decision by Jacob.
 - Exact canonical sizing formula and its interaction with Round E accounting
   definitions → Rounds E/J.
 - Rounding and lot-constraint policy → Round J.

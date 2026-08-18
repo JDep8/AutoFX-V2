@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register
-- **Version:** 0.2.0
+- **Version:** 0.2.1
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** REQUIREMENTS_CATALOGUE.md, QUESTION_REGISTER.md
 - **Approval evidence:** Per-decision, recorded below
@@ -231,7 +231,11 @@ History is never erased; superseded decisions are marked, not deleted.
   package created and validated against Claude Code 2.1.234; package and
   validation results **`OWNER_APPROVED` by Jacob 2026-08-18**. The D-017
   prerequisite is satisfied; Round A resumption and the V1 audit still wait
-  on Jacob's separate inputs (NEXT_ACTIONS B-3/B-5).
+  on Jacob's separate inputs (NEXT_ACTIONS B-3/B-5). *[Pointer note,
+  2026-08-18 later the same day: Round A subsequently resumed and batch 2
+  was answered; NEXT_ACTIONS has been renumbered — the V1-audit go now
+  lives in NEXT_ACTIONS § B. The original text above is preserved as the
+  historical record.]*
 - **Affects:** discovery sequencing, session discipline, subagent use,
   acceptance quality. Registers: QUESTION_REGISTER.md (Q-012);
   NEXT_ACTIONS.md § B-2.
@@ -496,3 +500,11 @@ History is never erased; superseded decisions are marked, not deleted.
   ASSUMPTION_REGISTER.md.
 - **Affects:** TOOLING_REGISTER.md § Git conventions, session continuity,
   push discipline, handoffs.
+- *[Pointer note, 2026-08-18 later the same day: the repository was created
+  PRIVATE as this decision requires and VERIFIED private at creation.
+  Later that day its visibility became **PUBLIC** (VERIFIED via
+  authenticated `gh`, metadata-only; the change was not made by Claude —
+  Jacob states he made it, USER-STATED). This is a recorded **CONFLICT**
+  between the standing PRIVATE requirement above and the current state,
+  tracked as **Q-014** for Jacob's decision; no decision has superseded the
+  PRIVATE clause. The original text above is preserved unchanged.]*

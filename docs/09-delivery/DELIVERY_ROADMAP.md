@@ -1,9 +1,9 @@
 # Delivery Roadmap
 - **Owner:** Jacob Depares
-- **Status:** `PROPOSED` (skeleton — no content owner-approved)
-- **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
-- **Dependencies:** [DECISION_LOG.md](../00-governance/DECISION_LOG.md) (D-009, D-010), [REQUIREMENTS_CATALOGUE.md](../01-discovery/REQUIREMENTS_CATALOGUE.md) (BUS-005, BUS-006, DATA-008), [QUESTION_REGISTER.md](../00-governance/QUESTION_REGISTER.md) (Q-007), [WORK_BREAKDOWN_AND_DEPENDENCIES.md](./WORK_BREAKDOWN_AND_DEPENDENCIES.md), [IMPLEMENTATION_READINESS_REVIEW.md](./IMPLEMENTATION_READINESS_REVIEW.md)
+- **Status:** `PROPOSED` (skeleton — no content owner-approved; timeline inputs `OWNER_APPROVED` via D-019)
+- **Version:** 0.1.1
+- **Last reviewed:** 2026-08-18
+- **Dependencies:** [DECISION_LOG.md](../00-governance/DECISION_LOG.md) (D-009, D-010, D-019), [REQUIREMENTS_CATALOGUE.md](../01-discovery/REQUIREMENTS_CATALOGUE.md) (BUS-005, BUS-006, BUS-009, BUS-011, DATA-008), [WORK_BREAKDOWN_AND_DEPENDENCIES.md](./WORK_BREAKDOWN_AND_DEPENDENCIES.md), [IMPLEMENTATION_READINESS_REVIEW.md](./IMPLEMENTATION_READINESS_REVIEW.md)
 - **Approval evidence:** None yet
 
 ## Purpose
@@ -43,9 +43,13 @@ close.
 
 ### 2. Discovery completion track (Rounds A–O)
 The remaining interview rounds and their target artefacts, ending in the
-Discovery Exit Review. Round A is partially complete (D-001 direction, D-008,
-D-009, D-010 approved); Rounds B–O each unblock sections across the document
-set. Sequencing between rounds is settled in Round N.
+Discovery Exit Review. Round A: both batches answered (11 decisions —
+D-001 direction, D-008…D-010, D-018…D-024); the Round A summary is
+`PROPOSED` awaiting Jacob's approval, which closes the round. Rounds B–O
+each unblock sections across the document set; a high-level assurance
+matrix for them lives in
+[DISCOVERY_STATUS.md](../01-discovery/DISCOVERY_STATUS.md). Sequencing
+between rounds is settled in Round N.
 
 ### 3. Priority 1 implementation MVP staging (D-010)
 The full P1 platform — data → research → backtest → books → approval →
@@ -70,10 +74,13 @@ the explicit trigger condition for reconsidering their implementation.
 
 ### 6. Estimates and delivery horizon (ranges only)
 All effort and duration estimates are expressed as ranges with stated
-assumptions. **No estimates exist yet**: Q-007 (budget, horizon, weekly
-availability, team capability, infrastructure constraints) blocks any
-realistic estimation and remains open. This section stays empty of numbers
-until Q-007 is answered in the Round A continuation and refined in Round N.
+assumptions. **No estimate ranges exist yet**, but the estimation inputs are
+now decided (D-019, 2026-08-18): first controlled paper-trading candidate
+targeted ≈6 months after implementation authorisation (a planning target
+that never overrides gates; 9–12 months acceptable; live trading has no
+committed date); Jacob ≈5–10 h/week; AUD 400/month operating ceiling;
+existing VPS available but not auto-approved for production. Ranges are
+built in Round N from these inputs plus Rounds B–K specifications.
 
 ### 7. Gate alignment and review cadence
 How roadmap stages align to Gates 1–8, and how Gate 8 outcomes
@@ -100,7 +107,7 @@ disappearing. Cadence for roadmap review is agreed in Round N.
 
 | Question | Resolved by |
 |----------|-------------|
-| Budget, delivery horizon, weekly availability, team capability, infrastructure constraints | Q-007, Round A continuation → Round N |
+| Budget, delivery horizon, weekly availability, team capability, infrastructure constraints | Answered (D-019, 2026-08-18); estimate ranges built in Round N |
 | Ordering and parallelism of Rounds B–O | Round N |
 | P1 stage boundaries and increment definitions | Round N (post-Exit-Review authorisation required to execute) |
 | Per-class rollout order after FX; symbol lists and brokers per class | Rounds C/D (D-009 open remainder) |

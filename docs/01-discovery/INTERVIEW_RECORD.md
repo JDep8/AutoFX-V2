@@ -35,7 +35,8 @@ discipline" → D-001 direction `OWNER_APPROVED`; numbers → Round E (Q-005).
 Options offered: P1 full, P2/P3 planning-only (recommended) / P1 staged demo-first / P1 + minimal Research Centre.
 **Answer:** "Yes — P1 full, P2/P3 planning-only" → D-010 `OWNER_APPROVED`.
 
-### Batch 2 — asked 2026-08-17, answers pending (6 questions)
+### Batch 2 — asked 2026-08-17 *(historical as-asked record; answers
+received 2026-08-18 — see § Batch 2 answers below)*
 
 **Q5 (Q-006). Jurisdictions and legal entity.** Where is Jacob tax-resident
 and trading from, under personal name or a company?
@@ -524,9 +525,14 @@ D-002…D-007 legacy conflicts assigned to later rounds.
 **Risks / evidence required:** V1 DB credential provisioning outstanding
 (D-022 remainder — limits DB-side audit depth until supplied); Q-010 holdout
 contamination UNKNOWN (V1 audit + Round B); Q-005 drawdown numbers → Round E;
-Q-003 consumer-AI automation BLOCKED; KPI candidates not yet proposed
-(charter work); VPS production suitability unverified → Round N.
+Q-003 consumer-AI automation BLOCKED; KPI framework proposed in
+PROJECT_CHARTER.md § KPI framework — approval outstanding (Q-008
+remainder); VPS production suitability unverified → Round N.
 
-**Round completion:** Round A closes when Jacob approves this summary. Next:
-Round B (V1 outcomes and migration stance) — feeds from the V1 forensic
-audit, which starts only on Jacob's explicit go (NEXT_ACTIONS B-5).
+**Round completion (per the 2026-08-18 completion assessment,
+DISCOVERY_STATUS.md):** Round A closes when its INCOMPLETE topics are
+resolved — Q-015 (success hierarchy) answered and the KPI framework
+approved or amended (Q-008 remainder) — **and** Jacob approves this
+summary. Next: Round B (V1 outcomes and migration stance) — feeds from the
+V1 forensic audit, which starts only on Jacob's explicit go
+(NEXT_ACTIONS § B).

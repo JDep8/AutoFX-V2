@@ -1,8 +1,8 @@
 # Data Licensing and Retention
 - **Owner:** Jacob Depares
 - **Status:** `PROPOSED` (skeleton — no content owner-approved)
-- **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
+- **Version:** 0.1.1
+- **Last reviewed:** 2026-08-18
 - **Dependencies:** [DATA_SOURCE_REGISTER.md](./DATA_SOURCE_REGISTER.md), [DECISION_LOG.md](../00-governance/DECISION_LOG.md) (D-008), [QUESTION_REGISTER.md](../00-governance/QUESTION_REGISTER.md) (Q-006)
 - **Approval evidence:** None yet
 
@@ -37,7 +37,8 @@ documents — never from memory or assumption.
 Whether any output of the platform (charts, published content under Priority 3)
 would constitute redistribution under each licence. D-008 confines the platform
 to Jacob's personal use, which narrows but does not eliminate this question;
-the Priority 3 content business is assessed separately (Round M, Q-006).
+the Priority 3 content business is assessed separately (Round M; D-018
+review gate, BUS-008).
 
 ### Retention obligations and rights
 Per dataset: minimum retention the project needs (backtest reproducibility per
@@ -47,7 +48,7 @@ Conflicts between the two are blocking questions for Round D.
 ### Cost register
 Recorded subscription and usage costs per provider, once quoted. No figures are
 entered until an actual quote or published price is in hand; budget context is
-Q-007. Round D.
+the D-019 ceiling (AUD 400/month; every expense pre-approved). Round D.
 
 ### Licence-change and termination handling
 What happens to stored history if a provider is dropped or changes terms;
@@ -71,6 +72,6 @@ rebuildability). Round D.
 |----------|-------------|
 | Actual licence terms (storage, retention, derived data, redistribution) per candidate provider | Round D, dated terms research |
 | Do any licences forbid retention long enough for reproducible backtests (VAL-003)? | Round D |
-| Provider costs and their fit within budget | Round D; budget context Q-007 |
-| Jurisdiction/legal entity that the licences would bind | Q-006 (Round A continuation) |
+| Provider costs and their fit within budget | Round D; budget ceiling decided (D-019: AUD 400/month, per-expense approval) |
+| Jurisdiction/legal entity that the licences would bind | Decided for now (D-018: Jacob personally, tax-resident Australia); re-examined at the D-018 pre-commercialisation gate if an entity is created |
 | Whether Priority 3 content use would be redistribution under any licence | Round M (with Round D terms evidence) |

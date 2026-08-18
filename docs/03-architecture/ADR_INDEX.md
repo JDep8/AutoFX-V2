@@ -47,7 +47,7 @@ Jacob's explicit approval before it is `OWNER_APPROVED`.
 - PostgreSQL strategy; queues/workflows; object + analytical storage → Round N
 - Observability stack → Round N
 - One deterministic execution lifecycle shared across backtest/replay/paper/live → Round F
-- Authoritative sizing engine: AutoFX vs cBot → Round J (EXEC-008, Q-002)
+- Authoritative sizing engine: AutoFX vs cBot → Round J (EXEC-008; bridge located per D-023)
 - Build-versus-buy per subsystem → Round N
 
 ## Open questions

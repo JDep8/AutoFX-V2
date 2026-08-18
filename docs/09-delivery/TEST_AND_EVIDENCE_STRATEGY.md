@@ -1,8 +1,8 @@
 # Test and Evidence Strategy
 - **Owner:** Jacob Depares
 - **Status:** `PROPOSED` (skeleton — no content owner-approved)
-- **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
+- **Version:** 0.1.1
+- **Last reviewed:** 2026-08-18
 - **Dependencies:** [BACKTEST_FIDELITY_SPEC.md](../05-research-and-validation/BACKTEST_FIDELITY_SPEC.md), [STRATEGY_ACCEPTANCE_CRITERIA.md](../05-research-and-validation/STRATEGY_ACCEPTANCE_CRITERIA.md), [BOOK_ACCEPTANCE_CRITERIA.md](../05-research-and-validation/BOOK_ACCEPTANCE_CRITERIA.md), [BROKER_RECONCILIATION.md](../06-execution-and-risk/BROKER_RECONCILIATION.md), [DECISION_LOG.md](../00-governance/DECISION_LOG.md) (D-006, D-007), [QUESTION_REGISTER.md](../00-governance/QUESTION_REGISTER.md) (Q-009)
 - **Approval evidence:** None yet
 
@@ -66,7 +66,10 @@ UX-002's book-detail contents.
 Shadow/paper degradation measurement against the Q-009 tolerance,
 kill-switch and breaker reachability demonstrations (EXEC-010),
 staged-ramp adherence evidence, continuous reconciliation, and the Gate 8
-review inputs. Defined in Rounds F/J/K.
+review inputs. Defined in Rounds F/J/K; the Gate 8 operational review
+procedure's **primary owner is Round K** (with Round L's recommend-only
+research loop and Round N's operational cadence — coverage-check
+assignment, DISCOVERY_STATUS.md, 2026-08-18).
 
 ### 6. Status vocabulary discipline
 Nothing is described as `TESTED` until the test has actually run and passed;
@@ -94,7 +97,7 @@ Profitability is never guaranteed by any evidence in this strategy.
 
 | Question | Resolved by |
 |----------|-------------|
-| Backtest-vs-live degradation tolerance (Gate 6 pass condition) | Q-009, Round A continuation → Round F |
+| Backtest-vs-live degradation tolerance **values** (Gate 6 pass condition; form approved via D-021: bands + distribution tests) | Round F |
 | Golden-scenario list, property/metamorphic suite contents | Round F |
 | Crisis episodes and success criteria feeding Gate 4 | D-004, Round H |
 | Gate 5 evidence-pack field list and format | Rounds H/I |

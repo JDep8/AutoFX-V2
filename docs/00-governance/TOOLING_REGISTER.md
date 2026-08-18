@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** `OWNER_APPROVED` (policy stated by Jacob 2026-08-18; evidence class USER-STATED)
-- **Version:** 0.2.0
+- **Version:** 0.2.1
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** DECISION_LOG.md (D-011, D-013, D-015, D-017, D-024), MODEL_ROUTING_POLICY.md
 - **Approval evidence:** Owner handoff instruction, 2026-08-18
@@ -73,13 +73,15 @@ reviewed configuration change.
 
 ## Git conventions (updated 2026-08-18 per D-024)
 
-- **Remote:** private GitHub repository `JDep8/AutoFX-V2` —
-  **https://github.com/JDep8/AutoFX-V2** — created 2026-08-18 under Jacob's
-  explicit written authorisation (D-024; verbatim in INTERVIEW_RECORD.md
-  § Batch 2). VERIFIED at creation: private visibility; default branch
-  `main`; branches `main` + `planning/discovery-handoff` pushed. Completely
-  separate from `JDep8/AutoFX` (V1) — no V1 content is ever pushed here.
-  Details: SESSION_LOG.md Session 5.
+- **Remote:** GitHub repository `JDep8/AutoFX-V2` —
+  **https://github.com/JDep8/AutoFX-V2** — created 2026-08-18 as PRIVATE
+  under Jacob's explicit written authorisation (D-024; verbatim in
+  INTERVIEW_RECORD.md § Batch 2). VERIFIED at creation: private visibility;
+  default branch `main`; branches `main` + `planning/discovery-handoff`
+  pushed. **Visibility changed to PUBLIC by Jacob later the same day**
+  (VERIFIED; see § Repository visibility, Q-014). Completely separate from
+  `JDep8/AutoFX` (V1) — no V1 content is ever pushed here. Details:
+  SESSION_LOG.md Session 5.
 - **Standing operating model (D-024):** Claude may autonomously create
   commits and push validated work to explicitly approved branches, after
   running the relevant tests, documentation validation, and secret checks.
@@ -103,6 +105,32 @@ reviewed configuration change.
   applied until D-024. The D-024 branch procedure (fast-forward `master` to
   the validated planning state via `--ff-only`, rename to `main`, push, set
   default) was executed 2026-08-18 — VERIFIED; SESSION_LOG.md Session 5.
+
+## Repository visibility (Q-014 — owner decision pending)
+
+- 2026-08-18 (creation): `JDep8/AutoFX-V2` created **PRIVATE** — VERIFIED at
+  the time (`isPrivate: true`); that evidence was accurate when recorded.
+- 2026-08-18 (later, same day): visibility VERIFIED as **PUBLIC**
+  (`isPrivate: false`, authenticated `gh`, metadata-only check — the check
+  verifies the state, not the actor). Attribution: **changed by Jacob**
+  after Claude's creation report — USER-STATED (Jacob's closure-assurance
+  instruction, 2026-08-18). Claude has not changed and will not change
+  visibility (Q-014 is Jacob's decision). Recorded as a CONFLICT against
+  D-024's PRIVATE requirement (pointer note in DECISION_LOG.md D-024).
+- **Security and IP implications while public:** current content is
+  documentation-only and secret-free (verified scans), but it already
+  exposes business plans, budget ceilings, timelines, and personal context
+  (owner name, Australian tax residency, weekly availability). As discovery
+  progresses, strategy research (Rounds G–I), architecture and threat-model
+  detail (Round N), execution safety design (Round J), and cost data would
+  accumulate publicly — giving away trading IP, revealing security posture
+  before implementation, and enabling scraping. Public git history is
+  effectively irrevocable once cloned or indexed, even if the repo later
+  returns to private. Until Q-014 is decided, sensitive-material placement
+  is a standing consideration for every new document.
+- Options for Jacob (Q-014): (a) revert to private; (b) public until a named
+  milestone/date, then revert; (c) permanently public with an explicit
+  publication policy governing what may never be committed.
 
 ## Open items
 

@@ -60,7 +60,8 @@ claim rules themselves belong to CONTENT_COMPLIANCE_AND_APPROVAL.md.
 
 The hand-off point into the compliance checklist. This section will define
 when review happens and what a pass/fail means for the pipeline; the checklist
-content is owned by CONTENT_COMPLIANCE_AND_APPROVAL.md and is blocked on Q-006.
+content is owned by CONTENT_COMPLIANCE_AND_APPROVAL.md and is gated on the
+D-018 mandatory review (BUS-008) plus Round M target-market selection.
 
 ### 5. Stage: script and storyboard
 
@@ -108,14 +109,16 @@ in CONTENT_COMPLIANCE_AND_APPROVAL.md.
 - Priority 3 is planning-only until P1 is live-validated (D-010, BUS-006).
 - The content business is assessed separately for its own compliance needs
   (D-008).
-- Compliance controls and jurisdiction review are prerequisites to any first
-  publish (CONTENT-003, blocked on Q-006).
+- Compliance controls and the mandatory D-018 jurisdiction review (BUS-008)
+  are prerequisites to any first publish (CONTENT-003). Jacob's own
+  jurisdiction/entity: Australia, personal name (D-018).
 
 ## Open questions
 
 - Target audience definition — Round M.
 - Brand position and differentiators — Round M.
-- Target countries/markets (also drives jurisdiction review) — Round M / Q-006.
+- Target countries/markets (also drives the D-018 review scope, BUS-008) —
+  Round M.
 - Tone of voice and editorial style — Round M.
 - Funnel design, offers, and monetisation model — Round M (with
   BUSINESS_PLAN.md; no revenue figures may be assumed).

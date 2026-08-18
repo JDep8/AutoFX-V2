@@ -1,8 +1,8 @@
 # Implementation Readiness Review
 - **Owner:** Jacob Depares
 - **Status:** `PROPOSED` (skeleton — no content owner-approved)
-- **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
+- **Version:** 0.1.1
+- **Last reviewed:** 2026-08-18
 - **Dependencies:** [DELIVERY_ROADMAP.md](./DELIVERY_ROADMAP.md), [TEST_AND_EVIDENCE_STRATEGY.md](./TEST_AND_EVIDENCE_STRATEGY.md), [DECISION_LOG.md](../00-governance/DECISION_LOG.md), [QUESTION_REGISTER.md](../00-governance/QUESTION_REGISTER.md), [TRACEABILITY_MATRIX.md](../00-governance/TRACEABILITY_MATRIX.md), [CURRENT_STATE.md](../handoffs/CURRENT_STATE.md)
 - **Approval evidence:** None yet
 
@@ -36,12 +36,13 @@ that resolve each item are shown.
 1. Executive summary of the whole discovery outcome — written last.
 2. Scope, priorities, non-goals, users, jurisdictions, success metrics —
    [SCOPE_AND_PRIORITIES.md](../01-discovery/SCOPE_AND_PRIORITIES.md),
-   [PROJECT_CHARTER.md](../00-governance/PROJECT_CHARTER.md) (Round A
-   continuation; Q-006, Q-008).
+   [PROJECT_CHARTER.md](../00-governance/PROJECT_CHARTER.md) (Round A:
+   non-goals and jurisdiction decided via D-020/D-018; KPI framework
+   `PROPOSED` and Round A summary approval pending with Jacob).
 3. V1 evidence audit and reuse register —
    [V1_AUDIT.md](../01-discovery/V1_AUDIT.md),
    [V1_REUSE_REGISTER.md](../01-discovery/V1_REUSE_REGISTER.md) (Round B;
-   Q-001).
+   D-022 role provisioning + Jacob's explicit audit go).
 4. Approved glossary and canonical calculations —
    [GLOSSARY.md](../00-governance/GLOSSARY.md) (Round E; Q-005).
 5. Complete requirements catalogue with traceability —
@@ -58,7 +59,7 @@ that resolve each item are shown.
    monitoring, backup and recovery plans — docs in `../04-data/` (Round D).
 9. Backtest truth model and fidelity plan —
    [BACKTEST_FIDELITY_SPEC.md](../05-research-and-validation/BACKTEST_FIDELITY_SPEC.md)
-   (Round F; Q-009).
+   (Round F; degradation-tolerance form approved via D-021, values pending).
 10. Research protocol, experiment registry, leakage/holdout policy,
     statistical plan, model governance — docs in
     `../05-research-and-validation/` (Rounds G/H; D-002, D-003, Q-010).
@@ -78,10 +79,12 @@ that resolve each item are shown.
 16. Research Centre plan and lawful provider options — docs in
     `../07-research-centre/` (Round L; Q-003, Q-004).
 17. Content studio, AI-character, publishing, compliance, business plan —
-    CONTENT-001..004 documents (Round M; Q-006).
+    CONTENT-001..004 documents (Round M; jurisdiction decided via D-018 —
+    Australia; the D-018 pre-commercialisation review gate applies).
 18. Delivery roadmap, dependency graph, phased backlog, estimate ranges,
     cost scenarios, test plan, release gates — this folder's five sibling
-    documents (Round N; Q-007).
+    documents (Round N; budget/timeline/availability inputs decided via
+    D-019).
 19. Context-continuity procedure and a resume drill actually performed with
     recorded evidence (OPS-003) — `../handoffs/` discipline.
 20. Full gap review across product, quant, data, ML, execution, security,
@@ -131,11 +134,14 @@ the review package, is not approval to build.
 
 - The no-build gate wording and its list of forbidden pre-authorisation
   actions (CLAUDE.md).
-- Q-001..Q-010 are the current open items feeding this review; several
-  (Q-003 `BLOCKED`, Q-005, Q-007, Q-009, Q-010) already touch checklist
-  items above.
-- D-001 direction and D-008/D-009/D-010 are `OWNER_APPROVED`; D-002..D-007
-  are open and safety- or evidence-critical, so all currently block READY.
+- Current open questions feeding this review (2026-08-18): Q-003 `BLOCKED`,
+  Q-004, Q-005, Q-010, Q-011, Q-013, Q-014, Q-015, Q-016 (CONFLICT) —
+  Q-005 and Q-010 are safety-material. Q-001/002/006/007/008/009 were
+  resolved in Round A (D-018…D-023); Q-001's role provisioning and Q-008's
+  KPI-framework approval remain operationally outstanding.
+- D-001 direction, D-008/D-009/D-010, and D-018…D-024 are `OWNER_APPROVED`;
+  D-002..D-007 are open and safety- or evidence-critical, so all currently
+  block READY.
 - BUS-003/BUS-004: standards are never relaxed; profitability is never
   guaranteed anywhere in the package.
 
@@ -146,4 +152,4 @@ the review package, is not approval to build.
 | Detailed classification criteria and review procedure | Round N |
 | Resume-drill design and pass criteria (checklist item 19) | Round N (OPS-003) |
 | Which open items carry the blocks-implementation flag | Populated at review time from the registers |
-| Jurisdiction inputs to items 2 and 17 | Q-006, Round A continuation / Round M |
+| Jurisdiction inputs to items 2 and 17 | Decided (D-018: Australia, personal name, pre-commercialisation review gate); Round M elaborates compliance detail |

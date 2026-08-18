@@ -1,9 +1,9 @@
 # Work Breakdown and Dependencies
 - **Owner:** Jacob Depares
 - **Status:** `PROPOSED` (skeleton — no content owner-approved)
-- **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
-- **Dependencies:** [DELIVERY_ROADMAP.md](./DELIVERY_ROADMAP.md), [DECISION_LOG.md](../00-governance/DECISION_LOG.md) (D-009, D-010), [QUESTION_REGISTER.md](../00-governance/QUESTION_REGISTER.md) (Q-001, Q-002, Q-007), [REQUIREMENTS_CATALOGUE.md](../01-discovery/REQUIREMENTS_CATALOGUE.md), [V1_AUDIT.md](../01-discovery/V1_AUDIT.md)
+- **Version:** 0.1.1
+- **Last reviewed:** 2026-08-18
+- **Dependencies:** [DELIVERY_ROADMAP.md](./DELIVERY_ROADMAP.md), [DECISION_LOG.md](../00-governance/DECISION_LOG.md) (D-009, D-010, D-019, D-022, D-023), [REQUIREMENTS_CATALOGUE.md](../01-discovery/REQUIREMENTS_CATALOGUE.md), [V1_AUDIT.md](../01-discovery/V1_AUDIT.md)
 - **Approval evidence:** None yet
 
 ## Purpose
@@ -38,9 +38,10 @@ round's close, Rounds B–O.
 
 ### 2. Discovery work packages (Rounds B–O)
 One package per remaining interview round plus the V1 audit, each listing the
-documents it unblocks. The V1 audit package depends on Q-001 (read-only V1
-database access) for its data-lessons depth. Round ordering is a Round N
-decision recorded in the roadmap.
+documents it unblocks. The V1 audit package's data-lessons depth depends on
+the D-022 read-only role being provisioned (Q-001 model approved 2026-08-18;
+provisioning pending); its start depends on Jacob's explicit go. Round
+ordering is a Round N decision recorded in the roadmap.
 
 ### 3. P1 implementation work breakdown (post-authorisation)
 The pipeline domains from D-010 — data platform, research/experiment
@@ -61,26 +62,33 @@ implementation after Round N.
 The longest dependency chain to a live-eligible P1 book (Gate 7). Expected to
 run through the data contract (Round D), canonical accounting (Round E),
 backtest fidelity (Round F), and execution safety (Round J) — confirmed, not
-assumed, once the graph is populated. No dates or durations are stated until
-Q-007 is answered.
+assumed, once the graph is populated. Q-007 is answered (D-019: ≈6-month
+paper-candidate target post-authorisation, 9–12 acceptable, live
+uncommitted; 5–10 h/week; AUD 400/month ceiling); estimate ranges are still
+built only in Round N once the dependency graph is populated.
 
 ### 6. Staffing and capability
-Who executes each package and with what skills — pending Q-007 (team
-capability, weekly availability). D-008 establishes Jacob as sole user, but
-not necessarily sole builder; this section records the actual answer.
+Who executes each package and with what skills — answered by D-019: Jacob
+(≈5–10 h/week) is product owner, decision-maker, and final approver, not the
+technical operator; Claude performs permitted technical work autonomously
+within the D-019 operating model; no permanent human development team is
+assumed; specialist Australian legal/tax/regulatory/security/data-licensing/
+quantitative advice is proposed when the relevant gate requires it.
 
 ### 7. External and evidence dependencies
-Dependencies outside the team's control: Q-001 (secure read-only V1 database
-access), Q-002 (Jacob's cBot code for the Round J sizing decision), DATA-007
-(FMP evaluation against the full data contract), provider terms research
-(Q-003, Q-004), and broker/platform constraints surfaced in Rounds C/D/J.
+Dependencies outside the team's control: D-022 role provisioning by Jacob
+(Q-001 model approved; blocks DB-side audit depth), Jacob's explicit
+V1-audit go, DATA-007 (FMP evaluation against the full data contract),
+provider terms research (Q-003, Q-004), and broker/platform constraints
+surfaced in Rounds C/D/J. (Q-002 resolved 2026-08-18 → D-023.)
 
 ## Known inputs
 
 - D-010: the P1 boundary fixes which domains need implementation packages.
 - D-009: per-class Gate 1 dependency structure for the asset rollout.
-- Q-001 and Q-002 are open and already known to block specific packages
-  (V1 audit depth; Round J sizing-engine review).
+- Q-001 and Q-002 are resolved (D-022 model / D-023 location, 2026-08-18);
+  remaining blocks are operational: role provisioning (audit depth) and
+  Jacob's explicit V1-audit go (audit start).
 - DATA-007: FMP must be evaluated, never assumed — an explicit package.
 - OPS-003: resumability discipline applies to discovery work itself, so
   handoff upkeep is standing work, not a package that ends.
@@ -91,9 +99,9 @@ access), Q-002 (Jacob's cBot code for the Round J sizing decision), DATA-007
 
 | Question | Resolved by |
 |----------|-------------|
-| Staffing, capability, and weekly availability | Q-007, Round A continuation |
+| Staffing, capability, and weekly availability | Answered (D-019); recorded in § 6 |
 | Round ordering and which rounds can run in parallel | Round N |
 | Full dependency graph contents | Populated as Rounds B–O close; reviewed Round N |
-| Critical path confirmation and estimate ranges | After Q-007 + Round N |
-| V1 audit depth (schema/data lessons) | Q-001 resolution |
-| Sizing-engine review inputs (cBot code location) | Q-002 resolution → Round J |
+| Critical path confirmation and estimate ranges | Round N (Q-007 inputs now known via D-019) |
+| V1 audit depth (schema/data lessons) | D-022 role provisioning by Jacob |
+| Sizing-engine review (bridge located per D-023) | Round J, after the V1 audit (Jacob's go pending) |

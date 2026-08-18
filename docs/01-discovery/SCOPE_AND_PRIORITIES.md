@@ -1,11 +1,11 @@
 # Scope and Priorities
 
 - **Owner:** Jacob Depares
-- **Status:** `PROPOSED` (priority structure OWNER_APPROVED via D-010; details pending rounds)
-- **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
-- **Dependencies:** PROJECT_CHARTER.md, DECISION_LOG.md (D-008/D-009/D-010)
-- **Approval evidence:** Round A 2026-08-17
+- **Status:** `PROPOSED` (priority structure OWNER_APPROVED via D-010; non-goals OWNER_APPROVED via D-020; remaining details pending rounds)
+- **Version:** 0.2.0
+- **Last reviewed:** 2026-08-18
+- **Dependencies:** PROJECT_CHARTER.md, DECISION_LOG.md (D-008/D-009/D-010/D-020)
+- **Approval evidence:** Round A 2026-08-17 (batch 1) and 2026-08-18 (batch 2, verbatim in INTERVIEW_RECORD.md)
 
 ## Priority 1 — Core AutoFX platform (implementation MVP)
 
@@ -48,8 +48,26 @@ Eight CFD classes — Forex, Indices, Metals, Crypto, Agriculture, Equities,
 Cash, Commodities — designed-for from day one; phased rollout FX-first; each
 class gated on its data contract passing Gate 1.
 
-## Non-goals
+## Non-goals (D-020, `OWNER_APPROVED` 2026-08-18 — BUS-010)
 
-Pending Q-008 (Round A batch 2). Known so far: no customers/subscribers/
-copy-trading (D-008); no implementation of any kind before the authorisation
-phrase.
+1. No high-frequency, ultra-low-latency, or latency-arbitrage trading.
+2. No routing of manually initiated discretionary trades — AutoFX executes
+   approved, versioned books only.
+3. No guarantee of profitability or fixed returns.
+4. No live trading by default.
+5. No autonomous AI decision to enable live trading.
+6. No strategy approval based solely on an attractive historical backtest.
+7. No weakening of validation, data-quality, or risk gates to meet a
+   deadline.
+8. No direct reuse of V1 code without evidence-based review.
+9. No external customer funds, paid signals, or copy trading in the initial
+   scope.
+10. No content output that overstates or influences trading-research
+    conclusions.
+11. No production deployment merely because code or a Git branch is
+    complete.
+12. No silent acceptance of missing, contaminated, or insufficient evidence.
+
+Standing exclusions from earlier decisions: no customers/subscribers/
+copy-trading (D-008); no implementation of any kind before the exact
+authorisation phrase (no-build gate).

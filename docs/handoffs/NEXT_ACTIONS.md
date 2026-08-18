@@ -1,53 +1,58 @@
 # Next Actions
 
 - **Owner:** Jacob Depares
-- **Last updated:** 2026-08-18 04:14 UTC (post D-024 execution)
+- **Last updated:** 2026-08-18 04:46 UTC (post Round A closure-assurance
+  pass)
 
 Ordered, bounded, acceptance-criterion based. Section A needs no further
 authority; Section B waits on Jacob. Nothing anywhere authorises
-implementation — the no-build gate stands (D-019/D-022 restate it).
+implementation — the no-build gate stands.
 
-Completed and removed from this list: terminal recovery audit; plugin
-installation (`39e2730`); recovery-reconciliation commit (`d2f0d3a`);
-model-governance package commit (`00ad2cc`, by Jacob — old B-1); Round A
-batch 2 answers received and recorded verbatim 2026-08-18 with D-018…D-024
-captured and all registers updated (old B-3 input received; summary approval
-remains below); **D-024 execution COMPLETE 2026-08-18** — commit `ad1d1e4`,
-private https://github.com/JDep8/AutoFX-V2 created, `main` default,
-`main` + `planning/discovery-handoff` pushed, evidence in SESSION_LOG.md
-Session 5.
+Completed and removed: terminal recovery audit; plugin install (`39e2730`);
+reconciliation commit (`d2f0d3a`); model-governance commit (`00ad2cc`);
+Round A batch 2 recording + D-018…D-024 (`ad1d1e4`); D-024 execution
+(`8bea651`; repo https://github.com/JDep8/AutoFX-V2); Round A
+closure-assurance pass 2026-08-18 (completion assessment, KPI framework
+`PROPOSED`, ~20-document reconciliation, PUBLIC visibility verified/Q-014,
+B–O assurance matrix, coverage check — this checkpoint's commit).
 
 ## A — Claude may do without further authority
 
 1. **Register upkeep** after any owner input (Decision/Question/Assumption/
    Traceability/DOCUMENT_INDEX + handoff refresh). Delegation only through
    the `autofx-model-governor` skill per MODEL_ROUTING_POLICY.md.
-2. **Propose measurable KPI candidates** (Q-008 remainder) with the
-   PROJECT_CHARTER.md update for Round A closure — candidates only; every
-   target/threshold needs Jacob's approval.
 
 ## B — Requires Jacob's decision or explicit authorisation
 
-1. **Approve (or amend) the Round A summary** — INTERVIEW_RECORD.md
-   § Round A summary (`PROPOSED`). *Done when:* Jacob approves; Round A
-   then closes and the summary becomes `OWNER_APPROVED`.
-2. **Provision `autofx_v1_readonly`** and the secure configuration path
-   outside chat/repo (D-022 remainder) — unblocks the DB-side V1 audit.
-3. **Explicit go for the V1 forensic audit, repo-side** (read-only `gh`;
-   never clone into V2; never copy code): start with V1's own review docs,
-   then the ten audit areas in V1_AUDIT.md § Audit plan; D-023 makes
-   `code/TradingViewBridge.cs` (+ `PriceBridge.cs`) a primary target,
-   including verifying/documenting the per-symbol weighting behaviour.
-   *Done when:* V1_AUDIT.md findings populated with evidence labels and
-   V1_REUSE_REGISTER.md classifications proposed (REUSE/ADAPT/REJECT/
-   UNKNOWN, each with evidence + risk).
-4. **Q-011 (D-014):** keep both rule-file sets or consolidate.
-5. **Q-013:** confirm status-vocabulary scope for document-header/progress
-   fields (proposed: lifecycle labels govern item status only).
-6. **Optional:** extend the committed `.claude/settings.json` allowlist to
-   match the D-024 git operating model (currently read-only/V1-scope;
-   D-024 operations run under per-session approvals) — separately
-   reviewable configuration change.
+1. **Answer the four Round A closure questions** (asked 2026-08-18 in
+   chat; recorded in QUESTION_REGISTER and PROJECT_CHARTER):
+   a. Q-015 — confirm/amend the success hierarchy
+      (PROJECT_CHARTER.md § Success hierarchy).
+   b. Q-008 remainder — approve/edit/reduce the 20-KPI framework
+      (PROJECT_CHARTER.md § KPI framework).
+   c. Q-014 — repository visibility: revert to private / public until a
+      named milestone / permanently public with a publication policy
+      (TOOLING_REGISTER.md § Repository visibility).
+   d. Confirm the Round A completion assessment incl. its COMPLETE-FOR-
+      ROUND-A deferrals (DISCOVERY_STATUS.md § Round A completion
+      assessment).
+   *Then Claude:* record verbatim, update registers, finalise the Round A
+   summary for approval.
+2. **Approve (or amend) the Round A summary** (INTERVIEW_RECORD.md) —
+   *Done when:* approved; Round A closes; summary becomes `OWNER_APPROVED`.
+3. **Provision `autofx_v1_readonly`** + secure configuration path outside
+   chat/repo (D-022 remainder) — unblocks DB-side V1 audit depth.
+4. **Explicit go for the V1 forensic audit, repo-side** (read-only `gh`;
+   never clone into V2; never copy code; D-023 makes
+   `code/TradingViewBridge.cs` + `PriceBridge.cs` primary targets incl. the
+   per-symbol weighting verification). *Done when:* V1_AUDIT.md findings
+   populated with evidence labels; V1_REUSE_REGISTER.md classifications
+   proposed with evidence + risk.
+5. **Q-011** (rules-file naming) and **Q-013** (status-vocabulary scope) —
+   non-blocking conventions.
+6. **Optional:** extend committed `.claude/settings.json` allowlist to the
+   D-024 git model (currently read-only/V1-scope; per-session approvals in
+   use).
 7. Later gates (unchanged): per-round domain approvals → `AUTHORISE
    WIREFRAME ONLY` (Round O) → Discovery Exit Review → the implementation
    authorisation phrase.
@@ -56,6 +61,7 @@ Session 5.
 
 `CLAUDE.md` → `.claude/rules/00-discovery-gate.md` →
 `docs/00-governance/DOCUMENT_INDEX.md` → `docs/handoffs/CURRENT_STATE.md` →
-this file → `DECISION_LOG.md` (D-018…D-024), `QUESTION_REGISTER.md`,
-`docs/01-discovery/INTERVIEW_RECORD.md` (§ Batch 2 answers + Round A
-summary).
+this file → `DECISION_LOG.md` (D-018…D-024), `QUESTION_REGISTER.md`
+(Q-013…Q-015), `docs/01-discovery/DISCOVERY_STATUS.md` (completion
+assessment + B–O matrix), `docs/00-governance/PROJECT_CHARTER.md` (KPI
+framework), `docs/01-discovery/INTERVIEW_RECORD.md`.

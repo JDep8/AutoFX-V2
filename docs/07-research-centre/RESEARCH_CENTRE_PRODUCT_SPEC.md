@@ -57,8 +57,9 @@ scheme is an open Round L decision; no ranking formula is assumed here.
 ### 5. Budgets and cost controls
 
 How research spend (model/API usage, data purchases, human time) is budgeted,
-tracked per request, and capped. Actual budget numbers depend on Q-007
-(budget/availability) and are set by Jacob in Round L.
+tracked per request, and capped. Budget context is now decided: the D-019
+operating ceiling (AUD 400/month, every expense pre-approved by Jacob);
+per-request research allocations within it are set by Jacob in Round L.
 
 ### 6. SLAs and turnaround expectations
 
@@ -121,7 +122,8 @@ BLOCKED (RES-004), no customer-facing research product (D-008).
   independence preserved? → Round L.
 - Intake fields, approval states and backlog lane rules? → Round L.
 - Prioritisation criteria and who applies them? → Round L.
-- Research budgets and cost caps? → Round L, informed by Q-007.
+- Research budgets and cost caps? → Round L, within the D-019 ceiling
+  (AUD 400/month, per-expense approval).
 - SLA classes and turnaround expectations? → Round L.
 - Success metric definitions and reporting cadence? → Round L.
 - Does any Research Centre capability depend on consumer-UI automation, and if
