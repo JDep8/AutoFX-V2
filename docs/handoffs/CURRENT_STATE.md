@@ -2,19 +2,20 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living handoff (refreshed every checkpoint)
-- **Date/time:** 2026-08-18 06:47 UTC
+- **Date/time:** 2026-08-18 11:18 UTC
 - **Source session:** second terminal session (Fable 5 + Ultracode),
-  continued — **Round A CLOSED (D-036)** and the D-037 GitHub roadmap
-  executed (52 issues, 21 labels, operating model + register; Project
-  creation pending Jacob's `project`-scope device-flow step). History:
-  SESSION_LOG.md.
+  continued — Round A CLOSED (D-036); D-037 roadmap + private Project #1
+  live; **repository-side V1 forensic audit PERFORMED (Issue #21).**
+  History: SESSION_LOG.md.
 
 ## Phase, round, gate
 
-- Phase 0: COMPLETE 2026-08-17. Phase 1 (V1 forensic assessment): NOT
-  STARTED — gated on Jacob's explicit go; DB-side depth additionally
-  needs `autofx_v1_readonly` provisioning (D-022 — blocks the DB-side
-  audit only, per Jacob's 2026-08-18 confirmation).
+- Phase 0: COMPLETE 2026-08-17. **Phase 1 (V1 forensic assessment):
+  REPO-SIDE COMPLETE 2026-08-18** (Issue #21, owner-authorised; read-only;
+  V1 untouched; no code copied). DB-side deferred — needs
+  `autofx_v1_readonly` provisioning (D-022). Findings: V1_AUDIT.md +
+  V1_REUSE_REGISTER.md; Q-010 answered (no untouched V1 holdout); no
+  validated V1 profitability evidence found.
 - **Round A: CLOSED — `OWNER_APPROVED` 2026-08-18 (D-036, evidence
   USER-STATED).** Closure candidate approved as written; deferred matters
   keep their assigned rounds. Round B NOT started.
@@ -114,8 +115,11 @@ create the ten Project views (register § Views).
 
 ## Single first safe next action
 
-Wait for Jacob's next one-at-a-time input: runbook policy approvals
-(#19), provisioning (#20), or the V1-audit go (#21). Open no new
-discovery work unprompted; Round B NOT started; delegation and critical
-acceptance route through the `autofx-model-governor`; D-037 roadmap
-reconciliation applies to every substantive task.
+Wait for Jacob's next one-at-a-time input: open Round B (V1 outcomes /
+migration stance — evidence base now ready in V1_AUDIT.md); or any of the
+ten V1-audit escalations; or runbook policy approvals (#19); or
+`autofx_v1_readonly` provisioning (#20, unblocks the DB-side V1 audit).
+Open no new discovery work unprompted; **Round B NOT started** (only its
+evidence exists); delegation and critical acceptance route through the
+`autofx-model-governor`; D-037 roadmap reconciliation applies to every
+substantive task.

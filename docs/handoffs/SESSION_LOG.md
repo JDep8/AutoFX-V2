@@ -490,6 +490,54 @@
 - Validation: secret/sensitivity scan clean; diff reviewed (docs +
   template only); gate byte-identical; Round A consistency swept;
   committed and pushed to `planning/discovery-handoff` only.
+
+## 2026-08-18 — Session 5 (continued): repository-side V1 forensic audit (Issue #21, owner-authorised)
+
+- Owner gave explicit go for the repo-side V1 audit (Issue #21). Governor:
+  CRITICAL; main Fable session did all `gh` fetching (read-only) and all
+  fidelity/safety-critical judgment + final acceptance; two governed
+  read-only agents (autofx-sonnet-analyst code catalogue;
+  autofx-opus-reviewer prior-claims + challenge). **V1 never cloned/
+  modified; no code copied into V2; no DB/broker/network access; no
+  spend; no build.** No dynamic workflow.
+- Scope: `JDep8/AutoFX` audited read-only across both refs — `main`
+  (244 commits) and `statgate-integration` (104 ahead; last active work
+  to 2026-08-15; HEAD 60 commits ahead of origin, CI never ran). ~230-file
+  tree inventoried; ~94-file curated evidence subset read (both cBots,
+  live layer, engine + portfolio_backtest modules, config/deploy surface,
+  ~40 V1 review/decision/spec docs). All ten audit areas covered.
+- **Outputs (persisted in V2, not V1):** V1_AUDIT.md v1.0 (system map;
+  ten areas; ranked backtest-to-live divergence; TradingView-bridge
+  findings incl. the %/riskMult verification for D-023/EXEC-011;
+  prior-claims-vs-evidence table; profitability-evidence assessment) and
+  V1_REUSE_REGISTER.md v1.0 (~28 component dispositions:
+  RETAIN_CONCEPT/REDESIGN/REPLACE/REMOVE/INVESTIGATE — all `PROPOSED`).
+- **Key findings (evidence, not decisions):** (1) trailed-stop look-ahead
+  sizing defect affecting 74.94% of candidates and 92–100% of the two
+  reference books — backtest and live never sized the same trade; (2) data
+  contamination (ADAUSD bars = Litecoin 40.3%; BCHUSD 98.4% Solana; SOLUSD
+  fabricated granularity); (3) **no validated, uncontaminated, cost-honest
+  OOS profitability evidence exists** — V1's own conclusion; (4) **Q-010
+  ANSWERED: holdout selection-touched** (7 wall-clock cuts/15 jobs, spent
+  ~200×/run unledgered; the "deep reserved surface" is not untouched) → no
+  credible untouched V1 holdout; (5) zero real fills; bridge live-safety
+  defects (naked-SL/tp=0/phantom-close/all-interfaces bind/token logged);
+  (6) heat bounds 0 of 8 account-risk mechanisms; canonical peak-relative
+  drawdown decided (D80) but not implemented (corroborates D-001); (7)
+  security flags: committed `.rdp`, token logged, FMP key in URL — all
+  recorded location-only, never reproduced.
+- Registers reconciled: Q-010 answered, Q-005 evidence note; D-006 +
+  D-023 evidence notes; DISCOVERY_STATUS (Phase 1 repo-side complete;
+  Round B evidence base ready — Round B NOT started); DOCUMENT_INDEX;
+  handoffs. Ten conflict/escalation items requiring Jacob's decision are
+  recorded, none closed. Issue #21 and Project #1 fields reconciled.
+- Validation: no V1 file touched (read-only API only); no secret value
+  reproduced (grep-scan of new docs clean); documentation-only diff;
+  no-build gate ACTIVE; Round A unchanged (CLOSED); Round B not marked
+  started. Committed + pushed to `planning/discovery-handoff` only.
+
+## 2026-08-18 — Session 5 (continued): Project completion (superseded log block below retained)
+
 - **Project completion (same day, after Jacob granted the `project`
   scope):** first device code expired (honestly recorded); Jacob re-ran
   `gh auth refresh -s project -h github.com` successfully — scope

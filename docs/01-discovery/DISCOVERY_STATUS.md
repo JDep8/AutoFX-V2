@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register
-- **Version:** 1.0.0
+- **Version:** 1.1.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** INTERVIEW_RECORD.md, DECISION_LOG.md
 - **Approval evidence:** n/a (register)
@@ -12,7 +12,7 @@
 | Phase | Status | Notes |
 |-------|--------|-------|
 | Phase 0 — Discovery repository scaffold | COMPLETE 2026-08-17 | 78 planning files created; completeness-verified (53 domain skeletons checked: 0 missing, 0 header violations, 0 overclaims) |
-| Phase 1 — Read-only V1 forensic assessment | NOT STARTED | Repo access verified (gh, read-only); DB access model approved (D-022) but role provisioning pending; start gated on Jacob's explicit go (NEXT_ACTIONS § B); primary bridge target identified (D-023: `code/TradingViewBridge.cs`) |
+| Phase 1 — Read-only V1 forensic assessment | **REPO-SIDE COMPLETE 2026-08-18** (Issue #21, owner-authorised); DB-side deferred (D-022 provisioning pending). Both refs audited (`main` + `statgate-integration`); all ten areas covered; V1_AUDIT.md + V1_REUSE_REGISTER.md populated; Q-010 answered (holdout selection-touched); no validated V1 profitability evidence found | V1 unchanged; no code copied; no DB/broker access |
 | Interview rounds A–O | Round A in progress | See below |
 | Discovery Exit Review | NOT STARTED | Requires all rounds complete |
 | Implementation | **GATED** | Requires `AUTHORISE AUTOFX V2 IMPLEMENTATION — PHASE <number/name>` |
@@ -121,8 +121,15 @@ per-round batches are drafted when each round opens. Round ordering itself
 is a Round N decision.
 
 ### Round B — V1 outcomes and migration stance
-- **Entry evidence/dependencies:** Jacob's explicit V1-audit go; repo-side
-  audit findings; DB-side depth needs D-022 role provisioned.
+- **Entry evidence/dependencies:** Jacob's explicit V1-audit go
+  (given 2026-08-18); repo-side audit findings **now available**
+  (V1_AUDIT.md + V1_REUSE_REGISTER.md); DB-side depth needs D-022 role
+  provisioned. Decisions Round B can now take on evidence: per-component
+  migration stance; whether any V1 data is clean enough to seed V2 or V2
+  re-acquires; acceptance of Q-010 (no untouched V1 holdout); how/whether
+  V1 performance figures may be cited (recommend: not as evidence); the ten
+  conflict/escalation items in V1_AUDIT.md. Round B itself is NOT started —
+  only its evidence base exists.
 - **OWNER_DECISION:** migration stance per component (from proposed
   REUSE/ADAPT/REJECT/UNKNOWN); D-002 direction inputs; acceptance of Q-010
   contamination evidence (or its declared absence).

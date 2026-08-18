@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register — the navigation map; read this first each session
-- **Version:** 0.4.0
+- **Version:** 0.4.1
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** every document below
 - **Approval evidence:** n/a (register)
@@ -48,8 +48,8 @@ noted. Read only what the active task needs.
 | [REQUIREMENTS_CATALOGUE.md](../01-discovery/REQUIREMENTS_CATALOGUE.md) | ~50 ID'd requirements from the owner brief + Round A |
 | [SCOPE_AND_PRIORITIES.md](../01-discovery/SCOPE_AND_PRIORITIES.md) | P1/P2/P3 boundaries; asset universe (D-009) |
 | [USER_ROLES_AND_JOURNEYS.md](../01-discovery/USER_ROLES_AND_JOURNEYS.md) | Sole-user role model + journey inventory |
-| [V1_AUDIT.md](../01-discovery/V1_AUDIT.md) | Read-only V1 forensic audit (access verified; findings pending) |
-| [V1_REUSE_REGISTER.md](../01-discovery/V1_REUSE_REGISTER.md) | Per-asset REUSE_AS_IS…UNKNOWN classifications |
+| [V1_AUDIT.md](../01-discovery/V1_AUDIT.md) | **Repo-side V1 forensic audit COMPLETE 2026-08-18 (Issue #21):** ten areas, backtest-to-live divergence ranking, TradingView-bridge findings, prior-claims table, profitability-evidence assessment (Q-010 answered) |
+| [V1_REUSE_REGISTER.md](../01-discovery/V1_REUSE_REGISTER.md) | Per-component V1 dispositions (RETAIN_CONCEPT/REDESIGN/REPLACE/REMOVE/INVESTIGATE), all `PROPOSED` for later rounds |
 
 ## 02-product-and-ux
 

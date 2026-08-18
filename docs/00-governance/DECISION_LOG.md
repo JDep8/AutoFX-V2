@@ -81,8 +81,16 @@ History is never erased; superseded decisions are marked, not deleted.
   differences; absent broker-truth reconciliation; no demonstrably reachable
   runtime breaker/kill switch. V2 must decide remediation architecture rather
   than inherit these gaps.
-- **Status:** `PROPOSED` (open) — Rounds F/J; V1 audit to document each gap
-  with evidence.
+- **Status:** `PROPOSED` (open) — Rounds F/J. *[Evidence note, 2026-08-18
+  repo-side V1 audit: every gap CONFIRMED with Direct evidence —
+  zero real fills (`store.record_execution` no callers; 158 `dry_run`
+  rows); backtest sizes off the trailed stop while live uses the initial
+  stop (never the same trade); the live evaluator processes only the
+  latest bar per poll (one frozen bar → 9 entries/9 exits); no persisted
+  position state or startup reconciliation; kill-switch changes are
+  load-time only and `set_strategy_enabled` has zero callers. See
+  V1_AUDIT.md § Execution + § Bridge. Remediation architecture stays a
+  Round F/J decision.]*
 - **Affects:** live safety, execution fidelity, reconciliation, Gates 6–7.
 
 ## D-007 — Deterministic news/calendar enforcement with replay tests (legacy conflict #7)
@@ -452,6 +460,21 @@ History is never erased; superseded decisions are marked, not deleted.
   secure access is approved.]*
 - **Affects:** SEC-002/SEC-004/SEC-005, DATA-009, V1 audit depth (Phase 1),
   Rounds D/N design, data-plugin gate (TOOLING_REGISTER.md).
+
+## D-023-note — bridge audit evidence (2026-08-18)
+
+*[Evidence note appended to D-023 after the repo-side V1 audit: the located
+bridge (`code/TradingViewBridge.cs` + `PriceBridge.cs`) was read this
+session. The "% weighting per symbol" Jacob flagged is the per-strategy
+**`riskMult`** multiplier — V1 disabled it (decision 4: anti-correlated
+−0.476 with the ranking statistic, rewarded near-inactive strategies,
+breached its own 1.5× cap to 1.978×); the shipped v2 bridge ignores it
+entirely. This CONFIRMS EXEC-011 (do not carry per-symbol percentage
+weighting into V2). The bridge also carries Direct live-safety defects
+(naked position on rejected SL with `TRADE OK` logged; `tp="0"` bypass;
+phantom close/refusal via HTTP-200-before-trade; all-interfaces bind;
+token logged). Recommended V2 name: `CTraderExecutionBridge`. Full detail:
+V1_AUDIT.md § TradingView bridge findings.]*
 
 ## D-023 — V1 execution bridge location and V2 sizing boundary (Q-002)
 

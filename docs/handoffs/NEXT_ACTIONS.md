@@ -1,8 +1,7 @@
 # Next Actions
 
 - **Owner:** Jacob Depares
-- **Last updated:** 2026-08-18 06:47 UTC (post Round A closure + D-037
-  roadmap execution)
+- **Last updated:** 2026-08-18 11:18 UTC (post repo-side V1 forensic audit)
 
 Ordered, bounded, acceptance-criterion based. Section A needs no further
 authority; Section B waits on Jacob — **presented one at a time per
@@ -44,10 +43,11 @@ leisure: create the ten saved views per the register's § Views.
    at a time when you choose; conservative reading applies until then.
 3. **Provision `autofx_v1_readonly`** + secure configuration path outside
    chat/repo (D-022; issue #20) — unblocks DB-side V1 audit depth only.
-4. **Explicit go for the repo-side V1 forensic audit** (issue #21;
-   read-only `gh`; never clone into V2; never copy code; D-023 bridge
-   files + weighting verification primary). *Done when:* V1_AUDIT.md
-   findings populated; V1_REUSE_REGISTER.md classifications proposed.
+4. **Repo-side V1 forensic audit — COMPLETE 2026-08-18** (issue #21):
+   V1_AUDIT.md + V1_REUSE_REGISTER.md populated; Q-010 answered; ten
+   escalations recorded. *Remaining:* Jacob opens **Round B** to take the
+   evidence-backed migration decisions (kept owner-gated), and — separately
+   — the DB-side V1 audit still waits on B-3 provisioning.
 5. **Optional:** extend committed `.claude/settings.json` allowlist to
    the D-024 git model (per-session approvals in use meanwhile).
 6. Later gates (unchanged): per-round domain approvals → `AUTHORISE
