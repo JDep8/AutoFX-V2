@@ -40,23 +40,23 @@ workspace, per D-011). Before doing anything else:
 5. **Round A is CLOSED — `OWNER_APPROVED` 2026-08-18 (D-036).** All
    Round A decisions (D-001 direction, D-008…D-010, D-018…D-036) stand;
    do NOT re-ask or reopen any of them absent genuine new conflict.
-   Round B is NOT started. The D-037 issue-backed roadmap (#1–#52) is
-   live on the repository — reconcile it at the end of every substantive
-   task per docs/09-delivery/GITHUB_PROJECT_OPERATING_MODEL.md; the
-   GitHub Project itself is pending Jacob's `project`-scope device flow
-   (NEXT_ACTIONS B-1).
+   Round B is NOT started. The D-037 roadmap is fully live: issues
+   #1–#52 plus PRIVATE GitHub Project #1
+   (https://github.com/users/JDep8/projects/1, fields populated) —
+   reconcile both at the end of every substantive task per
+   docs/09-delivery/GITHUB_PROJECT_OPERATING_MODEL.md.
 6. Repository visibility is **PUBLIC by owner decision D-033**
    (temporarily, for external review; return-to-private only on Jacob's
    explicit authorisation). Never change visibility. Apply the D-033
    sensitivity stop-rule before every push.
 7. Items waiting on Jacob (NEXT_ACTIONS § B, one at a time):
-   `project`-scope device flow (then create the PRIVATE Project per
-   GITHUB_PROJECT_REGISTER.md); command-runbook v0.2.0 policies (issue
-   #19; NOT approved); `autofx_v1_readonly` provisioning (#20); explicit
-   V1-audit go (#21). Do not start them unprompted. The V1 forensic
-   audit has NOT started. Standing rules D-025 (one at a time), D-026
-   (repository output + validate/commit/push), and D-037 (roadmap
-   reconciliation) apply to every substantive task.
+   command-runbook v0.2.0 policies (issue #19; NOT approved);
+   `autofx_v1_readonly` provisioning (#20); explicit V1-audit go (#21);
+   optional UI-only Project views (register § Views). Do not start them
+   unprompted. The V1 forensic audit has NOT started. Standing rules
+   D-025 (one at a time), D-026 (repository output +
+   validate/commit/push), and D-037 (roadmap reconciliation) apply to
+   every substantive task.
 8. Restate the active phase, round, gate status, last completed checkpoint,
    current objective, and blockers, then proceed only within the authorised
    scope above.

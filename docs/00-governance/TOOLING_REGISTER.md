@@ -164,11 +164,13 @@ reviewed configuration change.
   `.github/ISSUE_TEMPLATE/idea.md`. Inventory:
   [GITHUB_PROJECT_REGISTER.md](../09-delivery/GITHUB_PROJECT_REGISTER.md);
   rules: [GITHUB_PROJECT_OPERATING_MODEL.md](../09-delivery/GITHUB_PROJECT_OPERATING_MODEL.md).
-- GitHub Project "AutoFX V2 — Project Roadmap" (to be **PRIVATE**):
-  creation **pending** — the `gh` token lacks the `project` scope; the
-  authorised refresh (`gh auth refresh -s project -h github.com`)
-  requires Jacob's interactive device-flow step. No paid features, no
-  Actions, no automation.
+- GitHub Project **#1 "AutoFX V2 — Project Roadmap"** —
+  https://github.com/users/JDep8/projects/1 — created 2026-08-18 after
+  Jacob completed the `project`-scope device flow; **PRIVATE (VERIFIED)**;
+  linked to the repository; 11 custom fields; 52/52 items populated with
+  Stage/Approval/Priority/Round/Evidence. Views remain a manual UI step
+  (documented in the register). No paid features, no Actions, no
+  automation.
 - Standing D-037 rule: every substantive prompt reconciles repository ↔
   roadmap (docs → issues → labels → Project fields when accessible) and
   reports drift honestly. Cards never authorise work.

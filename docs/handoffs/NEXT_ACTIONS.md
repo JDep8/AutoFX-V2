@@ -31,15 +31,15 @@ Completed 2026-08-18 (this checkpoint): **Round A CLOSED (D-036)**;
 D-037 roadmap executed — 21 labels + issues #1–#52 + idea template +
 operating model + register.
 
+Completed 2026-08-18 (later): `project` scope granted by Jacob; GitHub
+Project #1 created PRIVATE, linked, 11 fields, 52/52 items populated
+(GITHUB_PROJECT_REGISTER.md). Remaining manual UI step, at Jacob's
+leisure: create the ten saved views per the register's § Views.
+
 ## B — Requires Jacob's decision or action (one at a time, D-025)
 
-1. **Complete the `project`-scope device flow** so the PRIVATE GitHub
-   Project can be created: run `gh auth refresh -s project -h github.com`
-   in a terminal and finish the browser step. *Then Claude:* re-check for
-   an existing "AutoFX V2 — Project Roadmap", create it PRIVATE, link the
-   repo, create the Stage/Approval/Priority/Round/Evidence + text fields,
-   add items #1–#52, set fields to mirror labels, and update the
-   register. *Done when:* register shows number/ID/URL and field values.
+1. **(Optional, UI-only)** create the ten Project views per
+   GITHUB_PROJECT_REGISTER.md § Views — `gh` cannot create views.
 2. **Command-runbook v0.2.0 policies** (D-035; issue #19) — approve one
    at a time when you choose; conservative reading applies until then.
 3. **Provision `autofx_v1_readonly`** + secure configuration path outside

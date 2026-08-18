@@ -50,10 +50,11 @@
   docs/09-delivery/GITHUB_PROJECT_REGISTER.md; rules in
   GITHUB_PROJECT_OPERATING_MODEL.md. No card is Ready/In Progress; cards
   never authorise work.
-- GitHub Project "AutoFX V2 — Project Roadmap" (**to be PRIVATE**):
-  **creation BLOCKED** — token lacks `project` scope; Jacob completes
-  `gh auth refresh -s project -h github.com` (device flow), then Claude
-  creates Project + fields + items per the register.
+- GitHub Project **#1 "AutoFX V2 — Project Roadmap"** created 2026-08-18
+  (Jacob granted the `project` scope): **PRIVATE (VERIFIED)**, linked,
+  11 fields, 52/52 items populated —
+  https://github.com/users/JDep8/projects/1. Only the ten saved views
+  remain a manual UI step (register § Views).
 - Standing D-037 rule active: every substantive prompt reconciles
   repository ↔ roadmap and reports drift.
 
@@ -69,17 +70,13 @@ validation + secret/sensitivity checks run before commit
 
 ## First incomplete acceptance criterion
 
-Jacob completes the `project`-scope device flow
-(`gh auth refresh -s project -h github.com`), then Claude creates the
-PRIVATE GitHub Project, its fields, and adds items #1–#52 per
-GITHUB_PROJECT_REGISTER.md. Separately queued one-at-a-time items:
-corrected command-runbook policies (D-035); `autofx_v1_readonly`
-provisioning; explicit V1-audit go.
+Next one-at-a-time owner items (any order Jacob chooses): command-runbook
+v0.2.0 policy approval (issue #19); `autofx_v1_readonly` provisioning
+(issue #20); explicit repo-side V1-audit go (issue #21). Optional UI-only:
+create the ten Project views (register § Views).
 
 ## Open owner decisions / blockers
 
-- `project`-scope device flow (unblocks Project creation — issue #none;
-  register row PENDING).
 - Command-runbook v0.2.0 policy approval — one at a time per D-025
   (issue #19; NOT approved; conservative reading applies meanwhile).
 - `autofx_v1_readonly` provisioning (issue #20; blocks DB-side audit
@@ -117,10 +114,8 @@ provisioning; explicit V1-audit go.
 
 ## Single first safe next action
 
-Wait for Jacob's next one-at-a-time input — most immediately the
-`project`-scope device flow (then create the PRIVATE Project per the
-register), or any of: runbook policy approvals (#19), provisioning
-(#20), V1-audit go (#21). Open no new discovery work unprompted; Round B
-NOT started; delegation and critical acceptance route through the
-`autofx-model-governor`; D-037 roadmap reconciliation applies to every
-substantive task.
+Wait for Jacob's next one-at-a-time input: runbook policy approvals
+(#19), provisioning (#20), or the V1-audit go (#21). Open no new
+discovery work unprompted; Round B NOT started; delegation and critical
+acceptance route through the `autofx-model-governor`; D-037 roadmap
+reconciliation applies to every substantive task.

@@ -490,3 +490,21 @@
 - Validation: secret/sensitivity scan clean; diff reviewed (docs +
   template only); gate byte-identical; Round A consistency swept;
   committed and pushed to `planning/discovery-handoff` only.
+- **Project completion (same day, after Jacob granted the `project`
+  scope):** first device code expired (honestly recorded); Jacob re-ran
+  `gh auth refresh -s project -h github.com` successfully — scope
+  VERIFIED present. Created GitHub Project **#1 "AutoFX V2 — Project
+  Roadmap"** (`PVT_kwHOBEQovs4Bgrk6`,
+  https://github.com/users/JDep8/projects/1) — **PRIVATE (VERIFIED
+  `public:false` at creation and after population)**; description +
+  README set per D-037; linked to JDep8/AutoFX-V2; duplicate check run
+  first (no projects existed). Created all 11 custom fields (Stage,
+  Approval, Priority, Round / Phase, Evidence + six text fields). Added
+  **52/52 items** and set Stage/Approval/Priority/Round/Evidence on
+  every item (0 add failures, 0 edit failures); Latest Verified Commit
+  text field set to the closure-checkpoint commit after push. Views
+  cannot be created via gh 2.96.0 — manual UI steps documented in the
+  register (no fabricated success). No paid features, Actions,
+  workflows, loops, or schedules. Register, TOOLING_REGISTER, and
+  handoffs updated; committed and pushed to `planning/discovery-handoff`
+  only.

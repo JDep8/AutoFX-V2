@@ -13,12 +13,17 @@
 | Field | Value |
 |---|---|
 | Title | AutoFX V2 — Project Roadmap |
-| Number / ID / URL | **PENDING** — creation blocked: the `gh` token lacks the `project` scope, and granting it requires Jacob's interactive device-flow step. Exact instruction: run `gh auth refresh -s project -h github.com` in a terminal and complete the browser device flow; then instruct Claude to create the Project. No duplicate exists (`gh project list` inaccessible until then; creation will re-check first) |
-| Visibility | To be created **PRIVATE** (D-037 — the D-033 public ruling covers the repository only) |
-| Linked repository | JDep8/AutoFX-V2 |
+| Number | 1 |
+| ID | `PVT_kwHOBEQovs4Bgrk6` |
+| URL | https://github.com/users/JDep8/projects/1 |
+| Visibility | **PRIVATE** — VERIFIED at creation and after population (`public: false`), 2026-08-18. Jacob completed the `project`-scope device flow the same day |
+| Linked repository | JDep8/AutoFX-V2 (linked) |
+| Description / README | Set per D-037 (repo docs = source of truth; one-at-a-time decisions; "noted" ≠ "approved"; IDEA — NOT APPROVED intake; cards ≠ authorisation; no-build gate active; reconciliation duty) |
+| Items | 52/52 issues added 2026-08-18; Stage, Approval, Priority, Round / Phase, Evidence set on every item mirroring the table below (Evidence: Owner Approved for #1/#3, Proposed for #19, Not Started elsewhere; Round / Phase = Implementation for #22–#51, Operations for #19/#52) |
+| Fields | All 11 created 2026-08-18 exactly as specified below (5 single-select + 6 text) |
 | Paid features / Actions / automation | None; prohibited |
 
-### Fields to create (once scope granted)
+### Fields (created 2026-08-18)
 
 Single-select **Stage** (Idea — Not Approved · Backlog · Ready · In
 Progress · Owner Decision · Blocked · Review / Validation · Done ·
@@ -30,9 +35,11 @@ Phase 1 / V1 Audit · Rounds A–O · Discovery Exit Review · Implementation ·
 Operations); single-select **Evidence** (Not Started · Evidence Pending ·
 Proposed · Verified · Owner Approved · Validated); text fields
 **Workstream · Gate · Requirement IDs · Dependencies · Latest Verified
-Commit · Target Range**. Then add issues #1–#52 as items and set fields to
-mirror the labels below. No dates, thresholds, or costs are invented to
-fill fields.
+Commit · Target Range**. Issues #1–#52 added as items with select fields
+set to mirror the labels below; **Latest Verified Commit** is maintained
+by the D-037 reconciliation rule. No dates, thresholds, or costs are
+invented to fill fields; Workstream/Gate/Dependencies/Requirement-IDs
+text fields stay empty where the issue body already carries the detail.
 
 ### Views (manual UI steps — `gh` 2.96.0 cannot create Project views)
 
