@@ -441,3 +441,14 @@
   Simulation text carries explicit no-profitability-guarantee and
   demo≠live language. Committed and pushed to
   `planning/discovery-handoff` only.
+- **Post-commit correction (recorded honestly):** commit `88ab2dd`
+  accidentally included `page_cmds.txt` — the raw copy of the official
+  Anthropic commands documentation page fetched read-only for the
+  runbook correction (a shell temp-dir fallback wrote it into the repo
+  root, and `git add -A` swept it in). Content: public Anthropic
+  documentation only; no secrets, credentials, or project data. Removed
+  in the immediately following commit; it remains in public history per
+  the no-history-rewrite rule (D-024) — assessed as harmless (public
+  third-party page). Process fix adopted: scratch downloads go to the
+  session scratchpad only, and `git status --short` (untracked included)
+  is checked immediately before every `git add -A`.
