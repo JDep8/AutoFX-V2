@@ -15,5 +15,10 @@
       "Read(**/.pgpass)",
       "Read(**/pgpass.conf)"
     ]
+  },
+  "enabledPlugins": {
+    "product-management@knowledge-work-plugins": true,
+    "claude-md-management@claude-plugins-official": true,
+    "session-report@claude-plugins-official": true
   }
 }
