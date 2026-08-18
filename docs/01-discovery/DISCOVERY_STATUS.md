@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register
-- **Version:** 1.1.0
+- **Version:** 1.1.1
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** INTERVIEW_RECORD.md, DECISION_LOG.md
 - **Approval evidence:** n/a (register)
@@ -12,7 +12,7 @@
 | Phase | Status | Notes |
 |-------|--------|-------|
 | Phase 0 — Discovery repository scaffold | COMPLETE 2026-08-17 | 78 planning files created; completeness-verified (53 domain skeletons checked: 0 missing, 0 header violations, 0 overclaims) |
-| Phase 1 — Read-only V1 forensic assessment | **REPO-SIDE COMPLETE 2026-08-18** (Issue #21, owner-authorised); DB-side deferred (D-022 provisioning pending). Both refs audited (`main` + `statgate-integration`); all ten areas covered; V1_AUDIT.md + V1_REUSE_REGISTER.md populated; Q-010 answered (holdout selection-touched); no validated V1 profitability evidence found | V1 unchanged; no code copied; no DB/broker access |
+| Phase 1 — Read-only V1 forensic assessment | **REPO-SIDE COMPLETE 2026-08-18** (Issue #21). **DB-SIDE ATTEMPTED 2026-08-18 (Issue #20) → BLOCKED:** the D-022 read-only access path does not exist here (no `autofx_v1_readonly` connection configured, no `psql`/driver; the broad `AUTOFX_DB_URL` is not the dedicated identity and was not used); provisioning needs a privileged bootstrap credential D-022 keeps separate — Jacob's action. No connection made, no query run, no credential exposed. Both refs audited repo-side; V1_AUDIT.md + V1_REUSE_REGISTER.md populated; Q-010 answered (repo-side); no validated V1 profitability evidence found | V1 (repo + DB) unchanged; no code/data copied; no DB/broker access |
 | Interview rounds A–O | Round A in progress | See below |
 | Discovery Exit Review | NOT STARTED | Requires all rounds complete |
 | Implementation | **GATED** | Requires `AUTHORISE AUTOFX V2 IMPLEMENTATION — PHASE <number/name>` |

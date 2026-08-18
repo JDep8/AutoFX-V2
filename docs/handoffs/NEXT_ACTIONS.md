@@ -1,7 +1,7 @@
 # Next Actions
 
 - **Owner:** Jacob Depares
-- **Last updated:** 2026-08-18 11:18 UTC (post repo-side V1 forensic audit)
+- **Last updated:** 2026-08-18 11:40 UTC (post DB-side V1 audit attempt — BLOCKED)
 
 Ordered, bounded, acceptance-criterion based. Section A needs no further
 authority; Section B waits on Jacob — **presented one at a time per
@@ -41,8 +41,15 @@ leisure: create the ten saved views per the register's § Views.
    GITHUB_PROJECT_REGISTER.md § Views — `gh` cannot create views.
 2. **Command-runbook v0.2.0 policies** (D-035; issue #19) — approve one
    at a time when you choose; conservative reading applies until then.
-3. **Provision `autofx_v1_readonly`** + secure configuration path outside
-   chat/repo (D-022; issue #20) — unblocks DB-side V1 audit depth only.
+3. **Provision `autofx_v1_readonly`** + secure connection + a `psql`/
+   `psycopg` client (D-022; issue #20). **VERIFIED unavailable 2026-08-18**
+   when the DB-side audit was authorised and attempted — the access path
+   does not exist and provisioning needs a privileged bootstrap credential
+   (Jacob's action; the broad `AUTOFX_DB_URL` was not used). Minimal
+   instruction: V1_AUDIT.md § Database-side audit. *Then Claude:* runs the
+   read-only DB-side forensic audit per Issue #20 and reconciles it with
+   the repo-side findings. **Owner sequencing keeps Round B blocked until
+   this completes.**
 4. **Repo-side V1 forensic audit — COMPLETE 2026-08-18** (issue #21):
    V1_AUDIT.md + V1_REUSE_REGISTER.md populated; Q-010 answered; ten
    escalations recorded. *Remaining:* Jacob opens **Round B** to take the

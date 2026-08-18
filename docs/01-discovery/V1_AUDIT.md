@@ -5,7 +5,7 @@
   audit **PERFORMED** 2026-08-18 (repository-side, read-only); findings are
   evidence records, not owner decisions. Every V2 disposition below is a
   Claude recommendation `PROPOSED` for a later round — none is approved.
-- **Version:** 1.0.0
+- **Version:** 1.1.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** V1_REUSE_REGISTER.md, `.claude/rules/security-and-secrets.md`,
   DECISION_LOG.md (D-022, D-023, D-036), QUESTION_REGISTER.md (Q-010, Q-005)
@@ -49,7 +49,7 @@ V2; no code was copied; no database, broker, or network was touched.
 | Asset | State |
 |-------|-------|
 | Repository `JDep8/AutoFX` | Private; read-only VERIFIED via `gh`. Python/C#/JS/Batch; default branch `main`; second branch `statgate-integration`; no tags; pushed 2026-08-15. |
-| PostgreSQL database | **Not accessed** — DB-side audit deferred (D-022 provisioning of `autofx_v1_readonly` outstanding). All DB-state claims below are `Insufficient` by construction and taken from V1's own documents. |
+| PostgreSQL database | **Not accessed — access path does not exist (Issue #20 BLOCKED 2026-08-18; see § Database-side audit below).** DB-side audit could not run. All DB-state claims in this document remain `Insufficient` by construction and are taken from V1's own documents. |
 | cBot / execution bridge | **Located and read** (D-023): `code/TradingViewBridge.cs` (order submission) + `code/PriceBridge.cs` (bar serving). |
 | Broker statements / live fills | None exist to request — V1 records **zero real fills** (all 158 `trade_history` rows are `dry_run`). |
 
@@ -413,9 +413,75 @@ evidence strength and V2-implication code, are in
 [V1_REUSE_REGISTER.md](V1_REUSE_REGISTER.md). Disposition counts and the
 Round B input list are in the execution report and the handoffs.
 
+## Database-side audit (Issue #20) — ATTEMPTED 2026-08-18, BLOCKED
+
+Owner authorisation for the database-side audit was received (Issue #20).
+The audit **could not be performed**: the approved read-only V1 database
+access path required by D-022 does not exist in this environment. This is
+recorded honestly and fails closed — no DB audit was fabricated, and no
+broader/available credential was used.
+
+**Read-only access verification (existence checks only; no secret value was
+read, printed, or committed):**
+
+| Check | Result |
+|-------|--------|
+| Dedicated read-only identity `autofx_v1_readonly` connection (env: `AUTOFX_V1_READONLY_URL`, `AUTOFX_V1_DB_URL`, `AUTOFX_V1_READONLY_DSN`, `PG_V1_READONLY_URL`, `PGHOST/PGUSER/PGPASSFILE`, …) | **All unset** |
+| Secure config path (`~/.autofx_v1_readonly.conf`, `~/.config/autofx/v1_readonly.env`, `~/.pgpass`, `C:/AutoFXSecrets/…`, `~/.autofx/…`) | **None present** |
+| PostgreSQL client (`psql`, `pg_dump`) | **Not installed** |
+| Python Postgres driver (`psycopg2`/`psycopg`) | **Not installed** |
+| Broad `AUTOFX_DB_URL` variable | SET, but this is V1's own general DB variable (V1 CI forces it empty for the DuckDB fallback — `.github/workflows/tests.yml`), **not** the dedicated least-privilege read-only role. **Deliberately NOT used** — the task and D-022 forbid using a broader account, its privileges are unknown (could be read-write), and confirming that would itself require connecting with a non-dedicated identity. |
+
+**Why provisioning was not performed here.** Creating `autofx_v1_readonly`
+requires `CREATE ROLE` + `GRANT` (write/DDL operations against V1's cluster,
+forbidden by this task) executed with a privileged bootstrap/admin
+credential that D-022 § C keeps "separately controlled" and which is not
+safely available. Establishing the path would require either that
+privileged credential or Jacob's own action; either would mean improvising
+or weakening the control, which the task explicitly prohibits. Fail-closed
+outcome: Issue #20 remains at **awaiting provisioning**.
+
+**Reconciliation status of every Issue #21 finding against DB evidence:**
+`NOT_TESTABLE_FROM_DB` (access unavailable) for all of them — ADAUSD/BCHUSD/
+SOLUSD contamination, quarantine-state absence, holdout selection-touch
+(Q-010), profitability-evidence weakness, trailed-stop sizing, zero real
+fills, heat/risk-control limitations, and the `riskMult`/"% per symbol"
+finding. Each remains supported by the repository-side evidence already
+recorded; none is confirmed *or* contradicted by database state, because no
+database state could be inspected. **Q-010 is unchanged** (repo-side
+answered: holdout selection-touched, no untouched V1 holdout); DB
+corroboration is pending provisioning.
+
+**Minimum required provisioning instruction (for Jacob / a DB admin — run
+by them, not by Claude; deliver connection details via a secure path,
+never in chat or the repo).** On the V1 PostgreSQL cluster, as an admin:
+
+```
+-- create a login role with NO write/DDL/admin rights
+CREATE ROLE autofx_v1_readonly LOGIN PASSWORD '<in a secrets store, not here>';
+-- least privilege: connect + read only, current and future tables
+GRANT CONNECT ON DATABASE <v1_db> TO autofx_v1_readonly;
+GRANT USAGE  ON SCHEMA <each schema> TO autofx_v1_readonly;
+GRANT SELECT ON ALL TABLES IN SCHEMA <each schema> TO autofx_v1_readonly;
+ALTER DEFAULT PRIVILEGES IN SCHEMA <each schema>
+  GRANT SELECT ON TABLES TO autofx_v1_readonly;
+-- explicitly withhold everything else (no INSERT/UPDATE/DELETE, no CREATE,
+-- no EXECUTE on routines with side effects, no role admin)
+```
+
+Then deliver to this workspace, via a secure channel outside chat/repo:
+(1) a connection string or `~/.pgpass` entry for `autofx_v1_readonly`
+(host, port, db, user — password only in the secrets store); and (2) a
+Postgres client (`psql`) or Python driver (`psycopg`). Once configured, the
+DB-side audit runs read-only per D-022 § A with a read-only session,
+statement/lock timeouts, bounded sampling, and the forensic areas in Issue
+#20. No V1 write of any kind is ever performed.
+
 ## What this audit did NOT do
 
-No DB-side audit (deferred, D-022); no execution/rerun of any V1 code; no
-optimisation or re-scoring (inspection only); no V2 design decisions closed;
-no owner decisions made. All dispositions are `PROPOSED` recommendations for
-their named later rounds.
+**Repo-side audit (done):** no execution/rerun of any V1 code; no
+optimisation or re-scoring (inspection only); no V2 design decisions
+closed; no owner decisions made. **DB-side audit (this attempt):** not
+performed — access path unavailable (above); no connection made, no query
+run, no credential used or exposed, no V1 data copied. All dispositions are
+`PROPOSED` recommendations for their named later rounds.

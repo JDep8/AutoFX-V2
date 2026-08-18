@@ -449,7 +449,16 @@ History is never erased; superseded decisions are marked, not deleted.
 - **Status:** `OWNER_APPROVED` — 2026-08-18 (verbatim in INTERVIEW_RECORD.md
   § Batch 2). Evidence class USER-STATED. **Operational remainder:** Jacob
   provisions `autofx_v1_readonly` and the secure configuration path (outside
-  chat/repo) before the DB-side V1 audit can begin. *[Classification note,
+  chat/repo) before the DB-side V1 audit can begin. *[Provisioning-attempt
+  note, 2026-08-18 (Issue #20): owner authorised the DB-side audit; Claude
+  VERIFIED the read-only path is not yet available — no dedicated identity
+  configured, no client installed, only V1's broad `AUTOFX_DB_URL` present
+  (not used, per this decision and the security rules). Establishing the
+  role needs `CREATE ROLE`/`GRANT` under a privileged bootstrap credential
+  (§ C, separately controlled), which is a write against V1 and outside
+  Claude's authorised capabilities — so provisioning remains Jacob's action.
+  DB-side audit BLOCKED; minimum provisioning instruction in V1_AUDIT.md
+  § Database-side audit. No V1 write, no credential exposed.]* *[Classification note,
   2026-08-18 (Round A reconciliation), confirmed by Jacob: provisioning
   blocks the **database-side** V1 audit only — it blocks neither Round A
   closure nor a separately authorised repository-side V1 audit. No audit

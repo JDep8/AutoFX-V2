@@ -2,20 +2,25 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living handoff (refreshed every checkpoint)
-- **Date/time:** 2026-08-18 11:18 UTC
+- **Date/time:** 2026-08-18 11:40 UTC
 - **Source session:** second terminal session (Fable 5 + Ultracode),
   continued — Round A CLOSED (D-036); D-037 roadmap + private Project #1
-  live; **repository-side V1 forensic audit PERFORMED (Issue #21).**
-  History: SESSION_LOG.md.
+  live; repo-side V1 audit PERFORMED (Issue #21); **DB-side V1 audit
+  ATTEMPTED and BLOCKED on access provisioning (Issue #20).** History:
+  SESSION_LOG.md.
 
 ## Phase, round, gate
 
 - Phase 0: COMPLETE 2026-08-17. **Phase 1 (V1 forensic assessment):
-  REPO-SIDE COMPLETE 2026-08-18** (Issue #21, owner-authorised; read-only;
-  V1 untouched; no code copied). DB-side deferred — needs
-  `autofx_v1_readonly` provisioning (D-022). Findings: V1_AUDIT.md +
-  V1_REUSE_REGISTER.md; Q-010 answered (no untouched V1 holdout); no
-  validated V1 profitability evidence found.
+  REPO-SIDE COMPLETE (Issue #21); DB-SIDE ATTEMPTED 2026-08-18 (Issue #20)
+  → BLOCKED.** The D-022 read-only access path does not exist here
+  (`autofx_v1_readonly` not configured, no `psql`/driver; broad
+  `AUTOFX_DB_URL` present but is not the dedicated identity and was not
+  used); provisioning needs a privileged bootstrap credential — Jacob's
+  action. No connection made, no query run, no credential exposed, no V1
+  write. Findings: V1_AUDIT.md (+ § Database-side audit blocked-state and
+  provisioning instruction) + V1_REUSE_REGISTER.md; Q-010 answered
+  repo-side (DB corroboration pending provisioning).
 - **Round A: CLOSED — `OWNER_APPROVED` 2026-08-18 (D-036, evidence
   USER-STATED).** Closure candidate approved as written; deferred matters
   keep their assigned rounds. Round B NOT started.
@@ -115,11 +120,11 @@ create the ten Project views (register § Views).
 
 ## Single first safe next action
 
-Wait for Jacob's next one-at-a-time input: open Round B (V1 outcomes /
-migration stance — evidence base now ready in V1_AUDIT.md); or any of the
-ten V1-audit escalations; or runbook policy approvals (#19); or
-`autofx_v1_readonly` provisioning (#20, unblocks the DB-side V1 audit).
-Open no new discovery work unprompted; **Round B NOT started** (only its
-evidence exists); delegation and critical acceptance route through the
-`autofx-model-governor`; D-037 roadmap reconciliation applies to every
-substantive task.
+Wait for Jacob's next one-at-a-time input. The DB-side V1 audit is BLOCKED
+on provisioning `autofx_v1_readonly` + delivering a secure connection +
+installing a `psql`/`psycopg` client (instruction in V1_AUDIT.md
+§ Database-side audit). Owner sequencing (Issue #20 prompt) keeps **Round B
+NOT started** until the DB-side audit completes — so the material next
+decision is **provisioning the read-only DB access**, not opening Round B.
+Open no new discovery work unprompted; delegation and critical acceptance
+route through the `autofx-model-governor`; D-037 reconciliation applies.

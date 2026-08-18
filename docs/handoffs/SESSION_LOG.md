@@ -536,6 +536,41 @@
   no-build gate ACTIVE; Round A unchanged (CLOSED); Round B not marked
   started. Committed + pushed to `planning/discovery-handoff` only.
 
+## 2026-08-18 — Session 5 (continued): DB-side V1 audit ATTEMPTED, BLOCKED (Issue #20, owner-authorised)
+
+- Owner authorised the DB-side V1 forensic audit (Issue #20) and sequenced
+  it **before** Round B. Governor: CRITICAL; main Fable session; no agents,
+  no workflow. Preflight VERIFIED: V2 clean @ `84a27fc`, tracking origin.
+- **Read-only access verification (existence checks only; no secret value
+  read/printed/committed):** the dedicated `autofx_v1_readonly` connection
+  is not configured (all candidate env vars unset; no secure config file at
+  any expected path; no `.pgpass`); no Postgres client (`psql`/`pg_dump`)
+  and no Python driver (`psycopg2`/`psycopg`) installed. The only DB
+  variable present is the broad **`AUTOFX_DB_URL`** — V1's own general/CI
+  variable (forced empty for DuckDB in `tests.yml`), **not** the dedicated
+  least-privilege read-only role — and it was **deliberately not used** (the
+  task and D-022 forbid a broader account; its privileges are unknown;
+  confirming would itself require connecting with a non-dedicated identity).
+- **Fail-closed conclusion:** the approved read-only access path does not
+  exist here, and provisioning `autofx_v1_readonly` requires `CREATE ROLE`/
+  `GRANT` under a privileged bootstrap credential D-022 § C keeps
+  "separately controlled" — a write against V1's cluster and outside
+  Claude's authorised capabilities. Per the Issue #20 instruction, Claude
+  did **not** improvise or weaken the control and did **not** fabricate a DB
+  audit: documented what is missing, wrote the minimum provisioning
+  instruction (V1_AUDIT.md § Database-side audit), and left Issue #20 at
+  awaiting-provisioning.
+- **No connection made, no query run, no credential exposed, no V1 write,
+  no V1 data copied.** Every Issue #21 finding reconciled as
+  `NOT_TESTABLE_FROM_DB` (access unavailable); Q-010 unchanged (repo-side
+  answered; DB corroboration pending). Registers updated: V1_AUDIT (v1.1,
+  § Database-side audit), QUESTION_REGISTER (Q-001 provisioning verified
+  unavailable; Q-010/Q-005 DB-corroboration notes), DECISION_LOG (D-022
+  provisioning-attempt note), DISCOVERY_STATUS (Phase 1 DB-side BLOCKED),
+  handoffs. Issue #20 kept at owner-decision stage (Stage=Blocked on the
+  board); Issue #21 not reopened. Committed + pushed to
+  `planning/discovery-handoff` only.
+
 ## 2026-08-18 — Session 5 (continued): Project completion (superseded log block below retained)
 
 - **Project completion (same day, after Jacob granted the `project`
