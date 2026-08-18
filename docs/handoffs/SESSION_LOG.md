@@ -360,3 +360,84 @@
   record row), NEXT_ACTIONS (§ B-7 policy approval item). **All runbook
   policies remain `PROPOSED` — nothing marked OWNER_APPROVED this turn.**
   No V1 audit, Round B, database, wireframe, or implementation work.
+
+## 2026-08-18 — Session 5 (continued): Round A reconciliation, simulation requirement, runbook correction (owner-directed)
+
+- Preflight VERIFIED: 2.1.234; Fable 5 + Ultracode; `C:\AutoFXV2.0`;
+  `planning/discovery-handoff` @ `2e19d9b` clean, tracking origin
+  https://github.com/JDep8/AutoFX-V2. Governor: CRITICAL; main Fable
+  session; bounded autofx-sonnet-analyst consistency check; no workflow,
+  no loop/schedule, no cloud review; documentation-only.
+- **Owner decisions recorded (`OWNER_APPROVED` · USER-STATED):** D-025
+  one-at-a-time interaction rule; D-026 repository-output rule; D-027
+  success hierarchy (co-equal safety + evidence; Q-015 RESOLVED); D-028
+  KPI framework at form level, headline/supporting (Q-008 RESOLVED);
+  D-029 VPS split; D-030 G/H pairing (Q-016 RESOLVED); D-031 rules
+  layout (Q-011 RESOLVED; D-014 closed); D-032 status-vocabulary scope
+  (Q-013 RESOLVED; CLAUDE.md + rules updated); D-033 visibility
+  temporarily public (Q-014 RESOLVED; supersedes D-024 PRIVATE clause
+  only); D-034 trading simulation & certification requirement (P1; Modes
+  A/B/C; EXEC-012…014 + VAL-008 + KPI-21/22; spec created at
+  docs/06-execution-and-risk/TRADING_SIMULATION_AND_CERTIFICATION_SPEC.md
+  with owner intent separated from Claude-proposed design; unresolved
+  design values recorded for Rounds F/J/K/N — not decided); D-035
+  runbook v0.1.0 catalogue REJECTED (B-7 NOT approved). Confirmation
+  notes added to D-018/D-021/D-022. Rules files updated for
+  D-025/026/031/032; gate phrase untouched.
+- **Runbook correction pass (v0.2.0):** initial re-fetch extractions were
+  unreliable; retrieved the RAW official commands page
+  (code.claude.com/docs/en/commands.md, 154,231 bytes) and enumerated all
+  105 command rows — confirming Jacob's corrections: `/reload-skills`
+  documented (added v2.1.152); `/web-setup` documented (GitHub → Claude
+  Code on the web via local `gh` credentials); `/usage-credits`
+  documented as a billing action (reclassified read-only→OWNER_APPROVAL);
+  `/simplify` official skill with four parallel reviewers applying
+  edits; `/security-review` and `/init` officially built-in (local
+  roster discrepancy recorded); `/sandbox`, `/run-skill-generator`,
+  `/workflows` + 14 further omissions added; `/vim` (v2.1.92) and
+  `/ultraplan` recorded as removed alongside `/pr-comments`; `/loop`
+  persistence wording corrected (session-scoped tasks; loop.md = default
+  prompt only); two-axis evidence model adopted (official status vs
+  local status; binary-string absence never proves unavailability —
+  official `/heapdump` row proves the point and confirms the snapshot
+  "contains your full conversation and credentials"). Full errata table
+  in runbook § 10 (13 entries). Production/trading-scheduler
+  prohibition, `/heapdump` sensitivity, and all owner safeguards
+  preserved. Policies remain `PROPOSED` for one-at-a-time reapproval.
+- Charter updated (hierarchy `OWNER_APPROVED`; framework `OWNER_APPROVED`
+  form level; 22 areas; headline/supporting; KPI-21/22); catalogue +13→
+  +4 new requirement rows (EXEC-012/013/014, VAL-008); matrix,
+  DISCOVERY_STATUS (assessment topics 1/3/12/16 now COMPLETE; verdict:
+  closable pending the closure candidate; matrix F/G/H/J/N updates;
+  coverage findings 3/7 closed), TEST_AND_EVIDENCE_STRATEGY,
+  PRODUCT_REQUIREMENTS, DOCUMENT_INDEX, TOOLING_REGISTER,
+  MODEL_ROUTING_POLICY routing row, INTERVIEW_RECORD (reconciliation
+  record + plain-English **Round A closure candidate**, `PROPOSED`),
+  handoffs all reconciled.
+- Validation before commit: full diff reviewed (documentation-only; no
+  V1 file touched); metadata-safe secret scan; link/index checks; ID
+  checks (D-001…D-035, Q-001…Q-016, EXEC-001…014, VAL-001…008,
+  KPI-01…22); cross-register agreement on resolved questions; gate
+  phrase byte-identity sweep; simulation text checked for
+  profitability/demo-equals-live overclaims; errata re-checked against
+  the raw official page; independent read-only consistency review
+  (autofx-sonnet-analyst) then Fable final acceptance review — results
+  recorded below before commit.
+- **Validation results:** secret scan — zero value-like hits. Diff —
+  documentation-only across 24 files (+ the three gate-reference
+  expansions); no V1 file touched; `00-discovery-gate.md` zero-line diff.
+  Gate byte-identity — all occurrences identical after expanding three
+  pre-existing prose abbreviations to the full phrase (WIREFRAME_REVIEW,
+  DELIVERY_ROADMAP, ENVIRONMENT_AND_RELEASE_PLAN); independent sweep
+  confirmed byte-identity incl. no AUTHORIZE/dash/case variants.
+  Independent consistency review: **10/12 PASS; criterion 10 FAIL (five
+  stale cross-references) — all five corrected before commit**
+  (TOOLING_REGISTER heading + open-items Q-011; DOCUMENT_INDEX rules row
+  + TOOLING pointer; IMPLEMENTATION_READINESS_REVIEW open-question list);
+  one minor terminology note (D-022 note labelled "Classification note"
+  vs "Confirmation note") accepted as-is. Fable final acceptance review:
+  CLAUDE.md diff is the D-032 scope edit only; no overclaims (Round A NOT
+  closed; B-7 NOT approved; nothing new marked TESTED/VALIDATED).
+  Simulation text carries explicit no-profitability-guarantee and
+  demo≠live language. Committed and pushed to
+  `planning/discovery-handoff` only.

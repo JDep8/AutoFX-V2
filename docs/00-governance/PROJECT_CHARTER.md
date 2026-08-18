@@ -1,13 +1,16 @@
 # Project Charter — AutoFX V2.0
 
 - **Owner:** Jacob Depares
-- **Status:** `PROPOSED` (Round A content recorded; KPI framework and success
-  hierarchy `PROPOSED` awaiting Jacob; charter approved only when Jacob
-  approves the Round A summary)
-- **Version:** 0.2.0
+- **Status:** `PROPOSED` as a whole document (charter approved when Jacob
+  approves the Round A closure candidate). Governed items inside carry
+  their own lifecycle status per D-032: success hierarchy `OWNER_APPROVED`
+  (D-027); KPI framework `OWNER_APPROVED` at form level (D-028); all
+  numerical thresholds unset by design.
+- **Version:** 0.3.0
 - **Last reviewed:** 2026-08-18
-- **Dependencies:** DECISION_LOG.md (D-008…D-010, D-018…D-021),
-  SCOPE_AND_PRIORITIES.md, INTERVIEW_RECORD.md
+- **Dependencies:** DECISION_LOG.md (D-008…D-010, D-018…D-021,
+  D-027/D-028/D-034), SCOPE_AND_PRIORITIES.md, INTERVIEW_RECORD.md,
+  TRADING_SIMULATION_AND_CERTIFICATION_SPEC.md
 - **Approval evidence:** Round A batch 1 (2026-08-17) and batch 2
   (2026-08-18, verbatim in INTERVIEW_RECORD.md § Batch 2 answers)
 
@@ -22,28 +25,22 @@ Profit is an optimisation objective. Data integrity, absence of leakage,
 honest out-of-sample evidence, drawdown compliance, execution fidelity, and
 live-trading safety are hard constraints. Profitability is never guaranteed.
 
-## Success hierarchy (`PROPOSED` — awaiting Jacob's confirmation, Q-015)
+## Success hierarchy (`OWNER_APPROVED` — D-027, 2026-08-18; Q-015 resolved)
 
-When objectives conflict, the higher-ranked one wins; a lower objective is
-never bought by weakening a higher one (BUS-003). Evidence honesty: the
-corpus treats items 1 and 2 as one co-equal set of hard constraints; the
-ordering **between** them below is Claude's `INFERRED` construction, not a
-restatement — Q-015 asks Jacob to ratify or amend that inference:
+1. **Capital protection / live-trading safety** and **evidence integrity /
+   backtest fidelity** are **co-equal, non-negotiable hard constraints** —
+   drawdown compliance, stop-loss protection, fail-closed breakers,
+   kill-switch reachability; data integrity, no leakage, honest
+   out-of-sample evidence, degradation within approved tolerances (D-021).
+2. **Profitability** is pursued only inside those constraints; never
+   guaranteed (BUS-004).
+3. **Cost and delivery speed** come after safety, evidence integrity, and
+   constrained profitability; deadlines never weaken gates (D-020
+   non-goal 7; BUS-003).
 
-1. **Capital protection and live-trading safety** — drawdown compliance,
-   stop-loss protection, fail-closed breakers, kill-switch reachability.
-2. **Evidence integrity and backtest-to-live fidelity** — data integrity,
-   no leakage, honest out-of-sample evidence, degradation within approved
-   tolerances (D-021).
-3. **Profitability** — an optimisation objective pursued strictly inside 1
-   and 2; never guaranteed (BUS-004).
-4. **Cost and delivery efficiency** — budget (D-019) and timeline targets
-   matter but never override 1–3; deadlines never weaken gates (D-020
-   non-goal 7).
-
-This hierarchy is USER-STATED in substance (master prompt + D-019/D-020/
-D-021), but the explicit ordering — in particular ranking 1 above 2 — is
-`INFERRED` and has not been confirmed by Jacob. Recorded as Q-015.
+**Conflict rule (owner-stated):** if safety and evidence integrity ever
+conflict, neither may be silently weakened — the conflict escalates to
+Jacob.
 
 ## Why V2 exists
 
@@ -110,7 +107,31 @@ reuse; no external funds/paid signals/copy trading initially; no
 research-influencing content; no deploy-because-complete; no silent
 acceptance of missing/contaminated/insufficient evidence.
 
-## KPI framework (`PROPOSED` — Q-008 remainder; awaiting Jacob's approval)
+## KPI framework (`OWNER_APPROVED` at form level — D-028, 2026-08-18; Q-008 resolved)
+
+**Approval scope (D-028):** Jacob approved the 20 measurement areas below
+(extended to 22 the same day by the D-034 simulation requirement) as the
+form-level framework, organised into **headline KPIs** for
+executive/product decisions and **supporting diagnostic/operational
+metrics** beneath them. No numerical threshold is approved anywhere in
+this section; thresholds, confidence requirements, minimum samples, and
+warning/failure bands remain assigned to their named later rounds. The
+`KPI-nn` labels are measurement definitions tracing to requirement IDs
+(mapping table below), not requirement IDs themselves.
+
+### Headline vs supporting organisation (implements D-028; grouping adjustable at Jacob's direction)
+
+| Headline KPI (executive/product view) | Supporting diagnostics beneath it |
+|---|---|
+| KPI-01 Net profitability after all costs | KPI-11 research breadth/survival · KPI-20 delivery cadence (context) |
+| KPI-02 Risk-adjusted performance | (reads with KPI-01 supports) |
+| KPI-03 Drawdown compliance | KPI-12 robustness/crisis · KPI-13 diversification/concentration |
+| KPI-04 Backtest→paper/live degradation | KPI-15 band adherence · KPI-16 distribution/drift · KPI-17 execution parity · KPI-14 data-pipeline health |
+| KPI-07 Holdout & leakage integrity | KPI-05 data integrity/freshness · KPI-06 reproducibility |
+| KPI-10 Budget compliance | (owner-set numbers, D-019) |
+| KPI-21 Simulation fidelity & reproducibility (D-034) | replay reproducibility · replay fidelity · processing performance |
+| KPI-22 Certification coverage & execution correctness (D-034) | order-message parity · symbol-certification coverage · risk-sizing correctness · mandatory-SL correctness · entry-price tolerance · monitoring/reconciliation correctness · **zero unintended external orders** · certification failure/remediation status · KPI-08 stop-loss coverage · KPI-09 reconciliation accuracy · KPI-18 incident detection/recovery |
+| KPI-19 Traceability & gate compliance | (governance spine; reported at every gate) |
 
 Form-level framework only. **No acceptance threshold is proposed here** —
 each KPI names the later round that owns its numbers (per D-021 discipline
@@ -405,6 +426,41 @@ evidence view of the KPI-04 guardrail)
 - *Wrong-optimisation risk:* schedule pressure is the classic gate-eroder;
   this KPI exists to make that pressure visible, not to enforce dates.
 
+**KPI-21 — Simulation fidelity and reproducibility** (guardrail; D-034)
+- *Plain:* the accelerated replay behaves exactly like the production
+  logic against honest history, and identical reruns give identical
+  results, fast — without fidelity ever traded for speed.
+- *Technical:* replay reproducibility (identical rerun ⇒ identical
+  results); replay fidelity vs the Round F truth model (PIT correctness,
+  no look-ahead); processing performance measured alongside.
+- *Why:* Mode A is the pre-live proving ground for production behaviour
+  (EXEC-012, VAL-008).
+- *Data:* replay audit trail, version hashes, PIT datasets.
+- *Stage/cadence:* per replay campaign; evidence at Gates 5–6.
+- *Thresholds:* Round F.
+- *Wrong-optimisation risk:* chasing replay speed by simplifying the fill
+  or cost model — expressly forbidden (fidelity never weakened for
+  speed).
+
+**KPI-22 — Certification coverage and execution correctness** (guardrail; D-034)
+- *Plain:* every symbol in an approved book passes an end-to-end demo
+  certification, sized and protected correctly, with proof nothing ever
+  reached a live account.
+- *Technical:* order-message parity simulation↔intended cTrader routing;
+  per-symbol certification coverage; risk-sizing correctness;
+  mandatory-SL correctness; entry-price tolerance adherence;
+  monitoring/reconciliation correctness; **zero unintended external
+  orders (absolute)**; certification failure/remediation status.
+  Supporting: KPI-08, KPI-09, KPI-18.
+- *Why:* Mode C is the wiring-and-calculation gate before live
+  eligibility (EXEC-014); demo success never claims live-equivalence.
+- *Data:* certification register, order/fill events, reconciliation runs.
+- *Stage/cadence:* per book version before Gate 7 eligibility; re-run on
+  retest triggers (Round J).
+- *Thresholds:* Round J (tolerance, coverage, expiry, remediation).
+- *Wrong-optimisation risk:* certifying with unrealistically forgiving
+  tolerances, or treating demo fills as live evidence — both forbidden.
+
 ### Framework rules
 
 - Guardrails are never traded against outcomes (BUS-003); a guardrail
@@ -421,14 +477,11 @@ evidence view of the KPI-04 guardrail)
 
 ### ID namespace and traceability
 
-`KPI-nn` labels are **measurement definitions inside this `PROPOSED`
-framework, not requirement IDs** — `KPI` is not (yet) in the approved
-requirement-prefix list (`BUS FR NFR DATA QUANT VAL RISK EXEC SEC OPS UX
-RES CONTENT`). Each KPI traces through the requirements and decisions it
-measures (table below). Whether `KPI` becomes an approved prefix with full
-requirement records, or the labels remain measurement definitions attached
-to these IDs, is part of Jacob's framework-approval decision (Q-008
-remainder).
+`KPI-nn` labels are **measurement definitions inside the framework, not
+requirement IDs** — `KPI` is not in the approved requirement-prefix list
+(`BUS FR NFR DATA QUANT VAL RISK EXEC SEC OPS UX RES CONTENT`). With
+D-028's form-level approval, the labels stand as measurement definitions
+tracing to the requirement IDs below; no new ID namespace is created.
 
 | KPI | Governing requirement IDs / decisions |
 |-----|----------------------------------------|
@@ -452,13 +505,14 @@ remainder).
 | KPI-18 | EXEC-010, OPS-001, OPS-003 |
 | KPI-19 | BUS-003 + the standing traceability rule |
 | KPI-20 | BUS-011, OPS-004, D-019 |
+| KPI-21 | EXEC-012, VAL-008, D-034 |
+| KPI-22 | EXEC-013, EXEC-014, EXEC-004, EXEC-009, EXEC-010, D-034 |
 
 ## Open charter items
 
-- Jacob's approval (or amendment) of the KPI framework above (Q-008
-  remainder).
-- Jacob's confirmation of the success hierarchy (Q-015).
-- Jacob's approval of the Round A summary (closes Round A;
-  INTERVIEW_RECORD.md).
-- Whether public repository visibility is temporary or permanent (Q-014) —
-  affects where sensitive charter/strategy detail may live in future.
+- Jacob's approval of the Round A closure candidate (closes Round A;
+  INTERVIEW_RECORD.md § Round A closure candidate).
+- KPI numerical thresholds — decided in their named rounds (D–N), never
+  here.
+- (Resolved 2026-08-18: success hierarchy → D-027; KPI framework → D-028;
+  repository visibility → D-033.)

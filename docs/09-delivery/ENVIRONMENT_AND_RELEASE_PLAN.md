@@ -80,7 +80,8 @@ with the incident runbook.
 ## Known inputs
 
 - No-build gate: no deployment, provisioning, or broker connection of any
-  kind before `AUTHORISE AUTOFX V2 IMPLEMENTATION` (CLAUDE.md).
+  kind before `AUTHORISE AUTOFX V2 IMPLEMENTATION — PHASE <number/name>`
+  (CLAUDE.md).
 - EXEC-002: approved books are disabled by default; live-marking is separate
   and version-specific.
 - EXEC-010 / D-006: kill switches and breakers must be demonstrably reachable

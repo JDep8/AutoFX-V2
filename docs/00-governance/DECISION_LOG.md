@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register
-- **Version:** 0.2.1
+- **Version:** 0.3.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** REQUIREMENTS_CATALOGUE.md, QUESTION_REGISTER.md
 - **Approval evidence:** Per-decision, recorded below
@@ -177,7 +177,9 @@ History is never erased; superseded decisions are marked, not deleted.
   exist; the three numbered files are thin authoritative entry points that
   link into the six detailed topic files. No content was deleted.
 - **Status:** `PROPOSED` — Jacob to confirm keep-both or direct a
-  consolidation (tracked as Q-011).
+  consolidation (tracked as Q-011). *[Pointer note, 2026-08-18: confirmed
+  and closed by **D-031** (keep both; topic files authoritative; entry
+  points link; repeated safety wording byte-identical). Q-011 RESOLVED.]*
 - **Affects:** `.claude/rules/` layout only; no safety impact.
 
 ## D-015 — Environment-visible external tooling boundary
@@ -257,7 +259,12 @@ History is never erased; superseded decisions are marked, not deleted.
 - **Status:** `OWNER_APPROVED` — 2026-08-18 (Round A batch 2, Q-006; initial
   entity-only answer received first, full answer with jurisdiction and gate
   received the same day; both verbatim in INTERVIEW_RECORD.md § Batch 2).
-  Evidence class USER-STATED.
+  Evidence class USER-STATED. *[Confirmation note, 2026-08-18 (Round A
+  reconciliation): Jacob explicitly re-confirmed this approach — discovery
+  proceeds on the Australian/personal-name basis; final entity and
+  regulatory structure deferred to the mandatory pre-live/
+  pre-commercialisation Australian legal review gate. Complete for Round
+  A; NOT permission to trade commercially or provide financial services.]*
 - **Affects:** legal/compliance scope (Round M, CONTENT-003),
   PROJECT_CHARTER.md (BUS-007/BUS-008), P3 planning, live-enablement gating.
 
@@ -374,6 +381,12 @@ History is never erased; superseded decisions are marked, not deleted.
   on headline return, correlation, or a small number of live trades.
 - **Status:** `OWNER_APPROVED` (form) — 2026-08-18 (verbatim in
   INTERVIEW_RECORD.md § Batch 2). Evidence class USER-STATED.
+  *[Confirmation note, 2026-08-18 (Round A reconciliation): Jacob
+  explicitly approved deferring the exact numerical thresholds to Round
+  F. Round A defines what must be measured; Round F must use research and
+  evidence to propose the actual tolerances, sample sizes, confidence
+  requirements, warnings, failures, and remediation rules for Jacob's
+  approval.]*
 - **Affects:** BACKTEST_FIDELITY_SPEC.md, BUS-001, VAL-001/VAL-006/VAL-007,
   Gates 6–7.
 
@@ -428,7 +441,15 @@ History is never erased; superseded decisions are marked, not deleted.
 - **Status:** `OWNER_APPROVED` — 2026-08-18 (verbatim in INTERVIEW_RECORD.md
   § Batch 2). Evidence class USER-STATED. **Operational remainder:** Jacob
   provisions `autofx_v1_readonly` and the secure configuration path (outside
-  chat/repo) before the DB-side V1 audit can begin.
+  chat/repo) before the DB-side V1 audit can begin. *[Classification note,
+  2026-08-18 (Round A reconciliation), confirmed by Jacob: provisioning
+  blocks the **database-side** V1 audit only — it blocks neither Round A
+  closure nor a separately authorised repository-side V1 audit. No audit
+  is authorised by that confirmation. V1 remains permanently read-only;
+  post-gate V2 development-database autonomy and separate production
+  governance stand as written; credentials stay outside chat and the
+  repository; Jacob does not manually run/paste ordinary queries once
+  secure access is approved.]*
 - **Affects:** SEC-002/SEC-004/SEC-005, DATA-009, V1 audit depth (Phase 1),
   Rounds D/N design, data-plugin gate (TOOLING_REGISTER.md).
 
@@ -508,3 +529,193 @@ History is never erased; superseded decisions are marked, not deleted.
   between the standing PRIVATE requirement above and the current state,
   tracked as **Q-014** for Jacob's decision; no decision has superseded the
   PRIVATE clause. The original text above is preserved unchanged.]*
+- *[Pointer note 2, 2026-08-18 (Round A reconciliation): the CONFLICT is
+  resolved — **D-033** supersedes this decision's PRIVATE clause
+  (temporarily public for external review; return to private on Jacob's
+  explicit authorisation). All other D-024 git controls remain in force
+  unchanged. Q-014 RESOLVED.]*
+
+## D-025 — Owner interaction rule: one decision at a time
+
+- **Decision (standing governance rule):** every owner decision or
+  conflict is presented to Jacob **one at a time**, explained in plain
+  English, with practical consequences and Claude's evidence-based
+  recommendation. Approval is never silently inferred; **"noted" does not
+  mean "approved."** Multiple approval questions are never combined into
+  one response. Answered questions are never reopened unless new evidence
+  creates a genuine conflict. A new conflict discovered mid-task is
+  recorded, and one question is asked only after all safe,
+  non-conflicting work is complete.
+- **Status:** `OWNER_APPROVED` — 2026-08-18. Evidence class USER-STATED.
+- **Affects:** interview method (`.claude/rules/discovery-and-authorisation.md`),
+  every future approval interaction, NEXT_ACTIONS structure.
+
+## D-026 — Repository-output persistence rule
+
+- **Decision (standing governance rule):** every substantive Claude task
+  persists its material output, decisions, evidence, traceability
+  changes, and handoff state in the AutoFX V2 repository —
+  terminal-only output is not sufficient. Secrets, credentials,
+  connection files, raw private datasets, heap dumps, and other
+  prohibited or sensitive material are never committed merely to satisfy
+  this rule; if an expected output cannot safely be committed, stop and
+  explain why. Each authorised documentation task ends with validation, a
+  commit, and a push to the approved working branch unless Jacob
+  explicitly says otherwise.
+- **Status:** `OWNER_APPROVED` — 2026-08-18. Evidence class USER-STATED.
+- **Affects:** session discipline
+  (`.claude/rules/documentation-and-traceability.md`), handoff protocol,
+  D-024/D-033 push practice.
+
+## D-027 — Success hierarchy (resolves Q-015)
+
+- **Decision:** (1) capital protection/live safety **and** evidence
+  integrity/backtest fidelity are **co-equal, non-negotiable hard
+  constraints**; (2) profitability is pursued only inside those
+  constraints; (3) cost and delivery speed come after safety, evidence
+  integrity, and constrained profitability. If safety and evidence
+  integrity ever conflict, neither may be silently weakened — the
+  conflict escalates to Jacob.
+- **Status:** `OWNER_APPROVED` — 2026-08-18. Evidence class USER-STATED.
+  Supersedes the `PROPOSED` (partly INFERRED) ranked ordering previously
+  in PROJECT_CHARTER.md; charter updated.
+- **Affects:** PROJECT_CHARTER.md § Success hierarchy, BUS-003/BUS-004,
+  every acceptance-gate trade-off, Round A completion (topics 1 and 3).
+
+## D-028 — KPI framework approved at form level (completes Q-008's framework component)
+
+- **Decision:** the proposed 20 measurement areas are approved as the
+  form-level KPI framework, organised as a concise set of **headline
+  KPIs** for executive/product decisions with **supporting diagnostic and
+  operational metrics** underneath. No numerical thresholds are invented:
+  thresholds, confidence requirements, minimum samples, and
+  warning/failure bands remain assigned to their named later discovery
+  rounds.
+- **Status:** `OWNER_APPROVED` (form level) — 2026-08-18. Evidence class
+  USER-STATED. Charter reorganised accordingly (headline vs supporting;
+  KPI-21/22 added later the same day under D-034's simulation
+  requirement).
+- **Affects:** PROJECT_CHARTER.md § KPI framework, Q-008, Round A
+  completion (topic 12), Rounds D–N threshold ownership.
+
+## D-029 — VPS assessment split
+
+- **Decision:** basic facts about the existing VPS may be collected
+  earlier when required to avoid designing blindly; the VPS is **not**
+  assumed production-ready; formal production suitability is decided in
+  Round N after assessing performance, security, reliability, backups,
+  recovery, monitoring, storage, network stability, and cTrader
+  connectivity; any upgrade, replacement, or paid service requires a
+  proposal showing evidence, free alternatives, and cost before Jacob
+  approves spending (per D-019 budget governance).
+- **Status:** `OWNER_APPROVED` — 2026-08-18. Evidence class USER-STATED.
+- **Affects:** OPS-005, D-019 infrastructure stance, Round N matrix entry.
+
+## D-030 — Rounds G and H are a paired sequence (resolves Q-016)
+
+- **Decision:** Round G designs the statistical-validation methods,
+  experiment governance, multiple-testing protections, and draft
+  strategy-acceptance methodology; Round H applies the untouched holdout,
+  regime, and crisis evidence and sets the final numerical thresholds and
+  Gate 3 pass/fail criteria. `STATISTICAL_VALIDATION_PLAN.md` and
+  `STRATEGY_ACCEPTANCE_CRITERIA.md` are shared across both rounds; Round
+  H owns their final numerical acceptance criteria and final approval.
+  **The test must be designed before final holdout results are
+  examined.**
+- **Status:** `OWNER_APPROVED` — 2026-08-18. Evidence class USER-STATED.
+- **Affects:** DISCOVERY_STATUS.md assurance matrix (G/H), the two shared
+  artefacts, leakage/holdout discipline (QUANT-003), Q-016.
+
+## D-031 — Rules-file layout: keep both, one source of truth (resolves Q-011, closes D-014)
+
+- **Decision:** keep both rule-file structures. The three numbered files
+  remain concise entry points and operating checklists; the six detailed
+  topic files remain the **authoritative** rule definitions; entry points
+  link to detailed rules instead of substantially duplicating them. Any
+  unavoidable repeated safety wording — including the implementation gate
+  phrase — must remain **byte-identical** and be checked for drift. No
+  rule may have two competing authoritative definitions.
+- **Status:** `OWNER_APPROVED` — 2026-08-18. Evidence class USER-STATED.
+  D-014's `PROPOSED` resolution is hereby confirmed and closed.
+- **Affects:** `.claude/rules/` layout, documentation standard,
+  consistency checks (gate byte-identity sweep added to validation).
+
+## D-032 — Status-vocabulary scope (resolves Q-013)
+
+- **Decision:** the formal lifecycle vocabulary (`PROPOSED`,
+  `OWNER_APPROVED`, `IMPLEMENTED`, `TESTED`, `PAPER_VALIDATED`,
+  `LIVE_VALIDATED`, `REJECTED`, `SUPERSEDED`) applies to **governed
+  items** — requirements, decisions, strategies, books, implementation
+  components, tests, and validation evidence. Clear descriptive progress
+  states (e.g. `Living register`, `In progress`, `Complete`, `Gated`,
+  `Paused`) are permitted for document headers, discovery rounds,
+  registers, gates, and operational workflow status. A descriptive state
+  must never imply `IMPLEMENTED`, `TESTED`, `PAPER_VALIDATED`, or
+  `LIVE_VALIDATED`; documents must distinguish their own document status
+  from the lifecycle status of governed items inside them.
+- **Status:** `OWNER_APPROVED` — 2026-08-18. Evidence class USER-STATED.
+- **Affects:** CLAUDE.md § Status vocabulary,
+  `.claude/rules/10-evidence-and-traceability.md`,
+  `.claude/rules/documentation-and-traceability.md`, Q-013.
+
+## D-033 — Repository visibility: temporarily public (resolves Q-014; supersedes D-024's PRIVATE clause)
+
+- **Decision:** the repository is **temporarily public** so ChatGPT can
+  independently review committed project outputs. Visibility is not
+  changed in this task. It returns to private after an authenticated
+  review path is available **and Jacob explicitly authorises the
+  change**. Already-public history cannot be made confidential
+  retroactively. Strict secret and sensitivity checks continue before
+  every push. If later-round content would expose dangerous security
+  details, credentials, protected strategy IP, or legally sensitive
+  material, Claude stops and raises one owner decision before committing
+  it publicly. This decision supersedes the incompatible PRIVATE clause
+  in D-024 while preserving all other D-024 git controls.
+- **Status:** `OWNER_APPROVED` — 2026-08-18. Evidence class USER-STATED.
+- **Affects:** D-024 (clause superseded), TOOLING_REGISTER § Repository
+  visibility, Q-014, per-push sensitivity discipline.
+
+## D-034 — Trading simulation and certification requirement (three modes, P1)
+
+- **Decision:** AutoFX V2 requires three distinct simulation/certification
+  modes as an owner-approved **product requirement** (not merely a KPI):
+  **Mode A** accelerated historical execution replay (production
+  behaviour against point-in-time history through the broker-neutral
+  contract into an internal simulated broker; no look-ahead;
+  deterministic; painful-detail audit; faster than real time with
+  fidelity never weakened for speed); **Mode B** live shadow simulation
+  (live inputs, order instructions routed only to the internal simulator,
+  never an external order; degradation evidence retained; accidental
+  routing to live/demo fails closed); **Mode C** cTrader demo-account
+  certification (designated demo account; per-symbol minimum-risk test
+  trades verifying the full owner-specified checklist incl. proof no
+  order reached a live account; respects market closures and news
+  safeguards; book approval never itself triggers a demo order; demo
+  success proves wiring/calculations, not live-equivalence). Replay
+  supplements backtesting and is never profitability evidence.
+- **Priority:** P1 (within the D-010 full-P1 platform; no priority
+  conflict identified).
+- **Status:** `OWNER_APPROVED` (requirement intent) — 2026-08-18.
+  Evidence class USER-STATED. Design details `PROPOSED` in
+  TRADING_SIMULATION_AND_CERTIFICATION_SPEC.md; unresolved design matters
+  (price tolerance, minimum test size, certification expiry, retest
+  triggers, failure remediation, evidence retention) recorded for Rounds
+  F/J/K/N — not decided.
+- **Affects:** EXEC-012/013/014, VAL-008, KPI-21/22, Gates 5–7,
+  Rounds F/J/K/N, 06-execution-and-risk documents,
+  TEST_AND_EVIDENCE_STRATEGY.md.
+
+## D-035 — Command-runbook v0.1.0 catalogue REJECTED; corrected version requires separate approval
+
+- **Decision:** Jacob rejects approval item B-7 in its v0.1.0 form because
+  the underlying catalogue contained factual errors (see runbook § 10
+  errata — e.g. `/reload-skills` wrongly marked unavailable,
+  `/usage-credits` wrongly classified read-only, omitted commands,
+  conflated evidence axes). The corrected runbook (v0.2.0, correction
+  pass 2026-08-18 against the full official catalogue) remains
+  `PROPOSED`; its policies return to Jacob for **separate, one-at-a-time
+  approval** per D-025. B-7 is NOT approved.
+- **Status:** `OWNER_APPROVED` (the rejection and reapproval requirement)
+  — 2026-08-18. Evidence class USER-STATED.
+- **Affects:** CLAUDE_CODE_COMMAND_RUNBOOK.md, NEXT_ACTIONS § B,
+  TOOLING_REGISTER § Claude Code command governance.

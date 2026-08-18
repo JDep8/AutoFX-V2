@@ -1,5 +1,26 @@
 # Documentation and Traceability Rules
 
+## Repository-output rule (D-026, OWNER_APPROVED 2026-08-18)
+
+Every substantive Claude task persists its material output, decisions,
+evidence, traceability changes, and handoff state in this repository —
+terminal-only output is not sufficient. Secrets, credentials, connection
+files, raw private datasets, heap dumps, and other prohibited or sensitive
+material are never committed merely to satisfy this rule; if an expected
+output cannot safely be committed, stop and explain why. Each authorised
+documentation task ends with validation, a commit, and a push to the
+approved working branch unless Jacob explicitly says otherwise.
+
+## Rules-file layout (D-031, OWNER_APPROVED 2026-08-18)
+
+Both rule-file sets are kept with one source of truth: the three numbered
+files (`00-`, `10-`, `20-`) are concise entry points and operating
+checklists; the six topic files are the **authoritative** rule
+definitions; entry points link rather than substantially duplicate. Any
+unavoidable repeated safety wording — including the implementation gate
+phrase — must remain byte-identical and is checked for drift at every
+validation pass. No rule may have two competing authoritative definitions.
+
 ## Document standard
 
 Every document in `docs/` carries a header with: Owner, Status, Version,
@@ -13,6 +34,16 @@ files in `docs/handoffs/` (`CURRENT_STATE.md`, `NEXT_ACTIONS.md`,
 `RESUME_PROMPT.md`, `SESSION_LOG.md`) are exempt from this six-field header.
 They must instead comply with their handoff schemas and required metadata
 (§ Handoff protocol below).
+
+**Status-vocabulary scope (D-032, owner ruling 2026-08-18):** the eight
+lifecycle labels govern **governed items** (requirements, decisions,
+strategies, books, implementation components, tests, validation
+evidence). Descriptive progress states (`Living register`, `In progress`,
+`Complete`, `Gated`, `Paused`, …) are permitted for document headers,
+discovery rounds, registers, gates, and operational workflow status — and
+must never imply `IMPLEMENTED`, `TESTED`, `PAPER_VALIDATED`, or
+`LIVE_VALIDATED`. A document distinguishes its own document status from
+the lifecycle status of the governed items inside it.
 
 ## Requirement records
 

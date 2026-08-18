@@ -8,9 +8,14 @@ differ. Both are mandatory; they answer different questions.
 ## Lifecycle status (what state is this item in?)
 
 `PROPOSED`, `OWNER_APPROVED`, `IMPLEMENTED`, `TESTED`, `PAPER_VALIDATED`,
-`LIVE_VALIDATED`, `REJECTED`, `SUPERSEDED` — and only these. Never describe
-proposed/implemented work as tested; never describe a backtest as
-live-validated.
+`LIVE_VALIDATED`, `REJECTED`, `SUPERSEDED` — and only these, applied to
+**governed items** (requirements, decisions, strategies, books,
+components, tests, validation evidence). Per D-032, descriptive progress
+states are permitted for document headers, rounds, registers, gates, and
+workflow status, and never imply a lifecycle status (authoritative rule:
+[documentation-and-traceability.md](documentation-and-traceability.md)
+§ Document standard). Never describe proposed/implemented work as tested;
+never describe a backtest as live-validated.
 
 ## Evidence classification (how do we know this?)
 

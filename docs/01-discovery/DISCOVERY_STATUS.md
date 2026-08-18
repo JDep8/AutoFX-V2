@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register
-- **Version:** 0.3.0
+- **Version:** 0.4.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** INTERVIEW_RECORD.md, DECISION_LOG.md
 - **Approval evidence:** n/a (register)
@@ -21,7 +21,7 @@
 
 | Round | Theme | Status |
 |-------|-------|--------|
-| A | Vision, users, business boundaries, success | IN PROGRESS — batches 1+2 answered; 11 decisions captured (D-001 direction, D-008…D-010, D-018…D-024); Q-001/002/006–009 resolved to the extent supported; Round A summary `PROPOSED` (INTERVIEW_RECORD.md), awaiting Jacob's approval |
+| A | Vision, users, business boundaries, success | IN PROGRESS — batches 1+2 answered; reconciliation 2026-08-18 added D-025…D-035 (hierarchy, KPI framework, VPS split, G/H pairing, rules layout, vocabulary, visibility, simulation requirement, runbook rejection); Q-008/011/013/014/015/016 resolved; **closure candidate awaiting Jacob's approval** (INTERVIEW_RECORD.md) |
 | B | V1 outcomes and migration stance | NOT STARTED (feeds from V1 audit) |
 | C | Markets, instruments, sessions, operating scope | NOT STARTED |
 | D | Data acquisition, rights, quality, operations | NOT STARTED |
@@ -71,9 +71,9 @@ any topic is INCOMPLETE.
 
 | # | Round A topic | Classification | Evidence / deferral |
 |---|---------------|----------------|---------------------|
-| 1 | Primary success hierarchy | **INCOMPLETE** | Substance USER-STATED (owner brief; D-019/D-020/D-021) but explicit ordering never individually confirmed — proposal recorded in PROJECT_CHARTER.md § Success hierarchy; awaiting Q-015 |
+| 1 | Primary success hierarchy | **COMPLETE** | D-027 (2026-08-18, Q-015 resolved): safety/live-protection and evidence-integrity/fidelity co-equal hard constraints; profitability inside them; cost/speed last; safety-vs-evidence conflicts escalate to Jacob |
 | 2 | Measurable meaning of trustworthy backtesting | **COMPLETE FOR ROUND A** | D-021 (form: bands + distribution tests, 15-metric set); values/samples/confidence → Round F |
-| 3 | Profitability objective within hard evidence/risk constraints | **INCOMPLETE** (shared Q-015 dependency) | Substance owner-stated (owner brief BUS-001…004 + D-020 non-goals 3/6/7) — that part stands; the explicit ordering versus safety/evidence is the same missing input as Topic 1 (Q-015) |
+| 3 | Profitability objective within hard evidence/risk constraints | **COMPLETE** | D-027 rank 2 (profitability only inside the co-equal hard constraints) + owner brief BUS-001…004 + D-020 non-goals 3/6/7 |
 | 4 | Users and operational roles | **COMPLETE** | D-008 (sole user) + D-019 (owner/approver vs autonomous technical operator) |
 | 5 | Personal vs customer/commercial boundaries | **COMPLETE** | D-008; D-018 pre-commercialisation gate; D-020 non-goal 9 |
 | 6 | Jurisdiction and legal-entity position | **COMPLETE FOR ROUND A** | D-018 (Australia; personal name as current state); final entity → the mandatory D-018 pre-live/pre-commercialisation gate; compliance detail → Round M |
@@ -82,11 +82,11 @@ any topic is INCOMPLETE.
 | 9 | Timeline | **COMPLETE** | D-019 / BUS-011 (≈6-month paper target post-authorisation; 9–12 acceptable; live uncommitted). Targets fully decided; estimate ranges are Round N roadmap work products, not timeline remainders |
 | 10 | Availability and autonomous operating model | **COMPLETE** | D-019 (5–10 h/week; autonomy lists; twelve mandatory stops) |
 | 11 | Infrastructure constraints | **COMPLETE FOR ROUND A** | D-019 / OPS-005 (VPS funded, not production-approved; workstation dev/admin only; portability); VPS inventory → Round N |
-| 12 | Measurable business KPIs | **INCOMPLETE** | Framework `PROPOSED` in PROJECT_CHARTER.md § KPI framework (20 KPIs, form-level, thresholds owned by Rounds D–N); awaiting Jacob's approval (Q-008 remainder) |
+| 12 | Measurable business KPIs | **COMPLETE (form level)** | D-028 (2026-08-18): 20-area framework (now 22 with D-034) `OWNER_APPROVED` at form level, organised headline/supporting; all numerical thresholds remain with their named Rounds D–N by owner instruction |
 | 13 | Explicit non-goals | **COMPLETE** | D-020 / BUS-010 (twelve non-goals, canonical text in SCOPE_AND_PRIORITIES.md) |
 | 14 | Database access path (asked in Round A batch 2) | **COMPLETE FOR ROUND A** | D-022 (model + roles + safeguards decided). Operational remainder: Jacob provisions `autofx_v1_readonly` — treated as a Phase 1 depth blocker, **not** a Round A closure blocker; Jacob confirms this exclusion via closure question (d) |
 | 15 | Execution-bridge location (asked in Round A batch 2) | **COMPLETE** | D-023 (located: V1 `code/TradingViewBridge.cs` + `PriceBridge.cs`); behaviour verification is Round B/J audit work by design |
-| 16 | Git/GitHub remote + operating model (authorised in Round A batch 2) | **COMPLETE** | D-024 (executed and verified). Visibility permanence is Q-014 — a governance question outside the Round A definition-of-done, decided by Jacob directly |
+| 16 | Git/GitHub remote + operating model (authorised in Round A batch 2) | **COMPLETE** | D-024 (executed and verified); visibility resolved by D-033 (temporarily public; Q-014 RESOLVED; D-024's other controls intact) |
 
 *Labelling rule:* COMPLETE FOR ROUND A is used when part of the topic's own
 decision content is deferred to a named later round or gate; COMPLETE when
@@ -95,14 +95,15 @@ products remain. *Vision note:* the mission/vision statement (charter
 § Mission, from the owner brief) is covered by Topics 1–3 — no separate
 row.
 
-**Verdict:** Round A may **not** close yet. Three rows INCOMPLETE — Topics
-1 and 3 (one shared missing input: Q-015 hierarchy ordering) and Topic 12
-(KPI framework approval, Q-008 remainder) — plus Jacob's approval of the
-Round A summary itself. Closure condition: Q-015 answered + KPI framework
-approved (or amended) + summary approved. No topic is EVIDENCE PENDING at
-Round A altitude (Q-005/Q-010 evidence needs belong to Rounds E/H/B by
-design). This assessment is `PROPOSED`; Jacob confirms or amends it —
-including the row-14 exclusion of role provisioning from closure.
+**Verdict (updated 2026-08-18, post-reconciliation):** every required
+topic is now COMPLETE or COMPLETE FOR ROUND A (D-027 resolved topics 1/3;
+D-028 resolved topic 12; D-018 confirmation covers topic 6; the row-14
+provisioning exclusion was confirmed by Jacob in the reconciliation
+instruction — it blocks the DB-side V1 audit only). **The single
+remaining closure step is Jacob's approval of the Round A closure
+candidate** (INTERVIEW_RECORD.md § Round A closure candidate). Round A is
+NOT closed until he approves it. No topic is EVIDENCE PENDING at Round A
+altitude (Q-005/Q-010 evidence needs belong to Rounds E/H/B by design).
 
 ## Rounds B–O assurance matrix (high-level; recorded 2026-08-18)
 
@@ -210,14 +211,25 @@ is a Round N decision.
   drafting only; approved at the round exit.
 - **EXTERNAL_SPECIALIST:** none expected.
 - **Artefacts:** BACKTEST_FIDELITY_SPEC.md (Fable re-read first);
-  TEST_AND_EVIDENCE_STRATEGY updates.
+  TEST_AND_EVIDENCE_STRATEGY updates;
+  TRADING_SIMULATION_AND_CERTIFICATION_SPEC.md Mode A design (replay
+  truth model, simulated-broker fill model, reproducibility/fidelity
+  criteria — KPI-21 numbers; D-034).
 - **Blockers:** Rounds D/E outputs.
 - **Exit:** fidelity spec + tolerance numbers OWNER_APPROVED (Q-009 fully
   closed); paper-campaign design (duration/samples) OWNER_APPROVED; D-006
-  parity approach settled with Round J.
+  parity approach settled with Round J; Mode A replay design
+  OWNER_APPROVED.
 - **Enables:** G/H; Gates 2+ evidence standards.
 
 ### Round G — Strategy discovery, ML, experiment governance
+*(D-030: G and H are a paired sequence — G designs the
+statistical-validation methods, experiment governance, multiple-testing
+protections, and draft strategy-acceptance methodology;
+STATISTICAL_VALIDATION_PLAN.md and STRATEGY_ACCEPTANCE_CRITERIA.md are
+shared with Round H, which owns their final numerical acceptance criteria
+and final approval. The test is designed before final holdout results are
+examined.)*
 - **Entry:** Round F truth model.
 - **OWNER_DECISION:** strategy-family scope; ML governance boundaries;
   truncation policy (D-003); research-breadth budget (KPI-11 context).
@@ -232,6 +244,9 @@ is a Round N decision.
 - **Enables:** H.
 
 ### Round H — Holdout, crises, regimes, acceptance gates
+*(D-030 pairing: H applies the untouched holdout, regime, and crisis
+evidence and sets the final numerical thresholds and Gate 3 pass/fail
+criteria in the two artefacts shared with Round G.)*
 - **Entry:** Round B Q-010 evidence; Round G protocols.
 - **OWNER_DECISION:** D-002 build/test split; crisis episode list (before
   outcomes seen — D-004); strategy acceptance criteria (Gate 3); KPI-07/12
@@ -274,7 +289,10 @@ is a Round N decision.
   types/TIF/amendment set, partial-fill remainder policy, and retry
   classification/limits** (ORDER_AND_FILL_LIFECYCLE); **Gate 7
   live-enablement acceptance criteria** (prepared with Round N; decided by
-  Jacob); KPI-08/09/17/18 numbers; V2 bridge name (D-023 candidates).
+  Jacob); **D-034 Mode B/C design decisions** — fail-closed shadow-routing
+  architecture, demo-certification price tolerance, minimum test size,
+  certification expiry/retest triggers, failure remediation (KPI-22
+  numbers); KPI-08/09/17/18 numbers; V2 bridge name (D-023 candidates).
 - **CLAUDE_RESEARCH_OR_EVIDENCE:** cTrader OpenAPI research; bridge audit
   evidence; broker constraint facts.
 - **TECHNICAL_AUTONOMY:** message-flow/idempotency/reconnect design
@@ -339,8 +357,13 @@ is a Round N decision.
 ### Round N — Architecture, security, operations, delivery
 - **Entry:** Rounds C–K outputs (bulk of P1 specification).
 - **OWNER_DECISION:** architecture acceptance; threat-model acceptance;
-  hosting/OS/language/storage ADRs; VPS production decision (OPS-005, after
-  inventory); environment/release plan; roadmap + estimate ranges (BUS-011);
+  hosting/OS/language/storage ADRs; VPS production decision (OPS-005 per
+  D-029: basic facts may be collected earlier when needed to avoid
+  designing blindly, but production suitability is decided here after
+  assessing performance/security/reliability/backups/recovery/monitoring/
+  storage/network/cTrader connectivity, and any upgrade or paid service
+  needs an evidence + free-alternative + cost proposal first);
+  environment/release plan; roadmap + estimate ranges (BUS-011);
   incident criteria and severity levels (with Round J); Gate 7 drill list
   and pass criteria; RPO/RTO values (with Round D, OPS-002); the definition
   of **"P1 `LIVE_VALIDATED`"** — the D-010 trigger for P2/P3
@@ -413,8 +436,9 @@ Findings:
    execution-and-risk rule); environments mapped in Round N
    (ENVIRONMENT_AND_RELEASE_PLAN).
 3. **Governance items outside the round structure:** repository visibility
-   (Q-014), rules-file naming (Q-011), and status-vocabulary scope (Q-013)
-   — decided by Jacob directly, not owned by any round.
+   (Q-014 → D-033), rules-file naming (Q-011 → D-031), and
+   status-vocabulary scope (Q-013 → D-032) — all decided by Jacob directly
+   on 2026-08-18.
 4. **Deliberate split, not duplication:** calendars/news exist in C/D
    (deterministic data) and F (replay-tested enforcement) under D-007 —
    ownership boundaries confirmed correct.
@@ -430,15 +454,12 @@ Findings:
    trigger definition. Now assigned: Gate 7 criteria prepared in Round J
    (with Round N drill/pass criteria); "P1 LIVE_VALIDATED" definition
    decided in Round N (prepared J/N). Recorded in those matrix entries.
-7. **CONFLICT recorded (Q-016, no winner chosen):**
-   STATISTICAL_VALIDATION_PLAN is assigned to Round G by this matrix and
-   DOCUMENT_INDEX, but its own open-questions table assigns all items to
-   Round H; STRATEGY_ACCEPTANCE_CRITERIA sits in Round H while assigning
-   most items to Round G. This governs when multiple-testing corrections
-   and Gate 3 statistical criteria are decided. `PROPOSED` resolution
-   (not applied): treat G and H as a paired block sharing these two
-   artefacts, with final numbers landing in H — Jacob confirms or directs
-   otherwise (Q-016).
+7. **CONFLICT resolved (Q-016 → D-030, 2026-08-18):** Rounds G and H are
+   a paired sequence; the two artefacts are shared; Round G designs
+   methods/governance/protections, Round H applies holdout/regime/crisis
+   evidence and owns the final numerical acceptance criteria and final
+   approval; the test is designed before final holdout results are
+   examined. Matrix entries updated accordingly.
 8. After findings 1 and 6, **no mandate area is unassigned**; no round
    carries two conflicting owners except the recorded Q-016 conflict.
 

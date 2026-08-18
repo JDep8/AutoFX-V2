@@ -37,23 +37,24 @@ workspace, per D-011). Before doing anything else:
    `autofx-model-governor` skill BEFORE any delegation or critical
    acceptance. Per D-019/D-022, the autonomous operating model and database
    model are approved but do NOT open the implementation gate.
-5. Round A: batches 1 AND 2 are fully answered (batch 2 verbatim in
-   `docs/01-discovery/INTERVIEW_RECORD.md` § Batch 2 answers, 2026-08-18;
-   decisions D-018…D-024). Do NOT re-ask any of it. **Round A is NOT
-   closed** (owner direction 2026-08-18): the completion assessment
-   (DISCOVERY_STATUS.md) found two INCOMPLETE topics — success hierarchy
-   (Q-015) and KPI-framework approval (Q-008 remainder, framework
-   `PROPOSED` in PROJECT_CHARTER.md). Four closure questions await Jacob
-   (NEXT_ACTIONS § B-1); the Round A summary stays `PROPOSED` until he
-   approves it.
-6. Repository visibility is **PUBLIC** (verified 2026-08-18; Jacob's
-   change; Q-014 pending — temporary or permanent). Never change
-   visibility; treat sensitive-material placement as a standing
-   consideration until Q-014 is decided.
-7. Items blocked on Jacob (NEXT_ACTIONS § B): the four closure questions;
-   Round A summary approval; `autofx_v1_readonly` provisioning (D-022);
-   explicit V1-audit go; Q-011; Q-013. Do not start them unprompted. The V1
-   forensic audit has NOT started.
+5. Round A: batches 1 AND 2 answered, plus the 2026-08-18 reconciliation
+   (D-025…D-035: interaction/output rules, co-equal success hierarchy,
+   KPI framework approved at form level, VPS split, G/H pairing, rules
+   layout, status vocabulary, visibility, simulation requirement D-034,
+   runbook rejection D-035). Do NOT re-ask any of it. **Round A is NOT
+   closed** — the single remaining step is Jacob approving the Round A
+   closure candidate (INTERVIEW_RECORD.md). Ask that one question only,
+   one at a time per D-025.
+6. Repository visibility is **PUBLIC by owner decision D-033**
+   (temporarily, for external review; return-to-private only on Jacob's
+   explicit authorisation). Never change visibility. Apply the D-033
+   sensitivity stop-rule before every push.
+7. Items waiting on Jacob (NEXT_ACTIONS § B, one at a time): closure
+   candidate approval; corrected command-runbook policies (v0.2.0,
+   PROPOSED — v0.1.0 REJECTED, D-035); `autofx_v1_readonly` provisioning;
+   explicit V1-audit go. Do not start them unprompted. The V1 forensic
+   audit has NOT started. Standing rules D-025 (one at a time) and D-026
+   (repository output + validate/commit/push) apply to every task.
 8. Restate the active phase, round, gate status, last completed checkpoint,
    current objective, and blockers, then proceed only within the authorised
    scope above.

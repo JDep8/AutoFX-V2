@@ -41,6 +41,18 @@ Authorised outputs before implementation authorisation:
 - Plain language first; then record the exact technical definition.
 - A domain summary becomes `OWNER_APPROVED` only when Jacob approves it.
 
+## Owner interaction rule (D-025, OWNER_APPROVED 2026-08-18)
+
+- Present every owner decision or conflict to Jacob **one at a time**, in
+  plain English, with practical consequences and Claude's evidence-based
+  recommendation.
+- Never silently infer approval. **"Noted" does not mean "approved."**
+- Never combine multiple approval questions into one response.
+- Never reopen an answered question unless new evidence creates a genuine
+  conflict.
+- A conflict discovered mid-task is recorded; ask the one question only
+  after completing all safe, non-conflicting work.
+
 ## Decision authority
 
 Present evidence and a recommendation, but require Jacob's explicit decision

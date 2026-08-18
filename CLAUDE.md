@@ -72,10 +72,16 @@ the session's work. Work in small atomic units; update registers as decisions
 occur, not at session end only. Detailed protocol:
 `.claude/rules/documentation-and-traceability.md`.
 
-## Status vocabulary (use only these labels)
+## Status vocabulary (use only these labels for governed items)
 
 `PROPOSED`, `OWNER_APPROVED`, `IMPLEMENTED`, `TESTED`, `PAPER_VALIDATED`,
-`LIVE_VALIDATED`, `REJECTED`, `SUPERSEDED`.
+`LIVE_VALIDATED`, `REJECTED`, `SUPERSEDED` — for governed items:
+requirements, decisions, strategies, books, implementation components,
+tests, validation evidence. Per D-032, descriptive progress states (e.g.
+`Living register`, `In progress`, `Complete`, `Gated`, `Paused`) are
+permitted for document headers, discovery rounds, registers, gates, and
+operational workflow status, and must never imply `IMPLEMENTED`,
+`TESTED`, `PAPER_VALIDATED`, or `LIVE_VALIDATED`.
 
 - Never describe proposed or implemented work as tested.
 - Never describe a backtest as live-validated.

@@ -45,6 +45,13 @@ The seven committed test families and where each is defined: golden scenarios
 cross-engine comparison, record/replay of live sessions, broker-statement
 reconciliation (EXEC-009), and replay-tested calendar/news enforcement
 (VAL-005, D-007). Contents of each suite are decided in Rounds C/F/J.
+Additionally, the D-034 simulation/certification modes supply gate
+evidence: Mode A accelerated replay and Mode B live shadow (EXEC-012/013,
+VAL-008 — Gates 5–6 evidence) and Mode C cTrader demo certification
+(EXEC-014 — a precondition inside Gate 6→7 promotion). Spec:
+[TRADING_SIMULATION_AND_CERTIFICATION_SPEC.md](../06-execution-and-risk/TRADING_SIMULATION_AND_CERTIFICATION_SPEC.md).
+Demo results never claim live-equivalence; no simulation result is
+profitability evidence.
 
 ### 3. What each test type demonstrates — and does not
 For every family: the exact claim a pass supports and the claims it cannot
@@ -103,3 +110,5 @@ Profitability is never guaranteed by any evidence in this strategy.
 | Gate 5 evidence-pack field list and format | Rounds H/I |
 | Reconciliation cadence and discrepancy thresholds | Rounds J/N (D-006) |
 | Which V1 tests, if any, are reusable and with what demonstrated claims | V1 audit, Round B |
+| Mode C certification design values (tolerance, minimum size, expiry, retest, remediation) | Round J (D-034) |
+| Mode A replay fidelity/reproducibility criteria | Round F (D-034) |

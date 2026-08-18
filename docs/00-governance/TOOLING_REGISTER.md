@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** `OWNER_APPROVED` (policy stated by Jacob 2026-08-18; evidence class USER-STATED)
-- **Version:** 0.3.0
+- **Version:** 0.4.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** DECISION_LOG.md (D-011, D-013, D-015, D-017, D-024), MODEL_ROUTING_POLICY.md
 - **Approval evidence:** Owner handoff instruction, 2026-08-18
@@ -106,7 +106,7 @@ reviewed configuration change.
   the validated planning state via `--ff-only`, rename to `main`, push, set
   default) was executed 2026-08-18 — VERIFIED; SESSION_LOG.md Session 5.
 
-## Repository visibility (Q-014 — owner decision pending)
+## Repository visibility (Q-014 RESOLVED 2026-08-18 → D-033)
 
 - 2026-08-18 (creation): `JDep8/AutoFX-V2` created **PRIVATE** — VERIFIED at
   the time (`isPrivate: true`); that evidence was accurate when recorded.
@@ -128,9 +128,15 @@ reviewed configuration change.
   effectively irrevocable once cloned or indexed, even if the repo later
   returns to private. Until Q-014 is decided, sensitive-material placement
   is a standing consideration for every new document.
-- Options for Jacob (Q-014): (a) revert to private; (b) public until a named
-  milestone/date, then revert; (c) permanently public with an explicit
-  publication policy governing what may never be committed.
+- **DECIDED 2026-08-18 (D-033, Q-014 RESOLVED):** temporarily public so
+  ChatGPT can independently review committed outputs; returns to private
+  once an authenticated review path exists **and Jacob explicitly
+  authorises the change** (Claude never changes visibility);
+  already-public history is irretrievably public; strict secret and
+  sensitivity checks continue before every push; sensitive later-round
+  content (security detail, credentials, strategy IP, legally sensitive
+  material) triggers a stop-and-ask before any public commit. D-024's
+  PRIVATE clause is superseded; all other D-024 controls stand.
 
 ## Claude Code command governance (research 2026-08-18)
 
@@ -142,18 +148,20 @@ reviewed configuration change.
   (code.claude.com/docs: commands, sessions, scheduled-tasks) plus
   read-only local verification (binary token scan; session skill roster;
   in-session observations). No mutating command was exercised.
-- All policies in the runbook are **`PROPOSED`** — Jacob approves/amends
-  (NEXT_ACTIONS § B). Standing regardless of approval state: no command
-  bypasses the no-build gate, D-015 boundary, D-017 routing, or D-024 git
-  rules; mutating/installing/connecting/cloud commands are never treated
-  as routine.
+- **v0.1.0 catalogue REJECTED by Jacob 2026-08-18 (D-035)** for factual
+  errors; corrected v0.2.0 (full 105-row official catalogue, two-axis
+  evidence model, § 10 errata) remains **`PROPOSED`** and returns to Jacob
+  for one-at-a-time approval (D-025). Standing regardless of approval
+  state: no command bypasses the no-build gate, D-015 boundary, D-017
+  routing, or D-024/D-033 git rules; mutating/installing/connecting/
+  cloud/billing commands are never treated as routine.
 - Revalidate the runbook after every Claude Code upgrade (runbook § 9).
 
 ## Open items
 
-- Q-011: rules-file naming overlap (three numbered entry points vs six
-  mandate topic files) — Jacob to confirm keep-both or consolidation.
 - Data plugin: its D-013 gate ("after the read-only database decision") is
   now satisfiable — Q-001 resolved via D-022 — but installation still
   requires Jacob's explicit instruction and a register entry here. Not
   installed.
+- (Resolved 2026-08-18: Q-011 rules-file naming → D-031, keep both with
+  the topic files authoritative; Q-014 visibility → D-033.)

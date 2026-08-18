@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register — Round A in progress
-- **Version:** 0.2.0
+- **Version:** 0.3.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** DISCOVERY_STATUS.md, DECISION_LOG.md
 - **Approval evidence:** Answers below are Jacob's explicit selections/text
@@ -499,7 +499,7 @@ and logged in SESSION_LOG.md; the durable content is below, verbatim.
 > - No live deployment occurs merely because changes have been pushed.
 > - No paid GitHub feature may be enabled without my approval.
 
-### Round A summary — status `PROPOSED` (awaiting Jacob's approval)
+### Round A summary — 2026-08-18 *(historical; superseded later the same day by § Round A closure candidate below after the decision-reconciliation instruction)*
 
 **Decisions captured (11):** D-001 (drawdown direction), D-008 (Jacob-only),
 D-009 (eight-class universe, FX-first), D-010 (P1-full MVP) — batch 1;
@@ -536,3 +536,123 @@ approved or amended (Q-008 remainder) — **and** Jacob approves this
 summary. Next: Round B (V1 outcomes and migration stance) — feeds from the
 V1 forensic audit, which starts only on Jacob's explicit go
 (NEXT_ACTIONS § B).
+
+## Round A decision reconciliation — 2026-08-18 (owner instruction)
+
+Jacob supplied a reconciliation instruction stating that the following
+were "explained individually and explicitly agreed." Recorded as
+`OWNER_APPROVED` · USER-STATED (full decision text in DECISION_LOG.md
+D-025…D-035; key phrases preserved):
+
+- **D-025** owner interaction rule — decisions one at a time; plain
+  English; consequences + recommendation; *"'Noted' does not mean
+  'approved.'"*; never combine approval questions; never reopen answered
+  questions absent genuine new conflict.
+- **D-026** repository-output rule — every substantive task persists its
+  output in the repository; terminal-only output insufficient; sensitive
+  material never committed to satisfy the rule; tasks end with
+  validation, commit, and push unless Jacob says otherwise.
+- **D-027** (Q-015) success hierarchy — safety/live-protection and
+  evidence-integrity/fidelity are *"co-equal, non-negotiable hard
+  constraints"*; profitability only inside them; cost/speed last; a
+  safety-vs-evidence conflict is escalated, never silently weakened.
+- **D-028** (Q-008) KPI framework approved at form level — 20 areas,
+  organised headline/supporting; *no thresholds invented*; numbers stay
+  with their named rounds.
+- **D-021 confirmation** — backtest-accuracy values deferred to Round F;
+  Round F researches and proposes tolerances/samples/confidence/warnings/
+  failures/remediation for approval.
+- **D-018 confirmation** — Australian/personal-name basis stands for
+  discovery; entity/regulatory structure at the mandatory pre-live/
+  pre-commercialisation review gate; *"not permission to trade
+  commercially or provide financial services."*
+- **D-029** VPS split — early basic facts allowed to avoid designing
+  blindly; never assumed production-ready; suitability decided Round N;
+  spending needs evidence + free alternatives + cost proposals.
+- **D-022 classification confirmation** — `autofx_v1_readonly`
+  provisioning blocks only the DB-side V1 audit; not Round A closure; not
+  a separately authorised repo-side audit; no audit authorised by the
+  instruction.
+- **D-030** (Q-016) Rounds G/H paired — G designs methods/governance/
+  multiple-testing protections; H applies holdout/regime/crisis evidence
+  and owns final numbers and Gate 3 pass/fail; shared artefacts; *"the
+  test must be designed before final holdout results are examined."*
+- **D-031** (Q-011) rules layout — keep both sets; topic files
+  authoritative; entry points link; repeated safety wording
+  byte-identical with drift checks.
+- **D-032** (Q-013) status vocabulary — lifecycle labels for governed
+  items; descriptive progress states for headers/rounds/registers/gates/
+  workflow, never implying tested/validated states.
+- **D-033** (Q-014) visibility — temporarily public for independent
+  ChatGPT review; back to private when an authenticated review path
+  exists and Jacob explicitly authorises; public history is irrevocable;
+  sensitivity stop-rule on every push; supersedes D-024's PRIVATE clause
+  only.
+- **D-034** trading simulation & certification requirement (P1) — Modes
+  A/B/C as specified in
+  TRADING_SIMULATION_AND_CERTIFICATION_SPEC.md; owner intent recorded
+  verbatim there.
+- **D-035** command-runbook v0.1.0 catalogue REJECTED (B-7 not approved);
+  corrected v0.2.0 stays `PROPOSED` for one-at-a-time reapproval.
+
+## Round A closure candidate — 2026-08-18 (status `PROPOSED`; Jacob approves or amends)
+
+**In plain English — what Round A decided:**
+
+AutoFX V2 is built for one person: Jacob, trading his own money, from
+Australia, under his personal name for now — with a mandatory Australian
+legal review standing between today's work and any commercial step, ever.
+The product's first job is honesty: safety of capital and integrity of
+evidence are equal, untouchable constraints, and profit is only pursued
+inside them; if the two ever pull against each other, the question comes
+back to Jacob. The target universe is eight CFD classes rolled out FX
+first; the implementation MVP is the full Priority 1 platform; the
+Research Centre and content business stay planning-only until P1 proves
+itself live.
+
+The money and time box is set: at most AUD 400 a month, every expense
+individually approved, free options first when quality allows; roughly
+six months from an eventual implementation authorisation to a first
+controlled paper-trading candidate (nine to twelve acceptable), and no
+committed date for live trading. Jacob gives 5–10 hours a week as owner
+and approver; Claude does the permitted technical work autonomously and
+stops for the twelve mandatory decision triggers.
+
+What "success" and "accurate" mean is now fixed in form: twelve non-goals
+(no HFT, no discretionary routing, no profit promises, no gate-weakening,
+and more); a 22-area KPI framework — headline measures for decisions,
+supporting diagnostics underneath — with every numeric threshold
+deliberately left to its later round; and backtest accuracy defined as
+tolerance bands plus distribution tests, with the actual numbers to be
+researched and approved in Round F. The platform must also prove itself
+three ways before money is ever at risk: fast historical replay of real
+production behaviour, a live shadow mode that can never place an external
+order, and per-symbol certification on a designated cTrader demo account —
+none of which claims live results will match demo, and none of which is
+authorised to run today.
+
+The machinery around the work is settled too: database access is designed
+(V1 forever read-only; V2 autonomy only after the build gate), the V1
+bridge is located for the future audit, the repository lives on GitHub
+with strict push rules and is temporarily public by Jacob's decision, the
+rulebook layout and status vocabulary are fixed, decisions come to Jacob
+one at a time, and every task's output must land in the repository.
+
+**What closing Round A does NOT do:** it does not start Round B or either
+V1 audit; does not authorise wireframes, implementation, databases, or
+trading; does not set any numeric threshold; does not approve the
+command-runbook policies (rejected v0.1.0; corrected version awaits
+separate approval); and does not touch the no-build gate, which remains
+ACTIVE until the exact authorisation phrase.
+
+**Deferred items and their owners:** drawdown numbers/heat cap/translation
+rule → Round E (Q-005); accuracy tolerances and replay-fidelity criteria →
+Round F; multiple-testing design → G, final acceptance numbers → H
+(D-030); certification tolerances/expiry/remediation and Gate 7 criteria →
+Round J (with N); VPS production suitability → Round N; holdout
+contamination (Q-010) → V1 audit + Round B; consumer-AI automation
+(Q-003) → BLOCKED pending legal; video boundary (Q-004) → Round L;
+`autofx_v1_readonly` provisioning → Jacob, before the DB-side audit.
+
+**The one closure question (asked separately per D-025):** does Jacob
+approve this closure candidate, closing Round A?

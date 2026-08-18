@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register — the navigation map; read this first each session
-- **Version:** 0.2.2
+- **Version:** 0.3.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** every document below
 - **Approval evidence:** n/a (register)
@@ -17,7 +17,7 @@ noted. Read only what the active task needs.
 | [CLAUDE.md](../../CLAUDE.md) | Project constitution: no-build gate, authority hierarchy, quality gates, workspace/model/plugin policies, links |
 | `.claude/settings.json` | Committed project permissions (read-only git/gh allowlist, V1-inspection scope; secret-file reads denied) + the three enabled discovery plugins (D-013). D-024 git/GitHub operations run under per-session approvals — allowlist extension is a separately reviewable change (TOOLING_REGISTER § Git conventions) |
 | `.gitignore` | Ignore rules blocking secret patterns and local artefacts (a backstop, not a licence — see security rules) |
-| `.claude/rules/00-…, 10-…, 20-…` | Numbered entry points: discovery gate, evidence + traceability labels, session continuity (D-014/Q-011: naming overlap with the six topic files awaits Jacob) |
+| `.claude/rules/00-…, 10-…, 20-…` | Numbered entry points: discovery gate, evidence + traceability labels, session continuity (layout settled by D-031: entry points link; the six topic files are authoritative) |
 | `.claude/rules/` (6 topic files) | Detail: discovery/authorisation, quantitative evidence, data integrity, execution/risk, security/secrets, documentation/traceability |
 | `.claude/skills/autofx-model-governor/SKILL.md` | Model-routing governor skill (D-017): task classification, lowest-permitted-model selection, escalation + Fable acceptance discipline |
 | `.claude/agents/` (4 discovery agents) | autofx-fable-critical-governor · autofx-opus-reviewer · autofx-sonnet-analyst · autofx-haiku-extractor — all read-only (Read/Glob/Grep), plan mode (D-017; roster in TOOLING_REGISTER.md) |
@@ -27,16 +27,16 @@ noted. Read only what the active task needs.
 | File | Purpose |
 |------|---------|
 | DOCUMENT_INDEX.md | This navigation map |
-| [PROJECT_CHARTER.md](PROJECT_CHARTER.md) | Mission, success hierarchy (`PROPOSED`, Q-015), owner/jurisdiction (D-018), priorities, budget/timeline (D-019), non-goals pointer (D-020), **KPI framework (`PROPOSED`, Q-008 remainder)** |
+| [PROJECT_CHARTER.md](PROJECT_CHARTER.md) | Mission, success hierarchy (`OWNER_APPROVED`, D-027), owner/jurisdiction (D-018), priorities, budget/timeline (D-019), non-goals pointer (D-020), **KPI framework (`OWNER_APPROVED` form level, D-028; 22 areas, headline/supporting; thresholds → Rounds D–N)** |
 | [GLOSSARY.md](GLOSSARY.md) | Canonical terms, plain + technical; formulas finalised Round E |
-| [DECISION_LOG.md](DECISION_LOG.md) | D-001…D-024 — legacy conflicts, Round A decisions (both batches), workspace/tooling policies, governance rulings, git/GitHub model |
+| [DECISION_LOG.md](DECISION_LOG.md) | D-001…D-035 — legacy conflicts, Round A decisions (batches + 2026-08-18 reconciliation: interaction/output rules, hierarchy, KPI framework, VPS split, G/H pairing, rules layout, vocabulary, visibility, simulation requirement, runbook rejection) |
 | [ASSUMPTION_REGISTER.md](ASSUMPTION_REGISTER.md) | A-001…A-006 provisional defaults (A-006 `SUPERSEDED` by D-024) |
-| [QUESTION_REGISTER.md](QUESTION_REGISTER.md) | Q-001…Q-016 (Q-001/002/006–009 resolved 2026-08-18 per D-018…D-023; Q-003 BLOCKED; Q-016 CONFLICT; Q-004/005/010/011/013/014/015 open) |
+| [QUESTION_REGISTER.md](QUESTION_REGISTER.md) | Q-001…Q-016 (resolved: Q-001/002/006–009, Q-011…Q-016; open: Q-004, Q-005 → Round E, Q-010 → V1 audit/Round B; Q-003 BLOCKED) |
 | [CHANGE_CONTROL.md](CHANGE_CONTROL.md) | How approved content changes without erasing history |
 | [TRACEABILITY_MATRIX.md](TRACEABILITY_MATRIX.md) | Requirement → design → evidence → status → decision |
-| [TOOLING_REGISTER.md](TOOLING_REGISTER.md) | Workspace roles (terminal primary), plugin install gates, git/GitHub conventions incl. remote `JDep8/AutoFX-V2` (created private per D-024; **visibility PUBLIC as at 2026-08-18 — Q-014 pending**) (D-011/D-013/D-015/D-024) |
+| [TOOLING_REGISTER.md](TOOLING_REGISTER.md) | Workspace roles (terminal primary), plugin install gates, git/GitHub conventions incl. remote `JDep8/AutoFX-V2` (visibility temporarily PUBLIC per D-033; return-to-private on Jacob's authorisation) (D-011/D-013/D-015/D-024/D-033) |
 | [MODEL_ROUTING_POLICY.md](MODEL_ROUTING_POLICY.md) | Launch flags, Fable/Opus/Sonnet/Haiku routing, upward escalation (D-012) |
-| [CLAUDE_CODE_COMMAND_RUNBOOK.md](CLAUDE_CODE_COMMAND_RUNBOOK.md) | Claude Code command catalogue (v2.1.234, verified 2026-08-18), command-kind model, availability gates, per-command AutoFX policies (`PROPOSED`), session sequences, upgrade revalidation procedure |
+| [CLAUDE_CODE_COMMAND_RUNBOOK.md](CLAUDE_CODE_COMMAND_RUNBOOK.md) | Claude Code command catalogue v0.2.0 (v0.1.0 REJECTED by owner, D-035; corrected 2026-08-18 against the full 105-row official catalogue): two-axis evidence model, per-command AutoFX policies (`PROPOSED`, one-at-a-time reapproval pending), errata table, session sequences, upgrade revalidation |
 
 ## 01-discovery
 
@@ -110,6 +110,7 @@ noted. Read only what the active task needs.
 | BROKER_RECONCILIATION.md | Broker-truth reconciliation, orphaned positions (EXEC-009) → Round J |
 | CIRCUIT_BREAKERS_AND_KILL_SWITCHES.md | Six-scope switches, fail-closed breakers (EXEC-010) → Round J |
 | INCIDENT_AND_RECOVERY_RUNBOOK.md | Incident declaration, safe state, restart evidence → Rounds J/N |
+| TRADING_SIMULATION_AND_CERTIFICATION_SPEC.md | D-034 three-mode requirement (`OWNER_APPROVED` intent, P1): Mode A accelerated replay, Mode B live shadow (fail-closed routing), Mode C cTrader demo certification; EXEC-012…014, VAL-008, KPI-21/22; design values → Rounds F/J/K/N |
 
 ## 07-research-centre (P2 — planning-only)
 

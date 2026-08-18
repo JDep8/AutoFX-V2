@@ -134,11 +134,12 @@ the review package, is not approval to build.
 
 - The no-build gate wording and its list of forbidden pre-authorisation
   actions (CLAUDE.md).
-- Current open questions feeding this review (2026-08-18): Q-003 `BLOCKED`,
-  Q-004, Q-005, Q-010, Q-011, Q-013, Q-014, Q-015, Q-016 (CONFLICT) —
-  Q-005 and Q-010 are safety-material. Q-001/002/006/007/008/009 were
-  resolved in Round A (D-018…D-023); Q-001's role provisioning and Q-008's
-  KPI-framework approval remain operationally outstanding.
+- Current open questions feeding this review (2026-08-18, post
+  reconciliation): Q-003 `BLOCKED`, Q-004, Q-005, Q-010 — Q-005 and Q-010
+  are safety-material. Resolved in Round A: Q-001/002/006/007/008/009
+  (D-018…D-023, D-028) and Q-011/013/014/015/016 (D-027, D-030…D-033).
+  Q-001's role provisioning remains operationally outstanding (blocks the
+  DB-side V1 audit only, per D-022 classification note).
 - D-001 direction, D-008/D-009/D-010, and D-018…D-024 are `OWNER_APPROVED`;
   D-002..D-007 are open and safety- or evidence-critical, so all currently
   block READY.

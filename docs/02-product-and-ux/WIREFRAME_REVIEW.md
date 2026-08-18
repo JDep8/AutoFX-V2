@@ -90,7 +90,8 @@ in Round O.
 - UX-002 is accepted by traceability: every listed element present in the
   page spec and therefore checkable here.
 - Approval of a wireframe never authorises implementation — no-build gate,
-  `AUTHORISE AUTOFX V2 IMPLEMENTATION` is a separate explicit phrase.
+  `AUTHORISE AUTOFX V2 IMPLEMENTATION — PHASE <number/name>` is a separate
+  explicit phrase.
 
 ## Open questions
 

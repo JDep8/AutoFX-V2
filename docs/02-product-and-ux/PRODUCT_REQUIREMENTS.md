@@ -91,6 +91,10 @@ Exit Review.
   RISK-006 / D-001 (`OWNER_APPROVED` direction only).
 - Wireframes are gated behind the exact phrase `AUTHORISE WIREFRAME ONLY` —
   UX-003 and the repository no-build gate.
+- Trading simulation and certification are an owner-approved P1 product
+  requirement (D-034): Mode A accelerated replay, Mode B live shadow,
+  Mode C cTrader demo certification — EXEC-012…014, VAL-008;
+  spec: TRADING_SIMULATION_AND_CERTIFICATION_SPEC.md.
 
 ## Open questions
 

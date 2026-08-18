@@ -2,129 +2,113 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living handoff (refreshed every checkpoint)
-- **Date/time:** 2026-08-18 05:17 UTC
-- **Source session:** second terminal session (Claude Code CLI, Fable 5 +
-  Ultracode), continued — Round A closure-assurance pass (owner-directed):
-  completion assessment, KPI framework proposal, repository-wide
-  reconciliation, visibility verification, Rounds B–O assurance matrix,
-  coverage check. Earlier in the same session: batch 2 recording +
-  D-018…D-024 + D-024 execution. History: SESSION_LOG.md.
+- **Date/time:** 2026-08-18 06:08 UTC
+- **Source session:** second terminal session (Fable 5 + Ultracode),
+  continued — Round A decision reconciliation (D-025…D-035), trading
+  simulation & certification requirement (D-034), command-runbook
+  correction pass (D-035). Earlier same session: batch 2 recording,
+  D-024 execution, closure-assurance pass, runbook v0.1.0. History:
+  SESSION_LOG.md.
 
 ## Phase, round, gate
 
 - Phase 0: COMPLETE 2026-08-17. Phase 1 (V1 forensic assessment): NOT
-  STARTED — gated on Jacob's explicit go (NEXT_ACTIONS § B); DB depth also
-  needs D-022 role provisioning; bridge target known (D-023).
-- Round A: batches 1+2 answered; **Round A NOT closed** (owner direction
-  2026-08-18). Completion assessment (DISCOVERY_STATUS.md): 11 of 13
-  required topics COMPLETE or COMPLETE FOR ROUND A; **2 INCOMPLETE** —
-  success hierarchy (Q-015) and KPI-framework approval (Q-008 remainder).
-  Round A summary remains `PROPOSED`; the KPI framework (PROJECT_CHARTER.md)
-  and completion assessment are `PROPOSED`; Jacob has explicitly **not yet**
-  approved any of them.
+  STARTED — gated on Jacob's explicit go; DB-side depth additionally
+  needs `autofx_v1_readonly` provisioning (D-022 — blocks the DB-side
+  audit only, per Jacob's 2026-08-18 confirmation).
+- Round A: all required topics now COMPLETE or COMPLETE FOR ROUND A
+  (completion assessment, DISCOVERY_STATUS.md). **The single remaining
+  closure step is Jacob's approval of the Round A closure candidate**
+  (INTERVIEW_RECORD.md § Round A closure candidate). Round A is NOT
+  closed; Round B not started.
 - **No-build gate: ACTIVE.** `AUTHORISE AUTOFX V2 IMPLEMENTATION — PHASE
-  <number/name>` not given; `AUTHORISE WIREFRAME ONLY` not given.
-- Governor routing: closure-assurance pass classified CRITICAL; main Fable
-  session + one bounded autofx-opus-reviewer challenge (owner-permitted);
-  no dynamic workflow. Recorded in MODEL_ROUTING_POLICY.md § Critical
-  routing record.
+  <number/name>` not given; `AUTHORISE WIREFRAME ONLY` not given. D-034
+  simulation modes are specified, not authorised to run.
+- Standing rules now in force (2026-08-18): **D-025** owner decisions one
+  at a time ("noted" ≠ "approved"); **D-026** every substantive task's
+  output persists in the repository, ends with validation + commit + push
+  to the approved branch.
 
 ## Session configuration (D-012)
 
-- VERIFIED this session: Fable 5 (`claude-fable-5`) + Ultracode.
+- VERIFIED this session: Fable 5 (`claude-fable-5`) + Ultracode; Claude
+  Code 2.1.234.
 
 ## Working directory / git
 
-- Working directory `C:\AutoFXV2.0`; branch `planning/discovery-handoff`
-  tracking `origin/planning/discovery-handoff`; remote `origin` =
-  https://github.com/JDep8/AutoFX-V2; local `main` @ `ad1d1e4` = remote
-  `main` (not advanced — no merge to main without Jacob's approval).
-- **Repository visibility: PUBLIC** — VERIFIED 2026-08-18 (`isPrivate:
-  false`); changed by Jacob after the private creation (that earlier
-  evidence was accurate at its time). Owner decision pending: Q-014
-  (temporary or permanent). Implications recorded in TOOLING_REGISTER.md
-  § Repository visibility. Claude does not change visibility.
-- This checkpoint commits the closure-assurance change set (≈25 documents:
-  reconciliation of stale Round A references, charter rewrite with KPI
-  framework, DISCOVERY_STATUS assessment + B–O matrix + coverage check,
-  Q-014/Q-015, visibility record, routing record, handoffs) and pushes
-  `planning/discovery-handoff` only.
-
-## Command governance (2026-08-18, later in Session 5)
-
-Owner-directed Claude Code command-governance research completed:
-CLAUDE_CODE_COMMAND_RUNBOOK.md created (`PROPOSED`, v0.1.0) — catalogue
-verified against v2.1.234 (official docs + read-only local verification;
-no mutating command exercised), per-command AutoFX policies for the 45
-owner-mandated commands with all owner-specified safeguards, ten session
-sequences, upgrade revalidation procedure. Approval pending
-(NEXT_ACTIONS § B-7); until approved, the most conservative reading
-applies. TOOLING_REGISTER § Claude Code command governance added.
+- `C:\AutoFXV2.0`; branch `planning/discovery-handoff` tracking origin;
+  remote https://github.com/JDep8/AutoFX-V2; local `main` @ `ad1d1e4` =
+  remote (untouched). Base at this task's start: `2e19d9b`, tree clean.
+- **Visibility: PUBLIC by owner decision D-033 (Q-014 resolved):**
+  temporarily public for independent ChatGPT review; returns to private
+  when an authenticated review path exists and Jacob explicitly
+  authorises; sensitivity stop-rule applies before every push; D-024's
+  other git controls unchanged (no main merges, no force-push, approved
+  branches only).
 
 ## Last completed acceptance criterion
 
-Round A closure-assurance pass persisted: 16-row completion assessment
-(verdict: may NOT close; 3 rows INCOMPLETE — Topics 1/3 share Q-015, Topic
-12 = KPI approval); 20-KPI framework `PROPOSED` (form-level; acceptance
-thresholds owned by Rounds D–N; KPI-10 carries owner-set D-019 numbers;
-remaining numerics are itemised zero-/100%-tolerance restatements of
-standing hard constraints); repository-wide stale-reference reconciliation
-(~25 documents corrected incl. the 08-content folder, history preserved);
-PUBLIC visibility verified and recorded (Q-014, CONFLICT vs D-024 PRIVATE
-clause); Rounds B–O assurance matrix + full-scope coverage check
-(`PROPOSED`) in DISCOVERY_STATUS.md; independent challenge review
-(autofx-opus-reviewer) returned 38 findings — all dispositioned before
-commit, Q-016 raised (SESSION_LOG.md Session 5 continued).
+Round A reconciliation change set persisted: D-025…D-035 recorded with
+confirmation notes on D-014/D-018/D-021/D-022/D-024; Q-008 completed and
+Q-011/Q-013/Q-014/Q-015/Q-016 resolved; PROJECT_CHARTER updated
+(co-equal hierarchy D-027; KPI framework `OWNER_APPROVED` form level
+D-028, 22 areas headline/supporting incl. KPI-21/22);
+TRADING_SIMULATION_AND_CERTIFICATION_SPEC.md created (D-034, P1;
+EXEC-012…014, VAL-008); command runbook corrected to v0.2.0 against the
+full 105-row official catalogue with errata (v0.1.0 REJECTED, D-035);
+rules files updated (D-025/026/031/032); registers, index, matrix,
+DISCOVERY_STATUS (assessment now closable pending approval), and
+handoffs reconciled; validation + independent read-only consistency
+check run before commit (SESSION_LOG.md).
 
 ## First incomplete acceptance criterion
 
-Jacob answers the four Round A closure questions (success hierarchy Q-015;
-KPI framework approval; Q-014 visibility; deferral-map/assessment
-confirmation) and then approves (or amends) the Round A summary — only that
-closes Round A.
+Jacob approves (or amends) the **Round A closure candidate**
+(INTERVIEW_RECORD.md) — the only remaining Round A step. Separately
+queued one-at-a-time items: corrected command-runbook policies (D-035);
+`autofx_v1_readonly` provisioning; explicit V1-audit go.
 
 ## Open owner decisions / blockers
 
-- Q-015 success hierarchy; Q-008 remainder (KPI framework approval); Q-014
-  repository visibility; Round A summary approval.
-- D-022 role provisioning (blocks DB-side audit depth); explicit V1-audit
-  go (blocks Phase 1 start).
-- Q-003 BLOCKED (legal); Q-004, Q-005 (Round E), Q-010 (safety-material,
-  Round B/H), Q-011, Q-013 open; Q-016 CONFLICT recorded (G/H artefact
-  ownership — `PROPOSED` resolution awaiting Jacob, at latest when Round G
-  opens).
-- D-002…D-007 legacy conflicts open, assigned to Rounds E–J.
+- Round A closure candidate approval (the next single question).
+- Command-runbook v0.2.0 policy approval — one at a time per D-025
+  (B-7 remains NOT approved; conservative reading applies meanwhile).
+- `autofx_v1_readonly` provisioning (blocks DB-side audit depth only).
+- Explicit V1-audit go (repo-side; blocks Phase 1 start).
+- Q-003 BLOCKED (legal); Q-004 (Round L); Q-005 (Round E); Q-010
+  (safety-material; V1 audit + Round B).
+- D-002…D-007 legacy conflicts open, assigned Rounds E–J.
+- Optional: extend committed settings allowlist (NEXT_ACTIONS § B).
 
 ## Work in progress / exact partial state
 
-- None after this checkpoint. All closure-assurance outputs are persisted
-  in the repository (charter, DISCOVERY_STATUS, registers); nothing lives
-  only in chat.
-- Round A summary, KPI framework, completion assessment, B–O matrix, and
-  coverage check: all `PROPOSED`, awaiting Jacob.
+- None after this checkpoint; all outputs persisted and pushed. Round A
+  closure candidate, corrected runbook, simulation spec design details:
+  all `PROPOSED`, awaiting Jacob.
 - No application code, schemas, migrations, infrastructure, or trading
-  artefacts exist anywhere in the repo. V1 untouched.
+  artefacts exist anywhere in the repo. V1 untouched. No V1 audit
+  started. No loop/goal/schedule/workflow running.
 
-## Recovery Required (re-verify rather than assume; do not redo verified work)
+## Recovery Required (re-verify rather than assume)
 
-1. **Safety-material skeletons (INFERRED risk):** RISK_AND_DRAWDOWN_SPEC,
+1. Safety-material skeletons (RISK_AND_DRAWDOWN_SPEC,
    BACKTEST_FIDELITY_SPEC, LEAKAGE_AND_HOLDOUT_POLICY,
-   ORDER_AND_FILL_LIFECYCLE, CIRCUIT_BREAKERS_AND_KILL_SWITCHES — Fable
-   re-read at the start of each owning round (now also recorded in the B–O
-   matrix entries for Rounds E/F/H/J).
-2. **Q-010 holdout contamination (UNKNOWN, safety-material):** V1 audit +
-   Round B evidence only; fail closed if absent.
-3. **Glossary formulas (USER-STATED/PROPOSED):** canonical sign-off Round E.
-4. **V1 `.rdp` exposure (VERIFIED risk, owner action):** rotate any embedded
-   credentials; removal from V1 history at Jacob's discretion.
-5. **Repository visibility (PUBLIC, Q-014 pending):** until Jacob decides,
-   treat sensitive-material placement as a standing consideration for every
-   new document; never assume the repo is private.
+   ORDER_AND_FILL_LIFECYCLE, CIRCUIT_BREAKERS_AND_KILL_SWITCHES, and now
+   TRADING_SIMULATION_AND_CERTIFICATION_SPEC's Claude-proposed design
+   sections) — Fable re-read at each owning round's start.
+2. Q-010 holdout contamination (UNKNOWN, safety-material) — V1 audit +
+   Round B evidence only; fail closed.
+3. Glossary formulas — canonical sign-off Round E.
+4. V1 `.rdp` exposure — owner action (rotate/remove at his discretion).
+5. Visibility sensitivity stop-rule (D-033): before every push, ask
+   whether new content would expose security detail, credentials,
+   strategy IP, or legally sensitive material publicly — stop and raise
+   one owner decision if so.
 
 ## Single first safe next action
 
-Wait for Jacob's answers to the four Round A closure questions (chat +
-NEXT_ACTIONS § B), then record them and, if he approves, close Round A.
-Open no new discovery work unprompted; V1 audit waits for his explicit go;
-delegation and critical acceptance route through the `autofx-model-governor`
-skill.
+Ask Jacob the single closure question (approve/amend the Round A closure
+candidate), per D-025 one at a time. Then, on approval: close Round A in
+the registers. Open no new discovery work unprompted; V1 audit waits for
+his explicit go; delegation and critical acceptance route through the
+`autofx-model-governor`.

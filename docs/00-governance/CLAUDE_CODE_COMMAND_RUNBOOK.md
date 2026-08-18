@@ -1,503 +1,425 @@
 # Claude Code Command Runbook
 
 - **Owner:** Jacob Depares
-- **Status:** `PROPOSED` (catalogue evidence VERIFIED/DOCUMENTED as labelled
-  per entry; every AutoFX policy in § 7–8 is `PROPOSED` and awaits Jacob's
-  approval — nothing here is `OWNER_APPROVED`)
-- **Version:** 0.1.0
+- **Status:** `PROPOSED` (v0.1.0's catalogue was **REJECTED by Jacob
+  2026-08-18** for factual errors — D-035; this corrected version's
+  policies remain `PROPOSED` and return to Jacob for separate,
+  one-at-a-time approval per D-025. Nothing here is `OWNER_APPROVED`.)
+- **Version:** 0.2.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** MODEL_ROUTING_POLICY.md (D-012/D-017),
-  TOOLING_REGISTER.md (D-013/D-015/D-024),
-  `.claude/rules/20-session-continuity.md`, CLAUDE.md (no-build gate)
-- **Approval evidence:** None yet (owner-directed research task 2026-08-18;
-  policies presented for approval, not approved)
+  TOOLING_REGISTER.md (D-013/D-015/D-024/D-033),
+  `.claude/rules/20-session-continuity.md`, CLAUDE.md (no-build gate),
+  DECISION_LOG.md (D-025, D-035)
+- **Approval evidence:** None (correction pass 2026-08-18 per owner
+  instruction; B-7 approval explicitly NOT granted)
 
-## 1. Scope, environment, and method
+## 1. Scope, environment, and evidence method
 
 - **Claude Code version tested:** 2.1.234 (`claude --version`, VERIFIED
-  2026-08-18).
+  2026-08-18, twice this session).
 - **Environment:** Windows Server 2022 (NT 10.0.20348.0), terminal CLI
-  (primary workspace per D-011); session model Fable 5 + Ultracode (D-012).
-- **Research date:** 2026-08-18.
-- **Official sources (product behaviour is taken ONLY from these):**
-  - https://code.claude.com/docs/en/commands
+  (primary workspace, D-011); session model Fable 5 + Ultracode (D-012).
+- **Research dates:** initial 2026-08-18; correction pass later the same
+  day.
+- **Official sources (sole authority for product behaviour), accessed
+  2026-08-18:**
+  - https://code.claude.com/docs/en/commands (full raw page retrieved —
+    154,231 bytes; 105 command rows enumerated exhaustively)
   - https://code.claude.com/docs/en/sessions
   - https://code.claude.com/docs/en/scheduled-tasks
-- **Local verification method (read-only; no command exercised):**
-  1. `claude --version` output.
-  2. Read-only string inspection of the installed binary
-     (`C:\Users\Administrator\.local\bin\claude.exe`) for slash-command
-     tokens — the same method used for the D-017 package validation.
-  3. In-session observation: commands actually invoked by Jacob this
-     session (`/remote-control`, `/tasks`), and the session's bundled-skill
-     roster (skills are loose files, not binary strings, so the roster is
-     the correct evidence for skill-backed commands).
-- **Method caveats (evidence honesty):** a token FOUND in the binary is
-  strong evidence of presence; a token ABSENT is **weak** evidence
-  (minification can hide strings). Therefore: ABSENT + documented →
-  `DOCUMENTED_NOT_LOCALLY_VERIFIED`, never `NOT_AVAILABLE` on string
-  absence alone. `NOT_AVAILABLE` is used only when a command is absent
-  from both the official catalogue and the binary. No potentially mutating
-  command was executed during this research.
 
-**Availability labels:** `VERIFIED_ON_V2_1_234` ·
-`DOCUMENTED_NOT_LOCALLY_VERIFIED` · `NOT_AVAILABLE` · `REMOVED`.
-**Type labels:** `BUILT_IN` · `BUNDLED_SKILL` · `WORKFLOW` ·
-`PLUGIN_COMMAND` · `MCP_PROMPT` · `REMOVED_OR_UNAVAILABLE`.
-**AutoFX classifications:** `SAFE_ROUTINE` · `BOUNDED_USE` ·
-`OWNER_APPROVAL_REQUIRED` · `PROHIBITED_DURING_DISCOVERY` · `NOT_RELEVANT`.
+**Two-axis evidence model (per owner instruction).** Every command carries
+two independent statuses:
 
-## 2. Command kinds — how they differ
+1. **Official status:** `DOCUMENTED` · `DOCUMENTED_AS_REMOVED` ·
+   `NOT_IN_OFFICIAL_CATALOGUE`.
+2. **Local status on this machine:** `LOCALLY_VERIFIED_VISIBLE` (safely
+   observed: invoked by Jacob this session, listed in this session's
+   skill roster, or exercised as a session-start check) ·
+   `LOCALLY_VERIFIED_UNAVAILABLE` (safe positive evidence of absence —
+   none currently established) · `LOCALLY_NOT_VERIFIED`.
 
-| Kind | What it is | Trust/behaviour notes |
-|------|------------|----------------------|
-| **BUILT_IN** | Core CLI functionality compiled into Claude Code (e.g. `/model`, `/permissions`, `/compact`) | Executes harness logic directly; Claude cannot invoke built-ins on its own — a scheduled/loop fire passes them through as plain text |
-| **BUNDLED_SKILL** | A prompt/skill shipped with Claude Code (e.g. `/code-review`, `/loop`, `/doctor`) | Loads instructions into the turn; since v2.1.215 skills run only on explicit invocation unless model-invocable; may drive tools |
-| **WORKFLOW** | Skill that launches a multi-subagent background workflow (`/deep-research`, `/batch`) | Fans out many agents; large token cost; governed by MODEL_ROUTING_POLICY ("no dynamic workflow may bypass routing") |
-| **PLUGIN_COMMAND** | Commands/skills contributed by installed plugins (here: `product-management:*`, `claude-md-management:*`, `session-report`, and environment-visible `figma:*`) | Availability follows D-013 install gates; figma:* is D-015 OUT-OF-SCOPE |
-| **MCP_PROMPT** | `/mcp__<server>__<prompt>` exposed by connected MCP servers | All claude.ai connectors here are D-015 OUT-OF-SCOPE / NOT AUTHORISED |
-| **Custom skills** | Project-defined skills (`autofx-model-governor`) | Project-scoped; governed by their own definitions |
+**Hard evidence rules:** absence from a binary-string scan is **never**
+proof a command is unavailable (official docs themselves note `/heapdump`
+"doesn't appear in the command menu; type it in full" — menu and string
+evidence both mislead). Binary-string hits are recorded only as weak
+corroboration. No command that edits, reloads, authenticates, opens
+external services, changes permissions/settings, creates cloud activity,
+triggers billing, delegates work, or produces sensitive output was
+executed to test availability. Where local verification was not safely
+possible, the entry says `LOCALLY_NOT_VERIFIED` and § 9 gives the harmless
+manual check.
 
-Recognition/queuing (official): commands are recognised only at message
-start; while Claude is responding most commands queue until the turn ends;
-`/status`, `/tasks`, `/usage` run immediately; dialog commands run
-immediately in fullscreen rendering from v2.1.234.
+**Behaviour codes:** `RO` read-only · `LM` local mutation (session state,
+local files, settings on this machine) · `RM` repository mutation ·
+`EX` external/cloud action · `AU` authentication · `BC` billing/cost ·
+`DG` delegation/background execution · `SD` sensitive diagnostic output.
 
-## 3. Platform, plan, and version dependence (from official docs)
+**AutoFX policy labels:** `ROUTINE` · `BOUNDED` · `OWNER_APPROVAL` ·
+`PROHIBITED_DISCOVERY` · and the overlay `PROHIBITED_PROD_TRADING`
+(never usable as a production or trading scheduler/executor, in any
+phase).
 
-| Dependency | Commands |
-|------------|----------|
-| Version-gated | `/autocompact` (v2.1.221+), `/cd` (v2.1.169+), `/fork` as background copy (v2.1.212+), `/import` (v2.1.213+), `/list-agents` (v2.1.224+), `/fast` (v2.1.205+), `/deep-research` (v2.1.218+) — all ≤ 2.1.234, so version-eligible here |
-| Plan/account-gated | `/privacy-settings` (Pro/Max), `/upgrade` (non-Enterprise), `/passes` (eligible accounts), resume-from-summary dialog (Pro/Max) |
-| Platform-gated | `/design-sync`, `/import`, `/insights`, `/radio`, `/chrome` (not on Bedrock/GCP/Azure/AWS variants or with feature flags off); `/desktop` (macOS/x64 Windows + subscription); `/autofix-pr` (web access); `/loop` no-interval behaviour differs on Bedrock/GCP/Foundry |
-| Environment-disable | `CLAUDE_CODE_DISABLE_CRON=1` removes `/loop` + cron tools entirely |
+## 2. Command kinds
 
-**Do not assume a documented command is available on this account/plan/
-platform** — the catalogue below records local evidence per command.
+| Kind | Meaning |
+|------|---------|
+| BUILT_IN | Core CLI functionality; Claude cannot invoke built-ins itself (a scheduled fire passes them through as plain text) |
+| BUNDLED_SKILL | Skill shipped with Claude Code, marked **[Skill]** in the official table; loads instructions/tools into the turn |
+| WORKFLOW | Bundled dynamic workflow fanning out subagents in the background (`/deep-research`; `/batch` behaves this way via background subagents) |
+| PLUGIN_COMMAND | Contributed by installed plugins (D-013-governed; `figma:*` is D-015 out-of-scope) |
+| MCP_PROMPT | `/mcp__<server>__<prompt>` from connected MCP servers (all current connectors D-015 out-of-scope) |
+| ALIAS | Alternative name for another command (policy of the target applies) |
+| ENVIRONMENT_SPECIFIC | Only visible under specific env vars/platforms (e.g. `/setup-bedrock`) |
 
-## 4. Aliases and removed commands
+Recognition/queuing (official): commands recognised only at message start;
+most queue while Claude responds; `/status`, `/tasks`, `/usage` run
+immediately; dialog commands run immediately in fullscreen from v2.1.234;
+`/effort` takes effect immediately.
 
-- Aliases (official): `/cost`→`/usage` · `/review`→`/code-review` ·
-  `/settings`→`/config` · `/reset`,`/new`→`/clear` · `/bg`→`/background` ·
-  `/share`→`/bug` (v2.1.212+) · `/quit`→`/exit` · `/checkup`→`/doctor` ·
-  `/allowed-tools`→`/permissions` · `/proactive`→`/loop` ·
-  `/peers`→`/list-agents` · `/app`→`/desktop` · `/ios`,`/android`→`/mobile`.
-  Locally FOUND in binary: `/cost`, `/review`, `/settings`, `/reset`,
-  `/new`, `/bg`, `/share`. Not found (weak evidence only): `/checkup`,
-  `/allowed-tools`, `/quit`, `/proactive`, `/peers`.
-- **REMOVED:** `/pr-comments` — removed in v2.1.91 per official docs (its
-  string persists in the 2.1.234 binary, consistent with a removal notice);
-  use direct queries instead.
-- **NOT_AVAILABLE:** `/reload-skills` — absent from the official commands
-  catalogue AND from the binary; treat as non-existent on 2.1.234 (skills
-  reload via `/reload-plugins` for plugin skills; revalidate after
-  upgrades).
+## 3. Platform, plan, version, and environment dependence (official)
 
-## 5. Command catalogue by group
+- Version-gated (all ≤ 2.1.234, so version-eligible here): `/autocompact`
+  2.1.221+ · `/cd` 2.1.169+ · `/fork` background-copy semantics 2.1.212+
+  (2.1.161–2.1.211: forked subagent) · `/subtask` 2.1.212+ (earlier this
+  was `/fork`; unavailable when agent view is off) · `/import` 2.1.213+ ·
+  `/list-agents` 2.1.224+ · `/fast` 2.1.205+ · `/deep-research`
+  self-invocation removed 2.1.218 · `/verify`,`/run`,`/run-skill-generator`
+  2.1.145+ · `/reload-skills` 2.1.152+ · `/usage-credits` URL-print
+  fallback 2.1.205+.
+- Plan/account-gated: `/privacy-settings` (Pro/Max) · `/upgrade`
+  (non-Enterprise) · `/passes` (eligible accounts) · `/voice` (Claude.ai
+  account) · `/ultrareview` (3 free runs on Pro/Max, then usage credits =
+  billing) · `/team-onboarding` share links (paid plans).
+- Platform/feature-gated: `/design-sync`, `/import`, `/insights`,
+  `/radio`, `/chrome` (unavailable on Bedrock/GCP/Azure/AWS variants or
+  with feature flags off) · `/desktop` (macOS/x64 Windows + subscription) ·
+  `/autofix-pr` (web access + `gh`) · `/sandbox` (supported platforms
+  only) · `/scroll-speed`, `/focus`, `/tui fullscreen` (fullscreen
+  renderer) · `/terminal-setup` (specific terminals).
+- Environment-specific: `/setup-bedrock` (`CLAUDE_CODE_USE_BEDROCK=1`) ·
+  `/setup-vertex` (`CLAUDE_CODE_USE_VERTEX=1`) ·
+  `CLAUDE_CODE_DISABLE_CRON=1` removes `/loop` + cron tools.
 
-Attributes columns: **Mut** = changes files/settings/permissions/external
-systems/session state (N = none beyond display; S = session state; F =
-files; P = permissions/settings; X = external/cloud). **Persist** = current
-turn (T), session (S), resumable session (R), project (PJ), user account
-(U), external/cloud (X). Blanket rule for any row marked `NOT_RELEVANT`:
-no AutoFX use case; do not use during recorded work; cosmetic/UI only; no
-gate; token impact negligible; no example needed.
+## 4. Aliases, renames, and removed commands (official)
+
+- Aliases: `/cost`, `/stats` → `/usage` · `/review` → `/code-review` ·
+  `/ultrareview` → `/code-review ultra` (kept as alias) · `/settings` →
+  `/config` · `/reset`, `/new` → `/clear` · `/bg` → `/background` ·
+  `/share` → `/bug` (2.1.212+) · `/quit` → `/exit` · `/checkup` →
+  `/doctor` · `/allowed-tools` → `/permissions` · `/proactive` → `/loop` ·
+  `/peers` → `/list-agents` · `/app` → `/desktop` · `/ios`, `/android` →
+  `/mobile` · `/checkpoint`, `/undo` → `/rewind` · `/routines` →
+  `/schedule`. Renamed: `/usage-credits` was previously `/extra-usage`.
+- **DOCUMENTED_AS_REMOVED:** `/pr-comments` (removed v2.1.91 — ask Claude
+  directly) · `/vim` (removed v2.1.92 — use `/config` → Editor mode) ·
+  `/ultraplan` (removed — use plan mode; previously sent a planning task
+  to a web session).
+
+## 5. Command catalogue
+
+Columns: Type · Official (`DOC`/`REMOVED`/`NOT_CAT`) · Local (`VER` =
+LOCALLY_VERIFIED_VISIBLE with evidence in brackets; `NV` =
+LOCALLY_NOT_VERIFIED) · Behaviour codes · Policy. Blanket rule for rows
+marked NOT_RELEVANT: cosmetic/owner-personal; no AutoFX use during
+recorded work; negligible tokens; no gate; no example needed.
 
 ### 5.1 Help and visibility
 
-| Command | Type | Availability | Purpose | Mut | Persist | AutoFX class |
+| Command | Type | Official | Local | Behaviour | Purpose | Policy |
 |---|---|---|---|---|---|---|
-| `/help` | BUILT_IN | VERIFIED_ON_V2_1_234 | Show help + available commands | N | T | SAFE_ROUTINE |
-| `/status` | BUILT_IN | VERIFIED_ON_V2_1_234 | Session status incl. model (runs immediately) | N | T | SAFE_ROUTINE |
-| `/context` | BUILT_IN | VERIFIED_ON_V2_1_234 | Visualise context usage | N | T | SAFE_ROUTINE |
-| `/tasks` | BUILT_IN | VERIFIED_ON_V2_1_234 (invoked this session) | List background work/subagents | N | T | SAFE_ROUTINE |
-| `/workflows` | BUILT_IN | VERIFIED_ON_V2_1_234 (binary) | Watch workflow progress | N | T | SAFE_ROUTINE |
-| `/list-agents` | BUILT_IN | VERIFIED_ON_V2_1_234 (binary; v2.1.224+) | List messageable agents/sessions | N | T | SAFE_ROUTINE |
-| `/skills` | BUILT_IN | VERIFIED_ON_V2_1_234 (binary) | List/inspect skills | N | T | SAFE_ROUTINE |
-| `/release-notes` | BUILT_IN | VERIFIED_ON_V2_1_234 | View changelog | N | T | SAFE_ROUTINE |
-| `/insights` | BUILT_IN | VERIFIED_ON_V2_1_234 (binary; not in cloud sessions) | HTML report of recent sessions | F (local report) | PJ | BOUNDED_USE (output may reveal session content — treat as internal) |
-| `/recap` | BUILT_IN | DOCUMENTED_NOT_LOCALLY_VERIFIED | One-line session summary | N | T | SAFE_ROUTINE if present |
+| `/help` | BUILT_IN | DOC | NV | RO | Help + command list | ROUTINE |
+| `/status` | BUILT_IN | DOC | VER (D-012 session-start check) | RO | Session status incl. model; immediate | ROUTINE |
+| `/context` | BUILT_IN | DOC | NV | RO | Context usage grid | ROUTINE |
+| `/tasks` | BUILT_IN | DOC | VER (invoked by Jacob this session) | RO | Background work list; immediate | ROUTINE |
+| `/workflows` | BUILT_IN | DOC | NV | RO/LM (can pause/resume/save workflows) | Workflow progress view | BOUNDED (viewing routine; pausing/resuming runs = bounded) |
+| `/list-agents` (`/peers`) | BUILT_IN | DOC | NV | RO | List messageable agents/sessions | ROUTINE |
+| `/skills` | BUILT_IN | DOC | NV | RO/LM (Space toggles skill visibility, Enter saves) | List skills; token sort; visibility override | ROUTINE to list; changing visibility = BOUNDED |
+| `/agents` | BUILT_IN | DOC | NV | RO | Subagent config info (v2.1.198+: pointer) | ROUTINE |
+| `/release-notes` | BUILT_IN | DOC | NV | RO | Changelog viewer | ROUTINE |
+| `/recap` | BUILT_IN | DOC | NV | RO | One-line session summary | ROUTINE |
+| `/insights` | BUILT_IN | DOC | NV | LM (writes local HTML report) | Session-usage report (not in cloud sessions) | BOUNDED (report reveals session content — keep local, never commit) |
+| `/stats` | ALIAS→`/usage` | DOC | NV | RO | Usage, Stats tab | ROUTINE |
 
 ### 5.2 Models, reasoning, and usage
 
-| Command | Type | Availability | Purpose | Mut | Persist | AutoFX class |
+| Command | Type | Official | Local | Behaviour | Purpose | Policy |
 |---|---|---|---|---|---|---|
-| `/model` | BUILT_IN | VERIFIED_ON_V2_1_234 | Show/switch model; saves default | S/U | S–U | BOUNDED_USE (view); switching = OWNER_APPROVAL_REQUIRED in main session |
-| `/effort` | BUILT_IN | VERIFIED_ON_V2_1_234 | Show/set effort (low…max, ultracode, auto) | S | S | BOUNDED_USE (verify); lowering for critical work prohibited |
-| `/fast` | BUILT_IN | VERIFIED_ON_V2_1_234 (v2.1.205+) | Toggle fast mode (Opus-served) | S | S | BOUNDED_USE — never for critical work (owner rule) |
-| `/advisor` | BUILT_IN | VERIFIED_ON_V2_1_234 (binary) | Second-model advisor on/off | S | S | BOUNDED_USE (token cost; governor routing still applies) |
-| `/usage` (`/cost`) | BUILT_IN | VERIFIED_ON_V2_1_234 | Usage/costs (runs immediately) | N | T | SAFE_ROUTINE |
-| `/usage-credits` | BUILT_IN | VERIFIED_ON_V2_1_234 (binary; not in official commands table — purpose INFERRED from name: credit balance view) | View usage credits | N | T | SAFE_ROUTINE |
+| `/model` | BUILT_IN | DOC | NV | LM (saves default) | Switch model | View = BOUNDED; switching main session off `best` = OWNER_APPROVAL (D-012) |
+| `/effort` | BUILT_IN | DOC | VER (session-start check) | LM | Set effort (`max`/`ultracode` session-only; immediate) | Verify = ROUTINE; lowering below Ultracode for critical work = OWNER_APPROVAL |
+| `/fast` | BUILT_IN | DOC | NV | LM | Toggle fast mode | BOUNDED — **never for critical AutoFX work** (owner rule; D-012 requires Fable for critical judgment) |
+| `/advisor` | BUILT_IN | DOC | NV | LM/BC (second-model consultation costs tokens) | Advisor model on/off (`fable`/`opus`/`sonnet`/ID) | BOUNDED — token cost stated; never substitutes for governor-routed independent review |
+| `/usage` (`/cost`) | BUILT_IN | DOC | NV | RO | Usage/costs; immediate | ROUTINE |
+| `/usage-credits` | BUILT_IN | DOC | NV | **EX/BC** — opens billing settings in browser, or sends a usage-credit request to an admin (after a confirm dialog); prints URL over SSH (2.1.205+). Previously `/extra-usage` | Configure/request usage credits | **OWNER_APPROVAL** — a billing/spend action under D-019, NOT a read-only counterpart of `/usage` |
 
 ### 5.3 Context, compaction, and session continuity
 
-| Command | Type | Availability | Purpose | Mut | Persist | AutoFX class |
+| Command | Type | Official | Local | Behaviour | Purpose | Policy |
 |---|---|---|---|---|---|---|
-| `/compact [instructions]` | BUILT_IN | VERIFIED_ON_V2_1_234 | Replace history with summary | S (lossy) | S | BOUNDED_USE — continuity protocol first |
-| `/autocompact` | BUILT_IN | VERIFIED_ON_V2_1_234 (v2.1.221+) | Set auto-compact threshold | S | S | BOUNDED_USE |
-| `/clear` (`/reset`,`/new`) | BUILT_IN | VERIFIED_ON_V2_1_234 | New empty conversation (old one saved, resumable) | S | S→R | BOUNDED_USE — pushed handoff first (hard precondition) |
-| `/resume [name]` | BUILT_IN | VERIFIED_ON_V2_1_234 | Switch to saved conversation | S | R | BOUNDED_USE |
-| `/rename` / `claude -n` | BUILT_IN | VERIFIED_ON_V2_1_234 | Name session for resumability | S | R | SAFE_ROUTINE |
-| `/branch` | BUILT_IN | VERIFIED_ON_V2_1_234 (binary) | Copy conversation, switch to copy | S | R | BOUNDED_USE (record branch IDs in handoff) |
-| `/rewind` | BUILT_IN | VERIFIED_ON_V2_1_234 | Roll code + conversation back to checkpoint | **F+S** | S | OWNER_APPROVAL_REQUIRED — can discard work |
-| `/export [file]` | BUILT_IN | VERIFIED_ON_V2_1_234 | Export transcript as text | F (local) | PJ | BOUNDED_USE (transcript may contain sensitive discussion; never commit) |
-| `/cd` | BUILT_IN | VERIFIED_ON_V2_1_234 (docs; v2.1.169+) | Move session to new directory | S/PJ | R | BOUNDED_USE (stay in C:\AutoFXV2.0) |
-| `/add-dir` | BUILT_IN | VERIFIED_ON_V2_1_234 | Add working directory | S/P | S | OWNER_APPROVAL_REQUIRED (widens file access — e.g. V1 paths) |
-| `claude --continue/--resume/--fork-session` | CLI flags | VERIFIED (docs + prior sessions) | Resume/branch from shell | S | R | BOUNDED_USE per RESUME_PROMPT.md |
+| `/compact [instructions]` | BUILT_IN | DOC | NV | LM (lossy history replacement) | Summarise conversation | BOUNDED — AutoFX continuity protocol first (§ 7) |
+| `/autocompact` | BUILT_IN | DOC | NV | LM | Auto-compact threshold | BOUNDED |
+| `/clear` (`/reset`,`/new`) | BUILT_IN | DOC | NV | LM (old conversation saved + resumable; new context empty) | Fresh conversation | BOUNDED — **pushed repository handoff first** (hard precondition) |
+| `/resume [name]` | BUILT_IN | DOC | NV | LM | Switch to saved conversation | BOUNDED — re-verify repo truth after resume |
+| `/rename` / `claude -n` | BUILT_IN | DOC | NV | LM | Name session (resume handle) | ROUTINE |
+| `/branch [name]` | BUILT_IN | DOC | NV | LM | Copy conversation, switch into copy | BOUNDED — record branch IDs in SESSION_LOG |
+| `/rewind` (`/checkpoint`,`/undo`) | BUILT_IN | DOC | NV | **LM/RM** (rolls conversation and/or code back) | Checkpoint rewind / summarize-from | **OWNER_APPROVAL — must never silently discard approved or uncommitted work**: commit/stash first, Jacob picks the checkpoint, event recorded in SESSION_LOG |
+| `/export [file]` | BUILT_IN | DOC | NV | LM (writes transcript file) | Export conversation text | BOUNDED — local only, never committed, never to synced/public paths |
+| `/cd` | BUILT_IN | DOC | NV | LM (relocates session storage) | Move session directory | BOUNDED — stay in `C:\AutoFXV2.0` |
+| `/add-dir` | BUILT_IN | DOC | NV | LM (widens file access; not restored on resume) | Add working directory | OWNER_APPROVAL (access-scope change, e.g. any V1 path) |
+| `claude --continue/--resume/--fork-session/--from-pr` | CLI | DOC | VER (used across sessions) | LM | Resume/branch from shell | BOUNDED per RESUME_PROMPT.md |
 
 ### 5.4 Planning and side questions
 
-| Command | Type | Availability | Purpose | Mut | Persist | AutoFX class |
+| Command | Type | Official | Local | Behaviour | Purpose | Policy |
 |---|---|---|---|---|---|---|
-| `/plan [desc]` | BUILT_IN | VERIFIED_ON_V2_1_234 | Enter plan mode (read-only analysis before acting) | S | S | BOUNDED_USE (plan content still lands in repo docs, not only chat) |
-| `/btw [question]` | BUILT_IN | VERIFIED_ON_V2_1_234 (binary) | Side question OUTSIDE conversation history | N | T (not in history) | BOUNDED_USE — never for decisions/requirements (they would be lost to the record) |
+| `/plan [desc]` | BUILT_IN | DOC | NV | LM (mode change; never restored on resume) | Enter plan mode | BOUNDED — material plan content must land in repo docs |
+| `/btw [question]` | BUILT_IN | DOC | NV | RO (answer OUTSIDE conversation history; no-arg browses previous side Q&A, 2.1.212+) | Side question | BOUNDED — **never for decisions, requirements, or approvals** (bypasses the record) |
 
 ### 5.5 Code, diff, and security review
 
-| Command | Type | Availability | Purpose | Mut | Persist | AutoFX class |
+| Command | Type | Official | Local | Behaviour | Purpose | Policy |
 |---|---|---|---|---|---|---|
-| `/diff` | BUILT_IN | VERIFIED_ON_V2_1_234 | Interactive diff viewer | N | T | SAFE_ROUTINE |
-| `/code-review` (`/review`) | BUNDLED_SKILL | VERIFIED_ON_V2_1_234 (session roster) | Review diff/PR for bugs; `--fix` applies; `ultra` = cloud | N (plain) / **F** (`--fix`) / X (`ultra`,`--comment`) | T | BOUNDED_USE plain; `--fix`/`--comment`/`ultra` = OWNER_APPROVAL_REQUIRED |
-| `/security-review` | BUNDLED_SKILL (docs list built-in; session roster shows skill) | VERIFIED_ON_V2_1_234 (roster) | Security review of pending changes | N | T | BOUNDED_USE |
-| `/simplify` | BUNDLED_SKILL (as above) | VERIFIED_ON_V2_1_234 (roster) | Simplification review **that applies fixes** | **F** | T | OWNER_APPROVAL_REQUIRED during discovery (edits files) |
-| `/verify` | BUNDLED_SKILL | VERIFIED_ON_V2_1_234 (binary; not in this session's roster — may be config-hidden) | Verify an implementation | possible F (runs project commands) | T | PROHIBITED_DURING_DISCOVERY (nothing to verify; post-authorisation BOUNDED_USE) |
-| `/run` | BUNDLED_SKILL | VERIFIED_ON_V2_1_234 (roster) | Launch/drive the project app | **F/X** (executes app) | S | PROHIBITED_DURING_DISCOVERY (no app exists; would be implementation-adjacent) |
+| `/diff` | BUILT_IN | DOC | NV | RO | Interactive diff viewer | ROUTINE |
+| `/code-review` (`/review`) | BUNDLED_SKILL (official **[Skill]**) | DOC | VER (roster) | RO plain; `--fix` RM; `--comment`/`--post` EX; `ultra` EX/BC (cloud sandbox; credits after free runs) | Diff/PR review | Plain = BOUNDED; `--fix`/`--comment` = OWNER_APPROVAL; `ultra` = OWNER_APPROVAL (cloud + billing, P-0.3) |
+| `/ultrareview` | ALIAS→`/code-review ultra` | DOC | NV | EX/BC | Deep cloud review | OWNER_APPROVAL (explicitly out of scope this task class) |
+| `/security-review` | BUILT_IN per official table (session roster surfaces it as a skill — discrepancy recorded, official classification adopted) | DOC | VER (roster) | RO (needs `origin` remote; reviews branch vs origin default) | Security review of branch changes | BOUNDED |
+| `/simplify [target]` | BUNDLED_SKILL (official **[Skill]**) | DOC | VER (roster) | **RM** — runs four parallel review subagents (reuse, simplification, efficiency, abstraction) and **applies the fixes**; no bug-hunting from v2.1.154 | Cleanup review + auto-apply | OWNER_APPROVAL during discovery (edits files; also DG — parallel subagents route via governor) |
+| `/verify` | BUNDLED_SKILL (official **[Skill]**, 2.1.145+; self-invocation removed 2.1.215) | DOC | NV (not in this session's roster) | LM/EX (builds + runs the app) | Verify change by running app | PROHIBITED_DISCOVERY (nothing to run); post-authorisation BOUNDED |
+| `/run` | BUNDLED_SKILL (official **[Skill]**, 2.1.145+) | DOC | VER (roster) | LM/EX (launches app) | Launch/drive project app | PROHIBITED_DISCOVERY; post-authorisation BOUNDED in approved phase |
+| `/run-skill-generator` | BUNDLED_SKILL (official **[Skill]**, 2.1.145+) | DOC | NV | **RM** (writes a per-project skill file) | Teach `/run`+`/verify` the project | PROHIBITED_DISCOVERY (writes project config for an app that must not exist yet) |
 
 ### 5.6 Autonomous goals and monitoring
 
-| Command | Type | Availability | Purpose | Mut | Persist | AutoFX class |
+| Command | Type | Official | Local | Behaviour | Purpose | Policy |
 |---|---|---|---|---|---|---|
-| `/goal [condition\|clear]` | BUILT_IN | VERIFIED_ON_V2_1_234 (binary) | Work across turns until condition met; survives resume | S | R | OWNER_APPROVAL_REQUIRED |
-| `/loop [interval] [prompt]` (`/proactive`) | BUNDLED_SKILL | VERIFIED_ON_V2_1_234 (roster + binary) | Re-run prompt on schedule; dynamic pacing; 7-day expiry; session-scoped | S (cron state in project `.claude`) | R (unexpired) | OWNER_APPROVAL_REQUIRED |
-| `/schedule` | BUNDLED_SKILL | VERIFIED_ON_V2_1_234 (roster + binary) | Cloud routines (Anthropic-managed, machine-off execution) | **X** | X | OWNER_APPROVAL_REQUIRED |
-| One-time reminders (natural language → CronCreate) | Tool-backed | VERIFIED (tools present) | Single-fire in-session reminder | S | R (until fire) | BOUNDED_USE |
-| Monitor tool | Tool | VERIFIED (tool present) | Stream a background script's output instead of polling | S | S (not restored on resume) | BOUNDED_USE |
+| `/goal [condition\|clear]` | BUILT_IN | DOC | NV | LM/DG (multi-turn autonomy; survives resume with counters reset; no-arg shows current; `clear`/`stop`/`off`/`reset`/`none`/`cancel` ends) | Work-until-condition | OWNER_APPROVAL — goal text must carry scope, completion condition, stopping conditions (incl. the twelve D-019 stops), approval boundaries |
+| `/loop [interval] [prompt]` (`/proactive`) | BUNDLED_SKILL (official **[Skill]**) | DOC | VER (roster) | LM/DG. **Persistence (corrected):** scheduled tasks are session/conversation-scoped; unexpired recurring tasks (≤7 days) and unfired one-shots are restored when THAT session is resumed; a fresh conversation clears them; fires only while the session runs; missed fires don't catch up; jitter applies. `.claude/loop.md` is ONLY the optional project-level default loop prompt — it is never storage for scheduled-task state | Repeat a prompt on schedule | OWNER_APPROVAL during discovery; **PROHIBITED_PROD_TRADING — never a production or trading scheduler** |
+| `/schedule [description]` (`/routines`) | BUILT_IN command driving cloud Routines (a same-named local skill also appears in this session's roster) | DOC | VER (roster) | **EX/DG** (cloud execution, Anthropic-managed, no local files, no permission prompts; prompts `/web-setup` if GitHub unconnected → AU) | Cloud routines | OWNER_APPROVAL; **PROHIBITED_PROD_TRADING** |
+| Natural-language one-shot reminders (CronCreate/CronList/CronDelete) | Tools | DOC | VER (tools present) | LM | In-session reminders; ≤50 tasks; local timezone | BOUNDED |
+| Monitor tool | Tool | DOC | VER (tool present) | LM/DG (not restored on resume) | Stream background script output | BOUNDED |
 
 ### 5.7 Agents, parallelism, and workflows
 
-| Command | Type | Availability | Purpose | Mut | Persist | AutoFX class |
+| Command | Type | Official | Local | Behaviour | Purpose | Policy |
 |---|---|---|---|---|---|---|
-| `/subtask` | BUILT_IN | VERIFIED_ON_V2_1_234 (binary) | Hand side task to a subagent | S | S | BOUNDED_USE — governor routing mandatory (D-017) |
-| `/fork` | BUILT_IN | VERIFIED_ON_V2_1_234 (binary; v2.1.212+ semantics) | Copy conversation to new background session | S | R | BOUNDED_USE (continuity risk — record in handoff) |
-| `/background [prompt]` (`/bg`) | BUILT_IN | VERIFIED_ON_V2_1_234 (binary) | Detach session as background agent | S | R | OWNER_APPROVAL_REQUIRED (unattended autonomous continuation) |
-| `/batch <instruction>` | WORKFLOW (skill) | VERIFIED_ON_V2_1_234 (binary) | Parallel large-scale codebase changes via worktrees | **F** (mass edits) | S/PJ | PROHIBITED_DURING_DISCOVERY (mass change = implementation-shaped; post-authorisation OWNER_APPROVAL_REQUIRED per use) |
-| `/deep-research <question>` | WORKFLOW | DOCUMENTED_NOT_LOCALLY_VERIFIED (v2.1.218+; absent from binary + roster) | Multi-agent web research with citations | X (web reads) | S | BOUNDED_USE if available — governor routing + approved research brief + token budget stated first |
-| `/agents` | BUILT_IN | VERIFIED_ON_V2_1_234 | Subagent config info (v2.1.198+: pointer) | N | T | SAFE_ROUTINE (config changes themselves = owner-gated) |
+| `/subtask <task>` | BUILT_IN (2.1.212+; was `/fork` on 2.1.161–211; unavailable with agent view off) | DOC | NV | DG (forked subagent inherits full conversation; result returns here) | Side task to subagent | BOUNDED — governor routing first (D-017); read-only agents during discovery |
+| `/fork [prompt]` | BUILT_IN (2.1.212+; earlier/agent-view-off = forked subagent) | DOC | NV | DG/LM (copy runs as background session; makes its own worktree for code edits, 2.1.221+) | Copy conversation to background session | BOUNDED — record fork in SESSION_LOG; never two forks writing the same registers |
+| `/background [prompt]` (`/bg`) | BUILT_IN | DOC | NV | DG (detaches session as background agent) | Unattended continuation | OWNER_APPROVAL (same conditions as `/goal`) |
+| `/stop` | BUILT_IN | DOC | NV | LM (stops a background session; transcript kept) | Stop background session | BOUNDED |
+| `/batch <instruction>` | BUNDLED_SKILL (official **[Skill]**) | DOC | NV | **RM/DG/EX** — decomposes into 5–30 units, one background subagent per unit in isolated worktrees, each runs tests and **opens a pull request** | Mass parallel change | PROHIBITED_DISCOVERY; post-authorisation OWNER_APPROVAL per use with token/cost statement + governor routing |
+| `/deep-research <question>` | WORKFLOW (official) | DOC | NV | EX/DG (web fan-out, cited report; invoke-only since 2.1.218) | Multi-agent research | BOUNDED — governor routing + approved research brief + token budget stated; output = dated repo brief |
 
 ### 5.8 Permissions and sandboxing
 
-| Command | Type | Availability | Purpose | Mut | Persist | AutoFX class |
+| Command | Type | Official | Local | Behaviour | Purpose | Policy |
 |---|---|---|---|---|---|---|
-| `/permissions` (`/allowed-tools`) | BUILT_IN | VERIFIED_ON_V2_1_234 | View/manage allow/ask/deny rules | **P** | PJ/U | View = SAFE_ROUTINE; any change = OWNER_APPROVAL_REQUIRED (committed settings are Jacob's, per the D-024 permissions note) |
-| `/fewer-permission-prompts` | BUNDLED_SKILL | VERIFIED_ON_V2_1_234 (roster) | Scan transcripts, add allowlist to project settings | **P/F** | PJ | OWNER_APPROVAL_REQUIRED (writes `.claude/settings.json` — NEXT_ACTIONS § B item) |
-| `/import` | BUILT_IN | VERIFIED_ON_V2_1_234 (binary; platform-gated) | Import config from other coding agents | **P/F** | PJ/U | PROHIBITED_DURING_DISCOVERY (foreign config into a governed workspace) |
+| `/permissions` (`/allowed-tools`) | BUILT_IN | DOC | NV | RO view; **LM/RM** on change (settings files) | Allow/ask/deny rules | View = ROUTINE; any durable change = OWNER_APPROVAL |
+| `/fewer-permission-prompts` | BUNDLED_SKILL (official **[Skill]**) | DOC | VER (roster) | **RM** (writes project settings allowlist) | Reduce prompts | OWNER_APPROVAL (NEXT_ACTIONS § B settings item) |
+| `/sandbox` | BUILT_IN | DOC | NV (supported platforms only; Windows support unknown — § 9 check) | LM (execution-isolation posture) | Toggle sandbox mode | BOUNDED — changing isolation posture is a session-discipline event; record in SESSION_LOG |
+| `/import` | BUILT_IN (2.1.213+; platform-gated) | DOC | NV | LM/RM (foreign agent config in) | Import Codex/Gemini config | PROHIBITED_DISCOVERY |
 
 ### 5.9 Plugins, skills, hooks, and MCP
 
-| Command | Type | Availability | Purpose | Mut | Persist | AutoFX class |
+| Command | Type | Official | Local | Behaviour | Purpose | Policy |
 |---|---|---|---|---|---|---|
-| `/plugin` | BUILT_IN | VERIFIED_ON_V2_1_234 | Manage plugins (list/install/enable/disable) | **P/F/X** | PJ/U | List = SAFE_ROUTINE; install/enable/disable = OWNER_APPROVAL_REQUIRED (D-013 gates) |
-| `/reload-plugins` | BUILT_IN | VERIFIED_ON_V2_1_234 | Reload active plugins | S | S | BOUNDED_USE (only after an owner-approved plugin change) |
-| `/reload-skills` | — | NOT_AVAILABLE (absent from official catalogue and binary) | — | — | — | REMOVED_OR_UNAVAILABLE — revalidate after upgrades |
-| `/mcp` | BUILT_IN | VERIFIED_ON_V2_1_234 | Manage/authenticate MCP servers | **P/X** (connect/auth) | S/U | Status view = SAFE_ROUTINE; enable/connect/auth = PROHIBITED_DURING_DISCOVERY for D-015 out-of-scope connectors; otherwise OWNER_APPROVAL_REQUIRED |
-| `/hooks` | BUILT_IN | VERIFIED_ON_V2_1_234 | View hook configurations | N (view) | T | SAFE_ROUTINE (view); hook changes = OWNER_APPROVAL_REQUIRED |
-| `/memory` | BUILT_IN | VERIFIED_ON_V2_1_234 | Edit CLAUDE.md files; manage auto-memory | **F** (edits constitution) | PJ/U | View = SAFE_ROUTINE; editing CLAUDE.md = OWNER_APPROVAL_REQUIRED (authority-hierarchy document) |
-| MCP prompts `/mcp__server__prompt` | MCP_PROMPT | Environment-dependent | Server-exposed prompts | Varies | Varies | PROHIBITED_DURING_DISCOVERY (all present connectors are D-015 out-of-scope) |
-| Plugin commands (`product-management:*`, `claude-md-management:*`, `session-report`) | PLUGIN_COMMAND | VERIFIED_ON_V2_1_234 (roster; D-013-installed) | Per plugin | Varies (claude-md-management edits CLAUDE.md → owner-gated) | Varies | BOUNDED_USE within each plugin's D-013 purpose |
-| `figma:*` skills/tools | PLUGIN_COMMAND | Present in environment | Design tooling | X | X | PROHIBITED_DURING_DISCOVERY (D-015; deferred to wireframe phase) |
+| `/plugin` | BUILT_IN | DOC | NV | RO list; LM/RM/EX on install/enable/disable | Manage plugins | List = ROUTINE; install/enable/disable = OWNER_APPROVAL (D-013) |
+| `/reload-plugins` | BUILT_IN | DOC | NV | LM | Reload active plugins | BOUNDED (after an approved plugin change) |
+| `/reload-skills` | BUILT_IN — **DOCUMENTED (added v2.1.152)**: re-scans skill/command directories so skills added/changed on disk become available without restart; reports counts | DOC | NV (binary string absent — weak; § 9 check) | LM (session skill roster) | Refresh skills mid-session | BOUNDED — after approved skill-file changes only (e.g. governor-skill updates); v0.1.0's "NOT_AVAILABLE" claim was WRONG (errata E-1) |
+| `/mcp` | BUILT_IN | DOC | NV | RO status; **AU/EX** on enable/reconnect/auth | MCP servers | Status = ROUTINE; enable/connect/auth = PROHIBITED_DISCOVERY for D-015 connectors, otherwise OWNER_APPROVAL |
+| `/hooks` | BUILT_IN | DOC | NV | RO view | Hook configs | ROUTINE (view); hook changes = OWNER_APPROVAL |
+| `/memory` | BUILT_IN | DOC | NV | **RM** (edits CLAUDE.md; auto-memory toggles) | Memory management | View = ROUTINE; CLAUDE.md edit = OWNER_APPROVAL (authority-hierarchy doc) |
+| MCP prompts `/mcp__*__*` | MCP_PROMPT | DOC (mechanism) | NV | varies | Server prompts | PROHIBITED_DISCOVERY (D-015) |
+| Plugin commands (`product-management:*`, `claude-md-management:*`, `session-report`) | PLUGIN_COMMAND | n/a (plugin-defined) | VER (roster; D-013-installed) | varies (`claude-md-management` edits CLAUDE.md → OWNER_APPROVAL) | Per plugin | BOUNDED within D-013 purpose |
+| `figma:*` | PLUGIN_COMMAND | n/a | VER (visible) | EX | Design tooling | PROHIBITED_DISCOVERY (D-015; wireframe phase only) |
 
 ### 5.10 GitHub, remote, and cloud integration
 
-| Command | Type | Availability | Purpose | Mut | Persist | AutoFX class |
+| Command | Type | Official | Local | Behaviour | Purpose | Policy |
 |---|---|---|---|---|---|---|
-| `/install-github-app` | BUILT_IN | VERIFIED_ON_V2_1_234 | Install Claude GitHub App + optional Actions workflows | **X/P** | X | OWNER_APPROVAL_REQUIRED (external install; Actions = deploy-adjacent) |
-| `/install-slack-app` | BUILT_IN | VERIFIED_ON_V2_1_234 | Install Slack app (OAuth) | **X** | X | NOT_RELEVANT / OWNER_APPROVAL_REQUIRED if ever wanted |
-| `/web-setup` | BUILT_IN | VERIFIED_ON_V2_1_234 (binary; not in official commands table — purpose INFERRED: set up Claude Code on the web/cloud execution) | Cloud/web session setup | **X** | X/U | OWNER_APPROVAL_REQUIRED (creates cloud activity; code would leave this machine) |
-| `/remote-control` | BUILT_IN | VERIFIED_ON_V2_1_234 (invoked by Jacob this session) | Continue this local session from another device | S/X (pairing) | S | BOUNDED_USE — owner-operated; Claude never initiates |
-| `/teleport` | BUILT_IN | VERIFIED_ON_V2_1_234 (binary) | Pull a web session into terminal | S/X | S | OWNER_APPROVAL_REQUIRED (imports external session state) |
-| `/autofix-pr` | BUILT_IN | DOCUMENTED_NOT_LOCALLY_VERIFIED (web access) | Cloud session watches PR, pushes fixes | **X/F** | X | PROHIBITED_DURING_DISCOVERY (autonomous cloud pushes) |
-| `/desktop` (`/app`) | BUILT_IN | VERIFIED_ON_V2_1_234 (binary; platform/plan-gated) | Continue in Desktop app | S | R | BOUNDED_USE (Desktop = visual review per D-011) |
-| Routines / Desktop scheduled tasks | Cloud/Desktop features | DOCUMENTED (via `/schedule`; Desktop app) | Machine-independent scheduling | **X** | X | OWNER_APPROVAL_REQUIRED; never trading schedulers |
+| `/install-github-app` | BUILT_IN | DOC | NV | EX/AU/P (repo app + optional Actions workflows) | GitHub App install | OWNER_APPROVAL (Actions = deploy-adjacent; gate lists deploying workflows) |
+| `/install-slack-app` | BUILT_IN | DOC | NV | EX/AU | Slack app OAuth | NOT_RELEVANT / OWNER_APPROVAL |
+| `/web-setup` | BUILT_IN — **DOCUMENTED**: connects your GitHub account to Claude Code on the web **using local `gh` CLI credentials**; `/schedule` triggers it automatically when GitHub isn't connected | DOC | NV | **AU/EX** | Web/cloud GitHub connection | OWNER_APPROVAL — authentication + cloud exposure of repo access (P-0.3); note the `/schedule` auto-prompt path when weighing any `/schedule` approval |
+| `/remote-control` | BUILT_IN | DOC | VER (invoked by Jacob this session) | LM/EX (device pairing) | Continue local session from another device | BOUNDED — owner-operated; Claude never initiates |
+| `/remote-env` | BUILT_IN | DOC | NV | LM/EX (default cloud-agent environment) | Cloud-agent env selection | OWNER_APPROVAL (only meaningful with cloud execution, itself owner-gated) |
+| `/teleport` | BUILT_IN | DOC | NV | LM/EX (imports web session) | Pull web session into terminal | OWNER_APPROVAL |
+| `/autofix-pr [prompt]` | BUILT_IN | DOC | NV | **EX/RM/DG** (cloud session watches PR, pushes fixes) | Autonomous cloud PR fixing | PROHIBITED_DISCOVERY (autonomous external pushes) |
+| `/desktop` (`/app`) | BUILT_IN | DOC | NV (platform/plan-gated) | LM | Continue in Desktop app | BOUNDED (Desktop = visual review, D-011) |
+| `/setup-bedrock`, `/setup-vertex` | ENVIRONMENT_SPECIFIC | DOC | NV (env vars unset) | AU/LM | Provider auth wizards | NOT_RELEVANT (not this deployment); any use = OWNER_APPROVAL |
+| `/team-onboarding` | BUILT_IN | DOC | NV | LM/EX (analyses 30-day usage; paid plans get a share link) | Onboarding guide from usage history | OWNER_APPROVAL (distils session history; share link publishes it) |
 
 ### 5.11 Debugging and diagnostics
 
-| Command | Type | Availability | Purpose | Mut | Persist | AutoFX class |
+| Command | Type | Official | Local | Behaviour | Purpose | Policy |
 |---|---|---|---|---|---|---|
-| `/doctor` (`/checkup`) | BUNDLED_SKILL | VERIFIED_ON_V2_1_234 (binary; not in session roster — may load on demand) | Setup checkup; can TRIM CLAUDE.md / migrate guidance | N (diagnose) / **F** (trim) | T/PJ | Diagnose = BOUNDED_USE; any CLAUDE.md modification = OWNER_APPROVAL_REQUIRED |
-| `/debug` | BUNDLED_SKILL | VERIFIED_ON_V2_1_234 (binary) | Debug logging + troubleshooting | S (logging) | S | BOUNDED_USE (logs may capture paths/content — never commit logs) |
-| `/heapdump` | BUILT_IN | DOCUMENTED_NOT_LOCALLY_VERIFIED (absent from binary strings) | Write heap snapshot for memory diagnosis | **F** (memory dump) | PJ | OWNER_APPROVAL_REQUIRED — **highly sensitive**: a heap dump can contain raw conversation/credential residue; never commit, store outside repo, delete after use |
-| `/bug` (`/share`) | BUILT_IN | VERIFIED_ON_V2_1_234 | Report bug; may share conversation with consent | **X** (shares content) | X | OWNER_APPROVAL_REQUIRED (conversation content leaves the machine) |
-| `claude doctor` / `claude --version` | CLI | VERIFIED_ON_V2_1_234 | Version/diagnostics from shell | N | T | SAFE_ROUTINE |
+| `/doctor` (`/checkup`) | BUNDLED_SKILL (official **[Skill]**) | DOC | NV | RO diagnose; **RM/P on accepted fixes** (dedupes/trims CLAUDE.md, migrates guidance to skills, offers auto-mode default + pre-approvals — asks confirmation first) | Setup checkup | Diagnose = BOUNDED; accepting ANY offered change (CLAUDE.md trim, auto-mode, pre-approvals) = OWNER_APPROVAL |
+| `/debug [description]` | BUNDLED_SKILL (official **[Skill]**) | DOC | NV | LM/SD (session debug logging from that point) | Runtime troubleshooting | BOUNDED — logs never committed |
+| `/heapdump` | BUILT_IN — official: writes heap snapshot + memory breakdown to `~/Desktop` (or home); **“the `.heapsnapshot` contains your full conversation and credentials, so don't share it”**; only the `-diagnostics.json` may be attached to reports; doesn't appear in the command menu (type in full) | DOC | NV (menu absence is by design — string evidence meaningless here) | **LM/SD — highly sensitive** | Memory diagnosis | OWNER_APPROVAL; if ever used: file stays outside the repository, never committed/shared, deleted after diagnosis, event recorded in SESSION_LOG |
+| `/bug` (`/share`) | BUILT_IN | DOC | NV | EX/SD (shares conversation with consent) | Bug report | OWNER_APPROVAL (content leaves machine) |
+| `/feedback` | BUILT_IN | DOC | NV | EX/SD (session context attached) | Product feedback | OWNER_APPROVAL |
+| `claude doctor`, `claude --version` | CLI | DOC | VER (`--version` run twice today) | RO | Shell diagnostics | ROUTINE |
 
-### 5.12 UI and convenience (blanket: NOT_RELEVANT unless noted)
+### 5.12 UI and convenience
 
-| Command | Type | Availability | Purpose | Class |
+| Command | Type | Official | Local | Policy |
 |---|---|---|---|---|
-| `/theme`, `/color`, `/focus`, `/keybindings`, `/copy`, `/mobile` (`/ios`,`/android`), `/radio`, `/powerup`, `/passes`, `/upgrade`, `/feedback`, `/chrome`, `/ide`, `/exit` (`/quit`), `/login`, `/logout` | BUILT_IN | VERIFIED_ON_V2_1_234 (binary) except plan/platform gates in § 3 | Cosmetic/UI/account conveniences | NOT_RELEVANT (`/exit` BOUNDED_USE — checkpoint first; `/login`/`/logout` BOUNDED_USE — owner-operated identity) |
-| `/init` | BUNDLED_SKILL | VERIFIED_ON_V2_1_234 (roster) | Initialise CLAUDE.md | PROHIBITED_DURING_DISCOVERY (CLAUDE.md exists and is owner-governed — would overwrite the constitution) |
-| `/config` (`/settings`) | BUILT_IN | VERIFIED_ON_V2_1_234 | Open/set settings | View = SAFE_ROUTINE; changes = OWNER_APPROVAL_REQUIRED |
-| `/privacy-settings` | BUILT_IN | DOCUMENTED_NOT_LOCALLY_VERIFIED (Pro/Max) | Privacy settings | Owner-operated |
-| `/statusline` etc. (project skills: `update-config`, `keybindings-help`, `session-report`, `claude-api`, `dataviz`, artifact skills) | BUNDLED_SKILL/PLUGIN | VERIFIED (roster) | Various conveniences | BOUNDED_USE; `update-config` writes settings → OWNER_APPROVAL_REQUIRED |
+| `/theme`, `/color`, `/focus`, `/keybindings`, `/copy`, `/mobile` (`/ios`,`/android`), `/radio`, `/powerup`, `/passes`, `/upgrade`, `/chrome`, `/ide`, `/scroll-speed`, `/stickers`, `/tui`, `/terminal-setup`, `/statusline`, `/voice` | BUILT_IN | DOC | NV | NOT_RELEVANT (cosmetic/owner-personal; `/statusline` writes settings → OWNER_APPROVAL if durable; `/voice` needs Claude.ai account) |
+| `/exit` (`/quit`) | BUILT_IN | DOC | NV | BOUNDED — checkpoint before exiting; background sessions keep running |
+| `/login`, `/logout` | BUILT_IN | DOC | NV | AU — owner-operated identity only |
+| `/config` (`/settings`) | BUILT_IN | DOC | NV | View = ROUTINE; changes = OWNER_APPROVAL |
+| `/privacy-settings` | BUILT_IN | DOC (Pro/Max) | NV | Owner-operated |
+| `/init` | BUILT_IN per official table (locally surfaced via skill roster — discrepancy recorded, official classification adopted) | DOC | VER (roster) | PROHIBITED_DISCOVERY — CLAUDE.md exists and is owner-governed; regeneration would overwrite the constitution |
+| Project/bundled convenience skills (`update-config`, `keybindings-help`, `session-report`, `claude-api`, `dataviz`, artifact skills, `design`) | BUNDLED_SKILL/PLUGIN | n/a (skill docs) | VER (roster) | BOUNDED; `update-config` writes settings → OWNER_APPROVAL |
 
 ### 5.13 Removed or deprecated
 
-| Command | Status |
-|---|---|
-| `/pr-comments` | REMOVED (v2.1.91, per official docs) — use direct queries |
-| `/reload-skills` | NOT_AVAILABLE on 2.1.234 (not in official catalogue; not in binary) |
-| `/agents` interactive builder | Superseded from v2.1.198 (now points to asking Claude) |
+| Command | Status | Replacement |
+|---|---|---|
+| `/pr-comments` | DOCUMENTED_AS_REMOVED (v2.1.91) | Ask Claude directly |
+| `/vim` | DOCUMENTED_AS_REMOVED (v2.1.92) | `/config` → Editor mode |
+| `/ultraplan` | DOCUMENTED_AS_REMOVED | Plan mode (`/plan`) |
+| `/extra-usage` | Renamed | `/usage-credits` |
+| `/agents` interactive builder | Superseded v2.1.198 | Ask Claude |
 
-## 6. Session-continuity facts that AutoFX policies rely on (official)
+## 6. Session-continuity facts AutoFX policies rely on (official)
 
-- `/clear` saves the old conversation (resumable via `/resume` and the
-  rewind menu) but the **new context is empty** — repository handoffs are
-  the only reliable state carrier (matches the standing AutoFX rule:
-  documents, never chat memory).
-- Resume restores: history, model (with exceptions), agent, permission mode
-  (plan/bypass never restored), active `/goal` (counters reset), unexpired
-  scheduled tasks. NOT restored: background Bash/monitor tasks,
-  `/add-dir` additions, `--mcp-config`/`--settings`-style launch flags.
-- Resume-from-summary (Pro/Max, >100k tokens, >1h idle) runs `/compact`
-  over the history — detail loss applies; "resume full session as-is"
-  preserves everything at higher per-request cost.
-- `/loop`-first sessions are hidden from the session picker; recurring
-  tasks expire after 7 days; jitter shifts fire times; tasks fire only
-  while the session runs; `Esc` stops a waiting loop.
-- Transcripts live at `~/.claude/projects/<project>/<session-id>.jsonl`,
-  default 30-day retention (`cleanupPeriodDays`) — **not** a durable
-  archive; the repository remains the source of truth.
+- `/clear` saves the old conversation (resumable) but empties context —
+  repository handoffs are the only reliable state carrier.
+- Resume restores: history, model (with exceptions), agent, permission
+  mode (plan/bypass never restored), active `/goal` (counters reset),
+  **unexpired scheduled tasks of that session**. Not restored: background
+  Bash/Monitor tasks, `/add-dir` additions, `--mcp-config`-style flags.
+- Resume-from-summary (Pro/Max, >100k tokens, >1h idle) compacts — detail
+  loss; "as-is" preserves everything at higher per-request cost.
+- `/loop` corrections (errata E-9): tasks are session/conversation-scoped
+  and return on resume of that session if unexpired (7-day recurring
+  expiry; unfired one-shots); a fresh conversation clears them; fires only
+  while the session runs and is idle; no catch-up for missed fires; jitter
+  shifts fire times; `Esc` stops a waiting loop; `/loop`-first sessions
+  are hidden from the session picker; `.claude/loop.md` is only the
+  optional default prompt (project or user level), never task-state
+  storage.
+- Transcripts: `~/.claude/projects/<project>/<session-id>.jsonl`, default
+  30-day retention — not a durable archive; the repository is the record.
 
-## 7. AutoFX policy proposals (`PROPOSED` — Jacob approves/amends)
+## 7. AutoFX policy proposals (`PROPOSED` — return to Jacob one at a time per D-025)
 
-Standing rules first (apply to every command):
+Standing rules P-0.1 … P-0.5 (unchanged from v0.1.0, restated):
 
-- **P-0.1** No command may bypass the no-build gate, D-015 tooling
-  boundary, D-017/MODEL_ROUTING_POLICY routing, or the D-024 git rules.
-  A command capable of fixing, editing, pushing, connecting, installing,
-  changing permissions, or creating cloud activity is never classified or
+- **P-0.1** No command may bypass the no-build gate, D-015 boundary,
+  D-017/MODEL_ROUTING_POLICY routing, or D-024/D-033 git controls. Any
+  command whose behaviour codes include RM, EX, AU, BC, or P is never
   treated as routine read-only.
-- **P-0.2** Mutating variants are gated separately from read variants
-  (e.g. `/code-review` vs `/code-review --fix`).
-- **P-0.3** Any command that sends conversation or repository content off
-  this machine (`/bug` sharing, `/web-setup`, `/schedule` cloud routines,
-  `ultra` cloud review, `/teleport`) requires Jacob's explicit approval
-  per use while Q-014 (public repo) and the discovery gate stand.
+- **P-0.2** Mutating variants are gated separately from read variants.
+- **P-0.3** Anything sending conversation/repository content or
+  credentials-backed access off this machine (`/bug`, `/feedback`,
+  `/web-setup`, `/schedule`, `ultra`/`/ultrareview`, `/teleport`,
+  `/autofix-pr`, `/team-onboarding` share links) needs Jacob's per-use
+  approval.
 - **P-0.4** Delegation-creating commands (`/subtask`, `/fork`,
-  `/background`, `/batch`, `/deep-research`, parallel agents) route
-  through the `autofx-model-governor` skill first, with token/cost
-  consideration stated before launch.
-- **P-0.5** After every Claude Code upgrade, run the § 9 revalidation
-  before relying on any classification here.
+  `/background`, `/batch`, `/deep-research`, `/simplify`'s parallel
+  reviewers) route through the `autofx-model-governor` with token/cost
+  consideration stated first.
+- **P-0.5** Re-run § 9 revalidation after every Claude Code upgrade.
 
-Per-command policies (each: use when / never / gate):
+Per-command policies: as classified in § 5, with these owner-mandated
+safeguards restated verbatim in intent:
 
-- **/status — SAFE_ROUTINE.** Use at session start and before every
-  critical task (D-012 mandatory check: `best` → Fable). Never skip before
-  critical acceptance. No gate. Example: session-start checklist step 1.
-- **/effort — BOUNDED_USE.** Use to verify Ultracode before critical work
-  (D-012). Never lower effort for critical/judgment work or to stretch
-  usage caps (policy: never trade quality for caps). Gate: changing effort
-  below Ultracode for any critical task requires Jacob.
-- **/model — BOUNDED_USE (view) / OWNER_APPROVAL_REQUIRED (switch).** Use
-  to confirm the main session resolves to Fable. Never switch the main
-  discovery session off `best`; subagent model choice belongs to the
-  governor, not `/model`. Example: `/model` after launch, expect Fable.
-- **/advisor — BOUNDED_USE.** Use only when an independent second opinion
-  inside a turn is cheaper than a governor-routed review, and note the
-  extra token cost. Never treat advisor output as the independent Fable
-  review required for critical acceptance. Gate: none for occasional use;
-  sustained use = owner cost decision.
-- **/usage, /usage-credits — SAFE_ROUTINE.** Use when monitoring
-  capacity (continuity thresholds) and before starting long work. Record
-  displayed reset times exactly; never guess.
-- **/context — SAFE_ROUTINE.** Use at ~60% context and before/after
-  compaction. Feeds the 60–70%/75–80% continuity thresholds.
-- **/autocompact — BOUNDED_USE.** Acceptable to set a conservative
-  threshold so auto-compaction never lands mid-atomic-task. Never rely on
-  it instead of handoff refresh — compaction is lossy.
-- **/compact — BOUNDED_USE.** Only after the AutoFX continuity protocol:
-  finish the atomic task, refresh handoffs/registers, commit; then compact
-  with instructions naming what must survive (active phase, gate status,
-  open questions). Never compact mid-decision or with unrecorded owner
-  input in history.
-- **/clear — BOUNDED_USE (hard precondition).** Only after a completed
-  repository handoff (handoffs + registers updated, committed, and
-  **pushed** to the approved branch). Never to "tidy up" mid-task. The
-  saved-but-out-of-context old conversation is not an AutoFX state
-  carrier.
-- **/resume — BOUNDED_USE.** Use with named sessions per RESUME_PROMPT.md;
-  verify repo state before acting (resume restores chat, not repo truth).
-  Never treat restored conversation memory as authoritative over
-  registers. Prefer "resume full session as-is" for critical sessions; if
-  resuming from summary, re-read handoffs first (summary loss is real).
-- **/btw — BOUNDED_USE (safeguard).** Side questions only (syntax help,
-  quick lookups). **Never for decisions, requirements, approvals, or
-  anything that must be on the record — /btw does not join conversation
-  history and would silently vanish from the audit trail.** Anything
-  material goes in a normal message and then into the registers.
-- **/plan — BOUNDED_USE.** Use for structuring complex discovery analysis.
-  Plan-mode output that matters must still be persisted to repo documents;
-  plan mode is never restored on resume. Never let plan acceptance imply
-  build authorisation (the gate phrase alone authorises).
-- **/goal — OWNER_APPROVAL_REQUIRED.** Any `/goal` needs, in the goal text
-  itself: explicit scope, completion condition, stopping conditions
-  (including the twelve D-019 mandatory stops), and approval boundaries.
-  Never for open-ended work; never spanning an authorisation gate. Note:
-  goals survive resume — clear stale goals at session start.
-- **/loop — OWNER_APPROVAL_REQUIRED.** Only for bounded session-local
-  polling of documentation/CI-like state, with Jacob's per-use approval.
-  **Never a production or trading scheduler** — it dies with the session,
-  jitters fire times, rounds intervals, expires at 7 days, and skips
-  missed fires. Any V2 production scheduling is designed in Rounds J/N as
-  application architecture, never as a Claude Code loop.
-- **/schedule — OWNER_APPROVAL_REQUIRED.** Cloud routines run on
-  Anthropic-managed infrastructure without local files or permission
-  prompts — external activity under D-019 (expenses/cloud) and P-0.3.
-  **Never a production or trading scheduler** (same rule as /loop).
-- **/tasks — SAFE_ROUTINE.** Use to monitor delegated/background work.
-- **/subtask — BOUNDED_USE.** Governor routing first (classification,
-  lowest permitted model, sufficiency); read-only agents only during
-  discovery. Never for critical acceptance (Fable review rule).
-- **/fork — BOUNDED_USE.** Only to isolate an experiment with the full
-  context; record the fork in SESSION_LOG. Never run two forks writing to
-  the same registers concurrently (register race = continuity hazard).
-- **/background — OWNER_APPROVAL_REQUIRED.** Detached autonomous
-  continuation is unattended work; Jacob authorises scope per use, same
-  conditions as /goal.
-- **/batch — PROHIBITED_DURING_DISCOVERY.** Mass parallel edits are
-  implementation-shaped. Post-authorisation: OWNER_APPROVAL_REQUIRED per
-  use with token/cost statement and governor routing (P-0.4).
-- **/deep-research — BOUNDED_USE (if available; currently
-  DOCUMENTED_NOT_LOCALLY_VERIFIED).** Requires: governor routing, an
-  approved research brief per `.claude/rules/quantitative-evidence.md`
-  § Research standard, and a stated token budget. Output lands as a dated
-  research brief in the repo. Never as a substitute for the sceptical
-  verification pass.
-- **/diff — SAFE_ROUTINE.** Use before every commit (documentation diff
-  review). Example: step 7 sequence below.
-- **/code-review — BOUNDED_USE.** Plain review of documentation diffs is
-  allowed. `--fix` (edits files), `--comment` (posts to GitHub), and
-  `ultra` (cloud) are OWNER_APPROVAL_REQUIRED. During discovery the
-  governed reviewers (autofx-opus-reviewer etc.) remain the primary
-  review path for critical artefacts.
-- **/security-review — BOUNDED_USE.** Read-only sweep of pending changes;
-  useful before pushes. Never a substitute for the Round N threat model
-  or the metadata-only secret scans.
-- **/simplify — OWNER_APPROVAL_REQUIRED during discovery** (it applies
-  edits). Post-authorisation: BOUNDED_USE within an approved phase.
-- **/run — PROHIBITED_DURING_DISCOVERY.** There is no application and
-  nothing may be launched. Post-authorisation: BOUNDED_USE inside the
-  approved phase only.
-- **/verify — PROHIBITED_DURING_DISCOVERY** (nothing implemented to
-  verify). Post-authorisation: BOUNDED_USE; its results feed evidence
-  records, never replace gate criteria.
-- **/rewind — OWNER_APPROVAL_REQUIRED.** **Never silently discards
-  approved or uncommitted work:** before any rewind — commit or stash the
-  working tree, confirm with Jacob which checkpoint, record the rewind in
-  SESSION_LOG. File rollback can erase register updates; conversation
-  rollback can erase recorded owner input that was not yet persisted.
-- **/permissions — SAFE_ROUTINE (view) / OWNER_APPROVAL_REQUIRED (any
-  change).** The committed allowlist is Jacob's (see TOOLING_REGISTER
-  permissions note); per-session grants are fine, durable rules are not.
-- **/fewer-permission-prompts — OWNER_APPROVAL_REQUIRED.** Writes a
-  durable allowlist to project settings — exactly the NEXT_ACTIONS § B
-  settings decision; run only if Jacob approves that item.
-- **/memory — SAFE_ROUTINE (view) / OWNER_APPROVAL_REQUIRED (edit).**
-  CLAUDE.md is rank 2 in the authority hierarchy — edits are owner
-  changes. Auto-memory entries must never carry decisions that belong in
-  registers.
-- **/plugin — SAFE_ROUTINE (list) / OWNER_APPROVAL_REQUIRED
-  (install/enable/disable)** per the D-013 gate table.
-- **/reload-plugins — BOUNDED_USE** immediately after an owner-approved
-  plugin change; otherwise unnecessary.
-- **/skills — SAFE_ROUTINE.** Listing only. (`/reload-skills`:
-  NOT_AVAILABLE — do not attempt; revalidate after upgrades.)
-- **/mcp — SAFE_ROUTINE (status view) only.** Enabling, reconnecting, or
-  authenticating any server is PROHIBITED for D-015 out-of-scope
-  connectors and OWNER_APPROVAL_REQUIRED for anything else.
-- **/doctor — BOUNDED_USE (diagnosis) / OWNER_APPROVAL_REQUIRED (any
-  offered CLAUDE.md trim or migration).** Decline write offers unless
-  Jacob has approved them.
-- **/debug — BOUNDED_USE.** For CLI faults; logs stay out of the repo.
-- **/export — BOUNDED_USE.** Local, uncommitted exports only; transcripts
-  can contain sensitive discussion. Never commit an export; never export
-  to a synced/public location while Q-014 stands.
-- **/heapdump — OWNER_APPROVAL_REQUIRED; highly sensitive.** (Currently
-  DOCUMENTED_NOT_LOCALLY_VERIFIED.) A heap dump may embed raw session
-  memory including any credential material the process ever held. If ever
-  used: write outside the repository, never commit, never share, delete
-  immediately after diagnosis, record the event in SESSION_LOG.
-- **/install-github-app — OWNER_APPROVAL_REQUIRED.** External install +
-  potential Actions workflows (deploy-adjacent; the no-build gate lists
-  deploying workflows). Not needed for the current D-024 model.
-- **/web-setup — OWNER_APPROVAL_REQUIRED.** Would move execution to cloud
-  where repository content is cloned externally — a D-019 infrastructure
-  and Q-014-adjacent decision.
-- **/remote-control — BOUNDED_USE (owner-operated).** Jacob may attach
-  his own devices; Claude never initiates pairing. Continuity rules
-  unchanged — repo documents remain the source of truth.
-- **/fast — BOUNDED_USE with a hard rule: never for critical AutoFX
-  work.** Fast mode serves via Opus; D-012 requires Fable for critical
-  judgment/acceptance. Acceptable only for trivial mechanical
-  non-critical chores, and even then the governor's classification comes
-  first. If in doubt, off.
+- `/btw` never carries decisions or requirements (it does not join
+  conversation history).
+- `/clear` requires a completed **and pushed** repository handoff first.
+- `/compact` follows the AutoFX continuity protocol (atomic task finished,
+  handoffs/registers refreshed, committed; compaction instructions name
+  what must survive).
+- `/fast` is never used for critical AutoFX work.
+- `/loop`, `/schedule`, Claude routines, and Claude sessions are **never
+  production or trading schedulers** — production scheduling is V2
+  application architecture (Rounds J/N).
+- `/goal` requires explicit scope, completion condition, stopping
+  conditions, and approval boundaries in the goal text.
+- `/batch`, `/deep-research`, and parallel-agent commands require
+  token/cost consideration and model-governor routing.
+- `/rewind` never silently discards approved or uncommitted work.
+- `/heapdump` output is highly sensitive (officially contains the full
+  conversation and credentials) — never committed, never shared, deleted
+  after use.
+- `/usage-credits` is a billing action, never conflated with read-only
+  `/usage`.
 
-## 8. Recommended command sequences (`PROPOSED`)
+## 8. Recommended command sequences (`PROPOSED`, unchanged from v0.1.0 §8 in substance)
 
-1. **Start every AutoFX session:** `claude --model best --effort
-   ultracode` → `/status` (expect Fable) → `/effort` (expect Ultracode) →
-   read handoffs per RESUME_PROMPT.md → `git status` / `git log` /
-   `git remote -v` → restate phase/gate → `/usage` if capacity is a
-   concern → clear any stale `/goal`.
-2. **Begin a critical discovery task:** `/status` + `/effort` re-check →
-   load `autofx-model-governor` → classify + show route → `/context`
-   (headroom check) → proceed on Fable.
-3. **Monitor context and usage:** `/context` at natural breakpoints;
-   `/usage` before long work; act at 60–70% (finish atomic task + refresh
-   handoffs) and 75–80% (checkpoint, then `/compact` or fresh session).
-4. **Prepare for compaction:** finish atomic task → update registers +
-   handoffs → commit (+ push if authorised) → `/compact <instructions
-   naming phase, gate status, open questions>` → verify with `/context` →
-   re-read CURRENT_STATE.md before continuing.
-5. **Prepare for weekly usage exhaustion:** on any limit warning — stop
-   opening new work → full checkpoint (handoffs + registers + commit +
-   push) → `/usage` and record the displayed reset time exactly →
-   `/rename` the session for later resumability → stop.
-6. **Resume after a reset:** `claude --resume <name>` (or `--continue`) →
-   if offered, prefer "resume full session as-is" for critical sessions →
-   `/status` + `/effort` → re-verify git state → re-read handoffs (repo
-   truth beats restored memory) → continue from NEXT_ACTIONS.
-7. **Review documentation changes (current practice):** `/diff` → secret
-   scan → consistency checks → optional `/security-review` → commit →
-   push per D-024.
-8. **Review future implementation changes (post-authorisation only):**
-   `/diff` → `/code-review` (plain) → governed Fable review for critical
-   code → tests → `/security-review` → commit → push to approved phase
-   branch; `--fix`/`ultra` only with approval.
-9. **Run bounded autonomous work:** obtain Jacob's scope approval →
-   governor routing + token statement → prefer `/subtask` (read-only
-   agents) → monitor with `/tasks` → record outcomes in registers; `/goal`
-   or `/loop` only with the P-policies above satisfied.
-10. **Diagnose Claude Code problems:** `claude --version` → `/status` →
-    `/debug` → `/doctor` (decline write offers) → `/release-notes` (known
-    changes) → if memory-related, discuss `/heapdump` with Jacob before
-    use → record findings in SESSION_LOG.
+1. **Session start:** `claude --model best --effort ultracode` → `/status`
+   → `/effort` → handoffs per RESUME_PROMPT.md → git verify → restate
+   phase/gate → `/usage` if capacity matters → clear stale `/goal`.
+2. **Critical task start:** `/status` + `/effort` → governor
+   classification + route → `/context` headroom → Fable.
+3. **Monitoring:** `/context` at breakpoints; `/usage` before long work;
+   act at 60–70% / 75–80% thresholds.
+4. **Pre-compaction:** finish atomic task → registers + handoffs → commit
+   (+push) → `/compact <survival instructions>` → `/context` → re-read
+   CURRENT_STATE.md.
+5. **Usage exhaustion:** stop new work → full checkpoint → `/usage`,
+   record displayed reset time exactly → `/rename` → stop.
+6. **Resume:** `claude --resume <name>` → prefer as-is for critical
+   sessions → `/status` + `/effort` → git verify → handoffs → continue
+   from NEXT_ACTIONS.
+7. **Documentation review:** `/diff` → secret scan → consistency checks →
+   optional `/security-review` → commit → push per D-024.
+8. **Implementation review (post-authorisation):** `/diff` →
+   `/code-review` plain → governed Fable review for critical code → tests
+   → `/security-review` → commit → push to approved phase branch.
+9. **Bounded autonomous work:** owner scope approval → governor + token
+   statement → prefer `/subtask` → `/tasks` monitoring → outcomes to
+   registers.
+10. **Diagnostics:** `claude --version` → `/status` → `/debug` →
+    `/doctor` (decline write offers) → `/release-notes` → `/heapdump`
+    only with Jacob per its safeguard → SESSION_LOG.
 
-## 9. Revalidation procedure (after every Claude Code upgrade)
+## 9. Safe local verification and post-upgrade revalidation
 
-1. `claude --version` — record the new version in this runbook's header
-   and TOOLING_REGISTER.md.
-2. Re-run the read-only binary token scan (method § 1) over the mandatory
-   command list; diff FOUND/ABSENT against § 5.
-3. Compare the session skill roster against § 5's BUNDLED_SKILL entries.
-4. Re-fetch the three official pages (§ 1) and diff the catalogue:
-   new/removed/renamed commands, changed availability gates, changed
-   semantics for `/resume`, `/compact`, `/rewind`, `/loop`.
-5. Update this runbook's entries and availability labels; mark vanished
-   commands `REMOVED_OR_UNAVAILABLE`; never delete history — supersede.
-6. Re-verify the D-012 launch checks still pass (`/status` → Fable,
-   `/effort` → Ultracode) and the D-017 agent frontmatter still validates.
-7. Record the revalidation in SESSION_LOG.md and refresh
-   TOOLING_REGISTER.md § Claude Code command governance.
-8. Any behaviour change affecting a `PROPOSED`/approved policy in § 7 goes
-   to Jacob before the changed command is used.
+**Harmless manual checks for LOCALLY_NOT_VERIFIED commands** (Jacob or a
+supervised session can run these; none mutate anything): type the command
+name into the CLI prompt WITHOUT pressing Enter and observe whether the
+command menu offers it (works for menu-listed commands; NOT for
+`/heapdump`, which by design never appears); or run `/help` and read the
+list; or for dialog-openers (`/theme`, `/config`) open and immediately
+`Esc`. Commands with behaviour codes RM/EX/AU/BC/DG are never availability-
+tested by execution.
+
+**Revalidation after every Claude Code upgrade:**
+
+1. `claude --version` → update header + TOOLING_REGISTER.
+2. Re-retrieve the raw official commands page (the `.md` endpoint used
+   2026-08-18 returned the full 105-row table; extraction summaries are
+   NOT sufficient — v0.1.0's errors came from truncated extractions) and
+   diff the command inventory.
+3. Re-check the session skill roster against § 5 BUNDLED_SKILL rows.
+4. Re-check `/resume`, `/compact`, `/rewind`, `/loop` semantics on the
+   sessions and scheduled-tasks pages.
+5. Update entries; mark disappearances DOCUMENTED_AS_REMOVED or
+   NOT_IN_OFFICIAL_CATALOGUE; never delete history.
+6. Re-verify D-012 launch checks and D-017 agent validation.
+7. Record the revalidation in SESSION_LOG + TOOLING_REGISTER.
+8. Any behaviour change touching a policy here goes to Jacob before the
+   changed command is used.
+
+## 10. Errata — v0.1.0 → v0.2.0 (correction pass 2026-08-18, D-035)
+
+| # | Previous statement (v0.1.0) | Corrected statement (v0.2.0) | Evidence | Policy impact | Files updated |
+|---|---|---|---|---|---|
+| E-1 | `/reload-skills` "NOT_AVAILABLE — absent from the official catalogue and binary" | DOCUMENTED built-in, added v2.1.152: re-scans skill/command directories mid-session; LOCALLY_NOT_VERIFIED | Official commands page row (raw page, line 119) | New BOUNDED policy (was: do-not-attempt) | This runbook; TOOLING_REGISTER; SESSION_LOG |
+| E-2 | `/web-setup` "not in official commands table — purpose INFERRED" | DOCUMENTED: connects GitHub to Claude Code on the web using local `gh` credentials; `/schedule` auto-prompts it | Official row (line 156) | OWNER_APPROVAL confirmed; AU behaviour added; `/schedule` interaction flagged | Same |
+| E-3 | `/usage-credits` "SAFE_ROUTINE … view usage credits" (read-only) | DOCUMENTED billing action: opens billing settings or sends an admin usage-credit request; previously `/extra-usage`; NOT equivalent to `/usage` | Official row (line 152) | **Reclassified SAFE_ROUTINE → OWNER_APPROVAL (EX/BC)** | Same |
+| E-4 | `/sandbox`, `/run-skill-generator`, `/remote-env`, `/stats`, `/stop`, `/team-onboarding`, `/ultrareview`, `/voice`, `/scroll-speed`, `/setup-bedrock`, `/setup-vertex`, `/tui`, `/stickers`, `/terminal-setup`, `/statusline` omitted | All catalogued with official rows; `/run-skill-generator` = skill that WRITES a project skill file (PROHIBITED_DISCOVERY); `/team-onboarding` distils usage history (OWNER_APPROVAL) | Official rows (full 105-row enumeration) | New entries + policies | Same |
+| E-5 | `/workflows` "not in official commands table" | DOCUMENTED: workflow progress view (watch/pause/resume/save) | Official row (line 157) | Pause/resume noted as state-affecting → BOUNDED | Same |
+| E-6 | Removed list = `/pr-comments` only | Also `/vim` (removed v2.1.92 → `/config` Editor mode) and `/ultraplan` (removed → plan mode); `/extra-usage` renamed | Official rows (lines 154, 148) | Removed-history completed | Same |
+| E-7 | `/security-review` typed as bundled skill; `/init` typed as bundled skill | Official table types both as BUILT_IN (no [Skill] marker); local roster surfaces both via skills — discrepancy recorded, official classification adopted | Official rows (lines 131, 95) vs session roster | None (policies unchanged) | Same |
+| E-8 | `/simplify` "(docs list built-in)" | Official **[Skill]**: four parallel review subagents (reuse/simplification/efficiency/abstraction), applies fixes, no bug-hunting from v2.1.154 | Official row (line 134) | DG behaviour added → P-0.4 routing also applies | Same |
+| E-9 | `/loop` persistence: "cron state in project `.claude`" implied project-level persistence | Corrected: tasks are session/conversation-scoped; unexpired tasks restored on resume of that session; fresh conversation clears them; `.claude/loop.md` is only the optional default-prompt file, never task-state storage | Official scheduled-tasks page + commands row (line 103) | Wording only; prohibition on production/trading scheduling unchanged | Same |
+| E-10 | Single four-value availability label conflating official and local evidence; binary ABSENT treated as availability signal (led to E-1) | Two independent axes: official status and local status; binary-string absence never proves unavailability (`/heapdump` proves menus/strings mislead by design) | Owner instruction + official `/heapdump` row (line 90) | Evidence-honesty structural fix across every entry | Same |
+| E-11 | `/goal` syntax "`[condition\|clear]`" only | Official: no-arg shows current/most recent goal; `clear`/`stop`/`off`/`reset`/`none`/`cancel` all end it | Official row (line 89) | None | Same |
+| E-12 | `/subtask`/`/fork` version interplay unstated | `/subtask` requires 2.1.212+ (earlier: `/fork`); unavailable when agent view off; `/fork` copy isolates edits in own worktree from 2.1.221 | Official rows (lines 141, 88) | None | Same |
+| E-13 | `/heapdump` sensitivity stated as inference ("may embed…") | Official wording: the `.heapsnapshot` "contains your full conversation and credentials, so don't share it"; only `-diagnostics.json` attachable; hidden from menu by design | Official row (line 90) | Sensitivity now evidence-backed; safeguard unchanged | Same |
+
+Every other § 5 entry was re-verified against the raw official page's
+105-row enumeration during this pass, not only the examples above.

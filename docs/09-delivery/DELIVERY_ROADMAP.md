@@ -56,8 +56,8 @@ The full P1 platform — data → research → backtest → books → approval �
 cTrader execution → monitoring → ledger → risk controls — staged into
 implementation increments. Stage boundaries, and which stages may proceed in
 parallel, are decided in Round N and only enter the approved backlog after
-the Exit Review and Jacob's explicit `AUTHORISE AUTOFX V2 IMPLEMENTATION`
-statement.
+the Exit Review and Jacob's explicit
+`AUTHORISE AUTOFX V2 IMPLEMENTATION — PHASE <number/name>` statement.
 
 ### 4. Phased asset rollout (D-009)
 FX first; the remaining seven CFD classes (Indices, Metals, Crypto,
