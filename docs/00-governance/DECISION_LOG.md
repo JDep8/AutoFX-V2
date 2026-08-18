@@ -227,6 +227,11 @@ History is never erased; superseded decisions are marked, not deleted.
   discovery artifact.
 - **Status:** `OWNER_APPROVED` — 2026-08-18 (owner instruction; evidence
   class USER-STATED).
+- **Package status:** specification supplied in-session (Q-012 RESOLVED);
+  package created and validated against Claude Code 2.1.234; package and
+  validation results **`OWNER_APPROVED` by Jacob 2026-08-18**. The D-017
+  prerequisite is satisfied; Round A resumption and the V1 audit still wait
+  on Jacob's separate inputs (NEXT_ACTIONS B-3/B-5).
 - **Affects:** discovery sequencing, session discipline, subagent use,
   acceptance quality. Registers: QUESTION_REGISTER.md (Q-012);
   NEXT_ACTIONS.md § B-2.

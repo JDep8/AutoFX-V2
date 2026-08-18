@@ -2,8 +2,8 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register (seeded)
-- **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
+- **Version:** 0.1.1
+- **Last reviewed:** 2026-08-18
 - **Dependencies:** REQUIREMENTS_CATALOGUE.md, DECISION_LOG.md
 - **Approval evidence:** n/a (register)
 
@@ -26,6 +26,12 @@ evidence references fill in as domain documents mature — a blank cell means
 | UX-001…UX-003 | 02-product-and-ux/* | — | PROPOSED | — |
 | RES-001…RES-004 | 07-research-centre/* | — | PROPOSED (RES automation boundary BLOCKED per Q-003) | D-010 |
 | CONTENT-001…CONTENT-004 | 08-content-and-business/* | — | PROPOSED | D-010 |
+
+Governance artefacts (process controls, not product requirements):
+
+| Artefact | Design reference | Evidence reference | Status | Decision(s) |
+|----------|------------------|--------------------|--------|-------------|
+| Model routing + acceptance governance (discovery) | MODEL_ROUTING_POLICY.md; .claude/skills/autofx-model-governor/SKILL.md; .claude/agents/autofx-*.md (4) | MODEL_ROUTING_POLICY.md § Package validation record (VERIFIED vs Claude Code 2.1.234, 2026-08-18); SESSION_LOG.md Session 4 | OWNER_APPROVED 2026-08-18 (package + validation results approved by Jacob) | D-012, D-017 |
 
 Row-level (per-requirement) expansion happens as each domain round completes;
 this seed intentionally groups by prefix to avoid fabricating detail.

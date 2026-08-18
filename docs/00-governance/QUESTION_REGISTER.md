@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register
-- **Version:** 0.1.1
+- **Version:** 0.1.2
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** DECISION_LOG.md, ASSUMPTION_REGISTER.md
 - **Approval evidence:** n/a (register)
@@ -23,4 +23,4 @@ Safety-critical ambiguity fails closed and lands here as a blocking question.
 | Q-009 | Precise, measurable definition of backtest "accuracy" (backtest-vs-live degradation tolerance) Jacob will accept? | 2026-08-17 | BACKTEST_FIDELITY_SPEC.md acceptance thresholds | OPEN | Round A continuation → refined Round F |
 | Q-010 | Has any historical data already been used for repeated selection in V1 (and is therefore ineligible as final holdout)? | 2026-08-17 | D-002; LEAKAGE_AND_HOLDOUT_POLICY.md | OPEN | V1 audit + Round B |
 | Q-011 | Rules-file naming (D-014): keep both the six mandate topic files and the three numbered entry points, or consolidate? | 2026-08-18 | Nothing (non-blocking, layout only) | OPEN | Jacob's preference |
-| Q-012 | Location and content of the migration-runbook "Prompt 6A" specification for the project-local AutoFX model-governance package (not present in this repository)? | 2026-08-18 | D-017 package creation/validation — which itself gates Round A resumption, the V1 forensic audit, subagent use, and acceptance of critical discovery artifacts | OPEN — fails closed until supplied | Jacob to supply the runbook text or its path |
+| Q-012 | Location and content of the migration-runbook "Prompt 6A" specification for the project-local AutoFX model-governance package (not present in this repository)? | 2026-08-18 | D-017 package creation/validation — which itself gates Round A resumption, the V1 forensic audit, subagent use, and acceptance of critical discovery artifacts | **RESOLVED 2026-08-18** — specification supplied verbatim by Jacob in-session; captured in MODEL_ROUTING_POLICY.md v0.2.0 and the package files; package created and validated against Claude Code 2.1.234 | Package and validation results `OWNER_APPROVED` by Jacob 2026-08-18; commit made manually by Jacob |

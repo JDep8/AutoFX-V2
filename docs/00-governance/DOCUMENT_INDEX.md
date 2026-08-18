@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register — the navigation map; read this first each session
-- **Version:** 0.1.1
+- **Version:** 0.1.2
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** every document below
 - **Approval evidence:** n/a (register)
@@ -19,6 +19,8 @@ noted. Read only what the active task needs.
 | `.gitignore` | Ignore rules blocking secret patterns and local artefacts (a backstop, not a licence — see security rules) |
 | `.claude/rules/00-…, 10-…, 20-…` | Numbered entry points: discovery gate, evidence + traceability labels, session continuity (D-014/Q-011: naming overlap with the six topic files awaits Jacob) |
 | `.claude/rules/` (6 topic files) | Detail: discovery/authorisation, quantitative evidence, data integrity, execution/risk, security/secrets, documentation/traceability |
+| `.claude/skills/autofx-model-governor/SKILL.md` | Model-routing governor skill (D-017): task classification, lowest-permitted-model selection, escalation + Fable acceptance discipline |
+| `.claude/agents/` (4 discovery agents) | autofx-fable-critical-governor · autofx-opus-reviewer · autofx-sonnet-analyst · autofx-haiku-extractor — all read-only (Read/Glob/Grep), plan mode (D-017; roster in TOOLING_REGISTER.md) |
 
 ## 00-governance
 

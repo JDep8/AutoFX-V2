@@ -2,11 +2,12 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living handoff (refreshed every checkpoint)
-- **Date/time:** 2026-08-18 01:08 UTC
+- **Date/time:** 2026-08-18 01:36 UTC
 - **Source session:** first terminal session (Claude Code CLI), session
-  `0091f598-1fb5-49ef-a583-c282e5ac0675` — terminal recovery audit +
-  owner-approved documentation reconciliation. Prior history: three Desktop
-  sessions, 2026-08-17/18 (SESSION_LOG.md).
+  `0091f598-1fb5-49ef-a583-c282e5ac0675` — terminal recovery audit,
+  owner-approved documentation reconciliation, and model-governance package
+  creation + validation (D-017). Prior history: three Desktop sessions,
+  2026-08-17/18 (SESSION_LOG.md).
 
 ## Phase, round, gate
 
@@ -25,13 +26,14 @@
 - **Terminal recovery audit: COMPLETE 2026-08-18; recovered state
   OWNER_APPROVED by Jacob** with rulings on findings F-3 → D-015 and
   F-5 → D-016 (DECISION_LOG.md).
-- **Model-governance gate (D-017, OWNER_APPROVED 2026-08-18):** after the
-  reconciliation commit, the single first next action is creation and
-  validation of the project-local AutoFX model-governance package per
-  migration-runbook Prompt 6A (specification not yet in this repository —
-  Q-012, fails closed until supplied). Until that package is
-  `OWNER_APPROVED`: no Round A resumption, no V1 forensic audit, no
-  subagent use, no acceptance of any critical discovery artifact.
+- **Model-governance gate (D-017): SATISFIED.** The package was created and
+  validated 2026-08-18 (Jacob supplied the Prompt 6A specification
+  in-session, Q-012 RESOLVED; validation record in MODEL_ROUTING_POLICY.md)
+  and the **package + validation results are `OWNER_APPROVED` by Jacob
+  2026-08-18**. All delegation and critical acceptance now route through
+  the `autofx-model-governor` skill per MODEL_ROUTING_POLICY.md. Round A
+  resumption and the V1 audit remain separately owner-gated (B-3/B-5) and
+  are NOT yet authorised to start.
 
 ## Session configuration (D-012)
 
@@ -48,14 +50,16 @@
 - Branch: `planning/discovery-handoff`; this V2 repo's default branch is
   **`master`** (@ `24db4ea`), not `main`; renaming to `main` remains Jacob's
   open option (NEXT_ACTIONS B-1).
-- Branch tip: `39e2730`. **Jacob CONFIRMED 2026-08-18** that he authorised
-  `fcde457` (the 17-file terminal-handoff change set) and `39e2730`
-  (enablement of the three D-013-approved plugins). Recovery finding F-1
-  (stale "uncommitted" claims vs git reality) is RESOLVED; the stale text
-  was reconciled in this session's change set.
-- This session's recovery-reconciliation change set is **UNCOMMITTED**
-  pending Jacob's review (proposed commit in NEXT_ACTIONS B-1). Never
-  pushed; no remote exists.
+- Branch tip: `d2f0d3a` ("docs: reconcile terminal recovery and add
+  model-governance gate", 2026-08-18 01:22 UTC) — the recovery-
+  reconciliation change set. **Authorship CONFIRMED by Jacob 2026-08-18.**
+  Earlier: Jacob confirmed he authorised `fcde457` (17-file terminal
+  handoff) and `39e2730` (three D-013 plugins); recovery finding F-1
+  RESOLVED. Optional `master`→`main` rename not exercised.
+- The model-governance change set (modified docs + 5 new `.claude/` files)
+  is **UNCOMMITTED**; package + validation results already `OWNER_APPROVED`
+  by Jacob 2026-08-18 — **Jacob creates the commit manually** (NEXT_ACTIONS
+  B-1). Never pushed; no remote exists.
 
 ## Last completed acceptance criterion
 
@@ -66,12 +70,11 @@ corrections applied (uncommitted, awaiting his review).
 
 ## First incomplete acceptance criterion
 
-Jacob reviews and commits the recovery-reconciliation change set
-(NEXT_ACTIONS B-1). Thereafter the single next work item is the
-model-governance package (B-2, D-017): Jacob supplies the Prompt 6A
-specification (Q-012), Claude creates and validates the package, and Jacob
-approves it. Only after that approval: Round A batch 2 recorded and
-summarised (B-3) and/or the repo-side V1 audit on Jacob's explicit go (B-5).
+Jacob commits the model-governance change set manually (NEXT_ACTIONS B-1;
+package + validation results already `OWNER_APPROVED` 2026-08-18; recovery
+reconciliation already committed as `d2f0d3a`). Thereafter: Round A batch 2
+answers recorded and summarised (B-3) and/or the repo-side V1 audit on
+Jacob's explicit go (B-5).
 
 ## Decisions captured (lifecycle · evidence)
 
@@ -103,7 +106,10 @@ summarised (B-3) and/or the repo-side V1 audit on Jacob's explicit go (B-5).
 - D-017 model-governance package (per migration-runbook Prompt 6A) must be
   created, validated, and OWNER_APPROVED before Round A resumption, the V1
   audit, subagent use, or acceptance of critical discovery artifacts —
-  OWNER_APPROVED 2026-08-18 · USER-STATED (spec location → Q-012).
+  OWNER_APPROVED 2026-08-18 · USER-STATED. Spec supplied in-session (Q-012
+  RESOLVED); package created + validated 2026-08-18 (VERIFIED vs Claude
+  Code 2.1.234); package + validation results OWNER_APPROVED by Jacob
+  2026-08-18 — D-017 prerequisite satisfied.
 - D-002…D-007 legacy conflicts — OPEN · CONFLICT/UNKNOWN (per entry).
 - D-014 rules-file naming — recorded CONFLICT; resolution PROPOSED (Q-011).
 
@@ -155,20 +161,24 @@ Q-001 DB access · Q-002 cBot location · Q-003 consumer-AI automation
 (BLOCKED) · Q-004 video-content boundary · Q-005 drawdown numbers (Round E) ·
 Q-006 jurisdictions · Q-007 budget/horizon/team/infra · Q-008 KPIs/non-goals ·
 Q-009 measurable backtest-accuracy form · Q-010 V1 holdout contamination ·
-Q-011 rules naming · Q-012 Prompt 6A / model-governance specification
-location (blocks D-017 package creation; fails closed until supplied).
+Q-011 rules naming. Q-012 (Prompt 6A / model-governance specification):
+**RESOLVED 2026-08-18** — supplied verbatim by Jacob in-session, captured
+in MODEL_ROUTING_POLICY.md v0.2.0; package created and validated.
 Round A batch 2 (Q-001/002/006–009) was asked 2026-08-17
 — verbatim wording in INTERVIEW_RECORD.md § Batch 2; answers pending. **Do
 not re-ask; do not convert answered items back to OPEN.**
 
 ## Work in progress / exact partial state
 
-- Recovery-reconciliation change set (this session, 2026-08-18) on branch
-  `planning/discovery-handoff`, **uncommitted** pending Jacob's review.
-  Files changed: `.claude/rules/documentation-and-traceability.md`,
-  `docs/00-governance/DECISION_LOG.md`, `QUESTION_REGISTER.md`,
-  `TOOLING_REGISTER.md`, `MODEL_ROUTING_POLICY.md`, `DOCUMENT_INDEX.md`,
-  and the four `docs/handoffs/` files.
+- Model-governance change set (this session, 2026-08-18) on branch
+  `planning/discovery-handoff`, **uncommitted** — package + validation
+  results approved by Jacob 2026-08-18, awaiting his manual commit:
+  new `.claude/skills/autofx-model-governor/SKILL.md` and four
+  `.claude/agents/autofx-*.md`; updated `MODEL_ROUTING_POLICY.md`
+  (v0.2.0), `TOOLING_REGISTER.md`, `DOCUMENT_INDEX.md`,
+  `TRACEABILITY_MATRIX.md`, `QUESTION_REGISTER.md` (Q-012 resolved), and
+  the four `docs/handoffs/` files. The earlier recovery-reconciliation
+  change set is committed (`d2f0d3a`).
 - No other partial work. No application code, schemas, migrations,
   infrastructure, or trading artefacts exist anywhere in the repo (VERIFIED
   2026-08-18 across the full history).
@@ -192,10 +202,8 @@ not re-ask; do not convert answered items back to OPEN.**
 
 ## Single first safe next action
 
-Wait for Jacob's review/commit of the reconciliation change set (B-1). The
-single first safe next action after that commit is creation and validation
-of the project-local model-governance package per Prompt 6A (B-2, D-017) —
-blocked until Jacob supplies the Prompt 6A specification (Q-012). Round A
-and the V1 audit follow only after the package is OWNER_APPROVED. Open no
-new discovery work and use no subagents until then (owner instructions
-2026-08-18).
+Wait for Jacob's manual commit of the model-governance change set (B-1),
+then for his separate inputs: Round A batch 2 answers (B-3) or an explicit
+V1-audit go (B-5). Open no new discovery work unprompted; any future
+delegation or critical acceptance routes through the `autofx-model-governor`
+skill per MODEL_ROUTING_POLICY.md (owner instructions 2026-08-18).

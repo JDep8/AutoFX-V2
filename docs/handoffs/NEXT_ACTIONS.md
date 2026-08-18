@@ -7,15 +7,17 @@ Ordered, bounded, acceptance-criterion based. Section A needs no further
 authority; Section B waits on Jacob. Nothing anywhere authorises
 implementation — the no-build gate stands.
 
-**Sequencing rule (D-017, OWNER_APPROVED 2026-08-18):** after the B-1
-commit, the model-governance package (B-2) precedes everything else. Until
-it is `OWNER_APPROVED`: no Round A resumption, no V1 forensic audit, no
-subagent use, no acceptance of any critical discovery artifact.
+**Sequencing rule (D-017): SATISFIED 2026-08-18** — the model-governance
+package and its validation results are `OWNER_APPROVED` by Jacob. All
+delegation and critical acceptance route through the
+`autofx-model-governor` skill per MODEL_ROUTING_POLICY.md. Round A
+resumption (B-3) and the V1 audit (B-5) remain separately owner-gated.
 
 Completed and removed from this list: terminal recovery audit (recovered
-state OWNER_APPROVED 2026-08-18) and plugin installation (three D-013
-plugins INSTALLED 2026-08-18, commit `39e2730`, recorded in
-TOOLING_REGISTER.md).
+state OWNER_APPROVED 2026-08-18); plugin installation (three D-013 plugins
+INSTALLED 2026-08-18, commit `39e2730`, recorded in TOOLING_REGISTER.md);
+recovery-reconciliation commit (`d2f0d3a`, 2026-08-18 01:22 UTC — presumed
+Jacob's execution of the previous B-1; confirmation requested).
 
 ## A — Claude may do without further authority
 
@@ -26,23 +28,19 @@ TOOLING_REGISTER.md).
 
 ## B — Requires Jacob's decision or explicit authorisation
 
-1. **Review and commit the recovery-reconciliation change set** (owner
-   instruction: no automatic commit). Proposed commands (PowerShell-safe,
-   run separately):
+1. **Commit the model-governance change set manually** (owner instruction
+   2026-08-18: Jacob creates the commit himself; no automatic commit;
+   package already approved). Proposed commands (PowerShell-safe, run
+   separately):
    `git add -A`
    then
-   `git commit -m "docs: terminal recovery - reconcile handoff state (fcde457/39e2730 confirmed), record plugin install + Fable/Ultracode verification, add D-015..D-017 rulings and model-governance gate"`
+   `git commit -m "config: add AutoFX model-governance package (D-017) - governor skill + 4 read-only plan-mode agents, validated vs Claude Code 2.1.234, Q-012 resolved, registers and handoffs updated"`
    Optional at the same time: rename the default branch with
    `git branch -m master main` (this repo's default is currently `master`).
-2. **Model-governance package (D-017) — the single first work item after
-   the B-1 commit.** Jacob supplies the migration-runbook Prompt 6A
-   specification (Q-012 — not present in this repository; fails closed
-   until supplied); *then Claude* creates and validates the project-local
-   AutoFX model-governance package to that specification (documentation and
-   project-local governance artefacts only; the no-build gate is
-   unaffected). *Done when:* the validated package is `OWNER_APPROVED` by
-   Jacob. **Gates B-3…B-5, all subagent use, and acceptance of any critical
-   discovery artifact.**
+2. **Approve the model-governance package (D-017) — COMPLETE 2026-08-18.**
+   Package and validation results `OWNER_APPROVED` by Jacob (spec supplied
+   in-session, Q-012 RESOLVED; validated vs Claude Code 2.1.234). Kept in
+   place to preserve numbering; no action remains.
 3. **Round A batch 2 answers** (only after B-2 approval) — Q-001 (PostgreSQL
    read-only path), Q-002 (cBot location), Q-006 (jurisdictions/entity),
    Q-007 (budget/horizon/availability/team/infra), Q-008 (KPIs/non-goals),

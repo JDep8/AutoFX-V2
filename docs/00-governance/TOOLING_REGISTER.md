@@ -2,9 +2,9 @@
 
 - **Owner:** Jacob Depares
 - **Status:** `OWNER_APPROVED` (policy stated by Jacob 2026-08-18; evidence class USER-STATED)
-- **Version:** 0.1.1
+- **Version:** 0.1.2
 - **Last reviewed:** 2026-08-18
-- **Dependencies:** DECISION_LOG.md (D-011, D-013, D-015), MODEL_ROUTING_POLICY.md
+- **Dependencies:** DECISION_LOG.md (D-011, D-013, D-015, D-017), MODEL_ROUTING_POLICY.md
 - **Approval evidence:** Owner handoff instruction, 2026-08-18
 
 ## Workspaces (D-011)
@@ -45,6 +45,31 @@ never authenticate, invoke, remove, or modify it from AutoFX sessions.
 
 Only project-scoped tools explicitly approved in this register are authorised
 for AutoFX work.
+
+## Model-governance package (D-017, created 2026-08-18)
+
+Project-local Claude configuration implementing MODEL_ROUTING_POLICY.md —
+created from Jacob's specification (supplied in-session 2026-08-18,
+resolving Q-012); validated against Claude Code 2.1.234 (see
+MODEL_ROUTING_POLICY.md § Package validation record); **package and
+validation results `OWNER_APPROVED` by Jacob 2026-08-18** (commit made
+manually by Jacob).
+
+| File | Role |
+|------|------|
+| `.claude/skills/autofx-model-governor/SKILL.md` | Routing governor: classifies tasks, selects lowest permitted model, escalation + acceptance discipline |
+| `.claude/agents/autofx-fable-critical-governor.md` | Fable · max · plan · Read/Glob/Grep — critical judgment and acceptance review |
+| `.claude/agents/autofx-opus-reviewer.md` | Opus · xhigh · plan · Read/Glob/Grep — bounded reasoning, spec/traceability review, independent challenge |
+| `.claude/agents/autofx-sonnet-analyst.md` | Sonnet · high · plan · Read/Glob/Grep — deterministic analysis against approved criteria |
+| `.claude/agents/autofx-haiku-extractor.md` | Haiku · plan · Read/Glob/Grep — extraction/formatting only, never interpretation |
+
+Constraints honoured at creation: no third-party model-routing plugin
+installed; no global or user Claude settings altered;
+`CLAUDE_CODE_SUBAGENT_MODEL` not set (verified unset at process, user, and
+machine scope 2026-08-18); agents read-only in plan mode; no write, shell,
+network, MCP, database, or cTrader tools. Capability changes require the
+implementation-authorisation phrase for a named phase plus a separately
+reviewed configuration change.
 
 ## Git conventions
 

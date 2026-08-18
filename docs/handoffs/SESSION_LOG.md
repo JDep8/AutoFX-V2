@@ -116,3 +116,38 @@
   skill or agents created this turn. All recovery findings and rulings
   (F-1…F-5, D-015/D-016) preserved unchanged. Change set remains
   uncommitted for Jacob's review.
+- Model-governance package created and validated (owner authorisation +
+  Prompt 6A specification supplied verbatim in-session; **Q-012
+  RESOLVED**): created `.claude/skills/autofx-model-governor/SKILL.md` and
+  four read-only plan-mode agents — `autofx-fable-critical-governor`
+  (fable/max), `autofx-opus-reviewer` (opus/xhigh), `autofx-sonnet-analyst`
+  (sonnet/high), `autofx-haiku-extractor` (haiku) — all restricted to
+  Read/Glob/Grep. Frontmatter validated against the installed Claude Code
+  2.1.234 by read-only binary inspection: model `fable`, effort
+  `max`/`xhigh`/`high`, permissionMode `plan`, and the tool list are all
+  supported; no field approximated or substituted. Confirmed: no
+  third-party routing plugin installed; no global or user settings
+  changed; CLAUDE_CODE_SUBAGENT_MODEL unset (process/user/machine); no MCP
+  connector invoked; no application code created; no-build gate ACTIVE.
+  MODEL_ROUTING_POLICY.md expanded to v0.2.0 (package roster, routing +
+  quality rules, critical routing/acceptance record, validation record);
+  TOOLING_REGISTER, DOCUMENT_INDEX, TRACEABILITY_MATRIX, QUESTION_REGISTER
+  updated; CLAUDE.md unchanged (routing pointer already present). No agent
+  was run; Round A and the V1 audit remain paused. Package status
+  `PROPOSED` pending Jacob's approval of the model-governance diff; the
+  model-governance change set left uncommitted for his review.
+- During package validation, observed commit `d2f0d3a` ("docs: reconcile
+  terminal recovery and add model-governance gate", 2026-08-18 01:22 UTC,
+  author JDep8) — the recovery-reconciliation change set, committed
+  between turns; presumed Jacob's execution of the previous B-1 (its
+  message differs from the proposed one); confirmation requested in the
+  package validation report. Handoffs corrected to reflect the commit.
+- Jacob **CONFIRMED** `d2f0d3a` was authorised by him, and **APPROVED the
+  model-governance package and its validation results** (2026-08-18) —
+  package now `OWNER_APPROVED`; D-017 prerequisite satisfied; recorded in
+  MODEL_ROUTING_POLICY, DECISION_LOG (D-017 package status),
+  TOOLING_REGISTER, TRACEABILITY_MATRIX, QUESTION_REGISTER (Q-012). Owner
+  instruction: Jacob creates the commit manually; do not commit; do not
+  begin Round A or the V1 audit. No agent was run. Change set left
+  uncommitted for Jacob's manual commit (proposed message in NEXT_ACTIONS
+  B-1).
