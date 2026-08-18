@@ -151,3 +151,60 @@
   begin Round A or the V1 audit. No agent was run. Change set left
   uncommitted for Jacob's manual commit (proposed message in NEXT_ACTIONS
   B-1).
+
+## 2026-08-18 — Session 5: second terminal session — Round A batch 2 answered; GitHub remote (D-024)
+
+- Resumed from durable state per owner resume prompt. Verified: working
+  tree clean; Jacob's manual model-governance commit present at tip
+  (`00ad2cc` — B-1 COMPLETE); session = Fable 5 + Ultracode (D-012); the
+  governor skill + four read-only agents available and consistent on disk;
+  no-build gate ACTIVE. Terminal recovery audit not repeated.
+- Governor dry-run classification (skill loaded; no subagent invoked):
+  Round A batch 2 resumption classified **CRITICAL** (legal/compliance,
+  fidelity methodology, DB security, `OWNER_APPROVED` transitions); route =
+  main Fable session, no delegation (interview work). Model-governance gate
+  reported COMPLETE to Jacob. Batch 2 re-presented from the verbatim record
+  (not re-asked as new questions).
+- Jacob answered Q5 first ("Q5 = A will be personal name") → initial D-018
+  recorded; Q-006 kept open for jurisdiction. Later the same day Jacob
+  supplied the **full Round A batch 2 answers and owner decisions** —
+  recorded VERBATIM in INTERVIEW_RECORD.md § Batch 2 answers.
+- Decisions recorded: **D-018** (Australia; personal name;
+  mandatory pre-live/pre-commercialisation AU legal review gate; D-018
+  completed, superseding the same-day entity-only version), **D-019**
+  (AUD 400/month ceiling + per-expense approval; ≈6-month paper target
+  post-authorisation; 5–10 h/week; autonomous operating model with twelve
+  mandatory stops; VPS not auto-approved production), **D-020** (twelve
+  non-goals), **D-021** (accuracy = tolerance bands + distribution/drift
+  tests; values → Round F), **D-022** (DB access model: V1 permanently
+  read-only via `autofx_v1_readonly`; V2 dev-DB autonomy post-authorisation
+  only; six-role separation; safeguards; gate unchanged), **D-023** (V1
+  bridge `code/TradingViewBridge.cs` + `code/PriceBridge.cs`; rename in V2;
+  no per-symbol weighting carried), **D-024** (GitHub remote
+  `JDep8/AutoFX-V2` + standing git operating model).
+- Registers updated: QUESTION_REGISTER (Q-001/002/006–009 resolved to the
+  extent supported; Q-001 provisioning outstanding),
+  REQUIREMENTS_CATALOGUE (new BUS-007…011, DATA-009, VAL-006/007,
+  SEC-004/005, EXEC-011, OPS-004/005 — all OWNER_APPROVED · USER-STATED),
+  TRACEABILITY_MATRIX (ranges + git-governance row), ASSUMPTION_REGISTER
+  (A-006 SUPERSEDED by D-024), TOOLING_REGISTER (git conventions rewritten
+  per D-024; data-plugin gate note), DISCOVERY_STATUS (Round A + Phase 1
+  rows), DOCUMENT_INDEX (D/Q ranges, descriptions), MODEL_ROUTING_POLICY
+  (first critical routing record row). Round A summary written into
+  INTERVIEW_RECORD.md — status `PROPOSED`, awaiting Jacob's approval.
+- V1 forensic audit NOT started (owner instruction); no application code,
+  database, or cTrader action; no-build gate ACTIVE throughout.
+- Validation before commit (results): metadata-only secret scan of the
+  working tree — **zero value-like hits**; tracked inventory 92 files (only
+  `.claude/settings.json` and `.gitignore` are non-markdown; no datasets,
+  connection files, V1 source, or prohibited artefacts); diff
+  documentation-only (11 files). Independent consistency review
+  (autofx-sonnet-analyst, read-only, routed per the governor — non-critical
+  deterministic criteria): **10/10 criteria PASS**, three escalations, all
+  dispositioned by the main Fable session before commit: (1) stale handoff
+  files → CURRENT_STATE/NEXT_ACTIONS/RESUME_PROMPT refreshed in this change
+  set and again after D-024 execution; (2) `.claude/settings.json`
+  allowlist scope vs D-024 → factual note added to TOOLING_REGISTER
+  (per-session approvals; committed allowlist unchanged pending Jacob's
+  review); (3) status-vocabulary scope for header/progress fields →
+  recorded as Q-013 (non-blocking, pre-existing convention).

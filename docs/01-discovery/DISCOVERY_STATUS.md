@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register
-- **Version:** 0.1.0
+- **Version:** 0.2.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** INTERVIEW_RECORD.md, DECISION_LOG.md
 - **Approval evidence:** n/a (register)
@@ -12,7 +12,7 @@
 | Phase | Status | Notes |
 |-------|--------|-------|
 | Phase 0 — Discovery repository scaffold | COMPLETE 2026-08-17 | 78 planning files created; completeness-verified (53 domain skeletons checked: 0 missing, 0 header violations, 0 overclaims) |
-| Phase 1 — Read-only V1 forensic assessment | NOT STARTED | Repo access verified (gh, read-only); DB access blocked on Q-001 |
+| Phase 1 — Read-only V1 forensic assessment | NOT STARTED | Repo access verified (gh, read-only); DB access model approved (D-022) but role provisioning pending; start gated on Jacob's explicit go (NEXT_ACTIONS B-5); primary bridge target identified (D-023: `code/TradingViewBridge.cs`) |
 | Interview rounds A–O | Round A in progress | See below |
 | Discovery Exit Review | NOT STARTED | Requires all rounds complete |
 | Implementation | **GATED** | Requires `AUTHORISE AUTOFX V2 IMPLEMENTATION — PHASE <number/name>` |
@@ -21,7 +21,7 @@
 
 | Round | Theme | Status |
 |-------|-------|--------|
-| A | Vision, users, business boundaries, success | IN PROGRESS — 4 decisions captured (D-001 direction, D-008, D-009, D-010); batch 2 pending (Q-001/002/006/007/008/009) |
+| A | Vision, users, business boundaries, success | IN PROGRESS — batches 1+2 answered; 11 decisions captured (D-001 direction, D-008…D-010, D-018…D-024); Q-001/002/006–009 resolved to the extent supported; Round A summary `PROPOSED` (INTERVIEW_RECORD.md), awaiting Jacob's approval |
 | B | V1 outcomes and migration stance | NOT STARTED (feeds from V1 audit) |
 | C | Markets, instruments, sessions, operating scope | NOT STARTED |
 | D | Data acquisition, rights, quality, operations | NOT STARTED |

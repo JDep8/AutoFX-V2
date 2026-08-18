@@ -99,7 +99,7 @@ Append one row per critical artifact (skill § Procedure step 9).
 
 | Date | Artifact / task | Model | Effort | Reviewer | Acceptance outcome |
 |------|-----------------|-------|--------|----------|--------------------|
-| — | (no critical routings yet) | — | — | — | — |
+| 2026-08-18 | Round A batch 2 recording (D-018…D-024, Q-001/002/006–009), register updates, Round A summary preparation — governor dry-run classified CRITICAL (legal/compliance, fidelity methodology, DB security, `OWNER_APPROVED` transitions); no delegation (interview + owner-decision recording must run in the main session) | fable (main session, `claude-fable-5`) | ultracode | Main Fable session; independent consistency check delegated to autofx-sonnet-analyst (non-critical, deterministic criteria) | Records written; Round A summary `PROPOSED` — acceptance is Jacob's (pending) |
 
 ## Package validation record (2026-08-18, VERIFIED against Claude Code 2.1.234)
 

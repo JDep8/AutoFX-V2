@@ -2,9 +2,9 @@
 
 - **Owner:** Jacob Depares
 - **Status:** `OWNER_APPROVED` (policy stated by Jacob 2026-08-18; evidence class USER-STATED)
-- **Version:** 0.1.2
+- **Version:** 0.2.0
 - **Last reviewed:** 2026-08-18
-- **Dependencies:** DECISION_LOG.md (D-011, D-013, D-015, D-017), MODEL_ROUTING_POLICY.md
+- **Dependencies:** DECISION_LOG.md (D-011, D-013, D-015, D-017, D-024), MODEL_ROUTING_POLICY.md
 - **Approval evidence:** Owner handoff instruction, 2026-08-18
 
 ## Workspaces (D-011)
@@ -71,20 +71,42 @@ network, MCP, database, or cTrader tools. Capability changes require the
 implementation-authorisation phrase for a named phase plus a separately
 reviewed configuration change.
 
-## Git conventions
+## Git conventions (updated 2026-08-18 per D-024)
 
-- Local repository only; **never push** and never create a remote without
-  Jacob's explicit instruction.
-- Documentation-only commits during discovery; verify no secrets before every
-  commit.
-- Branch `planning/discovery-handoff` created 2026-08-18 for the terminal
-  handoff. Jacob reviewed and committed the handoff change set as `fcde457`
-  and the plugin enablement as `39e2730` (authorship confirmed by Jacob in
-  the terminal recovery session, 2026-08-18). Standing rule unchanged: no
-  automatic commits — every commit is reviewed or explicitly authorised by
-  Jacob.
+- **Remote:** private GitHub repository `JDep8/AutoFX-V2`, authorised
+  2026-08-18 by Jacob's explicit written authorisation (D-024; verbatim in
+  INTERVIEW_RECORD.md § Batch 2). Default branch `main`. Completely
+  separate from `JDep8/AutoFX` (V1) — no V1 content is ever pushed here.
+  Creation and push verification recorded in SESSION_LOG.md Session 5.
+- **Standing operating model (D-024):** Claude may autonomously create
+  commits and push validated work to explicitly approved branches, after
+  running the relevant tests, documentation validation, and secret checks.
+  Approved branch during discovery: `planning/discovery-handoff`. `main`
+  receives work only with Jacob's explicit approval (prefer pull requests).
+- **Prohibitions:** no force pushes; no history rewrite; no branch
+  deletion; no direct merge into `main` without Jacob's explicit approval;
+  pushing never implies deployment; no paid GitHub features without
+  approval; no credentials in commands, output, logs, or documentation.
+- Documentation-only commits during discovery; verify no secrets before
+  every commit.
+- **Permissions note (2026-08-18):** the committed `.claude/settings.json`
+  allowlist remains read-only git/gh (V1-inspection scope) and predates
+  D-024; commit/push/repository-creation operations under D-024 run under
+  per-session approvals in the terminal harness. Extending the committed
+  allowlist to match the D-024 operating model is a separately reviewable
+  configuration change for Jacob — not made unilaterally.
+- History: branch `planning/discovery-handoff` created 2026-08-18 for the
+  terminal handoff (`fcde457`, `39e2730`, `d2f0d3a`, `00ad2cc` — all
+  Jacob-reviewed/authorised). Local-only rule (superseded assumption A-006)
+  applied until D-024. The D-024 branch procedure (fast-forward `master` to
+  the validated planning state, rename to `main`, push, set default) is
+  executed 2026-08-18; results in SESSION_LOG.md Session 5.
 
 ## Open items
 
 - Q-011: rules-file naming overlap (three numbered entry points vs six
   mandate topic files) — Jacob to confirm keep-both or consolidation.
+- Data plugin: its D-013 gate ("after the read-only database decision") is
+  now satisfiable — Q-001 resolved via D-022 — but installation still
+  requires Jacob's explicit instruction and a register entry here. Not
+  installed.

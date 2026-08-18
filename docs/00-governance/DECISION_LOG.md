@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register
-- **Version:** 0.1.1
+- **Version:** 0.2.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** REQUIREMENTS_CATALOGUE.md, QUESTION_REGISTER.md
 - **Approval evidence:** Per-decision, recorded below
@@ -235,3 +235,264 @@ History is never erased; superseded decisions are marked, not deleted.
 - **Affects:** discovery sequencing, session discipline, subagent use,
   acceptance quality. Registers: QUESTION_REGISTER.md (Q-012);
   NEXT_ACTIONS.md § B-2.
+
+## D-018 — Jurisdiction and trading entity (Q-006)
+
+- **Decision:** Jacob is tax-resident in **Australia**. Discovery,
+  development, backtesting, and paper trading are conducted under his
+  **personal name**. Recorded explicitly as the current state, **not** the
+  final production business structure.
+- **Mandatory pre-live / pre-commercialisation gate:** an Australian legal,
+  tax, financial-services, and financial-promotion review must occur before
+  any of: live commercial trading through a business entity; accepting or
+  managing external capital; copy trading; charging performance,
+  subscription, or platform fees; selling trading signals, strategies, or
+  research; monetising financial or trading content; publicly promoting
+  expected trading returns.
+- **Final entity structure:** deferred to that mandatory decision gate.
+- **Status:** `OWNER_APPROVED` — 2026-08-18 (Round A batch 2, Q-006; initial
+  entity-only answer received first, full answer with jurisdiction and gate
+  received the same day; both verbatim in INTERVIEW_RECORD.md § Batch 2).
+  Evidence class USER-STATED.
+- **Affects:** legal/compliance scope (Round M, CONTENT-003),
+  PROJECT_CHARTER.md (BUS-007/BUS-008), P3 planning, live-enablement gating.
+
+## D-019 — Budget, timeline, availability, and autonomous operating model (Q-007)
+
+- **Budget:** operating ceiling **AUD 400/month**, excluding Claude, ChatGPT,
+  and the existing VPS (already funded elsewhere). A ceiling, not a target.
+  Free options preferred whenever they meet required quality, reliability,
+  security, licensing, coverage, retention, and usage limits — never
+  selected if they materially compromise backtest accuracy, data quality,
+  security, maintainability, or production reliability. **Every** new
+  expense requires Jacob's explicit prior approval (even within the
+  ceiling), presented with free option, recommended option, price, benefits,
+  limitations, and expected ongoing cost. No trial/service/subscription may
+  auto-transition to paid. One-off/exceptional costs (historical data,
+  specialist datasets, regulatory/legal advice) proposed separately. If
+  required quality cannot be achieved within budget: present evidence,
+  alternatives, and cost difference — never silently reduce quality.
+- **Timeline:** first controlled paper-trading candidate targeted ≈6 months
+  after implementation is explicitly authorised — a planning target that
+  never overrides data-integrity, backtest-fidelity, security, risk, or
+  acceptance gates; 9–12 months acceptable if required for trustworthy
+  evidence. Live trading has **no committed date** and requires successful
+  paper validation, execution validation, and separate explicit approval.
+- **Availability / team:** Jacob ≈5–10 hours/week as product owner,
+  decision-maker, and final human approver — not the technical operator (no
+  manual coding, routine queries, or result-relaying). Claude performs
+  permitted technical work autonomously; Claude/ChatGPT/other AI systems are
+  tools, never accountable owners. No permanent human development team
+  assumed. Specialist Australian legal, tax, regulatory, security,
+  data-licensing, or quantitative advice proposed when the relevant gate
+  requires it.
+- **Autonomous working model — discovery:** maintain approved discovery and
+  governance documentation; read-only repository inspections; authorised
+  read-only database queries; approved research; documentation/traceability
+  validation; documentation commits pushed to approved branches when
+  specifically authorised.
+- **Autonomous working model — after the exact implementation-authorisation
+  phrase for a named phase:** write/refactor application code; create and
+  run tests/validation; generate and execute permitted SQL; create/execute
+  development migrations; build development infrastructure; inspect results
+  and diagnose failures; create commits; push validated work to the approved
+  phase branch; iterate until phase acceptance criteria are met or a genuine
+  decision/blocker requires Jacob. No per-file/per-query/per-commit
+  approvals within an approved phase.
+- **Mandatory stops (always Jacob's decision):** any new expense; a major
+  unresolved product or architecture decision; conflicting requirements;
+  risk acceptance; legal or regulatory uncertainty; destructive production
+  operations; changes to V1; live-trading enablement; production deployment;
+  merging into main; publication or distribution of financial content; any
+  decision outside the authorised phase.
+- **Infrastructure:** existing VPS available and funded but **not**
+  automatically approved as production infrastructure — inventory its
+  specifications, OS, access model, security, capacity, backup, and recovery
+  capability during infrastructure discovery. Current Windows computer =
+  development/administrative infrastructure only. V2 designed portable,
+  reproducible, backed up, and hosting-portable. No additional
+  infrastructure purchases without approval.
+- **Gate note:** these answers define the future operating model; they do
+  **not** authorise application implementation. The no-build gate remains
+  ACTIVE.
+- **Status:** `OWNER_APPROVED` — 2026-08-18 (verbatim in INTERVIEW_RECORD.md
+  § Batch 2). Evidence class USER-STATED.
+- **Affects:** DELIVERY_ROADMAP.md, OPERATING_COST_MODEL.md (Q-007
+  dependency), operating model (OPS-004/OPS-005), session discipline,
+  Round N infrastructure.
+
+## D-020 — Non-goals (Q-008)
+
+- **Decision:** twelve non-goals recorded:
+  1. no high-frequency, ultra-low-latency, or latency-arbitrage trading;
+  2. no routing of manually initiated discretionary trades — AutoFX executes
+     approved, versioned books only;
+  3. no guarantee of profitability or fixed returns;
+  4. no live trading by default;
+  5. no autonomous AI decision to enable live trading;
+  6. no strategy approval based solely on an attractive historical backtest;
+  7. no weakening of validation, data-quality, or risk gates to meet a
+     deadline;
+  8. no direct reuse of V1 code without evidence-based review;
+  9. no external customer funds, paid signals, or copy trading in the
+     initial scope;
+  10. no content output that overstates or influences trading-research
+      conclusions;
+  11. no production deployment merely because code or a Git branch is
+      complete;
+  12. no silent acceptance of missing, contaminated, or insufficient
+      evidence.
+- **KPIs:** Claude may propose measurable KPI candidates in the appropriate
+  discovery round; all final targets, thresholds, and pass/fail criteria
+  require Jacob's approval.
+- **Status:** `OWNER_APPROVED` — 2026-08-18 (verbatim in INTERVIEW_RECORD.md
+  § Batch 2). Evidence class USER-STATED.
+- **Affects:** PROJECT_CHARTER.md (BUS-010), scope boundaries, acceptance
+  gates, content compliance.
+
+## D-021 — Backtest-accuracy form: tolerance bands + distribution tests (Q-009)
+
+- **Decision:** option (c) — both mechanisms. **Tolerance bands** are the
+  headline backtest/paper/live comparison across: net return; drawdown;
+  risk-adjusted return; win rate (where statistically meaningful); trade
+  frequency; average win and loss; holding time; realised spread;
+  commission; swap/financing costs; slippage; cost per trade;
+  missed/rejected trades; execution timing; fill quality. **Distribution and
+  calibration tests** must confirm statistical consistency with expected
+  backtest distributions and detect: execution degradation; market-regime
+  changes; feature drift; strategy decay; cost-model drift; trade-frequency
+  changes; unexpected tail behaviour; breakdown of cross-strategy or
+  cross-symbol relationships.
+- **Deferred to Round F:** final tolerance values, sample-size requirements,
+  confidence levels, warning thresholds, failure thresholds, remediation
+  rules.
+- **Hard rule:** a strategy or book may not be declared accurate based only
+  on headline return, correlation, or a small number of live trades.
+- **Status:** `OWNER_APPROVED` (form) — 2026-08-18 (verbatim in
+  INTERVIEW_RECORD.md § Batch 2). Evidence class USER-STATED.
+- **Affects:** BACKTEST_FIDELITY_SPEC.md, BUS-001, VAL-001/VAL-006/VAL-007,
+  Gates 6–7.
+
+## D-022 — Database access model and role separation (Q-001)
+
+- **A — V1 permanently read-only:** dedicated role, provisionally
+  `autofx_v1_readonly`. Once secure access is configured, Claude may
+  autonomously inspect schemas/metadata, generate and execute SELECT
+  queries, inspect query plans, profile data quality, identify missing
+  records/gaps/duplicates, analyse distributions, investigate lineage, and
+  repeat/refine read-only queries without per-query approval — Jacob does
+  not manually relay queries or results. No INSERT, UPDATE, DELETE, CREATE,
+  ALTER, DROP, TRUNCATE, migration, repair, or administrative operation
+  against V1, ever.
+- **B — V2 development databases (post-authorisation only):** after the
+  exact implementation-authorisation phrase for the relevant named phase,
+  Claude may autonomously create and maintain **isolated** V2
+  development/test databases — schemas, tables, columns, constraints,
+  indexes, views/materialised views, functions/procedures where justified,
+  partitioning/retention, development data, ingestion (market, news, cost,
+  spread, commission, swap, slippage), deduplication and controlled
+  repairs, migrations with rollback/forward-recovery procedures, seed/test
+  data, query-performance work, disposable database recreation, and
+  database tests — executing approved migration pipelines without Jacob
+  running individual commands, and without per-object approvals.
+- **C — Role separation (provisional, least-privilege):**
+  `autofx_v1_readonly` (V1 audit only) · `autofx_v2_migrator` (V2
+  migrations/controlled DDL) · `autofx_v2_ingestor` (data ingestion +
+  authorised maintenance) · `autofx_v2_app` (runtime, no schema admin) ·
+  `autofx_v2_readonly` (analytics/research/audit) · a separately controlled
+  bootstrap/admin role used only where database/role creation requires it.
+  Final names and privileges require specification and testing before
+  production use.
+- **D — Safeguards:** V1 and V2 physically or logically separated; no V2
+  command may target the V1 database; separate credentials per
+  dev/test/staging/production; all persistent schema changes as
+  version-controlled migrations (no undocumented manual changes); automated
+  migration verification plus rollback/forward-recovery plans; destructive
+  development operations only after verifying an isolated V2 dev/test
+  target with recoverable/reproducible data; production DROP, TRUNCATE,
+  destructive bulk DELETE, irreversible migration, restore, or data-repair
+  operations require explicit approval; production schema changes via an
+  approved deployment/migration process; credentials outside Git, never
+  printed/echoed/documented/committed; material operations produce audit
+  evidence; repairs preserve lineage (what/why/when/rule); cost-creating
+  operations require prior approval; backups, restore testing, migration
+  testing, and integrity validation included in implementation.
+- **E — Current gate:** defines the future operating model only; does not
+  open the implementation gate. No V2 databases, schemas, tables, indexes,
+  migrations, or application code until the exact
+  implementation-authorisation phrase for the relevant named phase.
+- **Status:** `OWNER_APPROVED` — 2026-08-18 (verbatim in INTERVIEW_RECORD.md
+  § Batch 2). Evidence class USER-STATED. **Operational remainder:** Jacob
+  provisions `autofx_v1_readonly` and the secure configuration path (outside
+  chat/repo) before the DB-side V1 audit can begin.
+- **Affects:** SEC-002/SEC-004/SEC-005, DATA-009, V1 audit depth (Phase 1),
+  Rounds D/N design, data-plugin gate (TOOLING_REGISTER.md).
+
+## D-023 — V1 execution bridge location and V2 sizing boundary (Q-002)
+
+- **Location:** V1 repository — `code/TradingViewBridge.cs` (primary
+  cBot/bridge candidate for the V1 forensic audit) and related
+  `code/PriceBridge.cs`.
+- **V2 naming:** the V1 file/class are named for TradingView; the V2
+  implementation will be renamed for its actual responsibility. Provisional
+  candidates: `CTraderExecutionBridge`, `AutoFXExecutionBridge`. Final name
+  recommended after the audit maps responsibilities and dependencies.
+- **Weighting:** the existing bridge includes per-symbol percentage
+  weighting; V2 does **not** need it. The audit must verify and document the
+  existing behaviour; the feature is not carried into V2. Position sizing
+  follows the approved book, the trading account's risk-per-trade
+  configuration, and the single-authoritative-sizing-engine decision
+  (EXEC-008, Round J).
+- **Constraints:** do not modify V1; classify each relevant V1 component
+  REUSE / ADAPT / REJECT / UNKNOWN (V1_REUSE_REGISTER.md); any V2
+  implementation or removal only after implementation authorisation.
+- **Status:** `OWNER_APPROVED` — 2026-08-18 (verbatim in INTERVIEW_RECORD.md
+  § Batch 2). Evidence class USER-STATED — the bridge's actual behaviour
+  remains UNKNOWN until audited.
+- **Affects:** Round J sizing decision (EXEC-008/EXEC-011),
+  ACCOUNT_AND_SIZING_SPEC.md, V1_AUDIT.md scope, V1_REUSE_REGISTER.md.
+
+## D-024 — GitHub remote, repository creation, and git operating model
+
+- **Explicit one-time authorisation (2026-08-18):** create the private
+  GitHub repository `JDep8/AutoFX-V2`, completely separate from
+  `JDep8/AutoFX` (V1). Scope limited to: committing the Round A
+  documentation/governance updates after validation; creating the private
+  repository; establishing the `origin` remote; establishing `main` as the
+  default branch; pushing the validated V2 repository history; pushing
+  `planning/discovery-handoff`.
+- **Preconditions (verified before creation/push):** working directory
+  `C:\AutoFXV2.0`; model-governance package committed; git
+  status/diff/consistency checks; clean secret scan; no credentials,
+  datasets, connection files, V1 source, or prohibited artefacts tracked;
+  `.gitignore` covers local secrets and generated private data; no existing
+  `origin`; target repository does not already exist; `gh` authenticated as
+  JDep8 with private-repo permission. Stop-and-report (never overwrite) if
+  the repository exists, has unexpected content, is owned elsewhere, would
+  require payment, or cannot be private.
+- **Repository requirements:** PRIVATE; no remotely generated
+  README/licence/gitignore; no paid GitHub features; no V1 content; no
+  branch deletion; no history rewrite; no force-push; no credentials in
+  commands, output, logs, or documentation.
+- **Branch procedure:** confirm `master` is an ancestor of
+  `planning/discovery-handoff`; only as a clean fast-forward, advance
+  `master` to the validated `planning/discovery-handoff` state and rename it
+  `main`; push `main` and `planning/discovery-handoff`; set `main` as the
+  GitHub default; return the local working branch to
+  `planning/discovery-handoff`; verify branches and private visibility;
+  report the final URL.
+- **Future git operating model (standing):** Claude may autonomously create
+  commits and push validated work to an explicitly approved discovery or
+  implementation branch, after running the relevant tests, documentation
+  validation, and secret checks. No force pushes. No direct merge into
+  `main` without Jacob's explicit approval — prefer pull requests for
+  approved phase work. Pushing never implies deployment. No paid GitHub
+  feature without approval.
+- **Status:** `OWNER_APPROVED` — 2026-08-18 (explicit written authorisation;
+  verbatim in INTERVIEW_RECORD.md § Batch 2). Evidence class USER-STATED;
+  execution results and their verification are recorded in SESSION_LOG.md
+  Session 5 as they occur.
+- **Supersedes:** A-006 (git local-only default) — marked `SUPERSEDED` in
+  ASSUMPTION_REGISTER.md.
+- **Affects:** TOOLING_REGISTER.md § Git conventions, session continuity,
+  push discipline, handoffs.

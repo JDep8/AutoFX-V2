@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register — the navigation map; read this first each session
-- **Version:** 0.1.2
+- **Version:** 0.2.0
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** every document below
 - **Approval evidence:** n/a (register)
@@ -15,7 +15,7 @@ noted. Read only what the active task needs.
 | File | Purpose |
 |------|---------|
 | [CLAUDE.md](../../CLAUDE.md) | Project constitution: no-build gate, authority hierarchy, quality gates, workspace/model/plugin policies, links |
-| `.claude/settings.json` | Committed project permissions (read-only git/gh allowed; secret-file reads denied) + the three enabled discovery plugins (D-013, installed 2026-08-18) |
+| `.claude/settings.json` | Committed project permissions (read-only git/gh allowlist, V1-inspection scope; secret-file reads denied) + the three enabled discovery plugins (D-013). D-024 git/GitHub operations run under per-session approvals — allowlist extension is a separately reviewable change (TOOLING_REGISTER § Git conventions) |
 | `.gitignore` | Ignore rules blocking secret patterns and local artefacts (a backstop, not a licence — see security rules) |
 | `.claude/rules/00-…, 10-…, 20-…` | Numbered entry points: discovery gate, evidence + traceability labels, session continuity (D-014/Q-011: naming overlap with the six topic files awaits Jacob) |
 | `.claude/rules/` (6 topic files) | Detail: discovery/authorisation, quantitative evidence, data integrity, execution/risk, security/secrets, documentation/traceability |
@@ -29,12 +29,12 @@ noted. Read only what the active task needs.
 | DOCUMENT_INDEX.md | This navigation map |
 | [PROJECT_CHARTER.md](PROJECT_CHARTER.md) | Mission, owner, priorities; KPIs/non-goals pending Round A |
 | [GLOSSARY.md](GLOSSARY.md) | Canonical terms, plain + technical; formulas finalised Round E |
-| [DECISION_LOG.md](DECISION_LOG.md) | D-001…D-017 — legacy conflicts, Round A decisions, workspace/tooling policies, governance rulings |
-| [ASSUMPTION_REGISTER.md](ASSUMPTION_REGISTER.md) | A-001…A-006 provisional defaults, all `PROPOSED` |
-| [QUESTION_REGISTER.md](QUESTION_REGISTER.md) | Q-001…Q-012 open/blocking questions |
+| [DECISION_LOG.md](DECISION_LOG.md) | D-001…D-024 — legacy conflicts, Round A decisions (both batches), workspace/tooling policies, governance rulings, git/GitHub model |
+| [ASSUMPTION_REGISTER.md](ASSUMPTION_REGISTER.md) | A-001…A-006 provisional defaults (A-006 `SUPERSEDED` by D-024) |
+| [QUESTION_REGISTER.md](QUESTION_REGISTER.md) | Q-001…Q-013 (Q-001/002/006–009 resolved 2026-08-18 per D-018…D-023; Q-003 BLOCKED; Q-004/005/010/011/013 open) |
 | [CHANGE_CONTROL.md](CHANGE_CONTROL.md) | How approved content changes without erasing history |
 | [TRACEABILITY_MATRIX.md](TRACEABILITY_MATRIX.md) | Requirement → design → evidence → status → decision |
-| [TOOLING_REGISTER.md](TOOLING_REGISTER.md) | Workspace roles (terminal primary), plugin install gates, git conventions (D-011/D-013) |
+| [TOOLING_REGISTER.md](TOOLING_REGISTER.md) | Workspace roles (terminal primary), plugin install gates, git/GitHub conventions incl. private remote `JDep8/AutoFX-V2` (D-011/D-013/D-015/D-024) |
 | [MODEL_ROUTING_POLICY.md](MODEL_ROUTING_POLICY.md) | Launch flags, Fable/Opus/Sonnet/Haiku routing, upward escalation (D-012) |
 
 ## 01-discovery
@@ -42,7 +42,7 @@ noted. Read only what the active task needs.
 | File | Purpose |
 |------|---------|
 | [DISCOVERY_STATUS.md](../01-discovery/DISCOVERY_STATUS.md) | Phase + round A–O status; verified facts |
-| [INTERVIEW_RECORD.md](../01-discovery/INTERVIEW_RECORD.md) | Verbatim interview record (Round A batch 1 answered; batch 2 recorded verbatim, answers pending) |
+| [INTERVIEW_RECORD.md](../01-discovery/INTERVIEW_RECORD.md) | Verbatim interview record (Round A batches 1+2 answered; batch 2 answers verbatim 2026-08-18; Round A summary `PROPOSED`) |
 | [REQUIREMENTS_CATALOGUE.md](../01-discovery/REQUIREMENTS_CATALOGUE.md) | ~50 ID'd requirements from the owner brief + Round A |
 | [SCOPE_AND_PRIORITIES.md](../01-discovery/SCOPE_AND_PRIORITIES.md) | P1/P2/P3 boundaries; asset universe (D-009) |
 | [USER_ROLES_AND_JOURNEYS.md](../01-discovery/USER_ROLES_AND_JOURNEYS.md) | Sole-user role model + journey inventory |

@@ -14,52 +14,45 @@ Resume the AutoFX V2.0 discovery engagement (terminal is the primary
 workspace, per D-011). Before doing anything else:
 
 1. Verify the model configuration per D-012: `/status` must resolve `best`
-   to Fable and `/effort` must confirm Ultracode. (Verified working on this
-   machine 2026-08-18 — MODEL_ROUTING_POLICY.md § Verification record — but
-   the per-session check remains mandatory before critical work.)
+   to Fable and `/effort` must confirm Ultracode.
 2. Read, in order: `CLAUDE.md`; `.claude/rules/00-discovery-gate.md`;
    `docs/00-governance/DOCUMENT_INDEX.md`; `docs/handoffs/CURRENT_STATE.md`;
    `docs/handoffs/NEXT_ACTIONS.md`; then only the documents the active task
    needs.
 3. Verify git state: working directory `C:\AutoFXV2.0`; report current
-   branch (expected `planning/discovery-handoff`), `git status`, and
-   `git log --oneline -5`. The recovery reconciliation is committed
-   (`d2f0d3a`). If the 2026-08-18 model-governance change set is
-   uncommitted, that is expected — Jacob reviews and commits it
-   (NEXT_ACTIONS.md § B-1).
+   branch (expected `planning/discovery-handoff`), `git status`,
+   `git log --oneline -5`, and `git remote -v`. Per D-024 a private remote
+   `JDep8/AutoFX-V2` (default branch `main`) is authorised and its creation
+   was executed in Session 5 — **if no `origin` remote exists, D-024
+   execution did not complete**: re-verify the D-024 preconditions in
+   DECISION_LOG.md and execute or report; never assume it happened, never
+   force-push, never touch `JDep8/AutoFX` (V1).
 4. Restate the no-build gate: implementation is prohibited until Jacob
    explicitly writes
    `AUTHORISE AUTOFX V2 IMPLEMENTATION — PHASE <number/name>`
    and wireframes are separately gated behind `AUTHORISE WIREFRAME ONLY`.
    Do not modify V1, write to PostgreSQL, or connect to cTrader. Never
    expose or commit secrets. Per D-015, environment-visible external
-   tooling (user/account-scope plugins and connectors) is OUT-OF-SCOPE and
-   NOT AUTHORISED FOR AUTOFX USE — never authenticate, invoke, remove, or
-   modify it; only project-scoped tools approved in TOOLING_REGISTER.md are
-   authorised. Per D-017, the model-governance package
-   (`.claude/skills/autofx-model-governor/` + four `autofx-*` agents) is
-   `OWNER_APPROVED` (2026-08-18): load the `autofx-model-governor` skill
-   BEFORE any delegation or critical acceptance, and follow
-   MODEL_ROUTING_POLICY.md. Round A and the V1 audit remain owner-gated —
-   do not start them without Jacob's input (B-3/B-5).
-5. Do NOT re-ask answered interview questions — answered material is in
-   `docs/01-discovery/INTERVIEW_RECORD.md` (Round A batch 1 answered; batch
-   2 asked, awaiting answers). Never convert an answered question back to
-   OPEN.
-6. The terminal recovery audit is COMPLETE and the recovered state
-   OWNER_APPROVED (2026-08-18) — do not redo it. The model-governance
-   package is `OWNER_APPROVED` (Q-012 RESOLVED) — do not recreate or
-   revalidate it. Continue from the first incomplete item in
-   NEXT_ACTIONS.md. Items blocked on Jacob (manual commit B-1; Round A
-   batch 2 answers B-3; explicit V1-audit go B-5) wait for his input — do
-   not start them unprompted.
+   tooling is OUT-OF-SCOPE and NOT AUTHORISED. Per D-017, load the
+   `autofx-model-governor` skill BEFORE any delegation or critical
+   acceptance. Per D-019/D-022, the autonomous operating model and database
+   model are approved but do NOT open the implementation gate.
+5. Round A: batches 1 AND 2 are fully answered (batch 2 verbatim in
+   `docs/01-discovery/INTERVIEW_RECORD.md` § Batch 2 answers, 2026-08-18;
+   decisions D-018…D-024). Do NOT re-ask any of it. The Round A summary is
+   `PROPOSED` and waits for Jacob's approval — Round A closes only on that.
+6. Items blocked on Jacob (NEXT_ACTIONS § B): Round A summary approval;
+   `autofx_v1_readonly` provisioning (D-022); explicit V1-audit go; Q-011;
+   Q-013. Do not start them unprompted. The V1 forensic audit has NOT
+   started.
 7. Restate the active phase, round, gate status, last completed checkpoint,
    current objective, and blockers, then proceed only within the authorised
    scope above.
 
 The repository documents are the sole source of truth. Do not reconstruct
-anything from prior conversation memory, do not restart discovery, and do not
-claim any work is complete beyond what CURRENT_STATE.md records as VERIFIED.
+anything from prior conversation memory, do not restart discovery, and do
+not claim any work is complete beyond what CURRENT_STATE.md records as
+VERIFIED.
 
 ---
 

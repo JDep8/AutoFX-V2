@@ -2,10 +2,10 @@
 
 - **Owner:** Jacob Depares (owner of every requirement below)
 - **Status:** Living register — all items `PROPOSED` unless marked otherwise
-- **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
+- **Version:** 0.2.0
+- **Last reviewed:** 2026-08-18
 - **Dependencies:** DECISION_LOG.md, TRACEABILITY_MATRIX.md
-- **Approval evidence:** Per-item; source "Owner brief 2026-08-17" = Jacob's V2 mandate; "Round A 2026-08-17" = explicit interview answer
+- **Approval evidence:** Per-item; source "Owner brief 2026-08-17" = Jacob's V2 mandate; "Round A 2026-08-17/2026-08-18" = explicit interview answers (batch 2 verbatim in INTERVIEW_RECORD.md)
 
 Notes: acceptance criteria marked "→ Round X" are defined and owner-approved in
 that round — a TBD acceptance criterion means the requirement is not yet
@@ -22,6 +22,11 @@ Traceability Matrix. Priorities: M = must, S = should.
 | BUS-004 | Profitability is never guaranteed; uncertainty, confidence intervals, and degradation are always reported | Owner brief 2026-08-17 | M | PROPOSED | — | Every performance artefact carries uncertainty measures | All |
 | BUS-005 | Sole user is Jacob (personal capital); no customers/subscribers/copy-trading | Round A 2026-08-17 | M | **OWNER_APPROVED** | D-008 | n/a (scope decision) | All |
 | BUS-006 | Implementation MVP = full Priority 1; P2/P3 planning-only until P1 live-validated | Round A 2026-08-17 | M | **OWNER_APPROVED** | D-010 | n/a (scope decision) | All |
+| BUS-007 | Current state: Jacob tax-resident in Australia; discovery, development, backtesting, paper trading under his personal name — explicitly not the final production business structure | Round A 2026-08-18 | M | **OWNER_APPROVED** | D-018 | n/a (recorded state) | All |
+| BUS-008 | Mandatory Australian legal/tax/financial-services/financial-promotion review before: live commercial trading via an entity; external capital; copy trading; performance/subscription/platform fees; selling signals/strategies/research; monetising financial content; publicly promoting expected returns | Round A 2026-08-18 | M | **OWNER_APPROVED** | D-018 | Review completed and documented before any listed activity begins | Pre-live/commercial |
+| BUS-009 | Budget governance: AUD 400/month operating ceiling (excl. Claude/ChatGPT/existing VPS); free-first when quality permits; every expense pre-approved by Jacob with free/recommended/price/limits/ongoing-cost evidence; no auto-paid transitions; exceptional costs proposed separately; quality never silently reduced | Round A 2026-08-18 | M | **OWNER_APPROVED** | D-019 | Zero unapproved expenses; evidence pack accompanies every approval request | All |
+| BUS-010 | Twelve non-goals: no HFT/latency arbitrage; no discretionary-trade routing; no profit guarantees; no live-by-default; no AI live-enablement; no backtest-only approval; no gate-weakening for deadlines; no unreviewed V1 reuse; no external funds/paid signals/copy trading initially; no research-influencing content; no deploy-because-complete; no silent evidence acceptance | Round A 2026-08-18 | M | **OWNER_APPROVED** | D-020 | Exit Review confirms no scope item violates a non-goal | All |
+| BUS-011 | First controlled paper-trading candidate targeted ≈6 months after implementation authorisation — planning target only, never overrides integrity/fidelity/security/risk/acceptance gates; 9–12 months acceptable; live trading has no committed date and needs paper + execution validation + separate explicit approval | Round A 2026-08-18 | M | **OWNER_APPROVED** | D-019 | Roadmap carries the target with gate-first caveat → Round N | P1 |
 
 ## DATA — Data platform
 
@@ -35,6 +40,7 @@ Traceability Matrix. Priorities: M = must, S = should.
 | DATA-006 | Continuous update and monitoring of prices, news, spreads, commissions, slippage observations, and all production inputs | Owner brief 2026-08-17 | M | PROPOSED | Round D | Freshness SLAs defined, monitored, alerting demonstrated | P1 |
 | DATA-007 | FMP evaluated against the complete data contract — never assumed adequate | Owner brief 2026-08-17 | M | PROPOSED | A-004 | Dated evaluation vs contract, with gaps and fallbacks → Round D | Discovery |
 | DATA-008 | Eight-class CFD universe designed-for from day one; per-class session/cost/gap models; phased rollout FX-first, each class gated on its data contract | Round A 2026-08-17 | M | **OWNER_APPROVED** (universe+phasing) | D-009 | Per-class contract passes Gate 1 before that class enters implementation | P1+ |
+| DATA-009 | All persistent schema changes are version-controlled migrations with automated verification and rollback/forward-recovery plans; no undocumented manual schema changes; repairs preserve lineage (what/why/when/rule); material database operations produce audit evidence | Round A 2026-08-18 | M | **OWNER_APPROVED** (direction) | D-022 | Demonstrated across the dev-database lifecycle before production use | P1 |
 
 ## QUANT — Quantitative research
 
@@ -54,6 +60,8 @@ Traceability Matrix. Priorities: M = must, S = should.
 | VAL-003 | Deterministic reproducibility: immutable inputs, seeds, code/data/config hashes, event logs, exact reruns | Owner brief 2026-08-17 | M | PROPOSED | Round F | Any result exactly reproducible from recorded versions | P1 |
 | VAL-004 | Crisis validation on measured historical episodes with explicit criteria; synthetic stresses complement, never replace | Legacy conflict #4 | M | PROPOSED | D-004 | Episodes chosen before outcomes seen; per-strategy + portfolio scores → Round H | P1 |
 | VAL-005 | News/market-calendar exclusion is deterministic and replay-tested; news intelligence never substitutes | Legacy conflict #7 | M | PROPOSED | D-007 | Replay tests demonstrate enforcement incl. fail-closed on missing news | P1 |
+| VAL-006 | Tolerance bands are the headline backtest/paper/live comparison across: net return, drawdown, risk-adjusted return, win rate (where meaningful), trade frequency, avg win/loss, holding time, realised spread, commission, swap/financing, slippage, cost/trade, missed/rejected trades, execution timing, fill quality | Round A 2026-08-18 | M | **OWNER_APPROVED** (form; values → Round F) | D-021, Q-009 | Round F fixes values, samples, confidence, warning/failure thresholds, remediation | P1 |
+| VAL-007 | Distribution/calibration tests detect execution degradation, regime change, feature drift, strategy decay, cost-model drift, frequency shifts, tail anomalies, cross-strategy/symbol relationship breakdown; accuracy never declared from headline return, correlation, or small live samples | Round A 2026-08-18 | M | **OWNER_APPROVED** (form) | D-021 | Test suite specified Round F; demonstrated at Gate 6 | P1 |
 
 ## RISK — Risk and accounting
 
@@ -82,6 +90,7 @@ Traceability Matrix. Priorities: M = must, S = should.
 | EXEC-008 | One authoritative sizing engine (AutoFX or Jacob's cBot); no double-sizing or divergent formulas | Owner brief 2026-08-17 | M | PROPOSED | Q-002, Round J | Single engine designated; parity test backtest↔live | P1 |
 | EXEC-009 | Broker truth authoritative for live positions/orders/fills/balance/margin; continuous reconciliation with discrepancy handling | Legacy conflict #6 | M | PROPOSED | D-006 | Reconciliation spec approved; discrepancies alert and fail closed | P1 |
 | EXEC-010 | Kill switches (global/environment/account/book/strategy/symbol) and fail-closed breakers demonstrably reachable at runtime | Owner brief + legacy #6 | M | PROPOSED | D-006 | Reachability demonstrated in paper before any live approval → Gate 6 | P1 |
+| EXEC-011 | Per-symbol percentage weighting (present in the V1 TradingView bridge) is not carried into V2; sizing derives solely from the approved book, the account's risk-per-trade configuration, and the single authoritative sizing engine | Round A 2026-08-18 | M | **OWNER_APPROVED** | D-023, EXEC-008 | V1 weighting behaviour documented in the audit; V2 design contains no per-symbol weighting path | P1 |
 
 ## FR — Functional (platform)
 
@@ -101,6 +110,8 @@ Traceability Matrix. Priorities: M = must, S = should.
 | SEC-001 | No credentials, tokens, account identifiers, or private data exposed or committed — anywhere, ever | Owner brief 2026-08-17 | M | PROPOSED | — | Pre-commit verification; audits find zero exposures | All |
 | SEC-002 | All discovery database access is read-only and deliberately bounded (timeouts, sampling, schema-first) | Owner brief 2026-08-17 | M | PROPOSED | Q-001 | Read-only account; no writes/locks on production data | Discovery |
 | SEC-003 | Environments, secrets management, RBAC, least privilege, encryption, audit, supply-chain policy, threat model specified before implementation | Owner brief 2026-08-17 | M | PROPOSED | Round N | SECURITY_AND_THREAT_MODEL.md owner-approved → Exit Review | P1 |
+| SEC-004 | Least-privilege database role separation (provisional: autofx_v1_readonly, autofx_v2_migrator, autofx_v2_ingestor, autofx_v2_app, autofx_v2_readonly, controlled bootstrap/admin); separate credentials per dev/test/staging/production; credentials outside Git, never printed/echoed/documented/committed | Round A 2026-08-18 | M | **OWNER_APPROVED** (direction; final names/privileges specified + tested pre-production) | D-022 | Role/privilege matrix specified, tested, and approved before production use | P1 |
+| SEC-005 | V1 database permanently read-only for all AutoFX V2 work; V1/V2 physically or logically separated; no V2 command may ever target the V1 database | Round A 2026-08-18 | M | **OWNER_APPROVED** | D-022 | Connection configurations provably isolated; audit evidence shows zero V1 write operations | All |
 
 ## OPS — Operations
 
@@ -109,6 +120,8 @@ Traceability Matrix. Priorities: M = must, S = should.
 | OPS-001 | Production observability, alerting, incident response, and safe-state/restart rules for live trading | Owner brief 2026-08-17 | M | PROPOSED | Round J/N | Incident runbook exercised before live → Gate 7 | P1 |
 | OPS-002 | Backup, recovery, and disaster-rebuild objectives for the data platform; restore tests | Owner brief 2026-08-17 | M | PROPOSED | Round D/N | RPO/RTO approved; restore demonstrated | P1 |
 | OPS-003 | Failure recovery and resumability for all long-running jobs; session/checkpoint/resume discipline for the discovery work itself | Owner brief 2026-08-17 | M | PROPOSED | A-003 | Resume drill passes (also 19. of Exit Review) | All |
+| OPS-004 | Autonomous operating model: Claude executes permitted technical work autonomously within authorised phases (no per-file/query/commit approvals) and always stops for the twelve mandatory owner-decision triggers (expense, major decisions, conflicts, risk acceptance, legal uncertainty, destructive prod ops, V1 changes, live enablement, prod deployment, main merges, financial-content publication, out-of-phase decisions) | Round A 2026-08-18 | M | **OWNER_APPROVED** | D-019 | Stop-trigger list honoured; audits show zero unauthorised crossings | All |
+| OPS-005 | Infrastructure: VPS inventoried (specs/OS/access/security/capacity/backup/recovery) before any production approval; current Windows machine is dev/admin only; V2 portable, reproducible, backed up, hosting-portable; no infrastructure purchases without approval | Round A 2026-08-18 | M | **OWNER_APPROVED** (direction) | D-019 | Inventory + portability evidence → Round N | P1 |
 
 ## UX — User experience
 
