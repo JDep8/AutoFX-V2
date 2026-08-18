@@ -35,12 +35,42 @@ discipline" → D-001 direction `OWNER_APPROVED`; numbers → Round E (Q-005).
 Options offered: P1 full, P2/P3 planning-only (recommended) / P1 staged demo-first / P1 + minimal Research Centre.
 **Answer:** "Yes — P1 full, P2/P3 planning-only" → D-010 `OWNER_APPROVED`.
 
-### Batch 2 — pending (≤8 questions per batch)
+### Batch 2 — asked 2026-08-17, answers pending (6 questions)
 
-Remaining Round A topics: jurisdictions/legal entity (Q-006); budget, horizon,
-availability, team, infrastructure (Q-007); measurable KPIs and non-goals
-(Q-008); measurable meaning of backtest "accuracy" (Q-009); PostgreSQL
-read-only access path (Q-001); cBot location (Q-002).
+**Q5 (Q-006). Jurisdictions and legal entity.** Where is Jacob tax-resident
+and trading from, under personal name or a company?
+Options offered: (a) personal name — recommended, record current reality now;
+(b) existing company; (c) defer entity questions until the content business.
+Noted: does not block P1; hard-blocks Round M financial-promotion compliance.
+
+**Q6 (Q-007). Budget, horizon, availability, team, infrastructure.**
+Free-form: monthly budget range for data + infrastructure; target date for
+first *paper* trading; hours/week available; other people involved; existing
+servers (this Windows Server? the V1 VPS?). Calibrates roadmap estimate
+ranges.
+
+**Q7 (Q-008). Measurable KPIs and explicit non-goals.** Candidates to be
+proposed for editing; two seed non-goals put forward for confirmation:
+no high-frequency/latency-sensitive trading; no manual discretionary trades
+routed through AutoFX (it executes approved books only).
+
+**Q8 (Q-009). Measurable meaning of backtest "accuracy".**
+Options offered: (a) tolerance bands — live/paper stays within an agreed band
+of backtest expectations on return, drawdown, cost-per-trade; (b) distribution
+tests — live outcomes statistically consistent with backtest distributions;
+(c) both, bands as the headline gate — recommended. Numbers set in Round F;
+only the *form* asked now.
+
+**Q9 (Q-001). PostgreSQL read-only access path.**
+Options offered: (a) Jacob creates a dedicated read-only role (e.g.
+`autofx_readonly`) with connection details in a local file outside the repo,
+never echoed or committed — recommended; (b) Jacob runs drafted queries and
+pastes results; (c) skip the DB audit.
+
+**Q10 (Q-002). cBot location.** Repo or machine path of Jacob's cTrader cBot,
+for Round J's single-authoritative-sizing-engine decision.
+
+**Answers:** none received as of 2026-08-18.
 
 Round A domain summary status: `PROPOSED` — becomes `OWNER_APPROVED` only when
 Jacob approves the completed Round A summary.

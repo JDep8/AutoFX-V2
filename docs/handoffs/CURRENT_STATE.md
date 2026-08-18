@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living handoff (refreshed every checkpoint)
-- **Last updated:** 2026-08-17, timezone UTC (server local: Windows Server 2022)
+- **Last updated:** 2026-08-18, timezone UTC (server local: Windows Server 2022)
 
 ## Phase and authorisation
 
@@ -60,4 +60,6 @@ entries); `.rdp` security flag recorded; Q-001 (DB credentials) and Q-002
 ## Contradictions / blockers
 
 - None new. Q-001/Q-002 block V1-audit depth and Round J respectively.
-- Awaiting Jacob: Round A batch 2 answers (Q-001, Q-002, Q-006…Q-009).
+- Awaiting Jacob: Round A batch 2 answers (Q-001, Q-002, Q-006…Q-009) — asked
+  2026-08-17, recorded verbatim in INTERVIEW_RECORD.md § Batch 2; no answers
+  as of 2026-08-18. The repo-side V1 audit can proceed without them.

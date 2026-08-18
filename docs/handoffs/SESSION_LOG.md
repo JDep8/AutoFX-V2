@@ -31,3 +31,14 @@
   Phase 0 marked COMPLETE in DISCOVERY_STATUS.md. Handoffs refreshed.
 - Asked Jacob Round A batch 2 in chat (Q-001, Q-002, Q-006…Q-009). Session
   ends awaiting answers; second documentation-only commit closes the session.
+
+## 2026-08-18 — Session 2: durability checkpoint (owner-requested)
+
+- Jacob asked for the entire discovery state to be written into CLAUDE.md,
+  .claude/rules/, docs/00-governance/, docs/01-discovery/, and the four
+  handoff files. Verified: all already existed and were committed
+  (`4f1f4ab`, `b656b66`); working tree clean; 81 files tracked.
+- Delta applied: Round A batch 2 questions recorded VERBATIM (options +
+  recommendations) in INTERVIEW_RECORD.md § Batch 2 — previously only listed
+  as topics; date stamps refreshed; this log entry appended.
+- No Round A batch 2 answers received yet. No-build gate unchanged (ACTIVE).
