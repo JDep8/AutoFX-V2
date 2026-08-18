@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register
-- **Version:** 0.1.0
+- **Version:** 0.1.1
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** REQUIREMENTS_CATALOGUE.md, QUESTION_REGISTER.md
 - **Approval evidence:** Per-decision, recorded below
@@ -179,3 +179,54 @@ History is never erased; superseded decisions are marked, not deleted.
 - **Status:** `PROPOSED` — Jacob to confirm keep-both or direct a
   consolidation (tracked as Q-011).
 - **Affects:** `.claude/rules/` layout only; no safety impact.
+
+## D-015 — Environment-visible external tooling boundary
+
+- **Context:** The first terminal session (2026-08-18, recovery audit finding
+  F-3) found user/account-scope tooling visible in the session environment
+  but not enabled by this repository: a Figma plugin (skills + MCP tools) and
+  claude.ai connectors (HubSpot, Lucid, Microsoft 365, Productive.io, Thomax
+  Knowledge Platform). Repo-scoped `.claude/settings.json` enables only the
+  three D-013-approved plugins.
+- **Decision:** Externally configured tooling is classified
+  **ENVIRONMENT-VISIBLE / OUT-OF-SCOPE / NOT AUTHORISED FOR AUTOFX USE**.
+  Do not authenticate, invoke, remove, or modify it. Figma remains deferred
+  until the approved wireframe phase. Only project-scoped tools explicitly
+  approved in TOOLING_REGISTER.md are authorised for AutoFX work.
+- **Status:** `OWNER_APPROVED` — 2026-08-18 (terminal recovery review, ruling
+  on finding F-3; evidence class USER-STATED). Register: TOOLING_REGISTER.md.
+- **Affects:** tooling governance, no-build-gate hygiene, session discipline.
+
+## D-016 — Handoff files exempt from the six-field header rule
+
+- **Context:** The recovery audit (2026-08-18, finding F-5) found the four
+  `docs/handoffs/` files do not carry the six-field document header required
+  by `.claude/rules/documentation-and-traceability.md`; they follow the
+  handoff protocol's own schemas instead.
+- **Decision:** `CURRENT_STATE.md`, `NEXT_ACTIONS.md`, `RESUME_PROMPT.md`,
+  and `SESSION_LOG.md` are explicitly exempt from the six-field header rule;
+  they must instead comply with their specific handoff schemas and required
+  metadata.
+- **Status:** `OWNER_APPROVED` — 2026-08-18 (terminal recovery review, ruling
+  on finding F-5; evidence class USER-STATED). Rule updated:
+  `.claude/rules/documentation-and-traceability.md` § Document standard.
+- **Affects:** documentation standard only; no safety impact.
+
+## D-017 — Model-governance package precedes further discovery work
+
+- **Context:** Owner instruction, 2026-08-18 (terminal recovery session,
+  pre-commit governance correction). A project-local AutoFX model-governance
+  package is specified in "Prompt 6A" of Jacob's migration runbook; that
+  runbook is **not held in this repository** — its location/content is
+  tracked as Q-012 and the dependency fails closed until supplied.
+- **Decision:** After the recovery-reconciliation commit, the single first
+  next action is the creation and validation of the project-local AutoFX
+  model-governance package per Prompt 6A. Until that package is completed
+  and `OWNER_APPROVED`, the following are prohibited: resuming Round A;
+  beginning the V1 forensic audit; using subagents; accepting any critical
+  discovery artifact.
+- **Status:** `OWNER_APPROVED` — 2026-08-18 (owner instruction; evidence
+  class USER-STATED).
+- **Affects:** discovery sequencing, session discipline, subagent use,
+  acceptance quality. Registers: QUESTION_REGISTER.md (Q-012);
+  NEXT_ACTIONS.md § B-2.

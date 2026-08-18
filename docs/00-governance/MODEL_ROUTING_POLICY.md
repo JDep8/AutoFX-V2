@@ -2,7 +2,7 @@
 
 - **Owner:** Jacob Depares
 - **Status:** `OWNER_APPROVED` (policy stated by Jacob 2026-08-18; evidence class USER-STATED)
-- **Version:** 0.1.0
+- **Version:** 0.1.1
 - **Last reviewed:** 2026-08-18
 - **Dependencies:** DECISION_LOG.md (D-012), .claude/rules/20-session-continuity.md
 - **Approval evidence:** Owner handoff instruction, 2026-08-18
@@ -21,9 +21,14 @@ Before any critical work in the session:
 - `/effort` must confirm **Ultracode**.
 
 If either check fails, fix the session configuration before proceeding with
-critical judgment or acceptance work. (First-terminal-session note: the
-behaviour of `--effort ultracode` on this machine's CLI version is
-`UNKNOWN` until verified once — see Recovery Required in CURRENT_STATE.md.)
+critical judgment or acceptance work.
+
+**Verification record (2026-08-18, first terminal session — VERIFIED):**
+`--effort ultracode` is supported on this machine's CLI. The session
+resolved `best` to Fable 5 (`claude-fable-5`) and confirmed Ultracode
+effort. Recovery item 1 (CURRENT_STATE.md) is closed; Jacob approved the
+recovered state 2026-08-18. The per-session `/status` + `/effort` check
+remains mandatory before critical work.
 
 ## Routing table
 

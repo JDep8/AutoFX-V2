@@ -68,3 +68,51 @@
   proposed commit recorded in NEXT_ACTIONS.md § B-1.
 - No discovery work advanced this session (handoff only); Round A batch 2
   still awaiting answers.
+
+## 2026-08-18 — Session 4: first terminal session — recovery audit + approved reconciliation
+
+- Session configuration VERIFIED: `--model best --effort ultracode` resolved
+  to Fable 5 (`claude-fable-5`) + Ultracode (Recovery item 1 closed).
+- Read-only forensic recovery audit per RESUME_PROMPT.md (no subagents,
+  workflows, or MCP connectors — owner instruction; V1/PostgreSQL/cTrader
+  untouched): git forensics; entire history verified documentation-only;
+  filesystem = git index (87 files, nothing untracked/ignored); header,
+  status-vocabulary, and overclaim sweeps clean; gate phrase
+  verbatim-consistent; cross-register consistency confirmed; requirement-ID
+  traceability confirmed; metadata-only secrets scan (5 revisions + working
+  tree, filenames/categories only, no content printed) — zero value-like
+  hits, only policy-prose word mentions, filename check clean.
+- Findings presented in the TERMINAL RECOVERY REPORT: F-1 stale
+  "uncommitted" claims vs commits `fcde457`/`39e2730` (CONFLICT); F-2 plugin
+  install not recorded in TOOLING_REGISTER; F-3 environment-visible external
+  tooling beyond the D-013 set; F-4 stale DOCUMENT_INDEX descriptions; F-5
+  handoff files vs six-field header rule.
+- Jacob CONFIRMED he authorised commits `fcde457` and `39e2730`; APPROVED
+  the recovered state; ruled F-3 → **D-015** (ENVIRONMENT-VISIBLE /
+  OUT-OF-SCOPE / NOT AUTHORISED FOR AUTOFX USE; Figma deferred to the
+  wireframe phase) and F-5 → **D-016** (handoff files exempt from the
+  six-field header; handoff schemas apply instead).
+- Authorised documentation-only corrections applied: DECISION_LOG (D-015,
+  D-016); TOOLING_REGISTER (install record 2026-08-18 @ `39e2730`; D-015
+  section; git-conventions reconciliation); MODEL_ROUTING_POLICY
+  (verification record); DOCUMENT_INDEX (D-001…D-016, Q-001…Q-011, batch-2
+  description, `.gitignore` row); documentation-and-traceability rule
+  (D-016 exemption); CURRENT_STATE/NEXT_ACTIONS/RESUME_PROMPT refreshed;
+  this entry appended. TRACEABILITY_MATRIX unchanged (no requirement
+  affected). Session-3 entry above left untouched (append-only; it was
+  accurate when written).
+- V1 audit and Round A remain paused pending Jacob's explicit instruction.
+  Change set left uncommitted for his review; proposed commit in
+  NEXT_ACTIONS.md § B-1. No-build gate unchanged (ACTIVE).
+- Pre-commit governance correction (owner instruction, same session):
+  **D-017** recorded — after the reconciliation commit, the project-local
+  AutoFX model-governance package (migration-runbook Prompt 6A) must be
+  created, validated, and OWNER_APPROVED before Round A resumption, the V1
+  forensic audit, any subagent use, or acceptance of any critical discovery
+  artifact. **Q-012** raised: the Prompt 6A specification is not held in
+  this repository — Jacob to supply it (fails closed until then). Handoffs
+  re-sequenced (model-governance package → NEXT_ACTIONS B-2; Round A →
+  B-3; V1 audit → B-5); DOCUMENT_INDEX ranges refreshed (D-017, Q-012). No
+  skill or agents created this turn. All recovery findings and rulings
+  (F-1…F-5, D-015/D-016) preserved unchanged. Change set remains
+  uncommitted for Jacob's review.

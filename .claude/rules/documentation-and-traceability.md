@@ -8,6 +8,12 @@ questions. Status uses only the approved vocabulary (see root `CLAUDE.md`).
 Skeleton documents are `PROPOSED` with "no content owner-approved" stated
 explicitly. Unknowns are written as open questions — never as plausible filler.
 
+**Exception (D-016, owner ruling 2026-08-18):** the four operational handoff
+files in `docs/handoffs/` (`CURRENT_STATE.md`, `NEXT_ACTIONS.md`,
+`RESUME_PROMPT.md`, `SESSION_LOG.md`) are exempt from this six-field header.
+They must instead comply with their handoff schemas and required metadata
+(§ Handoff protocol below).
+
 ## Requirement records
 
 Prefixes: `BUS` business, `FR` functional, `NFR` non-functional, `DATA` data,

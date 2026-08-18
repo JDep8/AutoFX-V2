@@ -2,8 +2,8 @@
 
 - **Owner:** Jacob Depares
 - **Status:** Living register — the navigation map; read this first each session
-- **Version:** 0.1.0
-- **Last reviewed:** 2026-08-17
+- **Version:** 0.1.1
+- **Last reviewed:** 2026-08-18
 - **Dependencies:** every document below
 - **Approval evidence:** n/a (register)
 
@@ -15,7 +15,8 @@ noted. Read only what the active task needs.
 | File | Purpose |
 |------|---------|
 | [CLAUDE.md](../../CLAUDE.md) | Project constitution: no-build gate, authority hierarchy, quality gates, workspace/model/plugin policies, links |
-| `.claude/settings.json` | Committed project permissions (read-only git/gh allowed; secret-file reads denied) |
+| `.claude/settings.json` | Committed project permissions (read-only git/gh allowed; secret-file reads denied) + the three enabled discovery plugins (D-013, installed 2026-08-18) |
+| `.gitignore` | Ignore rules blocking secret patterns and local artefacts (a backstop, not a licence — see security rules) |
 | `.claude/rules/00-…, 10-…, 20-…` | Numbered entry points: discovery gate, evidence + traceability labels, session continuity (D-014/Q-011: naming overlap with the six topic files awaits Jacob) |
 | `.claude/rules/` (6 topic files) | Detail: discovery/authorisation, quantitative evidence, data integrity, execution/risk, security/secrets, documentation/traceability |
 
@@ -26,9 +27,9 @@ noted. Read only what the active task needs.
 | DOCUMENT_INDEX.md | This navigation map |
 | [PROJECT_CHARTER.md](PROJECT_CHARTER.md) | Mission, owner, priorities; KPIs/non-goals pending Round A |
 | [GLOSSARY.md](GLOSSARY.md) | Canonical terms, plain + technical; formulas finalised Round E |
-| [DECISION_LOG.md](DECISION_LOG.md) | D-001…D-010 — legacy conflicts + Round A decisions |
+| [DECISION_LOG.md](DECISION_LOG.md) | D-001…D-017 — legacy conflicts, Round A decisions, workspace/tooling policies, governance rulings |
 | [ASSUMPTION_REGISTER.md](ASSUMPTION_REGISTER.md) | A-001…A-006 provisional defaults, all `PROPOSED` |
-| [QUESTION_REGISTER.md](QUESTION_REGISTER.md) | Q-001…Q-010 open/blocking questions |
+| [QUESTION_REGISTER.md](QUESTION_REGISTER.md) | Q-001…Q-012 open/blocking questions |
 | [CHANGE_CONTROL.md](CHANGE_CONTROL.md) | How approved content changes without erasing history |
 | [TRACEABILITY_MATRIX.md](TRACEABILITY_MATRIX.md) | Requirement → design → evidence → status → decision |
 | [TOOLING_REGISTER.md](TOOLING_REGISTER.md) | Workspace roles (terminal primary), plugin install gates, git conventions (D-011/D-013) |
@@ -39,7 +40,7 @@ noted. Read only what the active task needs.
 | File | Purpose |
 |------|---------|
 | [DISCOVERY_STATUS.md](../01-discovery/DISCOVERY_STATUS.md) | Phase + round A–O status; verified facts |
-| [INTERVIEW_RECORD.md](../01-discovery/INTERVIEW_RECORD.md) | Verbatim interview answers (Round A batch 1 recorded) |
+| [INTERVIEW_RECORD.md](../01-discovery/INTERVIEW_RECORD.md) | Verbatim interview record (Round A batch 1 answered; batch 2 recorded verbatim, answers pending) |
 | [REQUIREMENTS_CATALOGUE.md](../01-discovery/REQUIREMENTS_CATALOGUE.md) | ~50 ID'd requirements from the owner brief + Round A |
 | [SCOPE_AND_PRIORITIES.md](../01-discovery/SCOPE_AND_PRIORITIES.md) | P1/P2/P3 boundaries; asset universe (D-009) |
 | [USER_ROLES_AND_JOURNEYS.md](../01-discovery/USER_ROLES_AND_JOURNEYS.md) | Sole-user role model + journey inventory |
